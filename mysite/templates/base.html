@@ -30,6 +30,7 @@
         <a href="{% url 'help-about' %}" class="header__nav__logo">About</a>
         <a href="{% url 'constituencies' %}" class="header__nav__logo">Constituencies</a>
         <a href="{% url 'recent-changes' %}" class="header__nav__logo">Recent Changes</a>
+        <a href="{% url 'leaderboard' %}" class="header__nav__logo">Top Users</a>
         {% if user.is_authenticated %}
           <span class="header__nav__logout">
             Signed in as <strong>{{ user.username }}</strong>

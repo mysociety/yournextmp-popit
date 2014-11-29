@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body_class %}{% endblock %}
+
+{% block title %}Recent changes to the candidate (PPC) database{% endblock %}
+
+{% block hero %}
+  <h1>Top Users</h1>
+{% endblock %}
+
+{% block content %}
+
+{% for leaderboard in leaderboards %}
+
+  <h2>{{ leaderboard.title }}</h2>
+
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Number of edits</th>
+    </tr>
+    {% for row in leaderboard.rows %}
+      <tr>
+        <td>{{ row.username }}</td>
+        <td>{{ row.edit_count }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endfor %}
+
+{% endblock %}

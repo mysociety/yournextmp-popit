@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 from random import randint
 import re
@@ -7,6 +7,8 @@ import sys
 from slugify import slugify
 import requests
 
+from django.db.models import Count
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -543,4 +545,29 @@ class RecentChangesView(TemplateView):
             context['actions'] = paginator.page(1)
         except EmptyPage:
             context['actions'] = paginator.page(paginator.num_pages)
+        return context
+
+class LeaderboardView(TemplateView):
+    template_name = 'candidates/leaderboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LeaderboardView, self).get_context_data(**kwargs)
+        context['leaderboards'] = []
+        for title, since in [
+            ('All Time', None),
+            ('In the last week', datetime.now() - timedelta(days=7))
+        ]:
+            if since:
+                qs = LoggedAction.objects.filter(created__gt=since)
+            else:
+                qs = LoggedAction.objects.all()
+            rows = qs.values('user'). \
+                annotate(edit_count=Count('user')).order_by('-edit_count')[:10]
+            for row in rows:
+                row['username'] = User.objects.get(pk=row['user'])
+            leaderboard = {
+                'title': title,
+                'rows': rows,
+            }
+            context['leaderboards'].append(leaderboard)
         return context
