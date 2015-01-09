@@ -64,3 +64,7 @@ FORCE_HTTPS_IMAGES: false
 # setting to be set to ('HTTP_X_FORWARDED_PROTO', 'https') and tell
 # django-allauth to generate https URLs.
 NGINX_SSL: false
+
+# If you set this to true then the protocol of image URLs will be set
+# rewritten from http to https.
+FORCE_HTTPS_IMAGES: false
