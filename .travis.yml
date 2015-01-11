@@ -7,16 +7,11 @@ notifications:
 
 language: python
 
-env:
-  - MODULES="Django>=1.6,<1.7"
-
 install:
   - sudo apt-get update -qq
   - sudo apt-get install python-virtualenv curl yui-compressor
   - gem install --no-ri --no-rdoc compass -v 0.12.7
   - gem install --no-ri --no-rdoc sass -v 3.2.19
-  # Install the environment-specific Python packages:
-  - pip install $MODULES --use-mirrors
   # Now install the rest of the required Python packages:
   - CFLAGS="-O0" pip install -r requirements.txt --use-mirrors
   - pip install python-coveralls
