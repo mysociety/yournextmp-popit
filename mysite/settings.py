@@ -237,6 +237,8 @@ PIPELINE_YUI_BINARY = '/usr/bin/env yui-compressor'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
+SOUTH_TESTS_MIGRATE = False
+
 NOSE_ARGS = [
     '--nocapture',
     '--with-doctest',
