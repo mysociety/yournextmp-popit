@@ -153,3 +153,15 @@
     color: mix(#fff, $color-teal, 70%);
   }
 }
+
+
+.disclaimer {
+  background: #FDF2D5; // lighter version of $color-gold
+  border: 1px solid lighten($color-gold, 30%);
+  border-radius: 3px;
+  margin-bottom:0.8em;
+  padding: 0.8em;
+  p {
+      margin:0;
+  }
+}

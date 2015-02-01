@@ -18,13 +18,13 @@
     <a href="{% url 'account_login' %}?next={{ redirect_after_login }}">log in</a>.
   </div>
   {% endif %}
-
   <div class="candidates__known">
 
     <h3>Known candidates for the 2015 general election</h3>
 
     {% for c in candidates_2015 %}
       {% if forloop.first %}
+        <div class="disclaimer">{% include "candidates/_disclaimer_message.html" %}</div>
         <ul class="candidate-list">
       {% endif %}
 
