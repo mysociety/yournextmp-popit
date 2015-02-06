@@ -1,6 +1,14 @@
 {% load staticfiles %}
 {% load imagefixes %}
 
+{% if year == '2015' %}
+  {% if c.parties.2015.proxy_image %}
+    <img class="party-logo" src="{{ c.parties.2015.proxy_image|fixproxyurl }}/64/0"/>
+  {% else %}
+    <img class="party-logo" src="{% static 'candidates/img/party-logo-placeholder' %}"/>
+  {% endif %}
+{% endif  %}
+
 {% if c.image %}
   <a href="{% url 'person-view' c.id c.name|slugify %}">
     <img class="person-avatar" src="{{ c.popit_data.proxy_image|fixproxyurl }}/0/64"/>

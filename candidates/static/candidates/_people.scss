@@ -59,6 +59,14 @@
   margin-bottom: 1em;
   @include clearfix;
 
+  .party-logo {
+    float: left;
+    height: auto;
+    width: 4em;
+    margin-right: 1.5em;
+    background-color: #ddd;
+  }
+
   .person-avatar {
     float: left;
     width: auto;
