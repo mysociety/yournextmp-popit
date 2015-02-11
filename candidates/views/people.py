@@ -11,6 +11,8 @@ from django.views.generic import FormView, TemplateView, View
 
 from braces.views import LoginRequiredMixin, SuperuserRequiredMixin
 
+from moderation_queue.forms import UploadPersonPhotoForm
+
 from .diffs import get_version_diffs
 from .mixins import CandidacyMixin
 from ..forms import NewPersonForm, UpdatePersonForm
@@ -240,6 +242,12 @@ class UpdatePersonView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, Per
         context['person'] = self.api.persons(
             self.kwargs['person_id']
         ).get()['result']
+
+        context['photo_form'] = UploadPersonPhotoForm(
+            initial={
+                'popit_person_id': context['person']['id']
+            }
+        )
 
         context['versions'] = get_version_diffs(context['person']['versions'])
 

@@ -8,19 +8,38 @@
 
 {% block content %}
 
-  <div class="row">
+  <h2>Edit basic candidate details</h2>
+
+  <div class="row person-edit-separate-form">
     <div class="columns">
       <form id="person-details" action="{% url 'person-update' person_id=person.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <p>Trying to upload a photo?  Please email <a href="mailto:yournextmp@mysociety.org">yournextmp@mysociety.org</a> and we'll upload it for you.</p>
         <input type="submit" class="button" value="Save changes">
       </form>
     </div>
   </div>
 
+  <h2>Upload a photo of {{ person.name }}</h2>
+
+  <div class="row person-edit-separate-form">
+    <div class="columns">
+
+      <p>Please only upload photos that meet one of these criteria:</p>
+      <ul>
+        <li>The photo is free of copyright restrictions (e.g. in the public domain)</li>
+        <li>You have copyright of the photo (in which case you assign it to Democracy Club for use in YourNextMP)</li>
+        <li>Or it is from the candidate or party's official campaign materials</li>
+      </ul>
+
+      {% include 'moderation_queue/_photo-upload-form.html' with form=photo_form %}
+    </div>
+  </div>
+
   {% if user.is_superuser %}
-    <div class="row">
+    <h2>Merge another candidate's record into this one</h2>
+
+    <div class="row person-edit-separate-form">
       <div class="columns">
         <form id="person-merge" action="{% url 'person-merge' person_id=person.id %}" method="post">
           {% csrf_token %}

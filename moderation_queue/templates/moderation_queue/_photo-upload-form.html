@@ -1,0 +1,33 @@
+<form id="person-upload-photo" action="{% url 'photo-upload' %}" method="post" enctype="multipart/form-data">
+  {{ form.non_field_errors }}
+  {% csrf_token %}
+  <p>
+    {{ form.image.errors }}
+    <label for="{{ form.image.id_for_label }}">Select an image from your
+      computer:</label>
+    {{ form.image }}
+  </p>
+  <p>
+    {{ form.public_domain.errors }}
+    <label for="{{ form.public_domain.id_for_label }}">This photograph is free
+      of copyright restrictions (e.g. in the public domain):</label>
+    {{ form.public_domain }}
+  </p>
+  <p>
+    {{ form.use_allowed_by_owner.errors }}
+    <label for="{{ form.use_allowed_by_owner.id_for_label }}">I own copyright
+      of this photo and I assign the copyright to Democracy Club in return for
+      it being displayed on YourNextMP:</label>
+    {{ form.use_allowed_by_owner }}
+  </p>
+  <p>
+    {{ form.justification_for_use.errors }}
+    <label for="{{ form.justification_for_use.id_for_label }}">Here is my
+      justification for why this photo may be reasonably used on the website,
+      including the source URL:</label>
+    {{ form.justification_for_use }}
+  </p>
+  {{ form.popit_person_id }}
+  {{ form.decision }}
+  <input type="submit" class="button" value="Upload">
+</form>

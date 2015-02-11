@@ -90,6 +90,7 @@ INSTALLED_APPS = (
     'pipeline',
     'candidates',
     'cached_counts',
+    'moderation_queue',
     'debug_toolbar',
 )
 
