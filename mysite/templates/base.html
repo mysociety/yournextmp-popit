@@ -47,7 +47,8 @@
     {% if ff_show_banner %}
     <section id="ff_banner">
         <h2>
-            <a href="http://www.crowdfunder.co.uk/lets-factcheck-the-election/">
+            <a href="http://www.crowdfunder.co.uk/lets-factcheck-the-election/"
+            onclick="javascript:ga('send', 'event', 'ff_banner', 'click');">
             {% if ff_days %}{{ ff_days }} days {% endif %}
              {{ff_hours }} hours left to fund factchecking the election!
             </a>
