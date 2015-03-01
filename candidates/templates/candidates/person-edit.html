@@ -16,7 +16,12 @@
       <form id="person-details" action="{% url 'person-update' person_id=person.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <p>Trying to upload a photo?  Please email <a href="mailto:yournextmp@mysociety.org">yournextmp@mysociety.org</a> and we'll upload it for you.</p>
+        <p>
+          Trying to upload a photo?  If you’re the candidate or an agent of
+          the candidate, please email
+          <a href="mailto:yournextmp@mysociety.org">yournextmp@mysociety.org</a>
+          and we'll upload it for you.
+        </p>
         <input type="submit" class="button" value="Save changes">
       </form>
     </div>
