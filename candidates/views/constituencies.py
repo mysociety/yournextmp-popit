@@ -59,6 +59,8 @@ class ConstituencyDetailView(PopItApiMixin, TemplateView):
         context['electionleaflets_url'] = \
             get_electionleaflets_url(context['constituency_name'])
 
+        context['meetyournextmp_url'] = u'https://meetyournextmp.com/linktoseat.html?mapitid=' . mapit_area_id 
+
         context['redirect_after_login'] = \
             urlquote(reverse('constituency', kwargs={
                 'mapit_area_id': mapit_area_id,
