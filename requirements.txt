@@ -30,6 +30,7 @@ psycopg2==2.5.4
 python-dateutil==2.2
 python-openid==2.2.5
 python-slugify==0.0.7
+python-twitter==2.0
 requests==2.4.1
 requests-oauthlib==0.4.1
 six==1.7.3
