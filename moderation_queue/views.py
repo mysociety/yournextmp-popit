@@ -17,6 +17,7 @@ from PIL import Image
 
 from braces.views import StaffuserRequiredMixin
 
+from candidates.management.images import get_file_md5sum
 from candidates.update import PersonParseMixin, PersonUpdateMixin
 
 from .forms import UploadPersonPhotoForm, PhotoReviewForm
@@ -171,6 +172,7 @@ class PhotoReview(StaffuserRequiredMixin, PersonParseMixin, PersonUpdateMixin, T
             person_id=self.queued_image.popit_person_id
         )
         data = {
+            'md5sum': get_file_md5sum(ntf.name),
             'user_why_allowed': self.queued_image.why_allowed,
             'user_justification_for_use': self.queued_image.justification_for_use,
             'moderator_why_allowed': moderator_why_allowed,

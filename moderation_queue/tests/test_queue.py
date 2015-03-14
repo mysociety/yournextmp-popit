@@ -193,6 +193,7 @@ class PhotoReviewTests(WebTest):
              'user_why_allowed': u'public-domain',
              'moderator_why_allowed': u'profile-photo',
              'uploaded_by_user': u'john',
+             'md5sum': '603b269fccc667d72dbf462de31476b0',
              'mime_type': 'image/jpeg'}
         )
         las = LoggedAction.objects.all()
