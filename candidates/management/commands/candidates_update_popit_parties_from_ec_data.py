@@ -38,6 +38,8 @@ IMAGES_TO_USE = {
     'party:77': 'Emblem 3',
     # Ulster Unionist Party
     'party:83': 'Emblem 2',
+    # Trade Unionist and Socialist Coalition
+    'party:804': 'Emblem 3',
 }
 
 def sort_emblems(emblems, party_id):
