@@ -34,6 +34,7 @@ CSV_ROW_FIELDS = [
     'gss_code',
     'twitter_username',
     'facebook_page_url',
+    'linkedin_url',
     'party_ppc_page_url',
     'gender',
     'facebook_personal_url',
