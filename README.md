@@ -35,11 +35,6 @@ Copy the example configuration file to `conf/general.yml`:
 Edit `yournextmp-popit/conf/general.yml` to fill in details of
 the PopIt instance you're using.
 
-If you want to create a PopIt database based on an existing live
-instance, see the "Mirror the live database into your
-development copy" section below, and follow those steps at this
-stage.
-
 Start that vagrant box with:
 
     vagrant up
@@ -62,13 +57,18 @@ Run the development server:
 
 Now you should be able to see the site at:
 
-    http://http://127.0.0.1.xip.io:8000/
+    http://127.0.0.1.xip.io:8000/
 
 Go to the admin interface:
 
-    http://http://127.0.0.1.xip.io:8000/admin/
+    http://127.0.0.1.xip.io:8000/admin/
 
 ... and login with the superuser account.
+
+If you want to create a PopIt database based on an existing live
+instance, see the "Mirror the live database into your
+development copy" section below, and follow those steps at this
+stage.
 
 ### Restarting the development server after logging out
 
