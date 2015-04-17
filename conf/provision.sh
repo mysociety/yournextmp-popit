@@ -10,7 +10,16 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
    libjpeg-dev screen \
    libyaml-dev >/dev/null
 
-grep -qG 'cd /vagrant' "$HOME/.bashrc" || echo '' >> "$HOME/.bashrc" && echo 'export PATH="/home/vagrant/yournextmp/gems/bin:$PATH"' >> "$HOME/.bashrc" && echo 'export GEM_HOME="/home/vagrant/yournextmp/gems"' >> "$HOME/.bashrc" && echo 'source ~/yournextmp/venv/bin/activate' >> "$HOME/.bashrc" && echo "cd /vagrant" >> "$HOME/.bashrc" && echo "source $HOME/.bashrc"
+
+grep -qG 'cd /vagrant' "$HOME/.bashrc" ||
+   cat <<'EOF' >> "$HOME/.bashrc"
+
+export PATH="$HOME/yournextmp/gems/bin:$PATH"
+export GEM_HOME="$HOME/yournextmp/gems"
+source ~/yournextmp/venv/bin/activate
+cd /vagrant
+EOF
+source "$HOME/.bashrc"
 
 cd /vagrant
 yournextmp-popit/bin/pre-deploy
