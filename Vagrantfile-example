@@ -6,7 +6,7 @@ YNMP_VAGRANT_MEMORY = ENV['YNMP_VAGRANT_MEMORY'] || 1024
 
 $post_up_message = "You can now ssh into your vagrant box: vagrant ssh
 
-The website code is found in: /vagrant/yournextmp-popit
+The website code is found in: /home/vagrant/yournextmp/yournextmp-popit
 
 You can run the dev server with: python manage.py runserver 0.0.0.0:8000"
 
@@ -18,6 +18,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider :virtualbox do |v|
     v.customize ["modifyvm", :id, "--memory", YNMP_VAGRANT_MEMORY]
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
   config.vm.provision :shell,
