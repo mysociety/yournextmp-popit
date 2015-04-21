@@ -1,6 +1,3 @@
-@import "../../../../candidates/static/foundation/scss/normalize";
-@import "../../../../candidates/static/foundation/scss/foundation";
-
 /* This removes all size-related styles from the image for review; if
    we don't do this then Jcrop gets confused about the true size of
    the image and returns the wrong coordinates. */
