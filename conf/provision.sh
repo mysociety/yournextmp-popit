@@ -11,15 +11,15 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
    libyaml-dev >/dev/null
 
 
-grep -qG 'cd /vagrant' "$HOME/.bashrc" ||
+grep -qG 'cd $HOME/yournextmp' "$HOME/.bashrc" ||
    cat <<'EOF' >> "$HOME/.bashrc"
 
 export PATH="$HOME/yournextmp/gems/bin:$PATH"
 export GEM_HOME="$HOME/yournextmp/gems"
 source ~/yournextmp/venv/bin/activate
-cd /vagrant
+cd $HOME/yournextmp
 EOF
 source "$HOME/.bashrc"
 
-cd /vagrant
+cd $HOME/yournextmp
 yournextmp-popit/bin/pre-deploy
