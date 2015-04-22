@@ -49,13 +49,15 @@
 
 {% block hero %}
 <div class="person__hero">
-  {% if person.image %}
-    <img class="person-avatar" src="{{ person.proxy_image|fixproxyurl }}/0/80"/>
-  {% elif person.gender|lower == 'female' %}
-    <img class="person-avatar" src="{% static 'candidates/img/blank-woman.png' %}"/>
-  {% else %}
-    <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
-  {% endif %}
+  <div class="person__photo">
+    {% if person.image %}
+      <img class="person-avatar" src="{{ person.proxy_image|fixproxyurl }}/0/80"/>
+    {% elif person.gender|lower == 'female' %}
+      <img class="person-avatar" src="{% static 'candidates/img/blank-woman.png' %}"/>
+    {% else %}
+      <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
+    {% endif %}
+  </div>
   <h1>{{ person.name }}</h1>
   {% if last_cons %}
     <p>Candidate for <a href="{% url 'constituency' last_cons.1.post_id last_cons.1.name|slugify %}">{{ last_cons.1.name }}</a> in {{ last_cons.0 }}</p>
