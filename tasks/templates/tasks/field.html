@@ -27,6 +27,7 @@
         &mdash; <a href="https://twitter.com/intent/tweet?text=Hi @{{ person.versions.0.data.twitter_username }} could you add your campaign email to your YourNextMP.com page please? https://yournextmp.com/person/{{person.id}}/">
             Tweet them</a>{% endif %}
     &mdash; <a href="https://duckduckgo.com/?q=%22{{ person.name }}%22+email">Search</a>
+    &mdash; <a href="https://duckduckgo.com/?q=%22{{ person.name }}%22+%22{{ person.standing_in.2015.name }}%22+email">Search name and constituency</a>
 </li>
 {% endfor %}
 
