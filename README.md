@@ -47,7 +47,7 @@ Start that vagrant box with:
 
     vagrant up
 
-If you run into problems at this stage, you can debug your virtual machine interactively by adding v.ui = true to your Vagrantfile.
+If you run into problems at this stage, you can debug your virtual machine interactively by uncommmenting the #v.ui = true in the Vagrantfile.
 
 Log in to the box with:
 
