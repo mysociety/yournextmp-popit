@@ -20,6 +20,14 @@ These are prioritized in Huboard:
 
 ## Getting a development version running:
 
+First make sure you have a running virtualbox environment. This requires having the current kernel's header package, and the hardawre virtualization turned on at the BIOS level.
+
+   sudo apt-get install virtualbox
+
+Then install vagrant, preferably from the .deb package from the official website. 
+
+   Follow the install instructions here: https://docs.vagrantup.com/v2/installation/
+
 Make a new directory called `yournextmp`, change into that directory and clone the repository with:
 
     git clone --recursive <REPOSITORY-URL>
