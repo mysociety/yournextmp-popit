@@ -47,7 +47,7 @@ Start that vagrant box with:
 
     vagrant up
 
-If you run into problems at this stage, you can debug your virtual machine interactively by uncommmenting the #v.ui = true in the Vagrantfile.
+It may take several minutes to run all of the scripts for the first time. If you run into problems at this stage, you can debug your virtual machine interactively by uncommmenting the #v.ui = true in the Vagrantfile.
 
 Log in to the box with:
 
