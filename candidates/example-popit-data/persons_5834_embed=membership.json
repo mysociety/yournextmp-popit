@@ -1,0 +1,345 @@
+{
+  "result": {
+    "birth_date": null,
+    "email": "daviddewsukip@gmail.com",
+    "gender": "Male",
+    "honorific_prefix": null,
+    "honorific_suffix": null,
+    "html_url": "https://yournextmp.popit.mysociety.org/persons/5834",
+    "id": "5834",
+    "name": "David Dews",
+    "party_memberships": {
+      "2010": {
+        "id": "party:85",
+        "name": "UK Independence Party (UKIP)"
+      },
+      "2015": {
+        "id": "party:85",
+        "name": "UK Independence Party (UKIP)"
+      }
+    },
+    "standing_in": {
+      "2010": {
+        "mapit_url": "http://mapit.mysociety.org/area/65637",
+        "name": "Pudsey",
+        "post_id": "65637"
+      },
+      "2015": {
+        "mapit_url": "http://mapit.mysociety.org/area/65735",
+        "name": "Morley and Outwood",
+        "post_id": "65735"
+      }
+    },
+    "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/5834",
+    "versions": [
+      {
+        "version_id": "6c60b6f10f1a5519",
+        "username": "andylolz",
+        "timestamp": "2015-03-13T22:28:20.431840",
+        "information_source": "Candidate contacted MeetYourNextMP on Fri, Mar 13, 2015 at 9:18 PM",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2010": {
+              "post_id": "65637",
+              "name": "Pudsey",
+              "mapit_url": "http://mapit.mysociety.org/area/65637"
+            },
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "proxy_image": null,
+          "party_ppc_page_url": "",
+          "party_memberships": {
+            "2010": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            },
+            "2015": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            }
+          },
+          "other_names": [],
+          "name": "David Dews",
+          "linkedin_url": "",
+          "image": null,
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "identifier": "19103",
+              "id": "54d15699659d691020731697"
+            }
+          ],
+          "id": "5834",
+          "honorific_suffix": "",
+          "honorific_prefix": "",
+          "homepage_url": "",
+          "gender": "Male",
+          "facebook_personal_url": "",
+          "facebook_page_url": "",
+          "email": "daviddewsukip@gmail.com",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "5499f6c1bc740d1b",
+        "username": "tfgg",
+        "timestamp": "2015-02-03T23:15:36.318102",
+        "information_source": "After merging person 1208",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2010": {
+              "post_id": "65637",
+              "name": "Pudsey",
+              "mapit_url": "http://mapit.mysociety.org/area/65637"
+            },
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "proxy_image": null,
+          "party_ppc_page_url": "",
+          "party_memberships": {
+            "2010": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            },
+            "2015": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            }
+          },
+          "other_names": [],
+          "name": "David Dews",
+          "linkedin_url": "",
+          "image": null,
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "identifier": "19103",
+              "id": "5477866d737edc5252ce592e"
+            }
+          ],
+          "id": "5834",
+          "homepage_url": "",
+          "gender": "Male",
+          "facebook_personal_url": "",
+          "facebook_page_url": "",
+          "email": "mj.da.dews@talktalk.net",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "581c20e2dc2a0072",
+        "username": "JPCarrington",
+        "timestamp": "2015-01-29T15:05:50.575074",
+        "information_source": "http://ukipleeds.org.uk/page1.html",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "party_ppc_page_url": "",
+          "party_memberships": {
+            "2015": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            }
+          },
+          "name": "David Dews",
+          "id": "5834",
+          "homepage_url": "",
+          "gender": "Male",
+          "facebook_personal_url": "",
+          "facebook_page_url": "",
+          "email": "",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "74539e0f42555b01",
+        "username": "addedentry",
+        "timestamp": "2015-01-03T23:29:14.601363",
+        "information_source": "http://ukip-wlp.org.uk/campaigns/general-election-2015/pudsey/",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2010": {
+              "post_id": "65637",
+              "name": "Pudsey",
+              "mapit_url": "http://mapit.mysociety.org/area/65637"
+            },
+            "2015": null
+          },
+          "party_ppc_page_url": "",
+          "party_memberships": {
+            "2010": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            }
+          },
+          "name": "David Dews",
+          "image": null,
+          "id": "1208",
+          "homepage_url": "",
+          "gender": "male",
+          "facebook_personal_url": "",
+          "facebook_page_url": "",
+          "email": "mj.da.dews@talktalk.net",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "46a22df544235d1c",
+        "username": "addedentry",
+        "timestamp": "2015-01-03T23:29:11.141503",
+        "information_source": "http://ukip-wlp.org.uk/campaigns/general-election-2015/pudsey/",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2010": {
+              "post_id": "65637",
+              "name": "Pudsey",
+              "mapit_url": "http://mapit.mysociety.org/area/65637"
+            },
+            "2015": null
+          },
+          "party_ppc_page_url": "",
+          "party_memberships": {
+            "2010": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            }
+          },
+          "name": "David Dews",
+          "image": null,
+          "id": "1208",
+          "homepage_url": "",
+          "gender": "male",
+          "facebook_personal_url": "",
+          "facebook_page_url": "",
+          "email": "mj.da.dews@talktalk.net",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "3d814a392a8cf907",
+        "timestamp": "2014-11-21T18:13:04.548406",
+        "information_source": "Imported from YourNextMP data from 2010",
+        "data": {
+          "wikipedia_url": null,
+          "twitter_username": null,
+          "standing_in": {
+            "2010": {
+              "post_id": "65637",
+              "name": "Pudsey",
+              "mapit_url": "http://mapit.mysociety.org/area/65637"
+            }
+          },
+          "slug": "david-dews",
+          "phone": null,
+          "party_ppc_page_url": null,
+          "party_memberships": {
+            "2010": {
+              "name": "UK Independence Party (UKIP)",
+              "id": "party:85"
+            }
+          },
+          "name": "David Dews",
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "identifier": "19103"
+            }
+          ],
+          "id": "1208",
+          "homepage_url": null,
+          "gender": "male",
+          "facebook_personal_url": null,
+          "facebook_page_url": null,
+          "email": "mj.da.dews@talktalk.net",
+          "birth_date": null
+        }
+      }
+    ],
+    "images": [],
+    "memberships": [
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036485a5728ea113633f0a",
+        "start_date": "2010-05-07",
+        "role": "Candidate",
+        "post_id": "65735",
+        "person_id": "5834",
+        "id": "55036485a5728ea113633f0a",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036485a5728ea113633f0a",
+        "end_date": "9999-12-31"
+      },
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036485a5728ea113633f0b",
+        "start_date": "2005-05-06",
+        "role": "Candidate",
+        "post_id": "65637",
+        "person_id": "5834",
+        "id": "55036485a5728ea113633f0b",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036485a5728ea113633f0b",
+        "end_date": "2010-05-06"
+      },
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036484a5728ea113633f08",
+        "start_date": "2010-05-07",
+        "person_id": "5834",
+        "organization_id": "party:85",
+        "id": "55036484a5728ea113633f08",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036484a5728ea113633f08",
+        "end_date": "9999-12-31"
+      },
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036484a5728ea113633f09",
+        "start_date": "2005-05-06",
+        "person_id": "5834",
+        "organization_id": "party:85",
+        "id": "55036484a5728ea113633f09",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036484a5728ea113633f09",
+        "end_date": "2010-05-06"
+      }
+    ],
+    "links": [],
+    "contact_details": [],
+    "identifiers": [
+      {
+        "scheme": "yournextmp-candidate",
+        "identifier": "19103",
+        "id": "552f809aed1c6ee164eeacdf"
+      }
+    ],
+    "other_names": []
+  }
+}

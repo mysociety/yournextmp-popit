@@ -109,13 +109,3 @@ class PopItApiMixin(object):
             k + '=' + urlquote(v) for k, v in parameters.items()
         )
         return base_search_url + collection + '?' + query_string
-
-    def create_membership(self, person_id, **kwargs):
-        '''Create a membership of a post or an organization'''
-        properties = {
-            'person_id': person_id,
-        }
-        for key, value in kwargs.items():
-            if value is not None:
-                properties[key] = value
-        self.api.memberships.post(properties)

@@ -5,12 +5,20 @@ MAILTO=yournextmp@mysociety.org
 # Create the cached counts every 15 minutes:
 */15 * * * * !!(*= $user *)!! /data/vhost/!!(*= $vhost *)!!/venv/bin/python /data/vhost/!!(*= $vhost *)!!/yournextmp-popit/manage.py cached_counts_create
 
-# Update the live CSV file every 15 minutes, but offset from cached
-# counts so that we reduce the load on PopIt and CPU:
-7,22,37,52 * * * * !!(*= $user *)!! /data/vhost/!!(*= $vhost *)!!/venv/bin/python /data/vhost/!!(*= $vhost *)!!/yournextmp-popit/manage.py candidates_create_csv -o /data/vhost/!!(*= $vhost *)!!/media_root/candidates.csv
+!!(* if ($vhost eq 'yournextmp.mysociety.org') { *)!!
+# Update the live CSV file every 15 minutes on the production instance, offset
+# from generating the cached counts:
+2,17,32,47 * * * * !!(*= $user *)!! /data/vhost/!!(*= $vhost *)!!/venv/bin/python /data/vhost/!!(*= $vhost *)!!/yournextmp-popit/manage.py candidates_create_csv -o /data/vhost/!!(*= $vhost *)!!/media_root/candidates.csv
+!!(* } *)!!
 
 # Run face detection every 15 minutes, again offset a bit:
 10,25,40,55 * * * * !!(*= $user *)!! /data/vhost/!!(*= $vhost *)!!/venv/bin/python /data/vhost/!!(*= $vhost *)!!/yournextmp-popit/manage.py moderation_queue_detect_faces_in_queued_images
+
+# Fetch data from TheyWorkForYou and check for any new parlparse
+# IDs. (The people.json file is being updated on 5n, so fetch data a few
+# minutes later, at 5n + 3.)
+# [Disabled now that TWFY is up to date.]
+# 3,8,13,18,23,28,33,38,43,48,53,58 * * * * !!(*= $user *)!! /data/vhost/!!(*= $vhost *)!!/venv/bin/python /data/vhost/!!(*= $vhost *)!!/yournextmp-popit/manage.py candidates_add_new_parlparse_ids http://www.theyworkforyou.com/pwdata/people.json
 
 # Also create a daily archive at about 2 am:
 3 2 * * * !!(*= $user *)!! /data/vhost/!!(*= $vhost *)!!/venv/bin/python /data/vhost/!!(*= $vhost *)!!/yournextmp-popit/manage.py candidates_create_csv -o /data/vhost/!!(*= $vhost *)!!/media_root/csv-archives/candidates-`date +\%Y\%m\%d`.csv

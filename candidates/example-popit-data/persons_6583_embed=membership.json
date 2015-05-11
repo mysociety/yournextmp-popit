@@ -1,0 +1,591 @@
+{
+  "result": {
+    "proxy_image": "https://yournextmp.popit.mysociety.org/image-proxy/https%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6583%2Fimage%2F55323e7429c5d53959d9e45d",
+    "image": "https://yournextmp.popit.mysociety.org/persons/6583/image/55323e7429c5d53959d9e45d",
+    "birth_date": "1975-08-10",
+    "email": "rtaylorlibdem@gmail.com",
+    "gender": "Female",
+    "honorific_prefix": null,
+    "honorific_suffix": null,
+    "html_url": "https://yournextmp.popit.mysociety.org/persons/6583",
+    "id": "6583",
+    "name": "Rebecca Taylor",
+    "party_memberships": {
+      "2010": {
+        "id": "party:90",
+        "name": "Liberal Democrats"
+      },
+      "2015": {
+        "id": "party:90",
+        "name": "Liberal Democrats"
+      }
+    },
+    "standing_in": {
+      "2010": {
+        "post_id": "66029",
+        "name": "Rotherham",
+        "mapit_url": "http://mapit.mysociety.org/area/66029"
+      },
+      "2015": {
+        "post_id": "65735",
+        "name": "Morley and Outwood",
+        "mapit_url": "http://mapit.mysociety.org/area/65735"
+      }
+    },
+    "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/6583",
+    "versions": [
+      {
+        "information_source": "Approved a photo upload from andylolz who provided the message: \"License: Creative Commons Attribution-Share Alike 3.0 Unported license\nSource: https://en.wikipedia.org/wiki/File:Rebecca_Taylor_at_Glasgow.jpg\nAuthor: Keith Edkins\"",
+        "timestamp": "2015-04-18T11:22:28.899177",
+        "username": "mark",
+        "data": {
+          "facebook_page_url": "",
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "id": "552f840ded1c6ee164eec429",
+              "identifier": "13020"
+            }
+          ],
+          "proxy_image": null,
+          "name": "Rebecca Taylor",
+          "honorific_suffix": null,
+          "party_ppc_page_url": "",
+          "gender": "Female",
+          "image": null,
+          "linkedin_url": "",
+          "homepage_url": "http://rebeccataylormep.blogspot.co.uk/",
+          "id": "6583",
+          "honorific_prefix": null,
+          "standing_in": {
+            "2010": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            },
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "facebook_personal_url": "",
+          "twitter_username": "RTaylor_LibDem",
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Rebecca_Taylor_(politician)",
+          "party_memberships": {
+            "2010": {
+              "id": "party:90",
+              "name": "Liberal Democrats"
+            },
+            "2015": {
+              "id": "party:90",
+              "name": "Liberal Democrats"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "other_names": [],
+          "email": "rtaylorlibdem@gmail.com"
+        },
+        "version_id": "5a341622c7252dba"
+      },
+      {
+        "username": "tfgg",
+        "timestamp": "2015-03-10T23:13:04.636863",
+        "information_source": "After merging person 2915",
+        "data": {
+          "twitter_username": "RTaylor_LibDem",
+          "name": "Rebecca Taylor",
+          "honorific_suffix": null,
+          "party_ppc_page_url": "",
+          "gender": "Female",
+          "image": null,
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "id": "54ff6488a61780f002e3693d",
+              "identifier": "13020"
+            }
+          ],
+          "facebook_personal_url": "",
+          "proxy_image": null,
+          "other_names": [],
+          "honorific_prefix": null,
+          "linkedin_url": "",
+          "homepage_url": "http://rebeccataylormep.blogspot.co.uk/",
+          "id": "6583",
+          "standing_in": {
+            "2010": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            },
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Rebecca_Taylor_(politician)",
+          "party_memberships": {
+            "2010": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            },
+            "2015": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "facebook_page_url": "",
+          "email": "rtaylorlibdem@gmail.com"
+        },
+        "version_id": "69f46db7ef804660"
+      },
+      {
+        "username": "andylolz",
+        "timestamp": "2015-03-09T11:19:13.000867",
+        "information_source": "Added wikipedia page; dob (from wikipedia) and link to blog",
+        "data": {
+          "twitter_username": "RTaylor_LibDem",
+          "name": "Rebecca Taylor",
+          "honorific_suffix": "",
+          "party_ppc_page_url": "",
+          "gender": "Female",
+          "image": null,
+          "identifiers": [],
+          "facebook_personal_url": "",
+          "proxy_image": null,
+          "other_names": [],
+          "honorific_prefix": "",
+          "linkedin_url": "",
+          "homepage_url": "http://rebeccataylormep.blogspot.co.uk/",
+          "id": "6583",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Rebecca_Taylor_(politician)",
+          "party_memberships": {
+            "2015": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "facebook_page_url": "",
+          "email": ""
+        },
+        "version_id": "0647a20e14c67646"
+      },
+      {
+        "username": "symroe",
+        "timestamp": "2015-03-09T11:13:04.249771",
+        "information_source": "https://twitter.com/RTaylor_LibDem/status/574861088283557888",
+        "data": {
+          "twitter_username": "RTaylor_LibDem",
+          "name": "Rebecca Taylor",
+          "honorific_suffix": "",
+          "party_ppc_page_url": "",
+          "gender": "Female",
+          "image": null,
+          "identifiers": [],
+          "facebook_personal_url": "",
+          "proxy_image": null,
+          "other_names": [],
+          "honorific_prefix": "",
+          "linkedin_url": "",
+          "homepage_url": "",
+          "id": "6583",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "wikipedia_url": "",
+          "party_memberships": {
+            "2015": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": null,
+          "facebook_page_url": "",
+          "email": ""
+        },
+        "version_id": "37bb1dbfc3574068"
+      },
+      {
+        "username": "JPCarrington",
+        "timestamp": "2015-03-05T05:08:20.906269",
+        "information_source": "http://www.libdems.org.uk/list_of_selected_candidates",
+        "data": {
+          "twitter_username": "",
+          "name": "Rebecca Taylor",
+          "honorific_suffix": "",
+          "party_ppc_page_url": "",
+          "gender": "Female",
+          "id": "6583",
+          "facebook_personal_url": "",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "honorific_prefix": "",
+          "linkedin_url": "",
+          "homepage_url": "",
+          "wikipedia_url": "",
+          "party_memberships": {
+            "2015": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": null,
+          "facebook_page_url": "",
+          "email": ""
+        },
+        "version_id": "56e6b95e7eb8a25c"
+      },
+      {
+        "username": "JPCarrington",
+        "timestamp": "2015-03-10T21:39:19.979540",
+        "information_source": "http://www.libdems.org.uk/list_of_selected_candidates",
+        "data": {
+          "twitter_username": "rtaylor_libdem",
+          "name": "Rebecca Taylor",
+          "honorific_suffix": null,
+          "party_ppc_page_url": "",
+          "gender": "female",
+          "image": null,
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "id": "54fef97e4e57ce9a04684edc",
+              "identifier": "13020"
+            }
+          ],
+          "facebook_personal_url": "",
+          "proxy_image": null,
+          "other_names": [],
+          "honorific_prefix": null,
+          "linkedin_url": "",
+          "homepage_url": "",
+          "id": "2915",
+          "standing_in": {
+            "2010": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            },
+            "2015": null
+          },
+          "wikipedia_url": "http://en.wikipedia.org/wiki/Rebecca_Taylor_%28politician%29",
+          "party_memberships": {
+            "2010": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "facebook_page_url": "",
+          "email": "rtaylorlibdem@gmail.com"
+        },
+        "version_id": "66324741b65c8ef6"
+      },
+      {
+        "username": "tfgg",
+        "timestamp": "2015-03-10T14:02:38.258742",
+        "information_source": "http://en.wikipedia.org/wiki/Rebecca_Taylor_%28politician%29",
+        "data": {
+          "twitter_username": "rtaylor_libdem",
+          "name": "Rebecca Taylor",
+          "honorific_suffix": "",
+          "party_ppc_page_url": "",
+          "gender": "female",
+          "image": null,
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "id": "54fef8ca4e57ce9a04684eab",
+              "identifier": "13020"
+            }
+          ],
+          "facebook_personal_url": "",
+          "proxy_image": null,
+          "other_names": [],
+          "honorific_prefix": "",
+          "linkedin_url": "",
+          "homepage_url": "",
+          "id": "2915",
+          "standing_in": {
+            "2010": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            },
+            "2015": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            }
+          },
+          "wikipedia_url": "http://en.wikipedia.org/wiki/Rebecca_Taylor_%28politician%29",
+          "party_memberships": {
+            "2010": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            },
+            "2015": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "facebook_page_url": "",
+          "email": "rtaylorlibdem@gmail.com"
+        },
+        "version_id": "6d24c0bd1de058d7"
+      },
+      {
+        "username": "tfgg",
+        "timestamp": "2015-03-10T13:59:38.526440",
+        "information_source": "Email from candidate Tue, Mar 10, 2015 at 12:41 PM",
+        "data": {
+          "twitter_username": "rtaylor_libdem",
+          "name": "Rebecca Taylor",
+          "honorific_suffix": "",
+          "party_ppc_page_url": "",
+          "gender": "female",
+          "image": null,
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "id": "546f829bd484cf5c5850b1d5",
+              "identifier": "13020"
+            }
+          ],
+          "facebook_personal_url": "",
+          "proxy_image": null,
+          "other_names": [],
+          "honorific_prefix": "",
+          "linkedin_url": "",
+          "homepage_url": "",
+          "id": "2915",
+          "standing_in": {
+            "2010": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            },
+            "2015": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            }
+          },
+          "wikipedia_url": "",
+          "party_memberships": {
+            "2010": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            },
+            "2015": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "facebook_page_url": "",
+          "email": "rtaylorlibdem@gmail.com"
+        },
+        "version_id": "5779b2f1c8df186d"
+      },
+      {
+        "username": "andylolz",
+        "timestamp": "2015-01-21T23:01:31.278104",
+        "information_source": "Email from the candidate in reply to the email survey",
+        "data": {
+          "facebook_page_url": "",
+          "name": "Rebecca Taylor",
+          "party_ppc_page_url": "",
+          "gender": "female",
+          "image": null,
+          "facebook_personal_url": "",
+          "proxy_image": null,
+          "other_names": [],
+          "twitter_username": "",
+          "standing_in": {
+            "2010": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            }
+          },
+          "homepage_url": "",
+          "id": "2915",
+          "wikipedia_url": "",
+          "party_memberships": {
+            "2010": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "email": "rtaylorlibdem@gmail.com"
+        },
+        "version_id": "1f0ed56441b2f637"
+      },
+      {
+        "information_source": "Imported from YourNextMP data from 2010",
+        "timestamp": "2014-11-21T18:21:15.311741",
+        "data": {
+          "facebook_page_url": null,
+          "slug": "rebecca-taylor",
+          "name": "Rebecca Taylor",
+          "standing_in": {
+            "2010": {
+              "post_id": "66029",
+              "name": "Rotherham",
+              "mapit_url": "http://mapit.mysociety.org/area/66029"
+            }
+          },
+          "party_ppc_page_url": null,
+          "gender": "female",
+          "identifiers": [
+            {
+              "scheme": "yournextmp-candidate",
+              "identifier": "13020"
+            }
+          ],
+          "facebook_personal_url": null,
+          "email": "beccaet@yahoo.com",
+          "twitter_username": null,
+          "phone": "07791 361 960",
+          "homepage_url": null,
+          "wikipedia_url": null,
+          "party_memberships": {
+            "2010": {
+              "name": "Liberal Democrats",
+              "id": "party:90"
+            }
+          },
+          "birth_date": "1975-08-10",
+          "id": "2915"
+        },
+        "version_id": "61810c6dad7fa2e1"
+      }
+    ],
+    "images": [
+      {
+        "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/https%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6583%2Fimage%2F55323e7429c5d53959d9e45d",
+        "url": "https://yournextmp.popit.mysociety.org/persons/6583/image/55323e7429c5d53959d9e45d",
+        "mime_type": "image/png",
+        "notes": "Approved from photo moderation queue",
+        "user_justification_for_use": "License: Creative Commons Attribution-Share Alike 3.0 Unported license\nSource: https://en.wikipedia.org/wiki/File:Rebecca_Taylor_at_Glasgow.jpg\nAuthor: Keith Edkins",
+        "md5sum": "837869a4bb7922facf9f010da26ecee2",
+        "moderator_why_allowed": "other",
+        "user_why_allowed": "other",
+        "index": "first",
+        "uploaded_by_user": "andylolz",
+        "created": "",
+        "local_path": "55/32/55323e7429c5d53959d9e45d",
+        "local_path_base": "55/32/55323e7429c5d53959d9e45d",
+        "start_date": null,
+        "end_date": null,
+        "birth_date": null,
+        "death_date": null,
+        "founding_date": null,
+        "dissolution_date": null,
+        "id": "55323e7429c5d53959d9e45d"
+      }
+    ],
+    "memberships": [
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "id": "55323e7c4f42f53959fe491e",
+        "end_date": "9999-12-31",
+        "start_date": "2010-05-07",
+        "organization_id": "party:90",
+        "person_id": "6583",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55323e7c4f42f53959fe491e",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55323e7c4f42f53959fe491e"
+      },
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "id": "55323e7d4f42f53959fe491f",
+        "end_date": "2010-05-06",
+        "start_date": "2005-05-06",
+        "organization_id": "party:90",
+        "person_id": "6583",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55323e7d4f42f53959fe491f",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55323e7d4f42f53959fe491f"
+      },
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "id": "55323e7d4f42f53959fe4920",
+        "end_date": "9999-12-31",
+        "start_date": "2010-05-07",
+        "role": "Candidate",
+        "post_id": "65735",
+        "person_id": "6583",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55323e7d4f42f53959fe4920",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55323e7d4f42f53959fe4920"
+      },
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "id": "55323e7d4f42f53959fe4921",
+        "end_date": "2010-05-06",
+        "start_date": "2005-05-06",
+        "role": "Candidate",
+        "post_id": "66029",
+        "person_id": "6583",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55323e7d4f42f53959fe4921",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/55323e7d4f42f53959fe4921"
+      }
+    ],
+    "links": [
+      {
+        "note": "homepage",
+        "url": "http://rebeccataylormep.blogspot.co.uk/",
+        "id": "55323e784f42f53959fe491c"
+      },
+      {
+        "note": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Rebecca_Taylor_(politician)",
+        "id": "55323e784f42f53959fe491b"
+      }
+    ],
+    "contact_details": [
+      {
+        "type": "twitter",
+        "value": "RTaylor_LibDem",
+        "id": "55323e784f42f53959fe491d"
+      }
+    ],
+    "identifiers": [
+      {
+        "scheme": "yournextmp-candidate",
+        "identifier": "13020",
+        "id": "55323e784f42f53959fe491a"
+      }
+    ],
+    "other_names": []
+  }
+}

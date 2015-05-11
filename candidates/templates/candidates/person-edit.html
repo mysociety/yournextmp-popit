@@ -17,230 +17,238 @@
     <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
   {% endif %}
   <h1>Editing: {{ person.name }}</h1>
-  {% if last_cons %}
-    <p>Candidate for <a href="{% url 'constituency' last_cons.1.post_id last_cons.1.name|slugify %}">{{ last_cons.1.name }}</a> in {{ last_cons.0 }}</p>
-  {% endif %}
+  {% with last_cons=person.last_cons %}
+    {% if last_cons %}
+      <p>Candidate for <a href="{% url 'constituency' last_cons.1.post_id last_cons.1.name|slugify %}">{{ last_cons.1.name }}</a> in {{ last_cons.0 }}</p>
+    {% endif %}
+  {% endwith %}
 </div>
 {% endblock %}
 
 {% block content %}
 
-<div class="person__details">
+{% if user_can_edit %}
 
-  <form id="person-details" action="{% url 'person-update' person_id=person.id %}" method="post">
-    {% csrf_token %}
+  <div class="person__details">
 
-    {% if form.errors %}
-      <div class="form-error-summary">
-        <h2>Oops!</h2>
-        <p>We could not accept some of the changes you made.</p>
-        {% if form.non_field_errors %}
-          {{ form.non_field_errors.as_ul }}
-        {% else %}
-          <p>Please check your information matches our requirements, below.</p>
-        {% endif %}
+    <form id="person-details" action="{% url 'person-update' person_id=person.id %}" method="post">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <div class="form-error-summary">
+          <h2>Oops!</h2>
+          <p>We could not accept some of the changes you made.</p>
+          {% if form.non_field_errors %}
+            {{ form.non_field_errors.as_ul }}
+          {% else %}
+            <p>Please check your information matches our requirements, below.</p>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <h2>Personal details:</h2>
+
+      <div class="form-item {% if form.honorific_prefix.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.honorific_prefix.label_tag }}
+          {{ form.honorific_prefix }}
+        </p>
+        {{ form.honorific_prefix.errors }}
       </div>
+
+      <div class="form-item {% if form.name.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.name.label_tag }}
+          {{ form.name }}
+        </p>
+        {{ form.name.errors }}
+      </div>
+
+      <div class="form-item {% if form.honorific_suffix.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.honorific_suffix.label_tag }}
+          {{ form.honorific_suffix }}
+        </p>
+        {{ form.honorific_suffix.errors }}
+      </div>
+
+      <div class="form-item {% if form.email.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.email.label_tag }}
+          {{ form.email }}
+        </p>
+        {{ form.email.errors }}
+      </div>
+
+      <div class="{{ class_for_2015_data }}">
+        <h2>Constituencies:</h2>
+
+        <div class="form-item {% if form.standing.errors %}form-item--errors{% endif %}">
+          <p>
+            {{ form.standing.label_tag }}
+            {{ form.standing }}
+          </p>
+          {{ form.standing.errors }}
+        </div>
+
+        <div class="form-item {% if form.constituency.errors %}form-item--errors{% endif %}">
+          <p>
+            {{ form.constituency.label_tag }}
+            {{ form.constituency }}
+          </p>
+          {{ form.constituency.errors }}
+        </div>
+
+        <div class="form-item {% if form.party_gb.errors %}form-item--errors{% endif %}">
+          <p>
+            {{ form.party_gb.label_tag }}
+            {{ form.party_gb }}
+          </p>
+          {{ form.party_gb.errors }}
+        </div>
+
+        <div class="form-item {% if form.party_ni.errors %}form-item--errors{% endif %}">
+          <p>
+            {{ form.party_ni.label_tag }}
+            {{ form.party_ni }}
+          </p>
+          {{ form.party_ni.errors }}
+        </div>
+      </div>
+
+      <h2>Links and social media:</h2>
+
+      <div class="form-item {% if form.twitter_username.errors %}form-item--errors{% endif %}">
+        {{ form.twitter_username.label_tag }}
+        <div class="row collapse">
+          <div class="small-1 columns">
+            <span class="prefix">@</span>
+          </div>
+          <div class="small-11 columns">
+            {{ form.twitter_username }}
+          </div>
+        </div>
+        {{ form.twitter_username.errors }}
+      </div>
+
+      <div class="form-item {% if form.facebook_personal_url.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.facebook_personal_url.label_tag }}
+          {{ form.facebook_personal_url }}
+        </p>
+        {{ form.facebook_personal_url.errors }}
+      </div>
+
+      <div class="form-item {% if form.facebook_page_url.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.facebook_page_url.label_tag }}
+          {{ form.facebook_page_url }}
+        </p>
+        {{ form.facebook_page_url.errors }}
+      </div>
+
+      <div class="form-item {% if form.homepage_url.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.homepage_url.label_tag }}
+          {{ form.homepage_url }}
+        </p>
+        {{ form.homepage_url.errors }}
+      </div>
+
+      <div class="form-item {% if form.wikipedia_url.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.wikipedia_url.label_tag }}
+          {{ form.wikipedia_url }}
+        </p>
+        {{ form.wikipedia_url.errors }}
+      </div>
+
+      <div class="form-item {% if form.linkedin_url.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.linkedin_url.label_tag }}
+          {{ form.linkedin_url }}
+        </p>
+        {{ form.linkedin_url.errors }}
+      </div>
+
+      <div class="form-item {% if form.party_ppc_page_url.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.party_ppc_page_url.label_tag }}
+          {{ form.party_ppc_page_url }}
+        </p>
+        {{ form.party_ppc_page_url.errors }}
+      </div>
+
+      <h2>Demographics:</h2>
+
+      <div class="form-item {% if form.gender.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.gender.label_tag }}
+          {{ form.gender }}
+        </p>
+        {{ form.gender.errors }}
+      </div>
+
+      <div class="form-item {% if form.birth_date.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.birth_date.label_tag }}
+          {{ form.birth_date }}
+        </p>
+        {{ form.birth_date.errors }}
+      </div>
+
+      <div class="source-confirmation {% if form.source.errors %}source-confirmation--errors{% endif %}">
+        <p>
+          <label for="{{ form.source.id_for_label }}">
+            {% if form.source.errors %}
+              <strong>You forgot to reference a source!</strong> Can you show us <em>where</em> you got this information?
+            {% else %}
+              What's your <strong>source of information</strong> for this change?
+            {% endif %}
+            {{ settings.SOURCE_HINTS }}
+          </label>
+          {{ form.source }}
+        </p>
+      </div>
+
+      <input type="submit" class="button" value="Save changes">
+    </form>
+
+  </div>
+
+  <div class="person__actions">
+
+    <div class="person__actions__action person__actions__sourcing">
+      <h2>Thanks for helping out!</h2>
+      <p>Please make sure you read our
+        <a href="https://docs.google.com/document/d/1iA5Tv3ZgjDHWNv6gbNESqL-C7Goz6ZSo1X9pPXwXspA/edit">guidance on sourcing fields</a>.</p>
+    </div>
+
+    <div class="person__actions__action person__actions__photo">
+      <h2>Trying to upload a photo?</h2>
+      <p>There's a separate page for
+        <a href="{% url 'photo-upload' person.id %}">uploading a photo of
+         {{ person.name }}</a>.</p>
+    </div>
+
+    {% if user_can_merge %}
+      <form class="person__actions__action person__actions__merge" id="person-merge" action="{% url 'person-merge' person_id=person.id %}" method="post">
+        {% csrf_token %}
+        <h2>Is this a duplicate person?</h2>
+        <p>
+          <label for="other">Merge another person into this one:</label>
+          <input id="other" name="other" placeholder="Other person ID" type="text"></input>
+        </p>
+        <input type="submit" class="button alert" value="Merge people">
+      </form>
     {% endif %}
 
-    <h2>Personal details:</h2>
-
-    <div class="form-item {% if form.honorific_prefix.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.honorific_prefix.label_tag }}
-        {{ form.honorific_prefix }}
-      </p>
-      {{ form.honorific_prefix.errors }}
-    </div>
-
-    <div class="form-item {% if form.name.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.name.label_tag }}
-        {{ form.name }}
-      </p>
-      {{ form.name.errors }}
-    </div>
-
-    <div class="form-item {% if form.honorific_suffix.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.honorific_suffix.label_tag }}
-        {{ form.honorific_suffix }}
-      </p>
-      {{ form.honorific_suffix.errors }}
-    </div>
-
-    <div class="form-item {% if form.email.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.email.label_tag }}
-        {{ form.email }}
-      </p>
-      {{ form.email.errors }}
-    </div>
-
-    <div class="{{ class_for_2015_data }}">
-      <h2>Constituencies:</h2>
-
-      <div class="form-item {% if form.standing.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.standing.label_tag }}
-          {{ form.standing }}
-        </p>
-        {{ form.standing.errors }}
-      </div>
-
-      <div class="form-item {% if form.constituency.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.constituency.label_tag }}
-          {{ form.constituency }}
-        </p>
-        {{ form.constituency.errors }}
-      </div>
-
-      <div class="form-item {% if form.party_gb.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.party_gb.label_tag }}
-          {{ form.party_gb }}
-        </p>
-        {{ form.party_gb.errors }}
-      </div>
-
-      <div class="form-item {% if form.party_ni.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.party_ni.label_tag }}
-          {{ form.party_ni }}
-        </p>
-        {{ form.party_ni.errors }}
-      </div>
-    </div>
-
-    <h2>Links and social media:</h2>
-
-    <div class="form-item {% if form.twitter_username.errors %}form-item--errors{% endif %}">
-      {{ form.twitter_username.label_tag }}
-      <div class="row collapse">
-        <div class="small-1 columns">
-          <span class="prefix">@</span>
-        </div>
-        <div class="small-11 columns">
-          {{ form.twitter_username }}
-        </div>
-      </div>
-      {{ form.twitter_username.errors }}
-    </div>
-
-    <div class="form-item {% if form.facebook_personal_url.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.facebook_personal_url.label_tag }}
-        {{ form.facebook_personal_url }}
-      </p>
-      {{ form.facebook_personal_url.errors }}
-    </div>
-
-    <div class="form-item {% if form.facebook_page_url.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.facebook_page_url.label_tag }}
-        {{ form.facebook_page_url }}
-      </p>
-      {{ form.facebook_page_url.errors }}
-    </div>
-
-    <div class="form-item {% if form.homepage_url.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.homepage_url.label_tag }}
-        {{ form.homepage_url }}
-      </p>
-      {{ form.homepage_url.errors }}
-    </div>
-
-    <div class="form-item {% if form.wikipedia_url.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.wikipedia_url.label_tag }}
-        {{ form.wikipedia_url }}
-      </p>
-      {{ form.wikipedia_url.errors }}
-    </div>
-
-    <div class="form-item {% if form.linkedin_url.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.linkedin_url.label_tag }}
-        {{ form.linkedin_url }}
-      </p>
-      {{ form.linkedin_url.errors }}
-    </div>
-
-    <div class="form-item {% if form.party_ppc_page_url.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.party_ppc_page_url.label_tag }}
-        {{ form.party_ppc_page_url }}
-      </p>
-      {{ form.party_ppc_page_url.errors }}
-    </div>
-
-    <h2>Demographics:</h2>
-
-    <div class="form-item {% if form.gender.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.gender.label_tag }}
-        {{ form.gender }}
-      </p>
-      {{ form.gender.errors }}
-    </div>
-
-    <div class="form-item {% if form.birth_date.errors %}form-item--errors{% endif %}">
-      <p>
-        {{ form.birth_date.label_tag }}
-        {{ form.birth_date }}
-      </p>
-      {{ form.birth_date.errors }}
-    </div>
-
-    <div class="source-confirmation {% if form.source.errors %}source-confirmation--errors{% endif %}">
-      <p>
-        <label for="{{ form.source.id_for_label }}">
-          {% if form.source.errors %}
-            <strong>You forgot to reference a source!</strong> Can you show us <em>where</em> you got this information?
-          {% else %}
-            What's your <strong>source of information</strong> for this change?
-          {% endif %}
-          {{ settings.SOURCE_HINTS }}
-        </label>
-        {{ form.source }}
-      </p>
-    </div>
-
-    <input type="submit" class="button" value="Save changes">
-  </form>
-
-</div>
-
-<div class="person__actions">
-
-  <div class="person__actions__action person__actions__sourcing">
-    <h2>Thanks for helping out!</h2>
-    <p>Please make sure you read our
-      <a href="https://docs.google.com/document/d/1iA5Tv3ZgjDHWNv6gbNESqL-C7Goz6ZSo1X9pPXwXspA/edit">guidance on sourcing fields</a>.</p>
   </div>
 
-  <div class="person__actions__action person__actions__photo">
-    <h2>Trying to upload a photo?</h2>
-    <p>There's a separate page for
-      <a href="{% url 'photo-upload' person.id %}">uploading a photo of
-       {{ person.name }}</a>.</p>
-  </div>
+  {% include 'candidates/person-versions.html' %}
 
-  {% if user_can_merge %}
-    <form class="person__actions__action person__actions__merge" id="person-merge" action="{% url 'person-merge' person_id=person.id %}" method="post">
-      {% csrf_token %}
-      <h2>Is this a duplicate person?</h2>
-      <p>
-        <label for="other">Merge another person into this one:</label>
-        <input id="other" name="other" placeholder="Other person ID" type="text"></input>
-      </p>
-      <input type="submit" class="button alert" value="Merge people">
-    </form>
-  {% endif %}
-
-</div>
-
-{% include 'candidates/person-versions.html' %}
+{% else %}
+  {% include 'candidates/_edits_disallowed_message.html' %}
+{% endif %}
 
 {% endblock %}

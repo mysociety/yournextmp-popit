@@ -1,8 +1,9 @@
 from django.db import models
+from django.dispatch import receiver
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import slugify
 
-from candidates.models import PopItPerson
+from candidates.models import PopItPerson, person_added
 
 class CachedCount(models.Model):
     """
@@ -45,10 +46,6 @@ class CachedCount(models.Model):
 
         cls.objects.filter(**filters).update(count=models.F('count') + 1)
 
-
-
-from candidates.update import person_added
-from django.dispatch import receiver
 
 @receiver(person_added, sender=PopItPerson)
 def person_added_handler(sender, **kwargs):

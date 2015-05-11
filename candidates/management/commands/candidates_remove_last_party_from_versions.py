@@ -1,35 +1,27 @@
-import sys
-
-from candidates.models import invalidate_cache_entries_from_person_data
+from candidates.models import PopItPerson
 from candidates.popit import PopItApiMixin, popit_unwrap_pagination
-from candidates.update import fix_dates
 
 from django.core.management.base import BaseCommand
-
-from slumber.exceptions import HttpClientError
 
 
 class Command(PopItApiMixin, BaseCommand):
 
     def handle(self, **options):
-        for person in popit_unwrap_pagination(
+        for person_data in popit_unwrap_pagination(
                 self.api.persons,
                 embed='',
                 per_page=100
         ):
             needs_update = False
-            for version in person.get('versions', []):
+            for version in person_data.get('versions', []):
                 data = version['data']
                 if data.get('last_party'):
                     needs_update = True
                     msg = "Fixing person {0}persons/{1}"
-                    print msg.format(self.get_base_url(), person['id'])
+                    print msg.format(self.get_base_url(), person_data['id'])
                     del data['last_party']
             if not needs_update:
                 continue
-            try:
-                self.api.persons(person['id']).put(person)
-            except HttpClientError as e:
-                print "HttpClientError", e.content
-                sys.exit(1)
-            invalidate_cache_entries_from_person_data(person)
+            person = PopItPerson.create_from_dict(person_data)
+            person.save_to_popit(self.api)
+            person.invalidate_cache_entries()

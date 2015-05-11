@@ -29,10 +29,10 @@ class TestPersonView(WebTest):
         self.assertTrue(
             re.search(
                 r'''(?msx)
-  <h1>Tessa\ Jowell</h1>\s*
-  <p>Candidate\ for
-  \ <a\ href="/constituency/65808/dulwich-and-west-norwood">Dulwich
-  \ and\ West\ Norwood</a>\ in\ 2015</p>''',
+  <h1>Tessa\s+Jowell</h1>\s*
+  <p>Candidate\s+for\s+
+  <a\s+href="/constituency/65808/dulwich-and-west-norwood">Dulwich\s+
+  and\s+West\s+Norwood</a>\s+in\ 2015\s*</p>''',
                 unicode(response)
             )
         )
@@ -42,14 +42,12 @@ class TestPersonView(WebTest):
         mock_popit.return_value.persons = FakePersonCollection
         response = self.app.get('/person/2009/tessa-jowell')
         self.assertContains(response, 'Contesting in 2015')
-        self.assertContains(response, 'is standing for the Labour Party in Dulwich and West Norwood in 2015')
 
     @override_settings(TEMPLATE_CONTEXT_PROCESSORS=processors_after)
     def test_get_tessa_jowell_after_election(self, mock_popit):
         mock_popit.return_value.persons = FakePersonCollection
         response = self.app.get('/person/2009/tessa-jowell')
         self.assertContains(response, 'Contested in 2015')
-        self.assertContains(response, 'stood for the Labour Party in Dulwich and West Norwood in 2015')
 
     def test_get_non_existent(self, mock_popit):
         mock_popit.return_value.persons = FakePersonCollection

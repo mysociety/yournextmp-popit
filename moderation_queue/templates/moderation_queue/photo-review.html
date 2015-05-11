@@ -27,7 +27,7 @@
 
   <p>Please check that this is really
   <a href="{% url 'person-view' person.id person.name|slugify %}">{{ person.name }}</a>
-  ({{ person_extra.last_party.name }}) before
+  ({{ person.last_party.name }}) before
   approving the upload. This
   <a href="{{ google_image_search_url }}">Google
   Image search for candidate details</a> may be a good start.</p>
@@ -161,7 +161,7 @@
 
   <h4>Existing candidate images</h4>
 
-  {% with images=person_extra.images %}
+  {% with images=person.images %}
 
     {% if images %}
       {% for image in images %}

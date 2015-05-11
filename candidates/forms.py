@@ -302,3 +302,15 @@ class ToggleLockForm(forms.Form):
             message = '{0} was not a known post ID'
             raise ValidationError(message.format(post_id))
         return post_id
+
+
+class ConstituencyRecordWinnerForm(forms.Form):
+    person_id = forms.CharField(
+        label='Person ID',
+        max_length=256,
+        widget=forms.HiddenInput(),
+    )
+    source = forms.CharField(
+        label=u"Source of information that they won",
+        max_length=512,
+    )

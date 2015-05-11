@@ -35,4 +35,16 @@ $(function() {
       confirmation.show().find('input:text').focus();
     }
   })
+
+  $('.winner-confirm').submit(function(e) {
+    var enclosingDiv = $(e.target).parent(),
+      candidateName=enclosingDiv.find('.candidate-name').text(),
+      constituencyName=$('#constituency-name').text(),
+      partyName=enclosingDiv.find('.party').text(),
+      message;
+    message = "Are you sure that " + candidateName + " (" + partyName + ") " +
+      "was the winner in " + constituencyName + "?";
+    return confirm(message);
+  });
+
 });

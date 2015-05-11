@@ -1,46 +1,152 @@
 {
     "result": {
+        "birth_date": null,
         "contact_details": [],
         "email": "shane@gn.apc.org",
         "gender": "male",
-        "html_url": "http://yournextmp.popit.mysociety.org/persons/shane-collins",
-        "id": "shane-collins",
+        "honorific_prefix": null,
+        "honorific_suffix": null,
+        "html_url": "https://yournextmp.popit.mysociety.org/persons/2007",
+        "id": "2007",
         "identifiers": [
             {
-                "id": "53de915a8b5ed1d13c5ca2ae",
+                "id": "552f855ced1c6ee164eecba5",
                 "identifier": "2961",
                 "scheme": "yournextmp-candidate"
             }
         ],
+        "images": [],
         "links": [],
         "memberships": [
             {
                 "contact_details": [],
-                "html_url": "http://yournextmp.popit.mysociety.org/memberships/53de915b8b5ed1d13c5ca2af",
-                "id": "53de915b8b5ed1d13c5ca2af",
+                "end_date": "2010-05-06",
+                "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526e1c915d96fc06398efa3",
+                "id": "5526e1c915d96fc06398efa3",
+                "images": [],
                 "links": [],
-                "organization_id": "green-party",
-                "person_id": "shane-collins",
-                "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/53de915b8b5ed1d13c5ca2af"
+                "organization_id": "party:63",
+                "person_id": "2007",
+                "start_date": "2005-05-06",
+                "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526e1c915d96fc06398efa3"
             },
             {
-                "area": {
-                    "id": "mapit:65808",
-                    "identifier": "http://mapit.mysociety.org/area/65808",
-                    "name": "Dulwich and West Norwood"
-                },
                 "contact_details": [],
-                "html_url": "http://yournextmp.popit.mysociety.org/memberships/53de95dd8b5ed1d13c5cb57e",
-                "id": "53de95dd8b5ed1d13c5cb57e",
+                "end_date": "2010-05-06",
+                "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526e1c915d96fc06398efa4",
+                "id": "5526e1c915d96fc06398efa4",
+                "images": [],
                 "links": [],
-                "organization_id": "candidates-2010-dulwich-and-west-norwood",
-                "person_id": "shane-collins",
-                "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/53de95dd8b5ed1d13c5cb57e"
+                "person_id": "2007",
+                "post_id": "65808",
+                "role": "Candidate",
+                "start_date": "2005-05-06",
+                "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526e1c915d96fc06398efa4"
             }
         ],
         "name": "Shane Collins",
         "other_names": [],
-        "phone": "07939 196612",
-        "url": "http://yournextmp.popit.mysociety.org/api/v0.1/persons/shane-collins"
+        "party_memberships": {
+            "2010": {
+                "id": "party:63",
+                "name": "Green Party"
+            }
+        },
+        "standing_in": {
+            "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+            },
+            "2015": null
+        },
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/2007",
+        "versions": [
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "shane@gn.apc.org",
+                    "facebook_page_url": "",
+                    "facebook_personal_url": "",
+                    "gender": "male",
+                    "homepage_url": "",
+                    "honorific_prefix": "",
+                    "honorific_suffix": "",
+                    "id": "2007",
+                    "identifiers": [
+                        {
+                            "id": "547786cc737edc5252ce5af1",
+                            "identifier": "2961",
+                            "scheme": "yournextmp-candidate"
+                        }
+                    ],
+                    "image": null,
+                    "linkedin_url": "",
+                    "name": "Shane Collins",
+                    "other_names": [],
+                    "party_memberships": {
+                        "2010": {
+                            "id": "party:63",
+                            "name": "Green Party"
+                        }
+                    },
+                    "party_ppc_page_url": "",
+                    "proxy_image": null,
+                    "standing_in": {
+                        "2010": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65808",
+                            "name": "Dulwich and West Norwood",
+                            "post_id": "65808"
+                        },
+                        "2015": null
+                    },
+                    "twitter_username": "",
+                    "wikipedia_url": ""
+                },
+                "information_source": "http://www.lambeth.gov.uk/sites/default/files/ec-dulwich-and-west-norwood-candidates-and-notice-of-poll-2015.pdf",
+                "timestamp": "2015-04-09T20:32:09.237610",
+                "username": "JPCarrington",
+                "version_id": "274e50504df330e4"
+            },
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "shane@gn.apc.org",
+                    "facebook_page_url": null,
+                    "facebook_personal_url": null,
+                    "gender": "male",
+                    "homepage_url": null,
+                    "id": "2007",
+                    "identifiers": [
+                        {
+                            "identifier": "2961",
+                            "scheme": "yournextmp-candidate"
+                        }
+                    ],
+                    "name": "Shane Collins",
+                    "party_memberships": {
+                        "2010": {
+                            "id": "party:63",
+                            "name": "Green Party"
+                        }
+                    },
+                    "party_ppc_page_url": null,
+                    "phone": "07939 196612",
+                    "slug": "shane-collins",
+                    "standing_in": {
+                        "2010": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65808",
+                            "name": "Dulwich and West Norwood",
+                            "post_id": "65808"
+                        }
+                    },
+                    "twitter_username": null,
+                    "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:16:47.670167",
+                "version_id": "68a452284d95d9ab"
+            }
+        ]
     }
 }

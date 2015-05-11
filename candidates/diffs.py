@@ -48,6 +48,11 @@ def get_descriptive_value(year, attribute, value, leaf):
                 elif leaf == 'name':
                     message = "{0} known to be standing in {1} in {2}"
                     return message.format(prefix, value, year)
+                elif leaf == 'elected':
+                    return "was {whether}elected in {year}".format(
+                        whether=('' if value else 'not '),
+                        year=year
+                    )
                 else:
                     message = u"Unexpected leaf {0} (attribute: {1}, year: {2}"
                     raise Exception, message.format(

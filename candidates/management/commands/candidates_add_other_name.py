@@ -2,14 +2,10 @@ from optparse import make_option
 
 from django.core.management.base import BaseCommand, CommandError
 
-from candidates.models import invalidate_cache_entries_from_person_data
+from candidates.models import PopItPerson
 from candidates.popit import create_popit_api_object
-from candidates.update import PersonParseMixin, PersonUpdateMixin
-from candidates.views import CandidacyMixin
 
-from slumber.exceptions import HttpClientError, HttpServerError
-
-class Command(PersonParseMixin, PersonUpdateMixin, CandidacyMixin, BaseCommand):
+class Command(BaseCommand):
     args = "<PERSON-ID> <OTHER-NAME>"
     help = "Add an alternative name to a particular person"
 
@@ -21,19 +17,15 @@ class Command(PersonParseMixin, PersonUpdateMixin, CandidacyMixin, BaseCommand):
 
     def handle(self, *args, **options):
         self.verbosity = int(options.get('verbosity', 1))
-        popit = create_popit_api_object()
+        api = create_popit_api_object()
         if len(args) != 2:
             raise CommandError("You must provide all two arguments")
 
         person_id, other_name = args
 
-        try:
-            person_data = popit.persons(person_id).get()['result']
-        except (HttpClientError, HttpServerError):
-            message = "Failed to get the person with ID {0}"
-            raise CommandError(message.format(person_id))
+        person = PopItPerson.create_from_popit(api, person_id)
 
-        person_data['other_names'].append(
+        person.other_names.append(
             {
                 'name': other_name,
                 'note': options['note'],
@@ -42,12 +34,8 @@ class Command(PersonParseMixin, PersonUpdateMixin, CandidacyMixin, BaseCommand):
             }
         )
 
-        try:
-            popit.persons(person_id).put(person_data)
-        except (HttpClientError, HttpServerError):
-            raise CommandError("Failed to update that person")
-
-        invalidate_cache_entries_from_person_data(person_data)
+        person.save_to_popit(api)
+        person.invalidate_cache_entries()
 
         # FIXME: this should create a new version in the versions
         # array too, otherwise you manually have to edit on YourNextMP

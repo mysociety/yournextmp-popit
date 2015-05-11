@@ -19,7 +19,7 @@ from PIL import Image
 
 from auth_helpers.views import GroupRequiredMixin
 from candidates.management.images import get_file_md5sum
-from candidates.update import PersonParseMixin, PersonUpdateMixin
+from candidates.popit import PopItApiMixin
 
 from .forms import UploadPersonPhotoForm, PhotoReviewForm
 from .models import QueuedImage, PHOTO_REVIEWERS_GROUP_NAME
@@ -72,12 +72,15 @@ def upload_photo(request, popit_person_id):
     )
 
 
-class PhotoUploadSuccess(PersonParseMixin, TemplateView):
+class PhotoUploadSuccess(PopItApiMixin, TemplateView):
     template_name = 'moderation_queue/photo-upload-success.html'
 
     def get_context_data(self, **kwargs):
         context = super(PhotoUploadSuccess, self).get_context_data(**kwargs)
-        context['person'], _ = self.get_person(kwargs['popit_person_id'])
+        context['person'] = PopItPerson.create_from_popit(
+            self.api,
+            kwargs['popit_person_id']
+        )
         return context
 
 
@@ -109,20 +112,20 @@ def value_if_none(v, default):
     return default if v is None else v
 
 
-class PhotoReview(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUpdateMixin, TemplateView):
+class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateView):
     """The class-based view for approving or rejecting a particular photo"""
 
     template_name = 'moderation_queue/photo-review.html'
     http_method_names = ['get', 'post']
     required_group_name = PHOTO_REVIEWERS_GROUP_NAME
 
-    def get_google_image_search_url(self, person, person_extra):
-        image_search_query = u'"{0}"'.format(person['name'])
-        if person_extra['last_party']:
+    def get_google_image_search_url(self, person):
+        image_search_query = u'"{0}"'.format(person.name)
+        if person.last_party:
             image_search_query += u' "{0}"'.format(
-                tidy_party_name(person_extra['last_party']['name'])
+                tidy_party_name(person.last_party['name'])
             )
-        cons_2015 = person['standing_in'].get('2015')
+        cons_2015 = person.standing_in.get('2015')
         if cons_2015:
             image_search_query += u' "{0}"'.format(cons_2015['name'])
         return u'https://www.google.co.uk/search?tbm=isch&q={0}'.format(
@@ -141,8 +144,10 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUp
             pk=kwargs['queued_image_id']
         )
         context['queued_image'] = self.queued_image
-        context['person'], context['person_extra'] = \
-            self.get_person(self.queued_image.popit_person_id)
+        person = PopItPerson.create_from_popit(
+            self.api,
+            self.queued_image.popit_person_id,
+        )
         context['has_crop_bounds'] = int(self.queued_image.has_crop_bounds)
         max_x = self.queued_image.image.width - 1
         max_y = self.queued_image.image.height - 1
@@ -180,12 +185,13 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUp
                 )
             )
         context['google_image_search_url'] = self.get_google_image_search_url(
-            context['person'], context['person_extra']
+            person
         )
         context['google_reverse_image_search_url'] = \
             self.get_google_reverse_image_search_url(
                 self.queued_image.image.url
         )
+        context['person'] = person
         return context
 
     def send_mail(self, subject, message, email_support_too=False):
@@ -240,14 +246,12 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUp
 
     def form_valid(self, form):
         decision = form.cleaned_data['decision']
-        candidate_path = reverse(
-            'person-view',
-            kwargs={'person_id': self.queued_image.popit_person_id}
-        )
-        person_data, _ = self.get_person(
+        person = PopItPerson.create_from_popit(
+            self.api,
             self.queued_image.popit_person_id
         )
-        candidate_name = person_data['name']
+        candidate_path = person.get_absolute_url()
+        candidate_name = person.name
         candidate_link = u'<a href="{url}">{name}</a>'.format(
             url=candidate_path,
             name=candidate_name,
@@ -279,8 +283,6 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUp
                     form.cleaned_data[field]
                 )
             self.queued_image.save()
-            # Now create a new version in PopIt:
-            previous_versions = person_data.pop('versions')
             update_message = (u'Approved a photo upload from ' +
                 u'{uploading_user} who provided the message: ' +
                 u'"{message}"').format(
@@ -291,11 +293,12 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUp
                 self.request,
                 update_message
             )
-            self.update_person(
-                person_data,
-                change_metadata,
-                previous_versions,
-            )
+            # We have to refetch the person from PopIt, otherwise
+            # saving the new version will write back the images array
+            # from before we uploaded the image:
+            person = PopItPerson.create_from_popit(self.api, person.id)
+            person.record_version(change_metadata)
+            person.save_to_popit(self.api, self.request.user)
             LoggedAction.objects.create(
                 user=self.request.user,
                 action_type='photo-approve',
@@ -309,7 +312,7 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUp
                 render_to_string(
                     'moderation_queue/photo_approved_email.txt',
                     {'candidate_page_url':
-                     self.request.build_absolute_uri(candidate_path)}
+                     person.get_absolute_url(self.request)}
                 ),
             )
             flash(

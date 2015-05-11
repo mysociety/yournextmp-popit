@@ -2,6 +2,7 @@ import re
 
 from slugify import slugify
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import (
     HttpResponseRedirect, HttpResponsePermanentRedirect
@@ -10,49 +11,24 @@ from django.utils.decorators import method_decorator
 from django.utils.http import urlquote
 from django.views.decorators.cache import cache_control
 from django.views.generic import FormView, TemplateView, View
-from django_date_extensions.fields import ApproximateDate
 
 from braces.views import LoginRequiredMixin
 
 from auth_helpers.views import GroupRequiredMixin, user_in_group
-from moderation_queue.forms import UploadPersonPhotoForm
 
-from .diffs import get_version_diffs
+from ..diffs import get_version_diffs
 from .mixins import CandidacyMixin
 from .version_data import get_client_ip, get_change_metadata
 from ..forms import NewPersonForm, UpdatePersonForm
 from ..models import (
-    get_constituency_name_from_mapit_id,
-    all_form_fields,
-    get_mapit_id_from_mapit_url,
     LoggedAction, PersonRedirect,
-    TRUSTED_TO_MERGE_GROUP_NAME
+    TRUSTED_TO_MERGE_GROUP_NAME,
+    PopItPerson
 )
-from ..popit import merge_popit_people
-from ..static_data import MapItData, PartyData
-
-from ..update import PersonParseMixin, PersonUpdateMixin
-
-def copy_person_form_data(cleaned_data):
-    result = cleaned_data.copy()
-    # The date is returned as a datetime.date, so if that's set, turn
-    # it into a string:
-    birth_date_date = result['birth_date']
-    if birth_date_date:
-        result['birth_date'] = repr(birth_date_date).replace("-00-00", "")
-    area_id = result.get('constituency')
-    if area_id:
-        country_name =  MapItData.constituencies_2010.get(area_id)['country_name']
-        key = 'party_ni' if country_name == 'Northern Ireland' else 'party_gb'
-        result['party'] = result[key]
-    else:
-        result['party'] = None
-    del result['party_gb']
-    del result['party_ni']
-    return result
+from ..popit import merge_popit_people, PopItApiMixin
 
 
-class PersonView(PersonParseMixin, TemplateView):
+class PersonView(PopItApiMixin, TemplateView):
     template_name = 'candidates/person-view.html'
 
     @method_decorator(cache_control(max_age=(60 * 20)))
@@ -61,67 +37,37 @@ class PersonView(PersonParseMixin, TemplateView):
             *args, **kwargs
         )
 
-    def get_last_constituency(self, person_data):
-        result = None
-        for year in ('2010', '2015'):
-            cons = person_data['standing_in'].get(year)
-            if cons:
-                result = (year, cons)
-        return result
-
-    def get_name_with_honorifics(self, person_data):
-        name_parts = []
-        pre = person_data.get('honorific_prefix')
-        post = person_data.get('honorific_suffix')
-        if pre:
-            name_parts.append(pre)
-        name_parts.append(person_data.get('name', ''))
-        if post:
-            name_parts.append(post)
-        return ' '.join(name_parts)
-
     def get_context_data(self, **kwargs):
         context = super(PersonView, self).get_context_data(**kwargs)
-        person_data, extra_for_template = self.get_person(self.kwargs['person_id'])
-        person_data.update(extra_for_template)
-        context['person'] = person_data
         context['popit_api_url'] = self.get_base_url()
-        context['last_cons'] = self.get_last_constituency(person_data)
-        path = reverse(
-            'person-view',
-            kwargs={
-                'person_id': person_data['id'],
-                'ignored_slug': slugify(person_data['name']),
-            }
-        )
+        path = self.person.get_absolute_url()
         context['redirect_after_login'] = urlquote(path)
-        context['versions'] = get_version_diffs(person_data['versions'])
         context['canonical_url'] = self.request.build_absolute_uri(path)
-        context['name_with_honorifics'] = \
-            self.get_name_with_honorifics(person_data)
+        context['person'] = self.person
         return context
 
     def get(self, request, *args, **kwargs):
+        self.person = PopItPerson.create_from_popit(
+            self.api,
+            self.kwargs['person_id']
+        )
         # If there's a PersonRedirect for this person ID, do the
         # redirect, otherwise process the GET request as usual.
         try:
             new_person_id = PersonRedirect.objects.get(
-                old_person_id=self.kwargs['person_id']
+                old_person_id=self.person.id
             ).new_person_id
-            # Get the person data so that we can redirect with a
-            # useful slug:
-            person_data, _ = self.get_person(new_person_id)
             return HttpResponsePermanentRedirect(
                 reverse('person-view', kwargs={
                     'person_id': new_person_id,
-                    'ignored_slug': slugify(person_data['name']),
+                    'ignored_slug': self.person.get_slug(),
                 })
             )
         except PersonRedirect.DoesNotExist:
             return super(PersonView, self).get(request, *args, **kwargs)
 
 
-class RevertPersonView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUpdateMixin, View):
+class RevertPersonView(LoginRequiredMixin, CandidacyMixin, PopItApiMixin, View):
 
     http_method_names = [u'post']
 
@@ -130,20 +76,25 @@ class RevertPersonView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, Per
         person_id = self.kwargs['person_id']
         source = self.request.POST['source']
 
-        our_person, _ = self.get_person(self.kwargs['person_id'])
-        previous_versions = our_person.pop('versions')
+        person = PopItPerson.create_from_popit(
+            self.api,
+            self.kwargs['person_id']
+        )
 
         data_to_revert_to = None
-        for version in previous_versions:
+        for version in person.versions:
             if version['version_id'] == version_id:
                 data_to_revert_to = version['data']
+                break
 
         if not data_to_revert_to:
             message = "Couldn't find the version {0} of person {1}"
             raise Exception(message.format(version_id, person_id))
 
         change_metadata = get_change_metadata(self.request, source)
-        self.update_person(data_to_revert_to, change_metadata, previous_versions)
+        person.update_from_reduced_json(data_to_revert_to)
+        person.record_version(change_metadata)
+        person.save_to_popit(self.api, self.request.user)
 
         # Log that that action has taken place, and will be shown in
         # the recent changes, leaderboards, etc.
@@ -158,12 +109,12 @@ class RevertPersonView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, Per
 
         return HttpResponseRedirect(
             reverse(
-                'person-update',
+                'person-view',
                 kwargs={'person_id': person_id}
             )
         )
 
-class MergePeopleView(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUpdateMixin, View):
+class MergePeopleView(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, View):
 
     http_method_names = [u'post']
     required_group_name = TRUSTED_TO_MERGE_GROUP_NAME
@@ -180,17 +131,22 @@ class MergePeopleView(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, Pers
             raise ValueError(message.format(
                 primary_person_id, secondary_person_id
             ))
-        # Get our JSON representation of each person:
-        primary_person, _ = self.get_person(primary_person_id)
-        secondary_person, _ = self.get_person(secondary_person_id)
+        primary_person, secondary_person = [
+            PopItPerson.create_from_popit(self.api, popit_id)
+            for popit_id in (primary_person_id, secondary_person_id)
+        ]
         # Merge them (which will include a merged versions array):
-        merged_person = merge_popit_people(primary_person, secondary_person)
+        merged_person = merge_popit_people(
+            primary_person.as_reduced_json(),
+            secondary_person.as_reduced_json(),
+        )
         # Update the primary person in PopIt:
-        previous_versions = merged_person.pop('versions')
         change_metadata = get_change_metadata(
             self.request, 'After merging person {0}'.format(secondary_person_id)
         )
-        self.update_person(merged_person, change_metadata, previous_versions)
+        primary_person.update_from_reduced_json(merged_person)
+        primary_person.record_version(change_metadata)
+        primary_person.save_to_popit(self.api, self.request.user)
         # Now we delete the old person:
         self.api.persons(secondary_person_id).delete()
         # Create a redirect from the old person to the new person:
@@ -212,170 +168,99 @@ class MergePeopleView(GroupRequiredMixin, CandidacyMixin, PersonParseMixin, Pers
         return HttpResponseRedirect(
             reverse('person-view', kwargs={
                 'person_id': primary_person_id,
-                'ignored_slug': slugify(primary_person['name']),
+                'ignored_slug': slugify(primary_person.name),
             })
         )
 
-class UpdatePersonView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUpdateMixin, FormView):
+class UpdatePersonView(LoginRequiredMixin, CandidacyMixin, PopItApiMixin, FormView):
     template_name = 'candidates/person-edit.html'
     form_class = UpdatePersonForm
 
-    def get_last_constituency(self, person_data):
-        result = None
-        for year in ('2010', '2015'):
-            cons = person_data['standing_in'].get(year)
-            if cons:
-                result = (year, cons)
-        return result
-
     def get_initial(self):
         initial_data = super(UpdatePersonView, self).get_initial()
-        our_person, _ = self.get_person(self.kwargs['person_id'])
-        for field_name in all_form_fields:
-            initial_data[field_name] = our_person.get(field_name)
-        # FIXME: this whole method could really do with some
-        # refactoring, it's way too long and involved:
-        standing_in = our_person['standing_in']
-        # If there's data from 2010, set that in initial data to
-        # provide useful defaults ...
-        if '2010' in standing_in:
-            area_id_2010 = standing_in['2010']['post_id']
-            initial_data['constituency'] = area_id_2010
-            country_name =  MapItData.constituencies_2010.get(area_id_2010)['country_name']
-            key = 'party_ni' if country_name == 'Northern Ireland' else 'party_gb'
-            initial_data[key] = our_person['party_memberships']['2010']['id']
-        # ... but if there's data for 2015, it'll overwrite any
-        # defaults from 2010:
-        if '2015' in standing_in:
-            standing_in_2015 = standing_in.get('2015')
-            if standing_in_2015 is None:
-                initial_data['standing'] = 'not-standing'
-            elif standing_in_2015:
-                initial_data['standing'] = 'standing'
-                # First make sure the constituency select box has the right value:
-                cons_data_2015 = our_person['standing_in'].get('2015', {})
-                mapit_url = cons_data_2015.get('mapit_url')
-                if mapit_url:
-                    area_id = get_mapit_id_from_mapit_url(mapit_url)
-                    initial_data['constituency'] = area_id
-                    # Get the 2015 party ID:
-                    party_data_2015 = our_person['party_memberships'].get('2015', {})
-                    party_id = party_data_2015.get('id', '')
-                    # Get the right country based on that constituency:
-                    country = MapItData.constituencies_2010.get(area_id)['country_name']
-                    if country == 'Northern Ireland':
-                        initial_data['party_ni'] = party_id
-                    else:
-                        initial_data['party_gb'] = party_id
-            else:
-                message = "Unexpected 'standing_in' value {0}"
-                raise Exception(message.format(standing_in_2015))
-        else:
-            initial_data['standing'] = 'not-sure'
-            # TODO: If we don't know someone to be standing, assume they are
-            # still in the same party as they were in 2010
+        person = PopItPerson.create_from_popit(
+            self.api, self.kwargs['person_id']
+        )
+        initial_data.update(person.get_initial_form_data())
         return initial_data
 
     def get_context_data(self, **kwargs):
         context = super(UpdatePersonView, self).get_context_data(**kwargs)
 
-        context['person'] = self.api.persons(
+        person = PopItPerson.create_from_popit(
+            self.api,
             self.kwargs['person_id']
-        ).get()['result']
-        context['last_cons'] = self.get_last_constituency(context['person'])
+        )
+        context['person'] = person
 
-        context['photo_form'] = UploadPersonPhotoForm(
-            initial={
-                'popit_person_id': context['person']['id']
-            }
+        context['class_for_2015_data'] = ''
+        if person.constituency_or_party_changes_allowed(
+                self.request.user,
+                self.api,
+        ):
+            context['class_for_2015_data'] = \
+                'person__2015-data-edit'
+
+        context['user_can_merge'] = user_in_group(
+            self.request.user,
+            TRUSTED_TO_MERGE_GROUP_NAME
         )
 
-        _, edits_allowed = self.get_constituency_lock_from_person_data(
-            context['person']
-        )
-        if edits_allowed:
-            context['class_for_2015_data'] = ''
-        else:
-            context['class_for_2015_data'] = 'person__2015-data-edit'
-
-        context['versions'] = get_version_diffs(context['person']['versions'])
+        context['versions'] = get_version_diffs(person.versions)
 
         return context
 
     def form_valid(self, form):
 
+        if not (settings.EDITS_ALLOWED or self.request.user.is_staff):
+            return HttpResponseRedirect(reverse('all-edits-disallowed'))
+
         # First parse that person's data from PopIt into our more
         # usable data structure:
 
-        our_person, _ = self.get_person(self.kwargs['person_id'])
-        previous_versions = our_person.pop('versions')
+        person = PopItPerson.create_from_popit(
+            self.api, self.kwargs['person_id']
+        )
 
         # Now we need to make any changes to that data structure based
         # on information given in the form.
 
-        data_for_update = copy_person_form_data(form.cleaned_data)
-
-        # Extract some fields that we will deal with separately:
         change_metadata = get_change_metadata(
-            self.request, data_for_update.pop('source')
+            self.request, form.cleaned_data.pop('source')
         )
-        standing = data_for_update.pop('standing')
-        constituency_2015_mapit_id = data_for_update.pop('constituency')
-        party_2015 = data_for_update.pop('party')
 
-        # Update our representation with data from the form:
-        our_person.update(data_for_update)
+        person.update_from_form(form)
 
         LoggedAction.objects.create(
             user=self.request.user,
             action_type='person-update',
             ip_address=get_client_ip(self.request),
             popit_person_new_version=change_metadata['version_id'],
-            popit_person_id=our_person['id'],
+            popit_person_id=person.id,
             source=change_metadata['information_source'],
         )
 
-        if standing == 'standing':
-            constituency_name = get_constituency_name_from_mapit_id(
-                constituency_2015_mapit_id
-            )
-            if not constituency_name:
-                message = "Failed to find a constituency with MapIt ID {}"
-                raise Exception(message.format(constituency_2015_mapit_id))
-            our_person['standing_in']['2015'] = \
-                self.get_area_from_post_id(constituency_2015_mapit_id, mapit_url_key='mapit_url')
-            our_person['party_memberships']['2015'] = {
-                'name': PartyData.party_id_to_name[party_2015],
-                'id': party_2015,
-            }
-        elif standing == 'not-standing':
-            # If the person is not standing in 2015, record that
-            # they're not and remove the party membership for 2015:
-            our_person['standing_in']['2015'] = None
-            if '2015' in our_person['party_memberships']:
-                del our_person['party_memberships']['2015']
-        elif standing == 'not-sure':
-            # If the update specifies that we're not sure if they're
-            # standing in 2015, then remove the standing_in and
-            # party_memberships entries for that year:
-            our_person['standing_in'].pop('2015', None)
-            our_person['party_memberships'].pop('2015', None)
+        person.record_version(change_metadata)
+        person.save_to_popit(self.api, self.request.user)
 
-        self.update_person(our_person, change_metadata, previous_versions)
-
-        return HttpResponseRedirect(reverse('person-view', kwargs={'person_id': our_person['id']}))
+        return HttpResponseRedirect(reverse('person-view', kwargs={'person_id': person.id}))
 
 
-class NewPersonView(LoginRequiredMixin, CandidacyMixin, PersonUpdateMixin, FormView):
+class NewPersonView(LoginRequiredMixin, CandidacyMixin, PopItApiMixin, FormView):
     template_name = 'candidates/person-create.html'
     form_class = NewPersonForm
 
     def form_valid(self, form):
-        data_for_creation = copy_person_form_data(form.cleaned_data)
 
+        if not (settings.EDITS_ALLOWED or self.request.user.is_staff):
+            return HttpResponseRedirect(reverse('all-edits-disallowed'))
+
+        person = PopItPerson()
+        person.update_from_form(form)
         change_metadata = get_change_metadata(
-            self.request, data_for_creation.pop('source')
+            self.request, form.cleaned_data['source']
         )
+        person.record_version(change_metadata)
         action = LoggedAction.objects.create(
             user=self.request.user,
             action_type='person-create',
@@ -383,24 +268,7 @@ class NewPersonView(LoginRequiredMixin, CandidacyMixin, PersonUpdateMixin, FormV
             popit_person_new_version=change_metadata['version_id'],
             source=change_metadata['information_source'],
         )
-        # Extract these fields, since we'll present them in the
-        # standing_in and party_memberships fields.
-        party = data_for_creation.pop('party')
-        mapit_area_id = data_for_creation.pop('constituency')
-
-        data_for_creation['party_memberships'] = {
-            '2015': {
-                'name': PartyData.party_id_to_name[party],
-                'id': party,
-            }
-        }
-
-        data_for_creation['standing_in'] = {
-            '2015': self.get_area_from_post_id(mapit_area_id,
-                                               mapit_url_key='mapit_url')
-        }
-
-        person_id = self.create_person(data_for_creation, change_metadata)
+        person_id = person.save_to_popit(self.api, self.request.user)
         action.popit_person_id = person_id
         action.save()
         return HttpResponseRedirect(reverse('person-view', kwargs={'person_id': person_id}))

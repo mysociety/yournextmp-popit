@@ -63,5 +63,10 @@ class TestLeaderboardView(TestUserMixin, WebTest):
             'rank,username,contributions\r\n' +
                 '0,jane,2\r\n' +
                 '1,john,1\r\n' +
-                '2,johnrefused,0\r\n'
+                '2,alice,0\r\n' +
+                '3,charles,0\r\n' +
+                '4,delilah,0\r\n' +
+                '5,ermintrude,0\r\n' +
+                '6,frankie,0\r\n' +
+                '7,johnrefused,0\r\n'
         )

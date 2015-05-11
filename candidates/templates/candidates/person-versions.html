@@ -2,7 +2,7 @@
 
 <div class="person__versions">
     <h2>All versions</h2>
-    {% for version in versions %}
+    {% for version in person.version_diffs %}
       <div class="version">
         <dl>
           <dt>Version</dt>
@@ -35,7 +35,7 @@
           {% if user.is_authenticated and not forloop.first %}
           <dt>Revert to this</dt>
           <dd>
-            <form action="{% url 'person-revert' person_id=person.id %}" method="post" class="version-revert">
+            <form id="revert-form-{{ version.version_id }}" action="{% url 'person-revert' person_id=person.id %}" method="post" class="version-revert">
               {% csrf_token %}
               <input type="hidden" name="version_id" value="{{ version.version_id }}"/>
               <input type="text" name="source" id="id_source" maxlength="512" required="required" value="Reverting to version {{ version.version_id }} because…"/>

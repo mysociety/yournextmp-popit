@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body_class %}constituencies{% endblock %}
+
+{% block title %}Candidates (PPCs) by constituency for the UK 2015 General Election{% endblock %}
+
+{% block hero %}
+  <h1>Constituencies Declared for the 2015 General Election</h1>
+{% endblock %}
+
+{% block content %}
+
+<h2>Constituencies</h2>
+<h4>{{ total_left }} still undeclared ({{ percent_done }}% done)</h4>
+<ul>
+  {% for c, declared in constituencies %}
+    <li>
+     {% if declared %}<del>{% endif %}<a href="{% url 'constituency' mapit_area_id=c.id ignored_slug=c.area.name|slugify %}" style="{% if not declared %}color: red{% endif %}">{{ c.area.name }}</a>{% if declared %}<del>{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

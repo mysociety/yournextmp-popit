@@ -1,4 +1,4 @@
-from candidates.models import invalidate_cache_entries_from_person_data
+from candidates.models import PopItPerson
 from candidates.popit import PopItApiMixin, popit_unwrap_pagination
 
 from django.core.management.base import BaseCommand
@@ -21,4 +21,5 @@ class Command(PopItApiMixin, BaseCommand):
             # membership.organization embed, so invalidate the cache
             # entries for any person who's a member of this party:
             for membership in o.get('memberships', []):
-                invalidate_cache_entries_from_person_data(membership['person_id'])
+                person = PopItPerson.create_from_dict(membership['person_id'])
+                person.invalidate_cache_entries()

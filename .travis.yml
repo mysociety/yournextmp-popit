@@ -24,7 +24,7 @@ install:
     conf/general.yml-example > conf/general.yml
 
 script:
-  - ./manage.py test
+  - coverage run --source=candidates,cached_counts,tasks,moderation_queue,official_documents,results --branch ./manage.py test
 
 after_success:
   - coveralls

@@ -1,10 +1,12 @@
 from django.test import TestCase
 
-from candidates.models import get_person_data_from_dict
+from candidates.models import PopItPerson
 
 # All these are essentially tests for get_person_data_from_dict
 
 class TestGetDataForPopIt(TestCase):
+
+    maxDiff = 1024
 
     def test_get_person_data_from_dict(self):
         form_data = {
@@ -27,18 +29,23 @@ class TestGetDataForPopIt(TestCase):
                 }
             ],
             'email': u'john@example.org',
-            'gender': None,
-            'honorific_prefix': None,
-            'honorific_suffix': None,
+            'gender': '',
+            'honorific_prefix': '',
+            'honorific_suffix': '',
+            'id': None,
             'links': [
                 {
                     'note': 'wikipedia', 'url': 'http://en.wikipedia.org/wiki/John_Doe'
                 }
             ],
+            'memberships': [],
             'name': u'John Doe',
+            'party_memberships': {},
+            'standing_in': {},
         }
+        p = PopItPerson.create_from_reduced_json(form_data)
         self.assertEqual(
-            get_person_data_from_dict(form_data),
+            p.popit_data,
             expected_result
         )
 
@@ -62,18 +69,23 @@ class TestGetDataForPopIt(TestCase):
                     'value': 'foobar'
                 }
             ],
-            'email': None,
-            'gender': None,
-            'honorific_prefix': None,
-            'honorific_suffix': None,
+            'email': '',
+            'gender': '',
+            'honorific_prefix': '',
+            'honorific_suffix': '',
+            'id': None,
             'links': [
                 {
                     'note': 'wikipedia', 'url': 'http://en.wikipedia.org/wiki/John_Doe'
                 }
             ],
+            'memberships': [],
             'name': u'John Doe',
+            'party_memberships': {},
+            'standing_in': {},
         }
+        p = PopItPerson.create_from_reduced_json(form_data)
         self.assertEqual(
-            get_person_data_from_dict(form_data),
+            p.popit_data,
             expected_result
         )

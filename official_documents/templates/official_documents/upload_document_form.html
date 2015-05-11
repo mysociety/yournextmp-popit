@@ -5,7 +5,7 @@
 
 {% block content %}
 <h2>Document relating to {{ constituency.name }}</h2>
-<form method=post enctype="multipart/form-data">
+<form id="document-upload-form" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
   <p><button type=submit class="button">Upload</button></p>

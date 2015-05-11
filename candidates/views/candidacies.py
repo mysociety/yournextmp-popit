@@ -4,14 +4,15 @@ from braces.views import LoginRequiredMixin
 
 from auth_helpers.views import user_in_group
 
+from candidates.models import get_area_from_post_id
+
 from .helpers import get_redirect_from_mapit_id
 from .mixins import CandidacyMixin
 from .version_data import get_client_ip, get_change_metadata
 from ..forms import CandidacyCreateForm, CandidacyDeleteForm
 from ..models import LoggedAction, TRUSTED_TO_LOCK_GROUP_NAME
+from ..popit import PopItApiMixin
 from ..static_data import MapItData
-from ..update import PersonParseMixin, PersonUpdateMixin
-
 
 def raise_if_locked(api, request, post_id):
     # If you're a user who's trusted to toggle the constituency lock,
@@ -24,7 +25,7 @@ def raise_if_locked(api, request, post_id):
         raise Exception("Attempt to edit a candidacy in a locked constituency")
 
 
-class CandidacyView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUpdateMixin, FormView):
+class CandidacyView(LoginRequiredMixin, CandidacyMixin, PopItApiMixin, FormView):
 
     form_class = CandidacyCreateForm
     template_name = 'candidates/candidacy-create.html'
@@ -46,7 +47,7 @@ class CandidacyView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, Person
         our_person, _ = self.get_person(form.cleaned_data['person_id'])
         previous_versions = our_person.pop('versions')
 
-        our_person['standing_in']['2015'] = self.get_area_from_post_id(
+        our_person['standing_in']['2015'] = get_area_from_post_id(
             mapit_area_id,
             mapit_url_key='mapit_url'
         )
@@ -64,7 +65,7 @@ class CandidacyView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, Person
         return context
 
 
-class CandidacyDeleteView(LoginRequiredMixin, CandidacyMixin, PersonParseMixin, PersonUpdateMixin, FormView):
+class CandidacyDeleteView(LoginRequiredMixin, CandidacyMixin, PopItApiMixin, FormView):
 
     form_class = CandidacyDeleteForm
     template_name = 'candidates/candidacy-delete.html'

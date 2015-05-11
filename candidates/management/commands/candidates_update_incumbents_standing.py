@@ -2,12 +2,13 @@ from candidates.popit import PopItApiMixin, popit_unwrap_pagination
 
 from django.core.management.base import BaseCommand
 
-from ...update import PersonParseMixin, PersonUpdateMixin
 from ...views import CandidacyMixin
 from ...models import (
-    election_date_2015, membership_covers_date,
-    invalidate_cache_entries_from_person_data
+    PopItPerson,
+    election_date_2015, membership_covers_date
 )
+
+from candidates.views.version_data import get_change_metadata
 
 def get_parlparse_id(person_data):
     parlparse_identifiers = [
@@ -24,7 +25,7 @@ def get_parlparse_id(person_data):
         return None
 
 
-class Command(PersonParseMixin, PersonUpdateMixin, CandidacyMixin, BaseCommand):
+class Command(CandidacyMixin, PopItApiMixin, BaseCommand):
 
     def existing_candidate_same_party(self, cons_id, party_id):
         cons = self.api.posts(cons_id).get(embed='membership.person')['result']
@@ -55,13 +56,13 @@ class Command(PersonParseMixin, PersonUpdateMixin, CandidacyMixin, BaseCommand):
                 print "We already have 2015 information for", person_popit_data['name']
                 continue
 
-            print "Considering person:", person_popit_data['name']
+            person = PopItPerson.create_from_dict(person_popit_data)
 
-            person_data, _ = self.get_person(person_popit_data['id'])
+            print "Considering person:", person.name
 
-            cons_id = person_data['standing_in']['2010']['post_id']
-            party_id = person_data['party_memberships']['2010']['id']
-            party_name = person_data['party_memberships']['2010']['name']
+            cons_id = person.standing_in['2010']['post_id']
+            party_id = person.party_memberships['2010']['id']
+            party_name = person.party_memberships['2010']['name']
             cons_url = 'https://yournextmp.com/constituency/{0}'.format(cons_id)
 
             # We're now considering marking the candidate as standing
@@ -77,25 +78,21 @@ class Command(PersonParseMixin, PersonUpdateMixin, CandidacyMixin, BaseCommand):
             # Now it should be safe to update the candidate and set
             # them as standing in 2015.
 
-            previous_versions = person_data.pop('versions')
+            person.standing_in['2015'] = person.standing_in['2010']
+            person.party_memberships['2015'] = person.party_memberships['2010']
 
-            person_data['standing_in']['2015'] = person_data['standing_in']['2010']
-            person_data['party_memberships']['2015'] = person_data['party_memberships']['2010']
-
-            change_metadata = self.get_change_metadata(
-                None,
-                "Assuming that incumbents we don't have definite information on yet are standing again",
+            person.record_version(
+                get_change_metadata(
+                    None,
+                    "Assuming that incumbents we don't have definite information on yet are standing again",
+                )
             )
-            self.update_person(
-                person_data,
-                change_metadata,
-                previous_versions,
-            )
-            invalidate_cache_entries_from_person_data(person_data)
+            person.save_to_popit(self.api)
+            person.invalidate_cache_entries()
 
             message = u"Marked an incumbent ({name} - {party}) as standing again in {cons_url}"
             print message.format(
-                name=person_data['name'],
+                name=person.name,
                 party=party_name,
                 cons_url=cons_url,
             ).encode('utf-8')

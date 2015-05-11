@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     'auth_helpers',
     'debug_toolbar',
     'official_documents',
+    'results',
 )
 
 SITE_ID = 1
@@ -139,6 +140,8 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 SOCIALACCOUNT_AUTO_SIGNUP = True
+if not conf.get('NEW_ACCOUNTS_ALLOWED', True):
+    ACCOUNT_ADAPTER = 'mysite.account_adapter.NoNewUsersAccountAdapter'
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -292,9 +295,7 @@ SOUTH_TESTS_MIGRATE = False
 NOSE_ARGS = [
     '--nocapture',
     '--with-doctest',
-    '--with-coverage',
     '--with-yanc',
-    '--cover-package=candidates,cached_counts,tasks,moderation_queue',
     # There are problems with OpenCV on Travis, so don't even try to
     # import moderation_queue/faces.py
     '--ignore-files=faces',
@@ -325,3 +326,7 @@ else:
 CACHES = {
     'default': cache
 }
+
+RESTRICT_RENAMES = conf.get('RESTRICT_RENAMES')
+
+EDITS_ALLOWED = conf.get('EDITS_ALLOWED', True)

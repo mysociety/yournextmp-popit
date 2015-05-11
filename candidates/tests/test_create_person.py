@@ -3,13 +3,13 @@ from django.test import TestCase
 
 from mock import patch, MagicMock
 
-from .fake_popit import (
-    FakePersonCollection, FakeOrganizationCollection, FakePostCollection
-)
+from .fake_popit import FakePersonCollection
 from .helpers import equal_call_args
-from ..views import PersonUpdateMixin, CandidacyMixin, PopItApiMixin
+from ..popit import PopItApiMixin
+from ..views import CandidacyMixin
+from ..models import PopItPerson
 
-class MinimalUpdateClass(PersonUpdateMixin, CandidacyMixin, PopItApiMixin):
+class MinimalUpdateClass(CandidacyMixin, PopItApiMixin):
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
@@ -25,8 +25,8 @@ EXPECTED_ARGS = {
     'birth_date': '1988-01-01',
     'email': u'jane@example.org',
     'gender': 'female',
-    'honorific_prefix': None,
-    'honorific_suffix': None,
+    'honorific_prefix': '',
+    'honorific_suffix': '',
     'id': '1',
     'identifiers': [
         {
@@ -93,7 +93,13 @@ EXPECTED_ARGS = {
                 'party_ppc_page_url': 'http://labour.example.org/tessajowell',
                 'birth_date': '1988-01-01',
                 'gender': 'female',
+                'honorific_prefix': '',
+                'honorific_suffix': '',
+                'image': None,
+                'linkedin_url': '',
                 'name': 'Jane Doe',
+                'other_names': [],
+                'proxy_image': None,
                 'wikipedia_url': '',
                 'party_memberships': {
                     '2015': {
@@ -142,43 +148,35 @@ NEW_PERSON_DATA = {
 }
 
 @patch.object(FakePersonCollection, 'post')
-@patch('candidates.popit.PopIt')
-def mock_create_person(mock_popit, mocked_post):
+def mock_create_person(mocked_post):
     mocked_post.return_value = {
         'result': {
-            'id': 'jane-doe'
+            'id': '1'
         }
     }
 
-    mock_popit.return_value.organizations = FakeOrganizationCollection
-    mock_popit.return_value.persons = FakePersonCollection
-    mock_popit.return_value.posts = FakePostCollection
+    mock_api = MagicMock()
+    mock_api.persons = FakePersonCollection
 
-    view = MinimalUpdateClass()
-
-    view.create_candidate_list_memberships = MagicMock()
-    view.create_party_memberships = MagicMock()
-
-
-
-    view.create_person(
-        NEW_PERSON_DATA,
+    person = PopItPerson.create_from_reduced_json(NEW_PERSON_DATA)
+    person.record_version(
         {
             'information_source': 'A change made for testing purposes',
             'username': 'tester',
             'version_id': '6054aa38b30b4418',
             'timestamp': '2014-09-28T14:02:44.567413',
-        },
+        }
     )
+    person.save_to_popit(mock_api)
 
-    return mocked_post, view
+    return mock_api, mocked_post, person
 
 
 class TestCreatePerson(TestCase):
 
     def test_create_jane_doe(self):
 
-        (mocked_post, view) = mock_create_person()
+        mock_api, mocked_post, person = mock_create_person()
         # Then we expect one post, with the right data:
         self.assertEqual(1, len(mocked_post.call_args_list))
         self.assertTrue(
@@ -188,12 +186,5 @@ class TestCreatePerson(TestCase):
             ),
             "update_person was called with unexpected values"
         )
-
-        view.create_candidate_list_memberships.assert_called_once_with(
-            'jane-doe',
-            NEW_PERSON_DATA,
-        )
-        view.create_party_memberships.assert_called_once_with(
-            'jane-doe',
-            NEW_PERSON_DATA
-        )
+        self.assertEqual(1, mocked_post.call_count)
+        self.assertFalse(mock_api.called)

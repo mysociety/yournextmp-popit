@@ -21,10 +21,10 @@ from django.conf import settings
 
 import requests
 
-from candidates.models import invalidate_cache_entries_from_person_data
-from candidates.update import PersonParseMixin, PersonUpdateMixin
+from candidates.models import PopItPerson
 from candidates.static_data import MapItData
 from candidates.views.version_data import get_change_metadata
+from candidates.popit import PopItApiMixin
 
 from ..images import image_uploaded_already, get_file_md5sum
 
@@ -166,7 +166,7 @@ def key_value_appeared_in_previous_version(key, value, versions):
         return False
 
 
-class Command(PersonParseMixin, PersonUpdateMixin, BaseCommand):
+class Command(PopItApiMixin, BaseCommand):
     help = "Import scraped PPC data"
 
     option_list = BaseCommand.option_list + (
@@ -268,34 +268,34 @@ class Command(PersonParseMixin, PersonUpdateMixin, BaseCommand):
             for warning in warnings:
                 print "  ...", warning.encode('utf-8')
         merged_person_data = merge_person_data(person_data, new_person_data)
-        change_metadata = self.get_change_metadata(
+        change_metadata = get_change_metadata(
             None,
             'Updated candidate from official PPC data ({0})'.format(ppc_data['party_slug']),
         )
-        person_id = self.update_person(
-            merged_person_data,
-            change_metadata,
-            previous_versions,
-        )
+        person = PopItPerson.create_from_reduced_json(merged_person_data)
+        person.record_version(change_metadata)
+        person_id = person.save_to_popit(self.api)
         if image_filename:
             if image_uploaded_already(self.api.persons, person_id, image_filename):
                 print "That image has already been uploaded!"
             else:
                 print "Uploading image..."
                 self.upload_person_image(person_id, image_filename, ppc_data['image_url'])
-        invalidate_cache_entries_from_person_data(merged_person_data)
+        person.invalidate_cache_entries()
         return person_id
 
     def add_popit_person(self, ppc_data, image_filename):
-        change_metadata = self.get_change_metadata(
+        change_metadata = get_change_metadata(
             None,
             'Created new candidate from official PPC data ({0})'.format(ppc_data['party_slug']),
         )
         person_data = self.get_person_data_from_ppc(ppc_data)
-        person_id = self.create_person(person_data, change_metadata)
+        person = PopItPerson.create_from_reduced_json(person_data)
+        person.record_version(change_metadata)
+        person_id = person.save_to_popit(self.api)
         if image_filename:
             self.upload_person_image(person_id, image_filename, ppc_data['image_url'])
-        invalidate_cache_entries_from_person_data(person_data)
+        person.invalidate_cache_entries()
         return person_id
 
     def already_added_for_2015(self, ppc_data, popit_result):

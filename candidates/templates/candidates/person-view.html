@@ -6,8 +6,9 @@
 {% load metadescription %}
 
 {% block extra_head %}
-    <link rel="canonical" href="{{ canonical_url }}" />
+  <link rel="canonical" href="{{ canonical_url }}" />
 
+  {% with last_cons=person.last_cons %}
     <!-- Open Graph data -->
     <meta property="og:title" content="{{ person.name }}{% if last_cons %} - Candidate (PPC) for {{ last_cons.1.name }} in {{ last_cons.0 }}{% endif %}" />
     <meta property="og:type" content="article" />
@@ -40,12 +41,16 @@
     <meta property="twitter:image:height" content="160" />
     <meta name="twitter:url" content="{{ canonical_url }}" />
     <meta name="twitter:description" content="{% metadescription person last_cons DATE_TODAY DATE_ELECTION %}" />
+  {% endwith %}
 {% endblock %}
-
 
 {% block body_class %}person{% endblock %}
 
-{% block title %}{{ person.name }} {% if last_cons %} - Candidate (PPC) for {{ last_cons.1.name }} in {{ last_cons.0 }}{% endif %}{% endblock %}
+{% block title %}{{ person.name }}
+  {% if person.last_cons %}
+    - Candidate (PPC) for {{ person.last_cons.1.name }} in {{ person.last_cons.0 }}
+  {% endif %}
+{% endblock %}
 
 {% block hero %}
 <div class="person__hero">
@@ -57,13 +62,26 @@
     <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
   {% endif %}
   <h1>{{ person.name }}</h1>
-  {% if last_cons %}
-    <p>Candidate for <a href="{% url 'constituency' last_cons.1.post_id last_cons.1.name|slugify %}">{{ last_cons.1.name }}</a> in {{ last_cons.0 }}</p>
-  {% endif %}
+    {% if person.last_cons %}
+      <p>Candidate for
+        <a href="{% url 'constituency' person.last_cons.1.post_id person.last_cons.1.name|slugify %}">{{ person.last_cons.1.name }}</a>
+        in {{ person.last_cons.0 }}
+      </p>
+    {% endif %}
 </div>
 {% endblock %}
 
 {% block content %}
+
+{% if person|election_decision_known:"2015" %}
+  <div class="person__details__result">
+  {% if person|was_elected:"2015" %}
+    <h3>{{ person.name }} was elected</h3>
+  {% else %}
+    <h3>{{ person.name }} was not elected</h3>
+  {% endif %}
+  </div>
+{% endif %}
 
 <div class="person__details">
     {% if not person.email %}
@@ -75,7 +93,7 @@
 
   <dl>
     <dt>Name</dt>
-    <dd>{{ name_with_honorifics }}</dd>
+    <dd>{{ person.name_with_honorifics }}</dd>
     {% if person.other_names %}
       <dt>Also known as</dt>
     {% endif %}
@@ -128,12 +146,12 @@
     <dt>Gender</dt>
     <dd>{% if person.gender %}{{ person.gender|title }}{% else %}Unknown{% endif %}</dd>
     <dt>Age</dt>
-    {% with dob=person.date_of_birth %}
+    {% with dob=person.birth_date %}
       {% if dob %}
         {% if dob|length_is:"4" %}
           <dd>{{ person.age }}<small class="dob">(Year of birth: {{ dob }})</small>
         {% else %}
-          <dd>{{ person.age }}<small class="dob">(Date of birth: {{ dob|date:"jS F Y" }})</small>
+          <dd>{{ person.age }}<small class="dob">(Date of birth: {{ person.dob_as_date|date:"jS F Y" }})</small>
         {% endif %}
       {% else %}
         <dd>Unknown
@@ -160,12 +178,16 @@
 
   <div class="person__actions__action person__actions__edit">
     <h2>Improve this data!</h2>
-    <p>Our database is built by people like you.</p>
-    <p>Please do add extra details about this candidate – it only takes a moment.</p>
-    {% if user.is_authenticated %}
-      <a href="{% url 'person-update' person_id=person.id %}" class="button">Edit candidate</a>
+    {% if user_can_edit %}
+      <p>Our database is built by people like you.</p>
+      <p>Please do add extra details about this candidate – it only takes a moment.</p>
+      {% if user.is_authenticated %}
+        <a href="{% url 'person-update' person_id=person.id %}" class="button">Edit candidate</a>
+      {% else %}
+        <a href="{% url 'account_login' %}?next={{ redirect_after_login }}" class="button">Log in to edit</a>
+      {% endif %}
     {% else %}
-      <a href="{% url 'account_login' %}?next={{ redirect_after_login }}" class="button">Log in to edit</a>
+      {% include 'candidates/_edits_disallowed_message.html' %}
     {% endif %}
   </div>
 

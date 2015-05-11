@@ -7,7 +7,6 @@ from django_webtest import WebTest
 from .auth import TestUserMixin
 from .helpers import equal_call_args
 from .fake_popit import (
-    get_example_popit_json,
     FakeOrganizationCollection, FakePersonCollection, FakePostCollection
 )
 from ..models import LoggedAction
@@ -24,10 +23,12 @@ class TestNewPersonView(TestUserMixin, WebTest):
 
     @patch('candidates.views.version_data.get_current_timestamp')
     @patch('candidates.views.version_data.create_version_id')
-    @patch('candidates.views.people.NewPersonView.create_person')
+    @patch('candidates.models.popit.PopItPerson.create_new_person_in_popit')
+    @patch('candidates.models.popit.PopItPerson.update_person_in_popit')
     def test_new_person_submission_refused_copyright(
             self,
-            mock_create_person,
+            mock_update_person_in_popit,
+            mock_create_new_person_in_popit,
             mock_create_version_id,
             mock_get_current_timestamp,
             mock_popit):
@@ -48,13 +49,17 @@ class TestNewPersonView(TestUserMixin, WebTest):
             'next=/constituency/65808/dulwich-and-west-norwood',
             split_location.query
         )
+        self.assertFalse(mock_create_new_person_in_popit.called)
+        self.assertFalse(mock_update_person_in_popit.called)
 
     @patch('candidates.views.version_data.get_current_timestamp')
     @patch('candidates.views.version_data.create_version_id')
-    @patch('candidates.views.people.NewPersonView.create_person')
+    @patch('candidates.models.popit.PopItPerson.update_person_in_popit')
+    @patch.object(FakePersonCollection, 'post')
     def test_new_person_submission(
             self,
-            mock_create_person,
+            mock_person_post,
+            mock_update_person_in_popit,
             mock_create_version_id,
             mock_get_current_timestamp,
             mock_popit):
@@ -82,65 +87,104 @@ class TestNewPersonView(TestUserMixin, WebTest):
             'wikipedia_url': 'http://en.wikipedia.org/wiki/Jane_Doe',
         }
         fill_form(form, form_dict)
+        mock_person_post.return_value = {
+            'result': {
+                'id': '1'
+            }
+        }
         submission_response = form.submit()
+
         # If there's no source specified, it shouldn't ever get to
         # update_person, and redirect back to the constituency page:
-        self.assertEqual(0, mock_create_person.call_count)
-
-        mock_create_person.return_value = '12345'
+        self.assertFalse(mock_update_person_in_popit.called)
 
         # Try again with the source field filled in:
         form['source'] = 'A test new person, source: http://example.org'
         submission_response = form.submit()
 
-        expected_call_args = (
-            {
-                'birth_date': None,
-                'email': u'jane@example.com',
-                'facebook_page_url': '',
-                'facebook_personal_url': '',
-                'gender': '',
-                'homepage_url': u'',
-                'honorific_prefix': '',
-                'honorific_suffix': '',
-                'linkedin_url': u'',
-                'name': u'Jane Doe',
-                'party_memberships': {
-                    '2015': {
-                        'name': u'Official Monster Raving Loony Party',
-                        'id': 'party:66'
-                    }
-                },
-                'party_ppc_page_url': '',
-                'standing_in': {
-                    '2015': {
-                        'name': u'Dulwich and West Norwood',
-                        'mapit_url': 'http://mapit.mysociety.org/area/65808',
-                        'post_id': '65808'
-                    }
-                },
-                'twitter_username': u'',
-                'wikipedia_url': u'http://en.wikipedia.org/wiki/Jane_Doe',
-            },
-            {
-                'information_source': u'A test new person, source: http://example.org',
-                'timestamp': example_timestamp,
-                'username': u'john',
-                'version_id': example_version_id,
+        expected_call_args = ({
+            "birth_date": None,
+            "contact_details": [],
+            "email": "jane@example.com",
+            "gender": "",
+            "honorific_prefix": "",
+            "honorific_suffix": "",
+            "id": "1",
+            "links": [
+               {
+                    "note": "wikipedia",
+                    "url": "http://en.wikipedia.org/wiki/Jane_Doe"
+               }
+            ],
+            "name": "Jane Doe",
+            "party_memberships": {
+                "2015": {
+                    "id": "party:66",
+                    "name": "Official Monster Raving Loony Party"
             }
-        )
+            },
+            "standing_in": {
+                "2015": {
+                    "mapit_url": "http://mapit.mysociety.org/area/65808",
+                    "name": "Dulwich and West Norwood",
+                    "post_id": "65808"
+                }
+            },
+            "versions": [
+                {
+                    "data": {
+                        "birth_date": None,
+                        "email": "jane@example.com",
+                        "facebook_page_url": "",
+                        "facebook_personal_url": "",
+                        "gender": "",
+                        "homepage_url": "",
+                        "honorific_prefix": "",
+                        "honorific_suffix": "",
+                        "id": "1",
+                        "identifiers": [],
+                        "image": None,
+                        "linkedin_url": "",
+                        "name": "Jane Doe",
+                        "other_names": [],
+                        "party_memberships": {
+                            "2015": {
+                                "id": "party:66",
+                                "name": "Official Monster Raving Loony Party"
+                            }
+                        },
+                        "party_ppc_page_url": "",
+                        "proxy_image": None,
+                        "standing_in": {
+                            "2015": {
+                                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                                "name": "Dulwich and West Norwood",
+                                "post_id": "65808"
+                            }
+                        },
+                        "twitter_username": "",
+                        "wikipedia_url": "http://en.wikipedia.org/wiki/Jane_Doe"
+                    },
+                    "information_source": "A test new person, source: http://example.org",
+                    "timestamp": "2014-09-29T10:11:59.216159",
+                    "username": "john",
+                    "version_id": "5aa6418325c1a0bb"
+                }
+            ]
+        },)
 
+        self.assertEqual(mock_person_post.call_count, 1)
         self.assertTrue(
             equal_call_args(
                 expected_call_args,
-                mock_create_person.call_args[0]
+                mock_person_post.call_args_list[0][0]
             ),
             "create_person was called with unexpected values"
         )
 
         split_location = urlsplit(submission_response.location)
         self.assertEqual(
-            '/person/12345',
+            '/person/1',
             split_location.path
         )
 
@@ -149,7 +193,7 @@ class TestNewPersonView(TestUserMixin, WebTest):
         last_logged_action = LoggedAction.objects.all().order_by('-created')[0]
         self.assertEqual(
             last_logged_action.popit_person_id,
-            '12345',
+            '1',
         )
         self.assertEqual(
             last_logged_action.popit_person_new_version,

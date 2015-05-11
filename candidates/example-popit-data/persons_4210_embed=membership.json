@@ -1,0 +1,326 @@
+{
+  "result": {
+    "birth_date": null,
+    "email": "andrea@andreajenkyns.co.uk",
+    "gender": "female",
+    "html_url": "https://yournextmp.popit.mysociety.org/persons/4210",
+    "id": "4210",
+    "image": "http://yournextmp.popit.mysociety.org/persons/4210/image/5481e751b150e238702c0510",
+    "name": "Andrea Jenkyns",
+    "party_memberships": {
+      "2015": {
+        "id": "party:52",
+        "name": "Conservative Party"
+      }
+    },
+    "proxy_image": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4210%2Fimage%2F5481e751b150e238702c0510",
+    "standing_in": {
+      "2015": {
+        "mapit_url": "http://mapit.mysociety.org/area/65735",
+        "name": "Morley and Outwood",
+        "post_id": "65735"
+      }
+    },
+    "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/4210",
+    "versions": [
+      {
+        "version_id": "152577f18fbd1654",
+        "username": "edent",
+        "timestamp": "2015-02-08T21:37:44.707549",
+        "information_source": "Gender based on name/photo",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "andreajenkyns",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4210%2Fimage%2F5481e751b150e238702c0510",
+          "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+          "party_memberships": {
+            "2015": {
+              "name": "Conservative Party",
+              "id": "party:52"
+            }
+          },
+          "other_names": [],
+          "name": "Andrea Jenkyns",
+          "linkedin_url": "",
+          "image": "http://yournextmp.popit.mysociety.org/persons/4210/image/5481e751b150e238702c0510",
+          "identifiers": [],
+          "id": "4210",
+          "homepage_url": "http://www.andreajenkyns.co.uk/",
+          "gender": "female",
+          "facebook_personal_url": "https://www.facebook.com/Andrea4morley",
+          "facebook_page_url": "",
+          "email": "andrea@andreajenkyns.co.uk",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "14286a494d1cb2f1",
+        "username": "andylolz",
+        "timestamp": "2015-02-08T19:34:05.673089",
+        "information_source": "Added twitter handle",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "andreajenkyns",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4210%2Fimage%2F5481e751b150e238702c0510",
+          "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+          "party_memberships": {
+            "2015": {
+              "name": "Conservative Party",
+              "id": "party:52"
+            }
+          },
+          "other_names": [],
+          "name": "Andrea Jenkyns",
+          "linkedin_url": "",
+          "image": "http://yournextmp.popit.mysociety.org/persons/4210/image/5481e751b150e238702c0510",
+          "identifiers": [],
+          "id": "4210",
+          "homepage_url": "",
+          "gender": "",
+          "facebook_personal_url": "https://www.facebook.com/Andrea4morley",
+          "facebook_page_url": "",
+          "email": "andrea@andreajenkyns.co.uk",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "6d02dc9bd33b6816",
+        "timestamp": "2015-01-31T18:06:26.457663",
+        "information_source": "Updated candidate from official PPC data (conservatives)",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4210%2Fimage%2F5481e751b150e238702c0510",
+          "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+          "party_memberships": {
+            "2015": {
+              "name": "Conservative Party",
+              "id": "party:52"
+            }
+          },
+          "other_names": [],
+          "name": "Andrea Jenkyns",
+          "image": "http://yournextmp.popit.mysociety.org/persons/4210/image/5481e751b150e238702c0510",
+          "identifiers": [],
+          "id": "4210",
+          "homepage_url": "",
+          "gender": null,
+          "facebook_personal_url": "https://www.facebook.com/Andrea4morley",
+          "facebook_page_url": "",
+          "email": "andrea@andreajenkyns.co.uk",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "560fb37d66f93cb6",
+        "timestamp": "2014-12-11T12:06:30.695521",
+        "information_source": "Updated candidate from official PPC data (conservatives)",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+          "party_memberships": {
+            "2015": {
+              "name": "Conservative Party",
+              "id": "party:52"
+            }
+          },
+          "name": "Andrea Jenkyns",
+          "image": "http://yournextmp.popit.mysociety.org/persons/4210/image/5481e751b150e238702c0510",
+          "id": "4210",
+          "homepage_url": "",
+          "gender": null,
+          "facebook_personal_url": "https://www.facebook.com/Andrea4morley",
+          "facebook_page_url": "",
+          "email": "andrea@andreajenkyns.co.uk",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "42d91309ecca0f01",
+        "timestamp": "2014-12-05T17:11:44.109364",
+        "information_source": "Updated candidate from official PPC data (conservatives)",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+          "party_memberships": {
+            "2015": {
+              "name": "Conservative Party",
+              "id": "party:52"
+            }
+          },
+          "name": "Andrea Jenkyns",
+          "image": null,
+          "id": "4210",
+          "homepage_url": "",
+          "gender": "",
+          "facebook_personal_url": "https://www.facebook.com/Andrea4morley",
+          "facebook_page_url": "",
+          "email": "andrea@andreajenkyns.co.uk",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "3e923f7b6efe2333",
+        "timestamp": "2014-11-23T09:46:34.030305",
+        "information_source": "Updated candidate from official PPC data (conservatives)",
+        "data": {
+          "wikipedia_url": "",
+          "twitter_username": "",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+          "party_memberships": {
+            "2015": {
+              "name": "Conservative Party",
+              "id": "party:52"
+            }
+          },
+          "name": "Andrea Jenkyns",
+          "id": "4210",
+          "homepage_url": "",
+          "gender": "",
+          "facebook_personal_url": "https://www.facebook.com/Andrea4morley",
+          "facebook_page_url": "",
+          "email": "andrea@andreajenkyns.co.uk",
+          "birth_date": null
+        }
+      },
+      {
+        "version_id": "7d3a0ca5bb1a6382",
+        "timestamp": "2014-11-22T08:54:52.856315",
+        "information_source": "Created new candidate from official PPC data (conservatives)",
+        "data": {
+          "twitter_username": "",
+          "standing_in": {
+            "2015": {
+              "post_id": "65735",
+              "name": "Morley and Outwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65735"
+            }
+          },
+          "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+          "party_memberships": {
+            "2015": {
+              "name": "Conservative Party",
+              "id": "party:52"
+            }
+          },
+          "name": "Andrea Jenkyns",
+          "id": "4210",
+          "homepage_url": "",
+          "facebook_personal_url": "https://www.facebook.com/Andrea4morley",
+          "email": "andrea@andreajenkyns.co.uk",
+          "birth_date": null
+        }
+      }
+    ],
+    "images": [
+      {
+        "created": null,
+        "mime_type": "image/png",
+        "notes": "Scraped from the official party PPC page",
+        "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4210%2Fimage%2F5481e751b150e238702c0510",
+        "source": "Via the official party PPC page, based on https://www.conservatives.com/~/media/Images/Site Redesign/Profile Pictures/Target Seats/ANDREAJENKYNSMORLEYOUTWOOD.ashx",
+        "url": "http://yournextmp.popit.mysociety.org/persons/4210/image/5481e751b150e238702c0510",
+        "md5sum": "3294e7f703e95464598d28e81fbd1676",
+        "moderator_why_allowed": "profile-photo",
+        "id": "5481e751b150e238702c0510"
+      }
+    ],
+    "memberships": [
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/54d7d72b545e72c70ba1d253",
+        "start_date": "2010-05-07",
+        "person_id": "4210",
+        "organization_id": "party:52",
+        "id": "54d7d72b545e72c70ba1d253",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/54d7d72b545e72c70ba1d253",
+        "end_date": "9999-12-31"
+      },
+      {
+        "contact_details": [],
+        "links": [],
+        "images": [],
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/54d7d72b545e72c70ba1d254",
+        "start_date": "2010-05-07",
+        "role": "Candidate",
+        "post_id": "65735",
+        "person_id": "4210",
+        "id": "54d7d72b545e72c70ba1d254",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/54d7d72b545e72c70ba1d254",
+        "end_date": "9999-12-31"
+      }
+    ],
+    "links": [
+      {
+        "note": "party PPC page",
+        "url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Jenkyns_Andrea.aspx",
+        "id": "552f7fbaed1c6ee164eea765"
+      },
+      {
+        "note": "facebook personal",
+        "url": "https://www.facebook.com/Andrea4morley",
+        "id": "552f7fbaed1c6ee164eea764"
+      },
+      {
+        "note": "homepage",
+        "url": "http://www.andreajenkyns.co.uk/",
+        "id": "552f7fbaed1c6ee164eea763"
+      }
+    ],
+    "contact_details": [
+      {
+        "type": "twitter",
+        "value": "andreajenkyns",
+        "id": "552f7fbaed1c6ee164eea762"
+      }
+    ],
+    "identifiers": [],
+    "other_names": []
+  }
+}

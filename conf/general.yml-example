@@ -74,3 +74,15 @@ NGINX_SSL: false
 # a default location is used (a 'media' directory in the top level of
 # the repository).
 MEDIA_ROOT: null
+
+# If this is true, you have to be in the 'Trusted to Rename' group in
+# order to change the name of a candidate:
+RESTRICT_RENAMES: false
+
+# If this is set to false, then no new accounts may be created - you
+# might want this past a certain point in the election to reduce
+# opportunities for "drive-by" malicious edits.
+NEW_ACCOUNTS_ALLOWED: true
+
+# If this is set to false, then no edits of people are allowed.
+EDITS_ALLOWED: true

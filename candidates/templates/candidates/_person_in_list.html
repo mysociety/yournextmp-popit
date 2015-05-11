@@ -11,7 +11,7 @@
   <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
 {% endif %}
 <div class="person-name-and-party">
-  <a href="{% url 'person-view' c.id c.name|slugify %}">{{ c.name }}</a>
+  <a href="{% url 'person-view' c.id c.name|slugify %}" class="candidate-name">{{ c.name }}</a>
   {% if year == '2015' %}
     <span class="party">{{c.parties.2015.name }}</span>
   {% elif year == '2010' %}

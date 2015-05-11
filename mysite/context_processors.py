@@ -6,6 +6,7 @@ from candidates.models import (
     TRUSTED_TO_MERGE_GROUP_NAME,
     TRUSTED_TO_LOCK_GROUP_NAME,
     TRUSTED_TO_RENAME_GROUP_NAME,
+    RESULT_RECORDERS_GROUP_NAME,
 )
 from moderation_queue.models import QueuedImage, PHOTO_REVIEWERS_GROUP_NAME
 from official_documents.models import DOCUMENT_UPLOADERS_GROUP_NAME
@@ -15,6 +16,7 @@ SETTINGS_TO_ADD = (
     'SOURCE_HINTS',
     'MEDIA_URL',
     'SUPPORT_EMAIL',
+    'EDITS_ALLOWED',
 )
 
 
@@ -50,7 +52,7 @@ def add_notification_data(request):
 def add_group_permissions(request):
     """Add user_can_merge and user_can_review_photos"""
 
-    return {
+    result = {
         context_variable: user_in_group(request.user, group_name)
         for context_variable, group_name in (
             ('user_can_upload_documents', DOCUMENT_UPLOADERS_GROUP_NAME),
@@ -58,5 +60,8 @@ def add_group_permissions(request):
             ('user_can_review_photos', PHOTO_REVIEWERS_GROUP_NAME),
             ('user_can_lock', TRUSTED_TO_LOCK_GROUP_NAME),
             ('user_can_rename', TRUSTED_TO_RENAME_GROUP_NAME),
+            ('user_can_record_results', RESULT_RECORDERS_GROUP_NAME),
         )
     }
+    result['user_can_edit'] = settings.EDITS_ALLOWED or request.user.is_staff
+    return result

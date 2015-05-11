@@ -7,10 +7,14 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponseRedirect
+from django.http import HttpResponseForbidden
 from django.shortcuts import render
 from django.utils.http import urlquote
 
-from candidates.update import NameChangeDisallowedException
+from candidates.models.auth import (
+    NameChangeDisallowedException,
+    ChangeToLockedConstituencyDisallowedException
+)
 
 
 class PopItDownMiddleware(object):
@@ -50,6 +54,8 @@ If this update is appropriate, someone should apply it manually.
             # And redirect to a page explaining to the user what has happened
             disallowed_explanation_url = reverse('update-disallowed')
             return HttpResponseRedirect(disallowed_explanation_url)
+        elif isinstance(exc, ChangeToLockedConstituencyDisallowedException):
+            return HttpResponseForbidden()
 
 
 class CopyrightAssignmentMiddleware(object):

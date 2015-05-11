@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from candidates.views.diffs import get_version_diffs
+from candidates.diffs import get_version_diffs
 
 class TestVersionDiffs(TestCase):
 

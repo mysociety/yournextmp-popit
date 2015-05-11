@@ -1,6 +1,6 @@
 from datetime import datetime
 import os
-from os.path import join, splitext, exists
+from os.path import join
 import re
 import json
 from shutil import move
@@ -18,7 +18,7 @@ import requests
 from slumber.exceptions import HttpServerError
 import dateutil.parser
 
-from candidates.models import invalidate_cache_entries_from_person_data
+from candidates.models import PopItPerson
 from candidates.popit import create_popit_api_object
 
 from ..images import get_file_md5sum, image_uploaded_already
@@ -145,9 +145,8 @@ class Command(BaseCommand):
                 for membership in organization_with_memberships.get(
                         'memberships', []
                 ):
-                    invalidate_cache_entries_from_person_data(
-                        membership['person_id']
-                    )
+                    person = PopItPerson.create_from_dict(membership['person_id'])
+                    person.invalidate_cache_entries()
 
     def clean_date(self, date):
         timestamp = re.match(

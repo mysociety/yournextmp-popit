@@ -1,8 +1,7 @@
 import sys
 
-from candidates.models import invalidate_cache_entries_from_person_data
+from candidates.models import PopItPerson
 from candidates.popit import PopItApiMixin, popit_unwrap_pagination
-from candidates.update import fix_dates
 
 from django.core.management.base import BaseCommand
 
@@ -19,15 +18,15 @@ def strip_bogus_fields(data, bogus_field_keys):
 class Command(PopItApiMixin, BaseCommand):
 
     def handle(self, **options):
-        for person in popit_unwrap_pagination(
+        for person_data in popit_unwrap_pagination(
                 self.api.persons,
                 embed='',
                 per_page=100
         ):
             msg = "Person {0}persons/{1}"
-            print msg.format(self.get_base_url(), person['id'])
+            print msg.format(self.get_base_url(), person_data['id'])
             strip_bogus_fields(
-                person,
+                person_data,
                 [
                     'founding_date',
                     'dissolution_date',
@@ -35,7 +34,7 @@ class Command(PopItApiMixin, BaseCommand):
                     'end_date'
                 ]
             )
-            for image in person.get('images', []):
+            for image in person_data.get('images', []):
                 strip_bogus_fields(
                     image,
                     [
@@ -47,9 +46,6 @@ class Command(PopItApiMixin, BaseCommand):
                         'end_date'
                     ]
                 )
-            try:
-                self.api.persons(person['id']).put(person)
-            except HttpClientError as e:
-                print "HttpClientError", e.content
-                sys.exit(1)
-            invalidate_cache_entries_from_person_data(person)
+            person = PopItPerson.create_from_dict(person_data)
+            person.save_to_popit(self.api)
+            person.invalidate_cache_entries()

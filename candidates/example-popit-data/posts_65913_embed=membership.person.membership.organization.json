@@ -5,6 +5,7 @@
       "identifier": "http://mapit.mysociety.org/area/65913",
       "id": "mapit:65913"
     },
+    "candidates_locked": true,
     "html_url": "http://candidates.127.0.0.1.xip.io:3000/posts/65913",
     "id": "65913",
     "label": "Member of Parliament for Camberwell and Peckham",

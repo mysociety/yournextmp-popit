@@ -21,6 +21,16 @@
         "post_id": "65808"
       }
     },
+    "party_memberships": {
+      "2010": {
+        "id": "party:53",
+        "name": "Labour Party"
+      },
+      "2015": {
+        "id": "party:53",
+        "name": "Labour Party"
+      }
+    },
     "versions": [
       {
         "username": "symroe",
@@ -49,14 +59,44 @@
           "wikipedia_url": "",
           "party_memberships": {
             "2010": {
-              "id": "544e3d6981b7fa64bfccce1f",
+              "id": "party:53",
               "name": "Labour Party"
             },
             "2015": {
+              "id": "party:53",
               "name": "Labour Party"
             }
           },
           "email": "jowell@example.com"
+        }
+      },
+      {
+        "username": "mark",
+        "information_source": "An initial version",
+        "ip": "127.0.0.1",
+        "version_id": "5469de7db0cbd155",
+        "timestamp": "2014-10-01T15:12:34.732426",
+        "data": {
+          "name": "Tessa Jowell",
+          "id": "2009",
+          "twitter_username": "",
+          "standing_in": {
+            "2010": {
+              "post_id": "65808",
+              "name": "Dulwich and West Norwood",
+              "mapit_url": "http://mapit.mysociety.org/area/65808"
+            }
+          },
+          "homepage_url": "",
+          "birth_date": null,
+          "wikipedia_url": "",
+          "party_memberships": {
+            "2010": {
+              "id": "party:53",
+              "name": "Labour Party"
+            }
+          },
+          "email": "tessa.jowell@example.com"
         }
       }
     ],
@@ -78,7 +118,7 @@
         "id": "544fa90544e64207e0caed16",
         "person_id": "2009",
         "organization_id": {
-          "id": "544e3d6981b7fa64bfccce1f",
+          "id": "party:53",
           "slug": "labour-party",
           "classification": "Party",
           "name": "Labour Party",
@@ -88,8 +128,8 @@
           "contact_details": [],
           "identifiers": [],
           "other_names": [],
-          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/544e3d6981b7fa64bfccce1f",
-          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/544e3d6981b7fa64bfccce1f"
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:53",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:53"
         },
         "start_date": "2005-05-06",
         "end_date": "2010-05-06",
@@ -102,7 +142,7 @@
         "id": "544fa90544e64207e0caed15",
         "person_id": "2009",
         "organization_id": {
-          "id": "544e3d6981b7fa64bfccce1f",
+          "id": "party:53",
           "slug": "labour-party",
           "classification": "Party",
           "name": "Labour Party",
@@ -112,8 +152,8 @@
           "contact_details": [],
           "identifiers": [],
           "other_names": [],
-          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/544e3d6981b7fa64bfccce1f",
-          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/544e3d6981b7fa64bfccce1f"
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:53",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:53"
         },
         "start_date": "2010-05-07",
         "end_date": "9999-12-31",

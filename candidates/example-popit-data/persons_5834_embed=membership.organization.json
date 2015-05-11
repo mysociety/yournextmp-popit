@@ -1,0 +1,599 @@
+{
+    "result": {
+        "birth_date": null,
+        "contact_details": [],
+        "email": "daviddewsukip@gmail.com",
+        "gender": "Male",
+        "honorific_prefix": null,
+        "honorific_suffix": null,
+        "html_url": "https://yournextmp.popit.mysociety.org/persons/5834",
+        "id": "5834",
+        "identifiers": [
+            {
+                "id": "552f809aed1c6ee164eeacdf",
+                "identifier": "19103",
+                "scheme": "yournextmp-candidate"
+            }
+        ],
+        "images": [],
+        "links": [],
+        "memberships": [
+            {
+                "contact_details": [],
+                "end_date": "9999-12-31",
+                "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036485a5728ea113633f0a",
+                "id": "55036485a5728ea113633f0a",
+                "images": [],
+                "links": [],
+                "organization_id": null,
+                "person_id": "5834",
+                "post_id": "65735",
+                "role": "Candidate",
+                "start_date": "2010-05-07",
+                "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036485a5728ea113633f0a"
+            },
+            {
+                "contact_details": [],
+                "end_date": "2010-05-06",
+                "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036485a5728ea113633f0b",
+                "id": "55036485a5728ea113633f0b",
+                "images": [],
+                "links": [],
+                "organization_id": null,
+                "person_id": "5834",
+                "post_id": "65637",
+                "role": "Candidate",
+                "start_date": "2005-05-06",
+                "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036485a5728ea113633f0b"
+            },
+            {
+                "contact_details": [],
+                "end_date": "9999-12-31",
+                "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036484a5728ea113633f08",
+                "id": "55036484a5728ea113633f08",
+                "images": [],
+                "links": [],
+                "organization_id": {
+                    "classification": "Party",
+                    "contact_details": [],
+                    "descriptions": [
+                        {
+                            "description": "UK Independence Party",
+                            "translation": "Plaid Annibyniaeth y DU"
+                        },
+                        {
+                            "description": "UK Independence Party Wales",
+                            "translation": "Plaid Annibyniaeth y DU Cymru"
+                        },
+                        {
+                            "description": "UKIP",
+                            "translation": "UKIP"
+                        },
+                        {
+                            "description": "UKIP Wales",
+                            "translation": "UKIP Cymru"
+                        },
+                        {
+                            "description": "UK Independence Party (UK I P)",
+                            "translation": null
+                        },
+                        {
+                            "description": "UKIPScotland",
+                            "translation": null
+                        },
+                        {
+                            "description": "UK Independence Party Scotland",
+                            "translation": null
+                        },
+                        {
+                            "description": "Say no to European Union",
+                            "translation": null
+                        },
+                        {
+                            "description": "UKIP - Scrap HS2",
+                            "translation": null
+                        },
+                        {
+                            "description": "United Kingdom Independence Party",
+                            "translation": null
+                        },
+                        {
+                            "description": "Say no to Tax Rises",
+                            "translation": null
+                        }
+                    ],
+                    "dissolution_date": "9999-12-31",
+                    "founding_date": "1999-02-25",
+                    "html_url": "https://yournextmp.popit.mysociety.org/organizations/party%3A85",
+                    "id": "party:85",
+                    "identifiers": [
+                        {
+                            "id": "553cf806479735035755afc3",
+                            "identifier": "PP85",
+                            "scheme": "electoral-commission"
+                        }
+                    ],
+                    "image": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633195590a1020320414",
+                    "images": [
+                        {
+                            "birth_date": null,
+                            "created": null,
+                            "death_date": null,
+                            "dissolution_date": null,
+                            "end_date": null,
+                            "founding_date": null,
+                            "id": "551d0e59e411884ace31c47e",
+                            "local_path": "54/ce/54ce633195590a1020320414",
+                            "local_path_base": "54/ce/54ce633195590a1020320414",
+                            "md5sum": "eb638503b152874f68b80eee0871c2f4",
+                            "mime_type": "image/gif",
+                            "notes": "a pound sterling sign with the letters UKIP through the middle",
+                            "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633195590a1020320414",
+                            "source": "The Electoral Commission",
+                            "start_date": null,
+                            "url": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633195590a1020320414"
+                        },
+                        {
+                            "birth_date": null,
+                            "created": null,
+                            "death_date": null,
+                            "dissolution_date": null,
+                            "end_date": null,
+                            "founding_date": null,
+                            "id": "551d0e59e411884ace31c47f",
+                            "local_path": "54/ce/54ce633195590a1020320415",
+                            "local_path_base": "54/ce/54ce633195590a1020320415",
+                            "md5sum": "336773c51a9a48738823501ae2c3073d",
+                            "mime_type": "image/gif",
+                            "notes": "a pound sterling sign with the letters UKIP Scotland through the middle",
+                            "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633195590a1020320415",
+                            "source": "The Electoral Commission",
+                            "start_date": null,
+                            "url": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633195590a1020320415"
+                        },
+                        {
+                            "birth_date": null,
+                            "created": null,
+                            "death_date": null,
+                            "dissolution_date": null,
+                            "end_date": null,
+                            "founding_date": null,
+                            "id": "551d0e59e411884ace31c480",
+                            "local_path": "54/ce/54ce633295590a1020320416",
+                            "local_path_base": "54/ce/54ce633295590a1020320416",
+                            "md5sum": "e2bd8500b5e879003c291f3c2943377f",
+                            "mime_type": "image/gif",
+                            "notes": "Emblem 3",
+                            "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633295590a1020320416",
+                            "source": "The Electoral Commission",
+                            "start_date": null,
+                            "url": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633295590a1020320416"
+                        }
+                    ],
+                    "links": [],
+                    "memberships": [],
+                    "name": "UK Independence Party (UKIP)",
+                    "other_names": [],
+                    "posts": [],
+                    "proxy_image": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633195590a1020320414",
+                    "register": "Great Britain",
+                    "slug": "uk-independence-party-ukip",
+                    "url": "https://yournextmp.popit.mysociety.org/api/v0.1/organizations/party%3A85"
+                },
+                "person_id": "5834",
+                "start_date": "2010-05-07",
+                "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036484a5728ea113633f08"
+            },
+            {
+                "contact_details": [],
+                "end_date": "2010-05-06",
+                "html_url": "https://yournextmp.popit.mysociety.org/memberships/55036484a5728ea113633f09",
+                "id": "55036484a5728ea113633f09",
+                "images": [],
+                "links": [],
+                "organization_id": {
+                    "classification": "Party",
+                    "contact_details": [],
+                    "descriptions": [
+                        {
+                            "description": "UK Independence Party",
+                            "translation": "Plaid Annibyniaeth y DU"
+                        },
+                        {
+                            "description": "UK Independence Party Wales",
+                            "translation": "Plaid Annibyniaeth y DU Cymru"
+                        },
+                        {
+                            "description": "UKIP",
+                            "translation": "UKIP"
+                        },
+                        {
+                            "description": "UKIP Wales",
+                            "translation": "UKIP Cymru"
+                        },
+                        {
+                            "description": "UK Independence Party (UK I P)",
+                            "translation": null
+                        },
+                        {
+                            "description": "UKIPScotland",
+                            "translation": null
+                        },
+                        {
+                            "description": "UK Independence Party Scotland",
+                            "translation": null
+                        },
+                        {
+                            "description": "Say no to European Union",
+                            "translation": null
+                        },
+                        {
+                            "description": "UKIP - Scrap HS2",
+                            "translation": null
+                        },
+                        {
+                            "description": "United Kingdom Independence Party",
+                            "translation": null
+                        },
+                        {
+                            "description": "Say no to Tax Rises",
+                            "translation": null
+                        }
+                    ],
+                    "dissolution_date": "9999-12-31",
+                    "founding_date": "1999-02-25",
+                    "html_url": "https://yournextmp.popit.mysociety.org/organizations/party%3A85",
+                    "id": "party:85",
+                    "identifiers": [
+                        {
+                            "id": "553cf806479735035755afc3",
+                            "identifier": "PP85",
+                            "scheme": "electoral-commission"
+                        }
+                    ],
+                    "image": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633195590a1020320414",
+                    "images": [
+                        {
+                            "birth_date": null,
+                            "created": null,
+                            "death_date": null,
+                            "dissolution_date": null,
+                            "end_date": null,
+                            "founding_date": null,
+                            "id": "551d0e59e411884ace31c47e",
+                            "local_path": "54/ce/54ce633195590a1020320414",
+                            "local_path_base": "54/ce/54ce633195590a1020320414",
+                            "md5sum": "eb638503b152874f68b80eee0871c2f4",
+                            "mime_type": "image/gif",
+                            "notes": "a pound sterling sign with the letters UKIP through the middle",
+                            "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633195590a1020320414",
+                            "source": "The Electoral Commission",
+                            "start_date": null,
+                            "url": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633195590a1020320414"
+                        },
+                        {
+                            "birth_date": null,
+                            "created": null,
+                            "death_date": null,
+                            "dissolution_date": null,
+                            "end_date": null,
+                            "founding_date": null,
+                            "id": "551d0e59e411884ace31c47f",
+                            "local_path": "54/ce/54ce633195590a1020320415",
+                            "local_path_base": "54/ce/54ce633195590a1020320415",
+                            "md5sum": "336773c51a9a48738823501ae2c3073d",
+                            "mime_type": "image/gif",
+                            "notes": "a pound sterling sign with the letters UKIP Scotland through the middle",
+                            "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633195590a1020320415",
+                            "source": "The Electoral Commission",
+                            "start_date": null,
+                            "url": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633195590a1020320415"
+                        },
+                        {
+                            "birth_date": null,
+                            "created": null,
+                            "death_date": null,
+                            "dissolution_date": null,
+                            "end_date": null,
+                            "founding_date": null,
+                            "id": "551d0e59e411884ace31c480",
+                            "local_path": "54/ce/54ce633295590a1020320416",
+                            "local_path_base": "54/ce/54ce633295590a1020320416",
+                            "md5sum": "e2bd8500b5e879003c291f3c2943377f",
+                            "mime_type": "image/gif",
+                            "notes": "Emblem 3",
+                            "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633295590a1020320416",
+                            "source": "The Electoral Commission",
+                            "start_date": null,
+                            "url": "http://yournextmp.popit.mysociety.org/organizations/party:85/image/54ce633295590a1020320416"
+                        }
+                    ],
+                    "links": [],
+                    "memberships": [],
+                    "name": "UK Independence Party (UKIP)",
+                    "other_names": [],
+                    "posts": [],
+                    "proxy_image": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Forganizations%2Fparty%3A85%2Fimage%2F54ce633195590a1020320414",
+                    "register": "Great Britain",
+                    "slug": "uk-independence-party-ukip",
+                    "url": "https://yournextmp.popit.mysociety.org/api/v0.1/organizations/party%3A85"
+                },
+                "person_id": "5834",
+                "start_date": "2005-05-06",
+                "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/55036484a5728ea113633f09"
+            }
+        ],
+        "name": "David Dews",
+        "other_names": [],
+        "party_memberships": {
+            "2010": {
+                "id": "party:85",
+                "name": "UK Independence Party (UKIP)"
+            },
+            "2015": {
+                "id": "party:85",
+                "name": "UK Independence Party (UKIP)"
+            }
+        },
+        "standing_in": {
+            "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65637",
+                "name": "Pudsey",
+                "post_id": "65637"
+            },
+            "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65735",
+                "name": "Morley and Outwood",
+                "post_id": "65735"
+            }
+        },
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/5834",
+        "versions": [
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "daviddewsukip@gmail.com",
+                    "facebook_page_url": "",
+                    "facebook_personal_url": "",
+                    "gender": "Male",
+                    "homepage_url": "",
+                    "honorific_prefix": "",
+                    "honorific_suffix": "",
+                    "id": "5834",
+                    "identifiers": [
+                        {
+                            "id": "54d15699659d691020731697",
+                            "identifier": "19103",
+                            "scheme": "yournextmp-candidate"
+                        }
+                    ],
+                    "image": null,
+                    "linkedin_url": "",
+                    "name": "David Dews",
+                    "other_names": [],
+                    "party_memberships": {
+                        "2010": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        },
+                        "2015": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        }
+                    },
+                    "party_ppc_page_url": "",
+                    "proxy_image": null,
+                    "standing_in": {
+                        "2010": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65637",
+                            "name": "Pudsey",
+                            "post_id": "65637"
+                        },
+                        "2015": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65735",
+                            "name": "Morley and Outwood",
+                            "post_id": "65735"
+                        }
+                    },
+                    "twitter_username": "",
+                    "wikipedia_url": ""
+                },
+                "information_source": "Candidate contacted MeetYourNextMP on Fri, Mar 13, 2015 at 9:18 PM",
+                "timestamp": "2015-03-13T22:28:20.431840",
+                "username": "andylolz",
+                "version_id": "6c60b6f10f1a5519"
+            },
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "mj.da.dews@talktalk.net",
+                    "facebook_page_url": "",
+                    "facebook_personal_url": "",
+                    "gender": "Male",
+                    "homepage_url": "",
+                    "id": "5834",
+                    "identifiers": [
+                        {
+                            "id": "5477866d737edc5252ce592e",
+                            "identifier": "19103",
+                            "scheme": "yournextmp-candidate"
+                        }
+                    ],
+                    "image": null,
+                    "linkedin_url": "",
+                    "name": "David Dews",
+                    "other_names": [],
+                    "party_memberships": {
+                        "2010": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        },
+                        "2015": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        }
+                    },
+                    "party_ppc_page_url": "",
+                    "proxy_image": null,
+                    "standing_in": {
+                        "2010": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65637",
+                            "name": "Pudsey",
+                            "post_id": "65637"
+                        },
+                        "2015": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65735",
+                            "name": "Morley and Outwood",
+                            "post_id": "65735"
+                        }
+                    },
+                    "twitter_username": "",
+                    "wikipedia_url": ""
+                },
+                "information_source": "After merging person 1208",
+                "timestamp": "2015-02-03T23:15:36.318102",
+                "username": "tfgg",
+                "version_id": "5499f6c1bc740d1b"
+            },
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "",
+                    "facebook_page_url": "",
+                    "facebook_personal_url": "",
+                    "gender": "Male",
+                    "homepage_url": "",
+                    "id": "5834",
+                    "name": "David Dews",
+                    "party_memberships": {
+                        "2015": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        }
+                    },
+                    "party_ppc_page_url": "",
+                    "standing_in": {
+                        "2015": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65735",
+                            "name": "Morley and Outwood",
+                            "post_id": "65735"
+                        }
+                    },
+                    "twitter_username": "",
+                    "wikipedia_url": ""
+                },
+                "information_source": "http://ukipleeds.org.uk/page1.html",
+                "timestamp": "2015-01-29T15:05:50.575074",
+                "username": "JPCarrington",
+                "version_id": "581c20e2dc2a0072"
+            },
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "mj.da.dews@talktalk.net",
+                    "facebook_page_url": "",
+                    "facebook_personal_url": "",
+                    "gender": "male",
+                    "homepage_url": "",
+                    "id": "1208",
+                    "image": null,
+                    "name": "David Dews",
+                    "party_memberships": {
+                        "2010": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        }
+                    },
+                    "party_ppc_page_url": "",
+                    "standing_in": {
+                        "2010": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65637",
+                            "name": "Pudsey",
+                            "post_id": "65637"
+                        },
+                        "2015": null
+                    },
+                    "twitter_username": "",
+                    "wikipedia_url": ""
+                },
+                "information_source": "http://ukip-wlp.org.uk/campaigns/general-election-2015/pudsey/",
+                "timestamp": "2015-01-03T23:29:14.601363",
+                "username": "addedentry",
+                "version_id": "74539e0f42555b01"
+            },
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "mj.da.dews@talktalk.net",
+                    "facebook_page_url": "",
+                    "facebook_personal_url": "",
+                    "gender": "male",
+                    "homepage_url": "",
+                    "id": "1208",
+                    "image": null,
+                    "name": "David Dews",
+                    "party_memberships": {
+                        "2010": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        }
+                    },
+                    "party_ppc_page_url": "",
+                    "standing_in": {
+                        "2010": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65637",
+                            "name": "Pudsey",
+                            "post_id": "65637"
+                        },
+                        "2015": null
+                    },
+                    "twitter_username": "",
+                    "wikipedia_url": ""
+                },
+                "information_source": "http://ukip-wlp.org.uk/campaigns/general-election-2015/pudsey/",
+                "timestamp": "2015-01-03T23:29:11.141503",
+                "username": "addedentry",
+                "version_id": "46a22df544235d1c"
+            },
+            {
+                "data": {
+                    "birth_date": null,
+                    "email": "mj.da.dews@talktalk.net",
+                    "facebook_page_url": null,
+                    "facebook_personal_url": null,
+                    "gender": "male",
+                    "homepage_url": null,
+                    "id": "1208",
+                    "identifiers": [
+                        {
+                            "identifier": "19103",
+                            "scheme": "yournextmp-candidate"
+                        }
+                    ],
+                    "name": "David Dews",
+                    "party_memberships": {
+                        "2010": {
+                            "id": "party:85",
+                            "name": "UK Independence Party (UKIP)"
+                        }
+                    },
+                    "party_ppc_page_url": null,
+                    "phone": null,
+                    "slug": "david-dews",
+                    "standing_in": {
+                        "2010": {
+                            "mapit_url": "http://mapit.mysociety.org/area/65637",
+                            "name": "Pudsey",
+                            "post_id": "65637"
+                        }
+                    },
+                    "twitter_username": null,
+                    "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:13:04.548406",
+                "version_id": "3d814a392a8cf907"
+            }
+        ]
+    }
+}

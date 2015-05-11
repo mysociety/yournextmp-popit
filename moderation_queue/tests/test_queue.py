@@ -13,9 +13,8 @@ from mock import patch
 
 from ..models import QueuedImage, PHOTO_REVIEWERS_GROUP_NAME
 from candidates.models import LoggedAction
-from candidates.tests.fake_popit import (
-    FakePersonCollection, get_example_popit_json
-)
+from candidates.tests.fake_popit import FakePersonCollection
+
 TEST_MEDIA_ROOT=realpath(join(dirname(__file__), 'media'))
 
 class PhotoReviewTests(WebTest):
@@ -136,28 +135,22 @@ class PhotoReviewTests(WebTest):
 
     @patch('moderation_queue.views.send_mail')
     @patch('moderation_queue.views.requests.post')
-    @patch('moderation_queue.views.PhotoReview.get_person')
-    @patch('moderation_queue.views.PhotoReview.update_person')
-    @patch('candidates.models.invalidate_person')
-    @patch('candidates.models.invalidate_posts')
+    @patch('candidates.models.popit.invalidate_person')
+    @patch('candidates.models.popit.invalidate_posts')
+    @patch.object(FakePersonCollection, 'put')
     @patch('candidates.popit.PopIt')
     @override_settings(MEDIA_ROOT=TEST_MEDIA_ROOT)
     @override_settings(DEFAULT_FROM_EMAIL='admins@example.com')
     def test_photo_review_upload_approved_privileged(
             self,
             mock_popit,
+            mocked_person_put,
             mock_invalidate_posts,
             mock_invalidate_person,
-            mock_update_person,
-            mock_get_person,
             mock_requests_post,
             mock_send_mail
     ):
         mock_popit.return_value.persons = FakePersonCollection
-        mock_get_person.return_value = (
-            get_example_popit_json('persons_2009_ynmp.json'),
-            {'last_party': {'name': 'Labour Party'}}
-        )
         review_url = reverse(
             'photo-review',
             kwargs={'queued_image_id': self.q1.id}
@@ -170,13 +163,14 @@ class PhotoReviewTests(WebTest):
         form['decision'] = 'approved'
         form['moderator_why_allowed'] = 'profile-photo'
         response = form.submit(user=self.test_reviewer)
+        # FIXME: check that mocked_person_put got the right calls
         self.assertEqual(response.status_code, 302)
         split_location = urlsplit(response.location)
         self.assertEqual('/moderation/photo/review', split_location.path)
 
         mock_send_mail.assert_called_once_with(
             'YourNextMP image upload approved',
-            u"Thank-you for submitting a photo to YourNextMP; that's been\nuploaded now for the candidate page here:\n\n  http://localhost:80/person/2009\n\nMany thanks,\nThe YourNextMP volunteers\n",
+            u"Thank-you for submitting a photo to YourNextMP; that's been\nuploaded now for the candidate page here:\n\n  http://localhost:80/person/2009/tessa-jowell\n\nMany thanks,\nThe YourNextMP volunteers\n",
             'admins@example.com',
             [u'john@example.com'],
             fail_silently=False

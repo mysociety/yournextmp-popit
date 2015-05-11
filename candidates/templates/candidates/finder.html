@@ -122,6 +122,8 @@ it’s a waste of money.</p>
             locked a constituency
           {% elif action.action_type == 'constituency-unlock' %}
             unlocked a constituency
+          {% elif action.action_type == 'set-candidate-elected' %}
+            marked <a href="{% url 'person-view' person_id=action.popit_person_id %}">candidate #{{ action.popit_person_id }}</a> as the winner
           {% else %}
             updated <a href="{% url 'person-view' person_id=action.popit_person_id %}">candidate #{{ action.popit_person_id }}</a>
           {% endif %}

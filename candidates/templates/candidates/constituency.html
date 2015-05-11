@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load metadescription %}
+{% load standing %}
 {% load exists %}
 
 {% block extra_head %}
@@ -31,7 +32,7 @@
 {% block title %}Candidates (PPCs) for {{ constituency_name }} in the UK 2015 General Election{% endblock %}
 
 {% block hero %}
-  <h1>Candidates for {{ constituency_name }}</h1>
+  <h1>Candidates for <span id="constituency-name">{{ constituency_name }}</a></h1>
 {% endblock %}
 
 {% block content %}
@@ -74,6 +75,14 @@
     {% endif %}
   {% endif %}
 
+  {% if user_can_record_results and show_retract_result %}
+    <form action="{% url 'retract-winner' mapit_area_id=mapit_area_id %}" method="post">
+      {% csrf_token %}
+      <input type="submit" class="button candidates-list__actions__winner-mistake" value="Unset the current winner, if incorrect">
+    </form>
+
+  {% endif %}
+
   <div class="candidates__known">
 
     <h3>Known candidates for the 2015 general election</h3>
@@ -83,7 +92,11 @@
         <ul class="candidate-list">
       {% endif %}
 
-        <li class="candidates-list__person">
+        <li class="candidates-list__person{% if user_can_record_results %} hover-highlighting{% endif %}{% if c|was_elected:"2015" %} candidates-list__person__winner{% endif %}">
+          {% if c|was_elected:"2015" %}
+            <h4 class="candidates-list__person__elected-text">Winner</h4>
+          {% endif %}
+
           {% include 'candidates/_person_in_list.html' with year='2015' %}
           {% if user.is_authenticated %}
           <p>
@@ -95,6 +108,14 @@
           {% if candidate_list_edits_allowed %}
             {% include 'candidates/_source_confirmation.html' with standing='not-standing' action='candidacy-delete' %}
           {% endif %}
+          {% endif %}
+          {% if user_can_record_results and not c|election_decision_known:"2015" %}
+            <form class="winner-confirm" action="{% url 'record-winner' mapit_area_id=mapit_area_id %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="person_id" value="{{ c.id }}">
+              <input type="hidden" name="source" value="[Quick update from the constituency page]">
+              <input type="submit" class="button" value="This candidate won!">
+            </form>
           {% endif %}
         </li>
 
