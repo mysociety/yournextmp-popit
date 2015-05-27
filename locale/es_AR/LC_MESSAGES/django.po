@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-15 15:13-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mysite/templates/account/login.html:7
+#: mysite/templates/account/login.html:10
+#: mysite/templates/account/login.html:43
+msgid "Sign In"
+msgstr ""
+
+#: mysite/templates/account/login.html:16
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign "
+"up</a>\n"
+"for a %(site_name)s account and sign in below:"
+msgstr ""
+
+#: mysite/templates/account/login.html:26
+msgid "or"
+msgstr ""
+
+#: mysite/templates/account/login.html:33
+#, python-format
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+
+#: mysite/templates/account/login.html:44
+msgid "Forgot Password?"
+msgstr ""
+
+#: mysite/templates/account/logout.html:6
+#: mysite/templates/account/logout.html:9
+#: mysite/templates/account/logout.html:21
+msgid "Sign Out"
+msgstr ""
+
+#: mysite/templates/account/logout.html:14
+msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: mysite/templates/account/signup.html:6
+msgid "Signup"
+msgstr ""
+
+#: mysite/templates/account/signup.html:9
+#: mysite/templates/account/signup.html:22
+msgid "Sign Up"
+msgstr ""
+
+#: mysite/templates/account/signup.html:14
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+
+#: mysite/templates/base.html:55
+msgid "YourNextMP"
+msgstr ""

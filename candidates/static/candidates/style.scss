@@ -30,7 +30,7 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
 }
 
 .button, input[type="submit"].button {
-  @extend .radius;
+/*  @extend .radius; */
 }
 
 .code-sample {
