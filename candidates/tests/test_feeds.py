@@ -1,4 +1,4 @@
- # -*- coding: utf8 -*-
+ # -*- coding: UTF-8 -*-
 from django_webtest import WebTest
 
 from .auth import TestUserMixin

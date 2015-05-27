@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-15 15:13-0400\n"
+"POT-Creation-Date: 2015-05-18 18:56-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: mysite/templates/account/login.html:10
 #: mysite/templates/account/login.html:43
 msgid "Sign In"
-msgstr ""
+msgstr "Acceder"
 
 #: mysite/templates/account/login.html:16
 #, python-format
@@ -32,10 +32,14 @@ msgid ""
 "up</a>\n"
 "for a %(site_name)s account and sign in below:"
 msgstr ""
+"Por favor acceda con una de sus cuentas existentes\n"
+"en servicios de terceras partes. O <a href=\"%(signup_url)s\">regístrese</"
+"a>\n"
+"para una cuenta nueva de %(site_name)s y acceda debajo:"
 
 #: mysite/templates/account/login.html:26
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: mysite/templates/account/login.html:33
 #, python-format
@@ -43,36 +47,44 @@ msgid ""
 "If you have not created an account yet, then please\n"
 "<a href=\"%(signup_url)s\">sign up</a> first."
 msgstr ""
+"Si no has creado tu cuenta aún, entonces por favor<a href=\"%(signup_url)s"
+"\">registrate</a> primero."
 
 #: mysite/templates/account/login.html:44
 msgid "Forgot Password?"
-msgstr ""
+msgstr "¿Olvidaste la clave?"
 
 #: mysite/templates/account/logout.html:6
 #: mysite/templates/account/logout.html:9
 #: mysite/templates/account/logout.html:21
 msgid "Sign Out"
-msgstr ""
+msgstr "Cerrar sesión"
 
 #: mysite/templates/account/logout.html:14
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "Estás seguro que quieres cerrar sesión?"
 
 #: mysite/templates/account/signup.html:6
 msgid "Signup"
-msgstr ""
+msgstr "Registrarse"
 
 #: mysite/templates/account/signup.html:9
 #: mysite/templates/account/signup.html:22
 msgid "Sign Up"
-msgstr ""
+msgstr "Registrarse"
 
 #: mysite/templates/account/signup.html:14
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
 msgstr ""
+"¿Ya tenés una cuenta? Entonces por favor  <a href=\"%(login_url)s\">accedé</"
+"a>."
 
 #: mysite/templates/base.html:55
 msgid "YourNextMP"
-msgstr ""
+msgstr "YoQuieroSaber Investigación"
+
+#: mysite/templates/base.html:56
+msgid "About"
+msgstr "Acerca de..."

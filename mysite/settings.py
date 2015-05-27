@@ -75,6 +75,7 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     "mysite.context_processors.election_date",
     "mysite.context_processors.add_group_permissions",
     "mysite.context_processors.add_notification_data",
+    "django.core.context_processors.i18n",
 )
 
 # Application definition
@@ -119,6 +120,7 @@ MIDDLEWARE_CLASSES = (
     'candidates.middleware.DisallowedUpdateMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -176,7 +178,7 @@ else:
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-gb'
+LANGUAGE_CODE = 'es_AR'
 
 TIME_ZONE = 'Europe/London'
 
@@ -330,3 +332,8 @@ CACHES = {
 RESTRICT_RENAMES = conf.get('RESTRICT_RENAMES')
 
 EDITS_ALLOWED = conf.get('EDITS_ALLOWED', True)
+
+from os import path
+LOCALE_PATHS = (
+    path.join(path.abspath(path.dirname(__file__)), 'locale'),
+)

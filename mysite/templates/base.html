@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -51,8 +52,8 @@
   <div class="header">
     <div class="container">
       <div class="header__nav">
-        <a href="/" class="header__nav__logo">YourNextMP</a>
-        <a href="{% url 'help-about' %}" class="header__nav__logo">About</a>
+        <a href="/" class="header__nav__logo">{% trans 'YourNextMP' %}</a>
+        <a href="{% url 'help-about' %}" class="header__nav__logo">{% trans 'About' %}</a>
         <a href="{% url 'constituencies' %}" class="header__nav__logo">Constituencies</a>
         <a href="{% url 'reports_home' %}" class="header__nav__logo">Numbers</a>
         {% if user_can_review_photos and photos_for_review > 0 %}
