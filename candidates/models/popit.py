@@ -117,7 +117,7 @@ form_complex_fields_locations = {
         'sub_array': 'links',
         'info_type_key': 'note',
         'info_value_key': 'url',
-        'info_type': 'party PPC page',
+        'info_type': 'party candidate page',
     }
 }
 
