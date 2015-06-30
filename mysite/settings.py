@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
-from django.utils.translation import ugettext_lazy as _
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS, LANGUAGES
+from django.utils.translation import to_locale, ugettext_lazy as _
 import importlib
 import os
 import re
@@ -209,15 +209,16 @@ else:
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
+
+LANGUAGES = [l for l in LANGUAGES if os.path.exists(os.path.join(LOCALE_PATHS[0], to_locale(l[0])))]
 LANGUAGE_CODE = conf.get('LANGUAGE_CODE', 'en-gb')
 
 TIME_ZONE = conf.get('TIME_ZONE', 'Europe/London')
 
 USE_I18N = True
-
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale')
-]
 
 USE_L10N = True
 

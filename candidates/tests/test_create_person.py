@@ -39,7 +39,7 @@ EXPECTED_ARGS = {
             'url': 'http://notreallyfacebook/tessajowellcampaign',
         },
         {
-            'note': 'party PPC page',
+            'note': 'party candidate page',
             'url': 'http://labour.example.org/tessajowell',
         },
         {
