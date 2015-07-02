@@ -14,7 +14,7 @@
 <div class="help-api">
 
 <p>{% blocktrans trimmed %}
-The data that's submitted to this site is available as a CSV/Excel download and 
+The data that's submitted to this site is available as a CSV/Excel download and
 programmatically via a RESTful web service called PopIt, which
 stores information about people and their positions in
 organizations. (You can <a href="http://popit.poplus.org/">find
@@ -23,7 +23,43 @@ out more about PopIt here</a>.)
 
 <h2>{% trans "CSV/Excel Download" %}</h2>
 
-<p><a href="{{ MEDIA_URL }}candidates.csv">{% trans "Download of the 2015 candidates" %}</a></p>
+<h3>{% trans "Current elections" %}</h3>
+
+<p>
+  <ul>
+    {% for csv in current_csv_list %}
+      {% with slug=csv.slug title=csv.name %}
+      <li><a href="{{ MEDIA_URL }}candidates-{{ slug }}.csv">{% blocktrans %}Download of the {{ title }} candidates {% endblocktrans %}</a></li>
+      {% endwith %}
+    {% endfor %}
+  </ul>
+</p>
+
+
+{% if historic_csv_list %}
+
+<h3>{% trans "Historic elections" %}</h3>
+
+<p>
+  <ul>
+    {% for csv in historic_csv_list %}
+      {% with slug=csv.slug title=csv.name %}
+      <li><a href="{{ MEDIA_URL }}candidates-{{ slug }}.csv">{% blocktrans %}Download of the {{ title }} candidates {% endblocktrans %}</a></li>
+      {% endwith %}
+    {% endfor %}
+  </ul>
+</p>
+{% endif %}
+
+
+<h3>{% trans "All elections" %}</h3>
+
+<p>
+  <ul>
+    <li><a href="{{ MEDIA_URL }}candidates-all.csv">{% trans "Download of the candidates for all elections" %}</a></li>
+  </ul>
+</p>
+
 
 <h2>{% trans "API" %}</h2>
 
