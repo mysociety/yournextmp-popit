@@ -93,6 +93,13 @@ a {
     }
 }
 
+.button {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
 .header {
     font-family: $header-font-family;
     font-size: 1.3125em; // 21px up from default 16px
