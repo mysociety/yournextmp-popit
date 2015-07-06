@@ -2,7 +2,6 @@ import re
 
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.utils.decorators import classonlymethod
 from django.views.generic import View
 
 from braces.views import LoginRequiredMixin, StaffuserRequiredMixin
