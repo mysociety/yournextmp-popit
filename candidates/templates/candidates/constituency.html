@@ -51,7 +51,7 @@
       page is showing stale information for more than 10 seconds.
       {% endblocktrans %}</p>
     </p>
-    <form method="post" action="{% url 'constituency-cache-invalidate' %}">
+    <form method="post" action="{% url 'post-cache-invalidate' election=election %}">
       {% csrf_token %}
       <input type="hidden" name="post_id", value="{{ post_id }}">
       <input type="submit" class="button" value="{% trans "Invalidate Cache" %}">
