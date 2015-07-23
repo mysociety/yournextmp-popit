@@ -7,7 +7,8 @@ from django_webtest import WebTest
 from .auth import TestUserMixin
 from .helpers import equal_call_args
 from .fake_popit import (
-    FakeOrganizationCollection, FakePersonCollection, FakePostCollection
+    FakeOrganizationCollection, FakePersonCollection, FakePostCollection,
+    fake_mp_post_search_results
 )
 from ..models import LoggedAction
 
@@ -52,6 +53,7 @@ class TestNewPersonView(TestUserMixin, WebTest):
         self.assertFalse(mock_create_new_person_in_popit.called)
         self.assertFalse(mock_update_person_in_popit.called)
 
+    @patch('candidates.popit.requests')
     @patch('candidates.views.version_data.get_current_timestamp')
     @patch('candidates.views.version_data.create_version_id')
     @patch('candidates.models.popit.PopItPerson.update_person_in_popit')
@@ -62,11 +64,13 @@ class TestNewPersonView(TestUserMixin, WebTest):
             mock_update_person_in_popit,
             mock_create_version_id,
             mock_get_current_timestamp,
+            mock_requests,
             mock_popit):
         # Get the constituency page:
         mock_popit.return_value.organizations = FakeOrganizationCollection
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         # Just a smoke test for the moment:
         response = self.app.get(
             '/election/2015/post/65808/dulwich-and-west-norwood',
@@ -81,7 +85,6 @@ class TestNewPersonView(TestUserMixin, WebTest):
             # Make Jane Doe be standing for the Monster Raving Loony
             # Party in Dulwich and West Norwood:
             'party_gb_2015': 'party:66',
-            'party_ni_2015': 'party:none',
             'constituency_2015': '65808',
             'email': 'jane@example.com',
             'wikipedia_url': 'http://en.wikipedia.org/wiki/Jane_Doe',

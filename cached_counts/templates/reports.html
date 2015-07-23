@@ -22,7 +22,11 @@
   {% for era, elections in all_elections.items %}
 
     <div class="statistics-elections {{ era }}">
-      <h2>{% blocktrans with era=era|title %}{{ era }} Elections{% endblocktrans %}</h2>
+      <h2>{% if era == 'current' %}
+        {% trans "Current Elections" %}
+      {% elif era == 'past '%}
+        {% trans "Past Elections" %}
+      {% endif %}</h2>
 
       {% for election in elections %}
         {% with election_name=election.name %}

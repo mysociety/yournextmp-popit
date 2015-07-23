@@ -7,20 +7,10 @@ from django.core.management import call_command
 from django_webtest import WebTest
 
 from candidates.tests.test_create_person import mock_create_person
-from candidates.tests.fake_popit import get_example_popit_json
+from candidates.tests.fake_popit import fake_mp_post_search_results
 
 from .models import CachedCount
 
-def fake_mp_post_search_results(url, **kwargs):
-    mock_requests_response = MagicMock()
-    page = "1"
-    m = re.search(r'[^_]page=(\d+)', url)
-    if m:
-        page = m.group(1)
-    mock_requests_response.json.return_value = get_example_popit_json(
-        'search_mp_posts_page={0}.json'.format(page)
-    )
-    return mock_requests_response
 
 def create_initial_counts(extra=()):
     initial_counts = (

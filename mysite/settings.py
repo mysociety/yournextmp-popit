@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS, LANGUAGES
 from django.utils.translation import to_locale, ugettext_lazy as _
+from collections import defaultdict
 import importlib
 import os
 import re
@@ -425,11 +426,11 @@ if len(KNOWN_MAPIT_GENERATIONS) > 1:
 
 MAPIT_CURRENT_GENERATION = list(KNOWN_MAPIT_GENERATIONS)[0]
 
-MAPIT_TYPES_GENERATIONS_ELECTIONS = {
-    (mapit_type, t[1]['mapit_generation']): t
-    for t in ELECTIONS_CURRENT
-    for mapit_type in t[1]['mapit_types']
-}
+MAPIT_TYPES_GENERATIONS_ELECTIONS = defaultdict(list)
+for election_tuple in ELECTIONS_CURRENT:
+    for mapit_type in election_tuple[1]['mapit_types']:
+        mapit_tuple = (mapit_type, election_tuple[1]['mapit_generation'])
+        MAPIT_TYPES_GENERATIONS_ELECTIONS[mapit_tuple].append(election_tuple)
 
 # Use Matthew's suggestion for allowing local settings overrides with
 # both Python 2 and Python 3; this uses exec rather than import so

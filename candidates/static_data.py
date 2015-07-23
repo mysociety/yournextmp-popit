@@ -173,20 +173,21 @@ class BaseAreaPostData(object):
         self.areas_by_post_id = {}
         self.area_ids_and_names_by_post_group = {}
 
-        for t, election_tuple in settings.MAPIT_TYPES_GENERATIONS_ELECTIONS.items():
-            election, election_data = election_tuple
-            mapit_type, mapit_generation = t
-            for area in self.mapit_data.areas_by_id[t].values():
-                post_id = self.get_post_id(election, mapit_type, area['id'])
-                if post_id in self.areas_by_post_id:
-                    message = _("Found multiple areas for the post ID {post_id}")
-                    raise Exception(message.format(post_id=post_id))
-                self.areas_by_post_id[post_id] = area
-            for area in mapit_data.areas_by_name[t].values():
-                post_group = self.area_to_post_group(area)
-                self.area_ids_and_names_by_post_group.setdefault(t, defaultdict(list))
-                self.area_ids_and_names_by_post_group[t][post_group].append(
-                    (str(area['id']), area['name'])
-                )
-            for area_list in self.area_ids_and_names_by_post_group[t].values():
-                area_list.sort(key=lambda c: c[1])
+        for mapit_tuple, election_tuples in settings.MAPIT_TYPES_GENERATIONS_ELECTIONS.items():
+            for election_tuple in election_tuples:
+                election, election_data = election_tuple
+                mapit_type, mapit_generation = mapit_tuple
+                for area in self.mapit_data.areas_by_id[mapit_tuple].values():
+                    post_id = self.get_post_id(election, mapit_type, area['id'])
+                    if post_id in self.areas_by_post_id:
+                        message = _("Found multiple areas for the post ID {post_id}")
+                        raise Exception(message.format(post_id=post_id))
+                    self.areas_by_post_id[post_id] = area
+                for area in mapit_data.areas_by_name[mapit_tuple].values():
+                    post_group = self.area_to_post_group(area)
+                    self.area_ids_and_names_by_post_group.setdefault(mapit_tuple, defaultdict(list))
+                    self.area_ids_and_names_by_post_group[mapit_tuple][post_group].append(
+                        (str(area['id']), area['name'])
+                    )
+                for area_list in self.area_ids_and_names_by_post_group[mapit_tuple].values():
+                    area_list.sort(key=lambda c: c[1])

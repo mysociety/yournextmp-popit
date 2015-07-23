@@ -324,6 +324,11 @@ class NewPersonView(ElectionMixin, LoginRequiredMixin, PopItApiMixin, FormView):
         kwargs['election'] = self.election
         return kwargs
 
+    def get_initial(self):
+        result = super(NewPersonView, self).get_initial()
+        result['standing_' + self.election] = 'standing'
+        return result
+
     def form_valid(self, form):
 
         if not (settings.EDITS_ALLOWED or self.request.user.is_staff):

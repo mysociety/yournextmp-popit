@@ -6,7 +6,9 @@ from django_webtest import WebTest
 
 from .auth import TestUserMixin
 from .helpers import equal_call_args
-from .fake_popit import FakePersonCollection, FakePostCollection
+from .fake_popit import (
+    FakePersonCollection, FakePostCollection, fake_mp_post_search_results
+)
 
 example_timestamp = '2014-09-29T10:11:59.216159'
 example_version_id = '5aa6418325c1a0bb'
@@ -31,24 +33,30 @@ class TestUpdatePersonView(TestUserMixin, WebTest):
         self.assertEqual('next=/person/2009/update', split_location.query)
         self.assertFalse(mocked_person_put.called)
 
-    def test_update_person_view_get(self, mocked_person_put, mock_popit):
+
+    @patch('candidates.popit.requests')
+    def test_update_person_view_get(self, mock_requests, mocked_person_put, mock_popit):
         mock_popit.return_value.persons = FakePersonCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         # For the moment just check that the form's actually there:
         response = self.app.get('/person/2009/update', user=self.user)
         response.forms['person-details']
         self.assertFalse(mocked_person_put.called)
 
+    @patch('candidates.popit.requests')
     @patch('candidates.views.version_data.get_current_timestamp')
     @patch('candidates.views.version_data.create_version_id')
     def test_update_person_submission_copyright_refused(
             self,
             mock_create_version_id,
             mock_get_current_timestamp,
+            mock_requests,
             mocked_person_put,
             mock_popit):
         mock_popit.return_value.persons = FakePersonCollection
         mock_get_current_timestamp.return_value = example_timestamp
         mock_create_version_id.return_value = example_version_id
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get('/person/2009/update', user=self.user)
         form = response.forms['person-details']
         form['wikipedia_url'] = 'http://en.wikipedia.org/wiki/Tessa_Jowell'
@@ -61,18 +69,21 @@ class TestUpdatePersonView(TestUserMixin, WebTest):
         self.assertEqual('next=/person/2009/update', split_location.query)
         self.assertFalse(mocked_person_put.called)
 
+    @patch('candidates.popit.requests')
     @patch('candidates.views.version_data.get_current_timestamp')
     @patch('candidates.views.version_data.create_version_id')
     def test_update_person_submission(
             self,
             mock_create_version_id,
             mock_get_current_timestamp,
+            mock_requests,
             mocked_person_put,
             mock_popit):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
         mock_get_current_timestamp.return_value = example_timestamp
         mock_create_version_id.return_value = example_version_id
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/2009/update',
             user=self.user_who_can_lock,

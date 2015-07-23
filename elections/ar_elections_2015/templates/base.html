@@ -53,10 +53,11 @@
       <a href="/" class="header__logo">Yo Quiero Saber</a>
       <div class="header__nav">
         <div class="header__nav__primary">
+          <a href="http://www.yoquierosaber.org/" class="header__nav__item">Inicio</a>
           <a href="{% url 'help-about' %}" class="header__nav__item">{% trans "About" %}</a>
-          <a href="{% url 'posts' %}" class="header__nav__item">{% trans "Posts" %}</a>
           <a href="{% url 'areas-of-type-view' mapit_type='PRV' ignored_slug='provincia' %}" class="header__nav__item">{% trans "Provinces" %}</a>
-          <a href="{% url 'reports_home' %}" class="header__nav__item">{% trans "Numbers" %}</a>
+          <a href="{% url 'attention_needed' %}" class="header__nav__item">Prioridades</a>
+          <a href="{% url 'help-reuse' %}#" class="header__nav__item">Reutilizá YQS</a>
           {% if user_can_review_photos and photos_for_review > 0 %}
             <a href="{% url 'photo-review-list' %}" class="header__nav__item header__nav__notification">{{ photos_for_review }}</a>
           {% endif %}
@@ -74,7 +75,7 @@
         </div>
         <div class="header__nav__social">
             <a href="https://www.facebook.com/YoQuieroSaber">Facebook</a>
-            <a href="https://twitter.com/YQS_Argentina">Twitter</a>
+            <a href="https://twitter.com/YoQuieroSaberAR">Twitter</a>
         </div>
       </div>
     </div>

@@ -102,3 +102,15 @@ class FakePostCollection(FakeCollection):
 
 class FakeMembershipCollection(FakeCollection):
     collection = 'memberships'
+
+
+def fake_mp_post_search_results(url, **kwargs):
+    mock_requests_response = Mock()
+    page = "1"
+    m = re.search(r'[^_]page=(\d+)', url)
+    if m:
+        page = m.group(1)
+    mock_requests_response.json.return_value = get_example_popit_json(
+        'search_mp_posts_page={0}.json'.format(page)
+    )
+    return mock_requests_response

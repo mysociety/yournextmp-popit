@@ -156,6 +156,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
                 'name': 'Imaginary Candidate',
                 'party_gb_2015': 'party:63',
                 'constituency_2015': '65913',
+                'standing_2015': 'standing',
                 'source': 'Testing adding a new candidate to a locked constituency',
             },
             expect_errors=True,

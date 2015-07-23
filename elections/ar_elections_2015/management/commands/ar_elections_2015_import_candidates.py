@@ -171,7 +171,7 @@ class Command(BaseCommand):
             if person:
                 print "Found an existing person:", person.get_absolute_url()
             else:
-                print "No existing person, creating a new one:"
+                print "No existing person, creating a new one:", name
                 person = PopItPerson()
 
             # Now update fields from the imported data:

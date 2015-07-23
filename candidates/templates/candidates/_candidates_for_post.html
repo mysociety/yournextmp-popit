@@ -156,7 +156,9 @@
               {{ field.label_tag }} {{ field }}
             </p>
           {% endfor %}
-          <input type="hidden" id="id_constituency_{{ election }}" name="constituency_{{ election }}" value="{{ post_data.id }}">
+          {% for hidden_field in add_candidate_form.hidden_fields %}
+            {{ hidden_field }}
+          {% endfor %}
         <input type="submit" class="button" value="{% trans "Add new candidate" %}">
         <a class="hide-new-candidate-form button secondary">{% trans "Cancel" %}</a>
       </form>
