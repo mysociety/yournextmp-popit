@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YourNextMP\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-23 16:58+0100\n"
-"PO-Revision-Date: 2015-07-23 16:01+0000\n"
+"POT-Creation-Date: 2015-07-23 20:47+0100\n"
+"PO-Revision-Date: 2015-07-23 19:49+0000\n"
 "Last-Translator: mySociety <transifex@mysociety.org>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/yournextmp/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -45,6 +45,7 @@ msgstr "Nombre del cargo"
 #: cached_counts/templates/attention_needed.html:9
 #: cached_counts/templates/constituency_counts.html:11
 #: cached_counts/templates/party_counts.html:11
+#: elections/ar_elections_2015/templates/party_counts.html:11
 msgid "Number of Candidates"
 msgstr "Número de candidatos"
 
@@ -54,11 +55,13 @@ msgid "Number of known %(election_name)s candidates per post"
 msgstr "Número de pre-candidatos a %(election_name)s por cargo."
 
 #: cached_counts/templates/party_counts.html:5
+#: elections/ar_elections_2015/templates/party_counts.html:5
 #, python-format
 msgid "Number of known %(election_name)s candidates per party"
 msgstr "Número de pre-candidatos a %(election_name)s por partido."
 
 #: cached_counts/templates/party_counts.html:10
+#: elections/ar_elections_2015/templates/party_counts.html:10
 msgid "Party Name"
 msgstr "Nombre del partido"
 
@@ -452,7 +455,7 @@ msgstr "Disculpas, no se pudo encontrar la ubicación para '{0}'"
 #: candidates/models/address.py:35
 #, python-brace-format
 msgid "The area lookup returned an error: '{error}'"
-msgstr ""
+msgstr "Disculpas, la búsqueda de ubicación dió un error: '{error}'"
 
 #: candidates/models/address.py:42
 #, python-brace-format
@@ -547,7 +550,7 @@ msgstr "Ganador"
 
 #: candidates/templates/candidates/_candidates_for_post.html:106
 msgid "Not actually standing?"
-msgstr "¿Algún error?"
+msgstr "¿No es candidato?"
 
 #: candidates/templates/candidates/_candidates_for_post.html:108
 #: candidates/templates/candidates/_candidates_for_post.html:190
@@ -693,6 +696,8 @@ msgstr "Antes de guardar eso, ¿Nos contás dónde te enteraste?"
 
 #: candidates/templates/candidates/about.html:6
 #: candidates/templates/candidates/about.html:9
+#: elections/ar_elections_2015/templates/candidates/about.html:6
+#: elections/ar_elections_2015/templates/candidates/about.html:9
 msgid "About this site"
 msgstr "Acerca de este sitio"
 
@@ -1589,11 +1594,11 @@ msgid "Thanks for helping out!"
 msgstr "¡Gracias por tu colaboración!"
 
 #: candidates/templates/candidates/person-edit.html:233
-#, python-format
 msgid ""
-"Please make sure you read our <a href=\"%(url)s\">guidance on sourcing "
+"Please make sure you read our <a href=\"https://docs.google.com/document/d"
+"/1iA5Tv3ZgjDHWNv6gbNESqL-C7Goz6ZSo1X9pPXwXspA/edit\">guidance on sourcing "
 "fields</a>."
-msgstr "Por favor asegurate de leer nuestra <a href=\"%(url)s\">guía de investigación</a>."
+msgstr ""
 
 #: candidates/templates/candidates/person-edit.html:239
 msgid "Trying to upload a photo?"
@@ -1859,7 +1864,7 @@ msgstr "Sigue uno de los enlaces abajo para ver los candidatos de ese cargo:"
 
 #: candidates/templates/candidates/privacy.html:6
 #: candidates/templates/candidates/privacy.html:9
-#: elections/ar_elections_2015/templates/base.html:118
+#: elections/ar_elections_2015/templates/base.html:119
 #: mysite/templates/generic_base.html:106
 msgid "Privacy policy"
 msgstr "Política de privacidad"
@@ -2128,65 +2133,55 @@ msgstr "Después de unificar el candidato {0}"
 msgid "Yo Quiero Saber"
 msgstr "Yo Quiero Saber"
 
-#: elections/ar_elections_2015/templates/base.html:56
-#: elections/ar_elections_2015/templates/base.html:117
+#: elections/ar_elections_2015/templates/base.html:57
+#: elections/ar_elections_2015/templates/base.html:118
 #: mysite/templates/generic_base.html:55
 #: mysite/templates/generic_base.html:104
 msgid "About"
 msgstr "Acerca de Yo Quiero Saber"
 
-#: elections/ar_elections_2015/templates/base.html:57
-#: mysite/templates/generic_base.html:56
-msgid "Posts"
-msgstr "Cargos"
-
 #: elections/ar_elections_2015/templates/base.html:58
 msgid "Provinces"
 msgstr "Candidatos por provincia"
 
-#: elections/ar_elections_2015/templates/base.html:59
-#: mysite/templates/generic_base.html:57
-msgid "Numbers"
-msgstr "Estadísticas"
-
-#: elections/ar_elections_2015/templates/base.html:67
+#: elections/ar_elections_2015/templates/base.html:68
 #: mysite/templates/generic_base.html:63
 #, python-format
 msgid "Signed in as <strong>%(username)s</strong>"
 msgstr "Sesión iniciada como <strong>%(username)s</strong>"
 
-#: elections/ar_elections_2015/templates/base.html:69
+#: elections/ar_elections_2015/templates/base.html:70
 #: mysite/templates/generic_base.html:64
 msgid "Sign out"
 msgstr "Cerrar sesión"
 
-#: elections/ar_elections_2015/templates/base.html:72
+#: elections/ar_elections_2015/templates/base.html:73
 #: mysite/templates/generic_base.html:68
 msgid "Sign in to edit"
 msgstr "Iniciá sesión para editar"
 
-#: elections/ar_elections_2015/templates/base.html:116
+#: elections/ar_elections_2015/templates/base.html:117
 #: mysite/templates/generic_base.html:103
 msgid "Open data API"
 msgstr "API de datos abiertos"
 
-#: elections/ar_elections_2015/templates/base.html:121
+#: elections/ar_elections_2015/templates/base.html:122
 msgid "Made by"
 msgstr "Hecho por"
 
-#: elections/ar_elections_2015/templates/base.html:128
+#: elections/ar_elections_2015/templates/base.html:129
 msgid "Partners"
 msgstr "Socios"
 
-#: elections/ar_elections_2015/templates/base.html:135
+#: elections/ar_elections_2015/templates/base.html:136
 msgid "Supported by"
 msgstr "Apoyado por "
 
-#: elections/ar_elections_2015/templates/base.html:141
+#: elections/ar_elections_2015/templates/base.html:142
 msgid "Developed by"
 msgstr "Desarrollado por "
 
-#: elections/ar_elections_2015/templates/base.html:148
+#: elections/ar_elections_2015/templates/base.html:149
 msgid "Show all the collaborators and volunteers"
 msgstr "Mostrar todos los colaboradores y voluntarios"
 
@@ -2643,6 +2638,14 @@ msgstr "¿Ya tenés una cuenta? Entonces por favor  <a href=\"%(login_url)s\">in
 #: mysite/templates/generic_base.html:32
 msgid "YourNextMP - 2015 UK general election candidates"
 msgstr "YoQuieroSaber - Elecciones para las PASO 2015"
+
+#: mysite/templates/generic_base.html:56
+msgid "Posts"
+msgstr "Cargos"
+
+#: mysite/templates/generic_base.html:57
+msgid "Numbers"
+msgstr "Estadísticas"
 
 #: mysite/templates/generic_base.html:105
 msgid "Issue tracker"

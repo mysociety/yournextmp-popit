@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-23 16:58+0100\n"
+"POT-Creation-Date: 2015-07-23 20:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,6 +41,7 @@ msgstr ""
 #: cached_counts/templates/attention_needed.html:9
 #: cached_counts/templates/constituency_counts.html:11
 #: cached_counts/templates/party_counts.html:11
+#: elections/ar_elections_2015/templates/party_counts.html:11
 msgid "Number of Candidates"
 msgstr ""
 
@@ -50,11 +51,13 @@ msgid "Number of known %(election_name)s candidates per post"
 msgstr ""
 
 #: cached_counts/templates/party_counts.html:5
+#: elections/ar_elections_2015/templates/party_counts.html:5
 #, python-format
 msgid "Number of known %(election_name)s candidates per party"
 msgstr ""
 
 #: cached_counts/templates/party_counts.html:10
+#: elections/ar_elections_2015/templates/party_counts.html:10
 msgid "Party Name"
 msgstr ""
 
@@ -687,6 +690,8 @@ msgstr ""
 
 #: candidates/templates/candidates/about.html:6
 #: candidates/templates/candidates/about.html:9
+#: elections/ar_elections_2015/templates/candidates/about.html:6
+#: elections/ar_elections_2015/templates/candidates/about.html:9
 msgid "About this site"
 msgstr ""
 
@@ -1581,9 +1586,9 @@ msgid "Thanks for helping out!"
 msgstr ""
 
 #: candidates/templates/candidates/person-edit.html:233
-#, python-format
 msgid ""
-"Please make sure you read our <a href=\"%(url)s\">guidance on sourcing "
+"Please make sure you read our <a href=\"https://docs.google.com/document/"
+"d/1iA5Tv3ZgjDHWNv6gbNESqL-C7Goz6ZSo1X9pPXwXspA/edit\">guidance on sourcing "
 "fields</a>."
 msgstr ""
 
@@ -1851,7 +1856,7 @@ msgstr ""
 
 #: candidates/templates/candidates/privacy.html:6
 #: candidates/templates/candidates/privacy.html:9
-#: elections/ar_elections_2015/templates/base.html:118
+#: elections/ar_elections_2015/templates/base.html:119
 #: mysite/templates/generic_base.html:106
 msgid "Privacy policy"
 msgstr ""
@@ -2120,64 +2125,54 @@ msgstr ""
 msgid "Yo Quiero Saber"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:56
-#: elections/ar_elections_2015/templates/base.html:117
+#: elections/ar_elections_2015/templates/base.html:57
+#: elections/ar_elections_2015/templates/base.html:118
 #: mysite/templates/generic_base.html:55 mysite/templates/generic_base.html:104
 msgid "About"
-msgstr ""
-
-#: elections/ar_elections_2015/templates/base.html:57
-#: mysite/templates/generic_base.html:56
-msgid "Posts"
 msgstr ""
 
 #: elections/ar_elections_2015/templates/base.html:58
 msgid "Provinces"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:59
-#: mysite/templates/generic_base.html:57
-msgid "Numbers"
-msgstr ""
-
-#: elections/ar_elections_2015/templates/base.html:67
+#: elections/ar_elections_2015/templates/base.html:68
 #: mysite/templates/generic_base.html:63
 #, python-format
 msgid "Signed in as <strong>%(username)s</strong>"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:69
+#: elections/ar_elections_2015/templates/base.html:70
 #: mysite/templates/generic_base.html:64
 msgid "Sign out"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:72
+#: elections/ar_elections_2015/templates/base.html:73
 #: mysite/templates/generic_base.html:68
 msgid "Sign in to edit"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:116
+#: elections/ar_elections_2015/templates/base.html:117
 #: mysite/templates/generic_base.html:103
 msgid "Open data API"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:121
+#: elections/ar_elections_2015/templates/base.html:122
 msgid "Made by"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:128
+#: elections/ar_elections_2015/templates/base.html:129
 msgid "Partners"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:135
+#: elections/ar_elections_2015/templates/base.html:136
 msgid "Supported by"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:141
+#: elections/ar_elections_2015/templates/base.html:142
 msgid "Developed by"
 msgstr ""
 
-#: elections/ar_elections_2015/templates/base.html:148
+#: elections/ar_elections_2015/templates/base.html:149
 msgid "Show all the collaborators and volunteers"
 msgstr ""
 
@@ -2634,6 +2629,14 @@ msgstr ""
 
 #: mysite/templates/generic_base.html:32
 msgid "YourNextMP - 2015 UK general election candidates"
+msgstr ""
+
+#: mysite/templates/generic_base.html:56
+msgid "Posts"
+msgstr ""
+
+#: mysite/templates/generic_base.html:57
+msgid "Numbers"
 msgstr ""
 
 #: mysite/templates/generic_base.html:105
