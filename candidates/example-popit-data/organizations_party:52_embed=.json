@@ -1,25 +1,25 @@
 {
   "result": {
-    "id": "party:52",
+    "classification": "Party",
+    "contact_details": [],
     "dissolution_date": "9999-12-31",
     "founding_date": "1999-01-14",
-    "name": "Conservative Party",
-    "classification": "Party",
-    "register": "Great Britain",
-    "slug": "conservative-party",
-    "posts": [],
-    "memberships": [],
-    "links": [],
-    "contact_details": [],
+    "html_url": "http://yournextmp.popit.mysociety.org/organizations/party:52",
+    "id": "party:52",
     "identifiers": [
       {
         "id": "545e2b09aa34dd707c37d137",
-        "scheme": "electoral-commission",
-        "identifier": "PP 52"
+        "identifier": "PP 52",
+        "scheme": "electoral-commission"
       }
     ],
+    "links": [],
+    "memberships": [],
+    "name": "Conservative Party",
     "other_names": [],
-    "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/party:52",
-    "html_url": "http://yournextmp.popit.mysociety.org/organizations/party:52"
+    "posts": [],
+    "register": "Great Britain",
+    "slug": "conservative-party",
+    "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/party:52"
   }
 }

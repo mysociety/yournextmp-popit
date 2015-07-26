@@ -23,7 +23,7 @@ class Command(BaseCommand):
         )
         for collection in ('persons', 'organizations', 'posts', 'memberships'):
             print "Downloading {0}...".format(collection)
-            filename = 'yournextmp-popit-{0}.dump'.format(collection)
+            filename = 'yournextrepresentative-{0}.dump'.format(collection)
             with open(filename, 'w') as f:
                 for o in popit_unwrap_pagination(
                         getattr(api, collection),

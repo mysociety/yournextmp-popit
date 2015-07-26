@@ -7,7 +7,9 @@ from collections import defaultdict
 
 from slugify import slugify
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 import django.dispatch
 from django_date_extensions.fields import ApproximateDate
 from slumber.exceptions import HttpServerError, HttpClientError
@@ -19,9 +21,14 @@ from .auth import (
 )
 from .db import MaxPopItIds
 
-from ..cache import get_person_cached, invalidate_person, invalidate_posts
+from ..cache import (
+    get_person_cached, invalidate_person, get_post_cached, invalidate_posts
+)
 from ..diffs import get_version_diffs
-from ..static_data import MapItData, PartyData
+from ..election_specific import (
+    MAPIT_DATA, PARTY_DATA, AREA_POST_DATA,
+    EXTRA_CSV_ROW_FIELDS, get_extra_csv_values
+)
 
 person_added = django.dispatch.Signal(providing_args=["data"])
 
@@ -43,35 +50,33 @@ other_fields_to_proxy = [
 ]
 
 CSV_ROW_FIELDS = [
-    'name',
     'id',
-    'party',
-    'constituency',
-    'mapit_id',
+    'name',
+    'honorific_prefix',
+    'honorific_suffix',
+    'gender',
+    'birth_date',
+    'election',
+    'party_id',
+    'party_name',
+    'post_id',
+    'post_label',
     'mapit_url',
-    'gss_code',
+    'elected',
+    'email',
     'twitter_username',
     'facebook_page_url',
     'party_ppc_page_url',
-    'gender',
     'facebook_personal_url',
-    'email',
     'homepage_url',
     'wikipedia_url',
-    'birth_date',
-    'parlparse_id',
-    'theyworkforyou_url',
-    'honorific_prefix',
-    'honorific_suffix',
-    'party_id',
     'linkedin_url',
-    'elected',
     'image_url',
     'proxy_image_url_template',
     'image_copyright',
     'image_uploading_user',
     'image_uploading_user_notes',
-]
+] + EXTRA_CSV_ROW_FIELDS
 
 
 form_complex_fields_locations = {
@@ -115,23 +120,10 @@ form_complex_fields_locations = {
         'sub_array': 'links',
         'info_type_key': 'note',
         'info_value_key': 'url',
-        'info_type': 'party PPC page',
+        'info_type': 'party candidate page',
+        'old_info_type': 'party PPC page',
     }
 }
-
-# FIXME: https://github.com/mysociety/yournextmp-popit/issues/354
-
-election_date_2005 = date(2005, 5, 5)
-election_date_2010 = date(2010, 5, 6)
-election_date_2015 = date(2015, 5, 7)
-
-election_to_election_date = {
-    '2005': election_date_2005,
-    '2010': election_date_2010,
-    '2015': election_date_2015,
-}
-
-# end of FIXME
 
 all_form_fields = form_simple_fields.keys() + \
     form_complex_fields_locations.keys()
@@ -164,21 +156,7 @@ def parse_approximate_date(s):
             return ApproximateDate(*(int(g, 10) for g in m.groups()))
     if s == 'future':
         return ApproximateDate(future=True)
-    raise Exception, "Couldn't parse '{0}' as an ApproximateDate".format(s)
-
-def get_area_from_post_id(post_id, mapit_url_key='id'):
-    "Get a MapIt area ID from a candidate list organization's PopIt data"
-
-    mapit_data = MapItData.constituencies_2010.get(post_id)
-    if mapit_data is None:
-        message = "Couldn't find the constituency with Post and MapIt Area ID: '{0}'"
-        raise Exception(message.format(post_id))
-    url_format = 'http://mapit.mysociety.org/area/{0}'
-    return {
-        'name': mapit_data['name'],
-        'post_id': post_id,
-        mapit_url_key: url_format.format(post_id),
-    }
+    raise Exception, _("Couldn't parse '{0}' as an ApproximateDate").format(s)
 
 def complete_partial_date(iso_8601_date_partial, start=True):
     """If we have a partial date string, complete it for range comparisons
@@ -215,7 +193,7 @@ def complete_partial_date(iso_8601_date_partial, start=True):
     elif re.search(r'^\d{4}-\d{2}-\d{2}$', iso_8601_date_partial):
         return iso_8601_date_partial
     else:
-        raise Exception, "Unknown partial ISO 8601 data format: {0}".format(iso_8601_date_partial)
+        raise Exception, _("Unknown partial ISO 8601 data format: {0}").format(iso_8601_date_partial)
 
 def membership_covers_date(membership, date):
     """See if the dates in a membership cover a particular date
@@ -271,28 +249,29 @@ def is_party_membership(membership):
         return classification.lower() == 'party'
     except AttributeError:
         # If organization_id is actually just an ID, guess from the
-        # ID's format:
+        # ID's format.  FIXME: don't do this; fetch the organization
+        # to check the classification, so it's correct rather than
+        # "probably right".
         party_id_match = re.search(
             r'^(party|ynmp-party|joint-party):',
             organization_id
         )
-        return bool(party_id_match)
+        special_party = (organization_id in ('unknown', 'not-listed'))
+        return bool(party_id_match) or special_party
 
 def is_candidacy_membership(membership):
-    role = membership.get('role', '').lower()
-    return (role == 'candidate')
-
-def is_mp_membership(membership):
-    role = membership.get('role', 'Member').lower()
-    if role != 'member':
+    if not membership.get('election'):
         return False
-    return membership.get('organization_id') == 'commons'
+    role = membership.get('role')
+    election_data = settings.ELECTIONS[membership['election']]
+    return role == election_data['candidate_membership_role']
 
 def is_standing_in_membership(membership):
-    return is_candidacy_membership(membership) or is_mp_membership(membership)
+    return is_candidacy_membership(membership)
 
 # FIXME: really this should be a method on a PopIt base class, so it's
-# available for both people and organizations.
+# available for both people and organizations. (The same goes for
+# set_identifier.)
 def get_identifier(scheme, popit_object):
     result = None
     for identifier in popit_object.get('identifiers', []):
@@ -304,8 +283,18 @@ def get_identifier(scheme, popit_object):
 def get_mapit_id_from_mapit_url(mapit_url):
     m = re.search(r'http://mapit.mysociety.org/area/(\d+)', mapit_url)
     if not m:
-        raise Exception("Failed to parse the MapIt URL: {0}".format(mapit_url))
+        raise Exception(_("Failed to parse the MapIt URL: {0}").format(mapit_url))
     return m.group(1)
+
+def create_or_update(api_collection, data):
+    try:
+        api_collection.post(data)
+    except HttpServerError as hse:
+        # If that already exists, use PUT to update the post instead:
+        if 'E11000' in hse.content:
+            api_collection(data['id']).put(data)
+        else:
+            raise
 
 def create_person_with_id_retries(api, data):
     id_to_try = MaxPopItIds.get_max_persons_id() + 1
@@ -328,45 +317,16 @@ def create_person_with_id_retries(api, data):
                 raise
     return result
 
-def election_year_to_party_dates(election_year):
-    if str(election_year) == '2010':
-        return {
-            'start_date': str(election_date_2005 + timedelta(days=1)),
-            'end_date': str(election_date_2010),
-        }
-    elif str(election_year) == '2015':
-        return {
-            'start_date': str(election_date_2010 + timedelta(days=1)),
-            'end_date': '9999-12-31',
-        }
-    else:
-        raise Exception('Unknown election year: {0}'.format(election_year))
+def election_to_party_dates(election):
+    election_data = settings.ELECTIONS[election]
+    return {
+        'start_date': str(election_data['party_membership_start_date']),
+        'end_date': str(election_data['party_membership_end_date']),
+    }
 
-def extract_constituency_name(candidate_list_organization):
-    """Return the constituency name from a candidate list organization
-
-    >>> extract_constituency_name({
-    ...     'name': 'Candidates for Altrincham and Sale West in 2015'
-    ... })
-    'Altrincham and Sale West'
-    >>> constituency_name = extract_constituency_name({
-    ...     'name': 'Another Organization'
-    ... })
-    >>> print constituency_name
-    None
-    """
-    m = candidate_list_name_re.search(
-        candidate_list_organization['name']
-    )
-    if m:
-        return m.group(1)
-    return None
-
-def get_constituency_name_from_mapit_id(mapit_id):
-    constituency_data = MapItData.constituencies_2010.get(str(mapit_id))
-    if constituency_data:
-        return constituency_data['name']
-    return None
+def get_post_label_from_post_id(api, post_id):
+    post_data = get_post_cached(api, post_id)
+    return post_data['label']
 
 def reduced_organization_data(organization):
     return {
@@ -376,8 +336,12 @@ def reduced_organization_data(organization):
 
 def get_value_from_location(location, person_data):
     for info in person_data.get(location['sub_array'], []):
-        if info[location['info_type_key']] == location['info_type']:
-            return info.get(location['info_value_key'], '')
+        all_info_types = [location['info_type']]
+        if 'old_info_type' in location:
+            all_info_types.insert(0, location['old_info_type'])
+        for info_type in all_info_types:
+            if info[location['info_type_key']] == info_type:
+                return info.get(location['info_value_key'], '')
     return ''
 
 def unembed_membership(membership):
@@ -573,7 +537,7 @@ class PopItPerson(object):
             return super(PopItPerson, self).__getattr__(name)
         else:
             raise AttributeError(
-                "'PopItPerson' has no attribute '{0}'".format(name)
+                _("'PopItPerson' has no attribute '{0}'").format(name)
             )
 
     def __setattr__(self, name, value):
@@ -626,7 +590,7 @@ class PopItPerson(object):
 
     def get_second_last_version(self):
         if len(self.versions) < 2:
-            raise Exception, "There was no previous version of this person"
+            raise Exception, _("There was no previous version of this person")
         return PopItPerson.create_from_reduced_json(
             self.versions[1]['data']
         )
@@ -662,15 +626,17 @@ class PopItPerson(object):
                     organization['electoral_commission_id'] =\
                          identifier['identifier']
 
-            if membership_covers_date(membership, election_date_2010):
-                results['2010'] = organization
-            if membership_covers_date(membership, election_date_2015):
-                results['2015'] = organization
+            for election, election_data in settings.ELECTIONS.items():
+                if membership_covers_date(
+                        membership,
+                        election_data['election_date']
+                ):
+                    results[election] = organization
         return results
 
     @property
     def standing_in(self):
-        return self.popit_data.get('standing_in', {})
+        return self.popit_data.get('standing_in', {}) or {}
 
     @standing_in.setter
     def standing_in(self, v):
@@ -683,34 +649,37 @@ class PopItPerson(object):
         ]
         # And now add the new memberships from the value that's being
         # set:
-        for election_year, constituency in v.items():
+        for election, constituency in v.items():
             if constituency:
                 # i.e. we know that this isn't an indication that the
                 # person isn't standing...
                 # Create the candidate list membership:
-                membership = election_year_to_party_dates(election_year)
+                membership = election_to_party_dates(election)
+                membership['election'] = election
                 membership['person_id'] = self.id
                 membership['post_id'] = constituency['post_id']
-                membership['role'] = "Candidate"
+                candidate_role = settings.ELECTIONS[election]['candidate_membership_role']
+                membership['role'] = candidate_role
                 memberships.append(membership)
                 if constituency.get('elected'):
-                    day_after = election_to_election_date[election_year] + \
+                    day_after = settings.ELECTIONS[election]['election_date'] + \
                         timedelta(days=1)
                     memberships.append({
                         'start_date': str(day_after),
                         'end_date': '9999-12-31',
                         'person_id': self.id,
                         'post_id': constituency['post_id'],
-                        # FIXME: https://github.com/mysociety/yournextmp-popit/issues/354
+                        # FIXME: https://github.com/mysociety/yournextrepresentative/issues/354
                         'organization_id': 'commons',
                     })
 
         self.popit_data['memberships'] = memberships
         self.popit_data['standing_in'] = v
+        self.store_posts_for_invalidation()
 
     @property
     def party_memberships(self):
-        return self.popit_data.get('party_memberships', {})
+        return self.popit_data.get('party_memberships', {}) or {}
 
     @party_memberships.setter
     def party_memberships(self, v):
@@ -722,8 +691,8 @@ class PopItPerson(object):
         ]
         # And now add the new memberships from the value that's being
         # set:
-        for election_year, party in v.items():
-            membership = election_year_to_party_dates(election_year)
+        for election, party in v.items():
+            membership = election_to_party_dates(election)
             membership['person_id'] = self.id
             membership['organization_id'] = party['id']
             memberships.append(membership)
@@ -749,18 +718,16 @@ class PopItPerson(object):
     def store_posts_for_invalidation(self):
         self.posts_to_invalidate.update(self.get_associated_posts())
 
-    @property
-    def known_status_in_2015(self):
+    def known_status_in_election(self, election):
         standing_in = self.popit_data.get('standing_in', {}) or {}
-        return '2015' in standing_in
+        return election in standing_in
 
-    @property
-    def not_standing_in_2015(self):
-        # If there's a standing_in element present, its '2015' value
-        # is set to None, then we someone has marked that person as
+    def not_standing_in_election(self, election):
+        # If there's a standing_in element present, and the value for
+        # election is set to None, then someone has marked that person as
         # not standing...
         standing_in = self.popit_data.get('standing_in', {}) or {}
-        return ('2015' in standing_in) and standing_in['2015'] == None
+        return (election in standing_in) and standing_in[election] == None
 
     def delete_memberships(self, api):
         person_from_popit = api.persons(self.id).get(embed='membership')
@@ -797,74 +764,77 @@ class PopItPerson(object):
             value
         )
 
-    def as_dict(self, year='2015'):
+    def as_dict(self, election):
         """
-        Returns a list in the order of CSV_ROW_FIELDS, for ease of
-        converting PopItPerson objects in to CSV representations.
+        Returns a dict with keys corresponding to the values in
+        CSV_ROW_FIELDS, for ease of converting PopItPerson objects
+        to CSV representations.
         """
 
-        person_data = defaultdict(str)
-        person_data.update(self.popit_data['versions'][0]['data'])
+        class EmptyForNoneAttributes(object):
+            def __init__(self, person):
+                self.person = person
+            def __getattr__(self, name):
+                value = getattr(self.person, name)
+                if value is None:
+                    return ''
+                return value
 
-        theyworkforyou_url = None
-        parlparse_id = get_identifier('uk.org.publicwhip', self.popit_data)
-        if parlparse_id:
-            m = re.search(r'^uk.org.publicwhip/person/(\d+)$', parlparse_id)
-            if not m:
-                message = "Malformed parlparse ID found {0}"
-                raise Exception, message.format(parlparse_id)
-            parlparse_person_id = m.group(1)
-            theyworkforyou_url = 'http://www.theyworkforyou.com/mp/{0}'.format(
-                parlparse_person_id
-            )
-        elected = self.get_elected(year)
+        person_data = EmptyForNoneAttributes(self)
+        post_id = self.standing_in[election]['post_id']
+
+        # Get whether this candidate was a winner in this election:
+        elected = self.get_elected(election)
         elected_for_csv = ''
         if elected is not None:
             elected_for_csv = str(elected)
-        image = self.popit_data.get('image', '') or ''
+
+        # Get all the image-related data:
+
+        image = person_data.image
         proxy_image_url_template = ''
         image_copyright = ''
         image_uploading_user = ''
         image_uploading_user_notes = ''
         if image:
             proxy_image_url_template = \
-                self.popit_data['proxy_image'] + '/{width}/{height}.{extension}'
+                person_data.proxy_image + '/{width}/{height}.{extension}'
             image_data = self.popit_data['images'][0]
             image_copyright = image_data.get('moderator_why_allowed', '')
             image_uploading_user = image_data.get('uploaded_by_user', '')
             image_uploading_user_notes = \
                 image_data.get('user_justification_for_use', '')
+
         row = {
-            'honorific_prefix': self.popit_data.get('honorific_prefix', ''),
-            'name': self.name,
-            'honorific_suffix': self.popit_data.get('honorific_suffix', ''),
             'id': self.id,
-            'party': person_data['party_memberships'][year]['name'],
-            'constituency': self.standing_in[year]['name'],
-            'mapit_url': self.standing_in[year]['mapit_url'],
-            'mapit_id': self.standing_in[year]['post_id'],
-            'gss_code': MapItData.constituencies_2010[
-                self.standing_in[year]['post_id']]['codes']['gss'],
-            'twitter_username': person_data['twitter_username'],
-            'facebook_page_url': person_data['facebook_page_url'],
-            'linkedin_url': person_data['linkedin_url'],
-            'party_ppc_page_url': person_data['party_ppc_page_url'],
-            'gender': person_data['gender'],
-            'facebook_personal_url': person_data['facebook_personal_url'],
-            'email': person_data['email'],
-            'homepage_url': person_data['homepage_url'],
-            'wikipedia_url': person_data['wikipedia_url'],
-            'birth_date': person_data['birth_date'],
-            'parlparse_id': parlparse_id,
-            'theyworkforyou_url': theyworkforyou_url,
-            'party_id': self.parties[year].get('electoral_commission_id'),
+            'name': self.name,
+            'honorific_prefix': person_data.honorific_prefix,
+            'honorific_suffix': person_data.honorific_suffix,
+            'gender': person_data.gender,
+            'birth_date': person_data.birth_date,
+            'election': election,
+            'party_id': self.party_memberships[election]['id'],
+            'party_name': self.party_memberships[election]['name'],
+            'post_id': post_id,
+            'post_label': self.standing_in[election]['name'],
+            'mapit_url': self.standing_in[election]['mapit_url'],
             'elected': elected_for_csv,
-            'image_url': self.popit_data.get('image', ''),
+            'email': person_data.email,
+            'twitter_username': person_data.twitter_username,
+            'facebook_page_url': person_data.facebook_page_url,
+            'linkedin_url': person_data.linkedin_url,
+            'party_ppc_page_url': person_data.party_ppc_page_url,
+            'facebook_personal_url': person_data.facebook_personal_url,
+            'homepage_url': person_data.homepage_url,
+            'wikipedia_url': person_data.wikipedia_url,
+            'image_url': image,
             'proxy_image_url_template': proxy_image_url_template,
             'image_copyright': image_copyright,
             'image_uploading_user': image_uploading_user,
             'image_uploading_user_notes': image_uploading_user_notes,
         }
+        extra_csv_data = get_extra_csv_values(self, election, MAPIT_DATA)
+        row.update(extra_csv_data)
 
         return row
 
@@ -1035,44 +1005,27 @@ class PopItPerson(object):
         initial_data = {}
         for field_name in all_form_fields:
             initial_data[field_name] = getattr(self, field_name)
-        # If there's data from 2010, set that in initial data to
-        # provide useful defaults ...
-        if '2010' in self.standing_in:
-            area_id_2010 = self.standing_in['2010']['post_id']
-            initial_data['constituency'] = area_id_2010
-            country_name =  MapItData.constituencies_2010.get(area_id_2010)['country_name']
-            key = 'party_ni' if country_name == 'Northern Ireland' else 'party_gb'
-            initial_data[key] = self.party_memberships['2010']['id']
-        # ... but if there's data for 2015, it'll overwrite any
-        # defaults from 2010:
-        if '2015' in self.standing_in:
-            standing_in_2015 = self.standing_in.get('2015')
-            if standing_in_2015 is None:
-                initial_data['standing'] = 'not-standing'
-            elif standing_in_2015:
-                initial_data['standing'] = 'standing'
-                # First make sure the constituency select box has the right value:
-                cons_data_2015 = self.standing_in.get('2015', {})
-                mapit_url = cons_data_2015.get('mapit_url')
-                if mapit_url:
-                    area_id = get_mapit_id_from_mapit_url(mapit_url)
-                    initial_data['constituency'] = area_id
-                    # Get the 2015 party ID:
-                    party_data_2015 = self.party_memberships.get('2015', {})
-                    party_id = party_data_2015.get('id', '')
-                    # Get the right country based on that constituency:
-                    country = MapItData.constituencies_2010.get(area_id)['country_name']
-                    if country == 'Northern Ireland':
-                        initial_data['party_ni'] = party_id
-                    else:
-                        initial_data['party_gb'] = party_id
+        for election, election_data in settings.ELECTIONS_CURRENT:
+            constituency_key = 'constituency_' + election
+            standing_key = 'standing_' + election
+            if election in self.standing_in:
+                standing_in_election = self.standing_in[election]
+                if standing_in_election:
+                    initial_data[standing_key] = 'standing'
+                    post_id = standing_in_election['post_id']
+                    initial_data[constituency_key] = post_id
+                    party_set = AREA_POST_DATA.post_id_to_party_set(post_id)
+                    party_data = self.party_memberships.get(election, {})
+                    party_id = party_data.get('id', '')
+                    party_key = 'party_' + party_set + '_' + election
+                    initial_data[party_key] = party_id
+                else:
+                    initial_data[standing_key] = 'not-standing'
+                    initial_data[constituency_key] = ''
             else:
-                message = "Unexpected 'standing_in' value {0}"
-                raise Exception(message.format(standing_in_2015))
-        else:
-            initial_data['standing'] = 'not-sure'
-            # TODO: If we don't know someone to be standing, assume they are
-            # still in the same party as they were in 2010
+                initial_data[standing_key] = 'not-sure'
+                initial_data[constituency_key] = ''
+
         return initial_data
 
     @property
@@ -1088,12 +1041,18 @@ class PopItPerson(object):
         return party
 
     @property
+    def last_party_reduced(self):
+        party = self.last_party
+        if party:
+            return reduced_organization_data(self.last_party)
+
+    @property
     def last_cons(self):
         result = None
-        for year in ('2010', '2015'):
-            cons = self.popit_data['standing_in'].get(year)
+        for election, election_data in settings.ELECTIONS_BY_DATE:
+            cons = self.popit_data['standing_in'].get(election)
             if cons:
-                result = (year, cons)
+                result = (election, cons, election_data['name'])
         return result
 
     def record_version(self, change_metadata):
@@ -1170,7 +1129,7 @@ class PopItPerson(object):
         self.invalidate_cache_entries()
         return self.id
 
-    def update_from_form(self, form):
+    def update_from_form(self, api, form):
         form_data = form.cleaned_data.copy()
         # The date is returned as a datetime.date, so if that's set, turn
         # it into a string:
@@ -1179,54 +1138,56 @@ class PopItPerson(object):
             form_data['birth_date'] = repr(birth_date_date).replace("-00-00", "")
         else:
             form_data['birth_date'] = None
-        area_id = form_data.get('constituency')
-        # Take either the GB or NI party select, and set it on 'party':
-        if area_id:
-            country_name =  MapItData.constituencies_2010.get(area_id)['country_name']
-            key = 'party_ni' if country_name == 'Northern Ireland' else 'party_gb'
-            form_data['party'] = form_data[key]
-        else:
-            form_data['party'] = None
-        del form_data['party_gb']
-        del form_data['party_ni']
-
-        # Extract some fields that we will deal with separately:
-        standing = form_data.pop('standing', 'standing')
-        constituency_2015_mapit_id = form_data.pop('constituency')
-        party_2015 = form_data.pop('party')
 
         new_standing_in = deepcopy(self.standing_in)
         new_party_memberships = deepcopy(self.party_memberships)
 
-        if standing == 'standing':
-            constituency_name = get_constituency_name_from_mapit_id(
-                constituency_2015_mapit_id
-            )
-            if not constituency_name:
-                message = "Failed to find a constituency with MapIt ID {}"
-                raise Exception(message.format(constituency_2015_mapit_id))
-            new_standing_in['2015'] = \
-                get_area_from_post_id(constituency_2015_mapit_id, mapit_url_key='mapit_url')
-            # FIXME: stupid hack to preserve elected status after the election:
-            old_standing_in_2015 = self.standing_in.get('2015', {})
-            if 'elected' in old_standing_in_2015:
-                new_standing_in['2015']['elected'] = old_standing_in_2015['elected']
-            new_party_memberships['2015'] = {
-                'name': PartyData.party_id_to_name[party_2015],
-                'id': party_2015,
-            }
-        elif standing == 'not-standing':
-            # If the person is not standing in 2015, record that
-            # they're not and remove the party membership for 2015:
-            new_standing_in['2015'] = None
-            if '2015' in new_party_memberships:
-                del new_party_memberships['2015']
-        elif standing == 'not-sure':
-            # If the update specifies that we're not sure if they're
-            # standing in 2015, then remove the standing_in and
-            # party_memberships entries for that year:
-            new_standing_in.pop('2015', None)
-            new_party_memberships.pop('2015', None)
+        for election, election_data in form.elections_with_fields:
+
+            post_id = form_data.get('constituency_' + election)
+            if post_id:
+                party_set = AREA_POST_DATA.post_id_to_party_set(post_id)
+                party_key = 'party_' + party_set + '_' + election
+                form_data['party_' + election] = form_data[party_key]
+            else:
+                form_data['party_' + election] = None
+            # Delete all the party set specific party information:
+            for party_set in PARTY_DATA.ALL_PARTY_SETS:
+                form_data.pop('party_' + party_set['slug']  + '_' + election)
+
+            # Extract some fields that we will deal with separately:
+            standing = form_data.pop('standing_' + election, 'standing')
+            post_id = form_data.pop('constituency_' + election)
+            party = form_data.pop('party_' + election)
+
+            if standing == 'standing':
+                post_data = get_post_cached(api, post_id)['result']
+                post_label = post_data['label']
+                new_standing_in[election] = {
+                    'post_id': post_data['id'],
+                    'name': AREA_POST_DATA.shorten_post_label(election, post_label),
+                    'mapit_url': post_data['area']['identifier'],
+                }
+                # FIXME: stupid hack to preserve elected status after the election:
+                old_standing_in = self.standing_in.get(election, {})
+                if (old_standing_in is not None) and ('elected' in old_standing_in):
+                    new_standing_in[election]['elected'] = old_standing_in['elected']
+                new_party_memberships[election] = {
+                    'name': PARTY_DATA.party_id_to_name[party],
+                    'id': party,
+                }
+            elif standing == 'not-standing':
+                # If the person is not standing in this election, record that
+                # they're not and remove the party membership for the election:
+                new_standing_in[election] = None
+                if election in new_party_memberships:
+                    del new_party_memberships[election]
+            elif standing == 'not-sure':
+                # If the update specifies that we're not sure if they're
+                # standing in this election, then remove the standing_in and
+                # party_memberships entries for that year:
+                new_standing_in.pop(election, None)
+                new_party_memberships.pop(election, None)
 
         self.standing_in = new_standing_in
         self.party_memberships = new_party_memberships
@@ -1237,27 +1198,27 @@ class PopItPerson(object):
         for field in settable_fields:
             setattr(self, field, form_data[field])
 
-    def set_elected(self, was_elected, year="2015"):
+    def set_elected(self, was_elected, election):
         standing_in = self.standing_in
         if not standing_in:
-            message = "Can't set_elected of a candidate with no standing_in"
+            message = _("Can't set_elected of a candidate with no standing_in")
             raise Exception, message
-        if not standing_in.get(year):
-            message = "No standing_in information for {0}".format(year)
+        if not standing_in.get(election):
+            message = _("No standing_in information for {0}").format(election)
         if was_elected is None:
-            del standing_in[year]['elected']
+            del standing_in[election]['elected']
         else:
-            standing_in[year]['elected'] = was_elected
+            standing_in[election]['elected'] = was_elected
         self.standing_in = standing_in
 
-    def get_elected(self, year="2015"):
+    def get_elected(self, election):
         standing_in = self.popit_data.get('standing_in') or {}
-        if year not in standing_in:
+        if election not in standing_in:
             return None
-        year_data = standing_in.get(year, {})
-        if not year_data:
+        standing_in_election_data = standing_in.get(election, {})
+        if not standing_in_election_data:
             return None
-        return year_data.get('elected')
+        return standing_in_election_data.get('elected')
 
 def update_values_in_sub_array(data, location, new_value):
     """Ensure that only a particular value is present in a sub-dict
@@ -1287,7 +1248,15 @@ def update_values_in_sub_array(data, location, new_value):
     ...         {
     ...             'note': "homepage",
     ...             'url': "http://oops.duplicate.example.org"
-    ...         }
+    ...         },
+    ...         {
+    ...             'note': "party PPC page",
+    ...             'url': "http://conservatives.example.org/foo"
+    ...         },
+    ...         {
+    ...             'note': "party candidate page",
+    ...             'url': "http://conservatives.example.org/bar"
+    ...         },
     ...     ],
     ... }
     >>> update_values_in_sub_array(
@@ -1314,6 +1283,15 @@ def update_values_in_sub_array(data, location, new_value):
     ...      'info_type': 'instagram'},
     ...     ""
     ... )
+    >>> update_values_in_sub_array(
+    ...     person_data,
+    ...     {'sub_array': 'links',
+    ...      'info_type_key': 'note',
+    ...      'info_value_key': 'url',
+    ...      'info_type': 'party candidate page',
+    ...      'old_info_type': 'party PPC page'},
+    ...     "http://conservatives.example.org/newfoo"
+    ... )
    >>> print json.dumps(person_data, indent=4) # doctest: +NORMALIZE_WHITESPACE
     {
         "email": "john-doe@example.org",
@@ -1326,14 +1304,21 @@ def update_values_in_sub_array(data, location, new_value):
             {
                 "note": "homepage",
                 "url": "http://john.doe.example.org"
+            },
+            {
+                "note": "party candidate page",
+                "url": "http://conservatives.example.org/newfoo"
             }
         ],
         "name": "John Doe"
     }
     """
+    existing_info_types = [location['info_type']]
+    if 'old_info_type' in location:
+        existing_info_types.append(location['old_info_type'])
     new_info = [
         c for c in data.get(location['sub_array'], [])
-        if c.get(location['info_type_key']) != location['info_type']
+        if c.get(location['info_type_key']) not in existing_info_types
     ]
     if new_value:
         new_info.append({

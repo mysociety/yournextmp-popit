@@ -52,13 +52,13 @@ class TestPartyPages(WebTest):
         mock_api = MagicMock()
         mock_api.organizations.get.side_effect = fake_api_party_list
         mock_popit.return_value = mock_api
-        response = self.app.get('/parties')
+        response = self.app.get('/election/2015/parties')
         ul = response.html.find('ul', {'class': 'party-list'})
         lis = ul.find_all('li')
         self.assertEqual(len(lis), 2)
         for i, t in enumerate((
-            ('/party/party%3A52/conservative-party', 'Conservative Party'),
-            ('/party/party%3A53/labour-party', 'Labour Party'),
+            ('/election/2015/party/party:52/conservative-party', 'Conservative Party'),
+            ('/election/2015/party/party:53/labour-party', 'Labour Party'),
         )):
             expected_url = t[0]
             expected_text = t[1]
@@ -70,7 +70,7 @@ class TestPartyPages(WebTest):
     def test_single_party_page(self, mock_popit, mock_requests):
         mock_popit.return_value.organizations = FakeOrganizationCollection
         mock_requests.get.side_effect = fake_party_person_search_results
-        response = self.app.get('/party/party%3A53/labour-party')
+        response = self.app.get('/election/2015/party/party%3A53/labour-party')
         # There are no candidates in Scotland or Wales in our test data:
         self.assertIn(
             u"We don't know of any Labour Party candidates in Scotland so far.",
@@ -98,6 +98,6 @@ class TestPartyPages(WebTest):
         # But there is an Ed Miliband:
         self.assertTrue(re.search(
             r'(?ms)<a href="/person/3056">Ed Miliband</a>.*is standing in.*' +
-            r'<a href="/constituency/65672/doncaster-north">Doncaster North</a></li>',
+            r'<a href="/election/2015/post/65672/doncaster-north">Doncaster North</a></li>',
             unicode(response)
         ))

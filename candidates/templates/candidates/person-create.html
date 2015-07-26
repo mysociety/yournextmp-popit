@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}person{% endblock %}
 
 {% block hero %}
-  <h1>Add a new candidate</h1>
+  <h1>{% trans "Add a new candidate" %}</h1>
 {% endblock %}
 
 {% block content %}
-  <form id="person-details" action="{% url 'person-create' %}" method="post">
+  <form id="person-details" action="{% url 'person-create' election=election %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="button" value="Save changes">
+    <input type="submit" class="button" value="{% trans "Save changes" %}">
   </form>
 
 {% include 'candidates/person-versions.html' %}

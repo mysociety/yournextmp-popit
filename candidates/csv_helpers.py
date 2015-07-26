@@ -10,7 +10,7 @@ def encode_row_values(d):
     }
 
 def candidate_sort_key(row):
-    return (row['constituency'], row['name'].split()[-1])
+    return (row['election'], row['post_label'], row['name'].split()[-1])
 
 def list_to_csv(candidates_list):
     output = StringIO.StringIO()

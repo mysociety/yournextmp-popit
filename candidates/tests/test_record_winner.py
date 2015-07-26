@@ -19,7 +19,7 @@ class TestRecordWinner(TestUserMixin, WebTest):
     ):
         mock_popit.return_value.posts = FakePostCollection
         response = self.app.get(
-            '/constituency/65808/dulwich-and-west-norwood',
+            '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user_who_can_record_results,
         )
         self.assertIn(
@@ -28,7 +28,10 @@ class TestRecordWinner(TestUserMixin, WebTest):
         )
         record_url = reverse(
             'record-winner',
-            kwargs={'mapit_area_id': '65808'}
+            kwargs={
+                'election': '2015',
+                'post_id': '65808',
+            }
         )
         self.assertIn(
             record_url,
@@ -41,7 +44,7 @@ class TestRecordWinner(TestUserMixin, WebTest):
     ):
         mock_popit.return_value.posts = FakePostCollection
         response = self.app.get(
-            '/constituency/65808/dulwich-and-west-norwood',
+            '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user,
         )
         self.assertNotIn(
@@ -61,13 +64,16 @@ class TestRecordWinner(TestUserMixin, WebTest):
         mock_popit.return_value.posts = FakePostCollection
         # Get the constituency page just to set the CSRF token
         self.app.get(
-            '/constituency/65808/dulwich-and-west-norwood',
+            '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user,
         )
         csrftoken = self.app.cookies['csrftoken']
         base_record_url = reverse(
             'record-winner',
-            kwargs={'mapit_area_id': '65808'}
+            kwargs={
+                'election': '2015',
+                'post_id': '65808',
+            }
         )
         form_get_response = self.app.get(
             base_record_url + '?person=4322',
@@ -102,7 +108,10 @@ class TestRecordWinner(TestUserMixin, WebTest):
         mock_popit.return_value.posts = FakePostCollection
         base_record_url = reverse(
             'record-winner',
-            kwargs={'mapit_area_id': '65808'}
+            kwargs={
+                'election': '2015',
+                'post_id': '65808',
+            }
         )
         form_get_response = self.app.get(
             base_record_url + '?person=4322',
@@ -116,7 +125,7 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertEqual(submission_response.status_code, 302)
         self.assertEqual(
             submission_response.location,
-            'http://localhost:80/constituency/65808/dulwich-and-west-norwood',
+            'http://localhost:80/election/2015/post/65808/dulwich-and-west-norwood',
         )
         self.assertFalse(mocked_post_put.called)
         # There's only one candidate marked as standing in 2015 (Helen
@@ -152,7 +161,10 @@ class TestRecordWinner(TestUserMixin, WebTest):
         mock_popit.return_value.posts = FakePostCollection
         base_record_url = reverse(
             'record-winner',
-            kwargs={'mapit_area_id': '65808'}
+            kwargs={
+                'election': '2015',
+                'post_id': '65808',
+            }
         )
         form_get_response = self.app.get(
             base_record_url + '?person=4322',
@@ -166,7 +178,7 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertEqual(submission_response.status_code, 302)
         self.assertEqual(
             submission_response.location,
-            'http://localhost:80/constituency/65808/dulwich-and-west-norwood',
+            'http://localhost:80/election/2015/post/65808/dulwich-and-west-norwood',
         )
         self.assertFalse(mocked_post_put.called)
         # There's only one candidate marked as standing in 2015 (Helen
@@ -210,7 +222,10 @@ class TestRecordWinner(TestUserMixin, WebTest):
         mock_popit.return_value.memberships = FakeMembershipCollection
         base_record_url = reverse(
             'record-winner',
-            kwargs={'mapit_area_id': '65735'}
+            kwargs={
+                'election': '2015',
+                'post_id': '65735',
+            }
         )
         form_get_response = self.app.get(
             base_record_url + '?person=2422',
@@ -224,7 +239,7 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertEqual(submission_response.status_code, 302)
         self.assertEqual(
             submission_response.location,
-            'http://localhost:80/constituency/65735/morley-and-outwood',
+            'http://localhost:80/election/2015/post/65735/morley-and-outwood',
         )
         self.assertFalse(mocked_post_put.called)
         # There are 6 candidates standing in Morley and Outwood, so

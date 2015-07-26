@@ -1,7 +1,7 @@
-{% autoescape off %}Thank-you for submitting a photo to YourNextMP; that's been
-uploaded now for the candidate page here:
+{% load i18n %}{% autoescape off %}{% blocktrans %}Thank-you for submitting a photo to YourNextMP; that's been
+uploaded now for the candidate page here:{% endblocktrans %}
 
   {{ candidate_page_url }}
 
-Many thanks,
-The YourNextMP volunteers{% endautoescape %}
+{% blocktrans %}Many thanks,
+The YourNextMP volunteers{% endblocktrans %}{% endautoescape %}

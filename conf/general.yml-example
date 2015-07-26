@@ -14,6 +14,15 @@ YNMP_DB_PASS: ''
 YNMP_DB_PORT: ''
 YNMP_DB_HOST: ''
 
+# Which election is this installation for? (This must be the name of a
+# package in the 'elections' package, at the moment one of
+# uk_general_election_2015 or ar_elections_2015):
+ELECTION_APP: 'uk_general_election_2015'
+
+# Default language/timezone of the installation
+LANGUAGE_CODE: 'en-gb'
+TIME_ZONE: 'Europe/London'
+
 # The path to the gems directory:
 GEMS_DIRECTORY: ''
 

@@ -1,0 +1,38 @@
+{% load i18n %}
+
+{% if not suppress_official_documents %}
+  {% if user_can_upload_documents or some_official_documents %}
+      <div class="official-documents">
+          <h3>{% trans "Official documents for this post" %}</h3>
+
+        {% for doc_type, docs in official_documents %}
+          {% if docs %}
+
+            <ul>
+              {% for doc in docs %}
+                <li>
+                    {% blocktrans trimmed with url=doc.get_absolute_url type=doc.document_type created=doc.created %}
+                    <a href="{{ url }}">{{ type }}</a> uploaded on {{ created }}
+                    {% endblocktrans %}
+                </li>
+              {% endfor %}
+            </ul>
+
+          {% elif user_can_upload_documents %}
+
+            {% blocktrans trimmed with post_label=post_data.label type=doc_type.1 %}
+              <p>We don't have any {{ type }} for the post {{ post_data.label }}.</p>
+            {% endblocktrans %}
+
+            {% url 'upload_document_view' election=election post_id=post_data.id as url %}
+            <a href="{{ url }}" class="button">
+              {% blocktrans with type=doc_type.0 %}Upload a {{ type }}{% endblocktrans %}
+            </a>
+
+          {% endif %}
+        {% endfor %}
+
+      </div>
+
+  {% endif %}
+{% endif %}

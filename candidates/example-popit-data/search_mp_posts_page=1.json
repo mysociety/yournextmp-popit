@@ -1,0 +1,3965 @@
+{
+  "has_more": false,
+  "page": 1,
+  "per_page": 50,
+  "result": [
+    {
+      "area": {
+        "id": "mapit:65808",
+        "identifier": "http://mapit.mysociety.org/area/65808",
+        "name": "Dulwich and West Norwood"
+      },
+      "candidates_locked": false,
+      "contact_details": [],
+      "html_url": "http://candidates.127.0.0.1.xip.io:3000/posts/65808",
+      "id": "65808",
+      "images": [],
+      "label": "Member of Parliament for Dulwich and West Norwood",
+      "links": [],
+      "memberships": [
+        {
+          "contact_details": [],
+          "election": "2010",
+          "end_date": "2010-05-06",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/549010c1d905e1d10c143765",
+          "id": "549010c1d905e1d10c143765",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [],
+            "email": "dulwichwnorwood@tory.org",
+            "gender": "female",
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/3267",
+            "id": "3267",
+            "identifiers": [
+              {
+                "id": "552f7ed5ed1c6ee164eea425",
+                "identifier": "2958",
+                "scheme": "yournextmp-candidate"
+              }
+            ],
+            "images": [],
+            "links": [],
+            "memberships": [],
+            "name": "Kemi Adegoke",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "party:52",
+                "name": "Conservative Party"
+              }
+            },
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              },
+              "2015": null
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/3267",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "dulwichwnorwood@tory.org",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "id": "3267",
+                  "image": null,
+                  "name": "Kemi Adegoke",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                "timestamp": "2014-12-16T11:00:17.248861",
+                "username": "edpw",
+                "version_id": "38c24b88db4a399a"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "dulwichwnorwood@tory.org",
+                  "facebook_page_url": null,
+                  "facebook_personal_url": null,
+                  "gender": "female",
+                  "homepage_url": null,
+                  "id": "3267",
+                  "identifiers": [
+                    {
+                      "identifier": "2958",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "name": "Kemi Adegoke",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": null,
+                  "phone": "020 8670 0677",
+                  "slug": "kemi-adegoke",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": null,
+                  "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:23:02.649024",
+                "version_id": "3e2c2df8962c6bf1"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2005-05-06",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/549010c1d905e1d10c143765"
+        },
+        {
+          "contact_details": [],
+          "election": "2010",
+          "end_date": "2010-05-06",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/54d2d3725b6aac303dfcd691",
+          "id": "54d2d3725b6aac303dfcd691",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": "1947-09-17",
+            "contact_details": [
+              {
+                "id": "552bb30d14bf03a83a346154",
+                "type": "twitter",
+                "value": "jowellt"
+              }
+            ],
+            "email": "tessajowell@london.com",
+            "gender": "female",
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/2009",
+            "id": "2009",
+            "identifiers": [
+              {
+                "id": "552bb30d14bf03a83a346151",
+                "identifier": "2959",
+                "scheme": "yournextmp-candidate"
+              },
+              {
+                "id": "552bb30d14bf03a83a346150",
+                "identifier": "uk.org.publicwhip/person/10326",
+                "scheme": "uk.org.publicwhip"
+              }
+            ],
+            "images": [],
+            "links": [
+              {
+                "id": "552bb30d14bf03a83a346153",
+                "note": "homepage",
+                "url": "http://www.tessajowell.net/"
+              },
+              {
+                "id": "552bb30d14bf03a83a346152",
+                "note": "wikipedia",
+                "url": "http://en.wikipedia.org/wiki/Tessa_Jowell"
+              }
+            ],
+            "memberships": [],
+            "name": "Tessa Jowell",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "party:53",
+                "name": "Labour Party"
+              }
+            },
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              },
+              "2015": null
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/2009",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": "1947-09-17",
+                  "email": "tessajowell@london.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "http://www.tessajowell.net/",
+                  "id": "2009",
+                  "identifiers": [
+                    {
+                      "id": "54c66ea8c71694775bfd22ac",
+                      "identifier": "2959",
+                      "scheme": "yournextmp-candidate"
+                    },
+                    {
+                      "id": "54c66ea8c71694775bfd22ab",
+                      "identifier": "uk.org.publicwhip/person/10326",
+                      "scheme": "uk.org.publicwhip"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Tessa Jowell",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "jowellt",
+                  "wikipedia_url": "http://en.wikipedia.org/wiki/Tessa_Jowell"
+                },
+                "information_source": "http://en.wikipedia.org/wiki/Tessa_Jowell",
+                "timestamp": "2015-02-05T02:20:34.131244",
+                "username": "Liz",
+                "version_id": "59a4ce133019016c"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tessajowell@london.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "http://www.tessajowell.net/",
+                  "id": "2009",
+                  "identifiers": [
+                    {
+                      "id": "5477863c737edc5252ce581d",
+                      "identifier": "2959",
+                      "scheme": "yournextmp-candidate"
+                    },
+                    {
+                      "identifier": "uk.org.publicwhip/person/10326",
+                      "scheme": "uk.org.publicwhip"
+                    }
+                  ],
+                  "image": null,
+                  "name": "Tessa Jowell",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    },
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "jowellt",
+                  "wikipedia_url": "http://en.wikipedia.org/wiki/Tessa_Jowell"
+                },
+                "information_source": "Updated candidate with parlparse person id",
+                "timestamp": "2015-01-26T16:43:19.826469",
+                "version_id": "30cca3f34d7207d6"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tessajowell@london.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "http://www.tessajowell.net/",
+                  "id": "2009",
+                  "name": "Tessa Jowell",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "jowellt",
+                  "wikipedia_url": "http://en.wikipedia.org/wiki/Tessa_Jowell"
+                },
+                "information_source": "Found her Twitter username via Google",
+                "timestamp": "2014-11-26T09:20:51.059218",
+                "username": "mark",
+                "version_id": "379b4c88811809d8"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tessajowell@london.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "http://www.tessajowell.net/",
+                  "id": "2009",
+                  "name": "Tessa Jowell",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": "http://en.wikipedia.org/wiki/Tessa_Jowell"
+                },
+                "information_source": "Found her homepage via Google",
+                "timestamp": "2014-11-25T19:16:07.972708",
+                "username": "user",
+                "version_id": "2ca287984b78cca3"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tessajowell@london.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "id": "2009",
+                  "name": "Tessa Jowell",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": "http://en.wikipedia.org/wiki/Tessa_Jowell"
+                },
+                "information_source": "Found her Wikipedia page through Google",
+                "timestamp": "2014-11-25T10:02:40.184563",
+                "username": "user",
+                "version_id": "407db6845dbb0007"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tessajowell@london.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "id": "2009",
+                  "name": "Tessa Jowell",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "It says she's standing down here: http://www.bbc.co.uk/news/uk-politics-25045746",
+                "timestamp": "2014-11-23T18:09:11.604997",
+                "username": "mark",
+                "version_id": "36198267ad42acb1"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tessajowell@london.com",
+                  "facebook_page_url": null,
+                  "facebook_personal_url": null,
+                  "gender": "female",
+                  "homepage_url": null,
+                  "id": "2009",
+                  "identifiers": [
+                    {
+                      "identifier": "2959",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "name": "Tessa Jowell",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": null,
+                  "phone": "02086931826",
+                  "slug": "tessa-jowell",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": null,
+                  "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:16:48.116236",
+                "version_id": "53e1260ec3946bbf"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2005-05-06",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/54d2d3725b6aac303dfcd691"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/54f76c896662976478f7c441",
+          "id": "54f76c896662976478f7c441",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "552f83e0ed1c6ee164eec1a3",
+                "type": "twitter",
+                "value": "TUSCSteveNally"
+              }
+            ],
+            "email": "tusclambeth@outlook.com",
+            "gender": "male",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/6168",
+            "id": "6168",
+            "identifiers": [],
+            "image": "http://yournextmp.popit.mysociety.org/persons/6168/image/54f76c69c689026478f43684",
+            "images": [
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "54f76c69c689026478f43684",
+                "local_path": "54/f7/54f76c69c689026478f43684",
+                "local_path_base": "54/f7/54f76c69c689026478f43684",
+                "md5sum": "593b55e4bd2476f2b6c8467f95338da7",
+                "mime_type": "image/jpeg",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6168%2Fimage%2F54f76c69c689026478f43684",
+                "start_date": null,
+                "uploaded_by_user": "KingstonTUSC",
+                "url": "http://yournextmp.popit.mysociety.org/persons/6168/image/54f76c69c689026478f43684",
+                "user_justification_for_use": "https://twitter.com/TUSCSteveNally",
+                "user_why_allowed": "profile-photo"
+              },
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "54f76c88c689026478f43685",
+                "local_path": "54/f7/54f76c88c689026478f43685",
+                "local_path_base": "54/f7/54f76c88c689026478f43685",
+                "md5sum": "ae48c388f000108352ce2e60dc360a99",
+                "mime_type": "image/jpeg",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6168%2Fimage%2F54f76c88c689026478f43685",
+                "start_date": null,
+                "uploaded_by_user": "KingstonTUSC",
+                "url": "http://yournextmp.popit.mysociety.org/persons/6168/image/54f76c88c689026478f43685",
+                "user_justification_for_use": "https://twitter.com/TUSCSteveNally",
+                "user_why_allowed": "profile-photo"
+              }
+            ],
+            "links": [
+              {
+                "id": "552f83e0ed1c6ee164eec1a4",
+                "note": "homepage",
+                "url": "http://www.tuscstevenally.org/"
+              }
+            ],
+            "memberships": [],
+            "name": "Steve Nally",
+            "other_names": [],
+            "party_memberships": {
+              "2015": {
+                "id": "party:804",
+                "name": "Trade Unionist and Socialist Coalition"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6168%2Fimage%2F54f76c69c689026478f43684",
+            "standing_in": {
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/6168",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tusclambeth@outlook.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "http://www.tuscstevenally.org/",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "6168",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/6168/image/54f76c69c689026478f43684",
+                  "linkedin_url": "",
+                  "name": "Steve Nally",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:804",
+                      "name": "Trade Unionist and Socialist Coalition"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6168%2Fimage%2F54f76c69c689026478f43684",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "TUSCSteveNally",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from KingstonTUSC who provided the message: \"https://twitter.com/TUSCSteveNally\"",
+                "timestamp": "2015-03-04T20:35:20.832189",
+                "username": "mark",
+                "version_id": "16d42948cebe32aa"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tusclambeth@outlook.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "http://www.tuscstevenally.org/",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "6168",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/6168/image/54f76c69c689026478f43684",
+                  "linkedin_url": "",
+                  "name": "Steve Nally",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:804",
+                      "name": "Trade Unionist and Socialist Coalition"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6168%2Fimage%2F54f76c69c689026478f43684",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "TUSCSteveNally",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from KingstonTUSC who provided the message: \"https://twitter.com/TUSCSteveNally\"",
+                "timestamp": "2015-03-04T20:34:49.956946",
+                "username": "mark",
+                "version_id": "582a066447536cdb"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tusclambeth@outlook.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "http://www.tuscstevenally.org/",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "6168",
+                  "identifiers": [],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Steve Nally",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:804",
+                      "name": "Trade Unionist and Socialist Coalition"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "TUSCSteveNally",
+                  "wikipedia_url": ""
+                },
+                "information_source": "steve nally campaing team ",
+                "timestamp": "2015-03-03T22:09:38.795188",
+                "username": "KingstonTUSC",
+                "version_id": "368ff0170fe62d0c"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "tusclambeth@outlook.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "6168",
+                  "identifiers": [],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Steve Nally",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:804",
+                      "name": "Trade Unionist and Socialist Coalition"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "TUSCSteveNally",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Steve Nlly ",
+                "timestamp": "2015-03-03T22:04:35.574853",
+                "username": "KingstonTUSC",
+                "version_id": "4904cdd99c6c42ce"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "id": "6168",
+                  "identifiers": [],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Steve Nally",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:804",
+                      "name": "Trade Unionist and Socialist Coalition"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Gender based on name/photo",
+                "timestamp": "2015-02-08T17:17:31.682845",
+                "username": "edent",
+                "version_id": "3cbfd52c0013f7d0"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "6168",
+                  "linkedin_url": "",
+                  "name": "Steve Nally",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:804",
+                      "name": "Trade Unionist and Socialist Coalition"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.tusc.org.uk/txt/320.pdf",
+                "timestamp": "2015-02-07T23:04:15.228034",
+                "username": "RichCBury1",
+                "version_id": "25ae288fd1b13b37"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/54f76c896662976478f7c441"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/5510a805a344efdd4783c5d7",
+          "id": "5510a805a344efdd4783c5d7",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [],
+            "email": "a.kanumansa@sky.com",
+            "gender": "male",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/6973",
+            "id": "6973",
+            "identifiers": [],
+            "images": [],
+            "links": [
+              {
+                "id": "552f8223ed1c6ee164eeb6df",
+                "note": "party PPC page",
+                "url": "http://allpeoplesparty.co.uk/amadu-kanumansa/"
+              }
+            ],
+            "memberships": [],
+            "name": "Amadu Kanumansa",
+            "other_names": [],
+            "party_memberships": {
+              "2015": {
+                "id": "party:2137",
+                "name": "All People's Party"
+              }
+            },
+            "standing_in": {
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/6973",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "a.kanumansa@sky.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "6973",
+                  "linkedin_url": "",
+                  "name": "Amadu Kanumansa",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:2137",
+                      "name": "All People's Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://allpeoplesparty.co.uk/amadu-kanumansa/",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://allpeoplesparty.co.uk/candidates/",
+                "timestamp": "2015-03-23T23:55:49.645208",
+                "username": "sjorford",
+                "version_id": "0a45ddb66019b935"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/5510a805a344efdd4783c5d7"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/551ad8b765b1a4c8286b964a",
+          "id": "551ad8b765b1a4c8286b964a",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "552f8592ed1c6ee164eecde0",
+                "type": "twitter",
+                "value": "CllrJamesBarber"
+              }
+            ],
+            "email": "cllrjamesbarber@gmail.com",
+            "gender": "male",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/4493",
+            "id": "4493",
+            "identifiers": [],
+            "image": "http://yournextmp.popit.mysociety.org/persons/4493/image/5481e8f6b150e238702c061b",
+            "images": [
+              {
+                "created": null,
+                "id": "5481e8f6b150e238702c061b",
+                "md5sum": "abae7abcb4683a0a9c92f154dad6da71",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Scraped from the official party PPC page",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4493%2Fimage%2F5481e8f6b150e238702c061b",
+                "source": "Via the official party PPC page, based on https://d3n8a8pro7vhmx.cloudfront.net/libdems/pages/6770/attachments/original/1415026027/key_james_barber.JPG?1415026027",
+                "url": "http://yournextmp.popit.mysociety.org/persons/4493/image/5481e8f6b150e238702c061b"
+              }
+            ],
+            "links": [
+              {
+                "id": "552f8592ed1c6ee164eecde5",
+                "note": "facebook page",
+                "url": "https://www.facebook.com/james.barber.1238292"
+              },
+              {
+                "id": "552f8592ed1c6ee164eecde4",
+                "note": "party PPC page",
+                "url": "http://www.libdems.org.uk/james_barber"
+              },
+              {
+                "id": "552f8592ed1c6ee164eecde3",
+                "note": "linkedin",
+                "url": "http://uk.linkedin.com/pub/james-barber/16/159/516"
+              },
+              {
+                "id": "552f8592ed1c6ee164eecde2",
+                "note": "facebook personal",
+                "url": "http://facebook.com/james.barber"
+              },
+              {
+                "id": "552f8592ed1c6ee164eecde1",
+                "note": "homepage",
+                "url": "http://jamesbarber.mycouncillor.org.uk/"
+              }
+            ],
+            "memberships": [],
+            "name": "James Barber",
+            "other_names": [],
+            "party_memberships": {
+              "2015": {
+                "id": "party:90",
+                "name": "Liberal Democrats"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4493%2Fimage%2F5481e8f6b150e238702c061b",
+            "standing_in": {
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/4493",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "cllrjamesbarber@gmail.com",
+                  "facebook_page_url": "https://www.facebook.com/james.barber.1238292",
+                  "facebook_personal_url": "http://facebook.com/james.barber",
+                  "gender": "male",
+                  "homepage_url": "http://jamesbarber.mycouncillor.org.uk/",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "4493",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4493/image/5481e8f6b150e238702c061b",
+                  "linkedin_url": "http://uk.linkedin.com/pub/james-barber/16/159/516",
+                  "name": "James Barber",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.libdems.org.uk/james_barber",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4493%2Fimage%2F5481e8f6b150e238702c061b",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "CllrJamesBarber",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Found by andylolz (presumably from Google)",
+                "timestamp": "2015-03-31T17:26:12.288931",
+                "username": "mark",
+                "version_id": "0833a99b821e2b29"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "cllrjamesbarber@gmail.com",
+                  "facebook_page_url": "https://www.facebook.com/james.barber.1238292",
+                  "facebook_personal_url": "http://facebook.com/james.barber",
+                  "gender": "male",
+                  "homepage_url": "http://jamesbarber.mycouncillor.org.uk/",
+                  "id": "4493",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4493/image/5481e8f6b150e238702c061b",
+                  "name": "James Barber",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.libdems.org.uk/james_barber",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4493%2Fimage%2F5481e8f6b150e238702c061b",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "CllrJamesBarber",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (libdem)",
+                "timestamp": "2015-01-31T18:17:24.442896",
+                "version_id": "3ed9d0ac09477ad3"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "cllrjamesbarber@gmail.com",
+                  "facebook_page_url": "https://www.facebook.com/james.barber.1238292",
+                  "facebook_personal_url": "http://facebook.com/james.barber",
+                  "gender": "male",
+                  "homepage_url": "http://jamesbarber.mycouncillor.org.uk/",
+                  "id": "4493",
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4493/image/5481e8f6b150e238702c061b",
+                  "name": "James Barber",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.libdems.org.uk/james_barber",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4493%2Fimage%2F5481e8f6b150e238702c061b",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "CllrJamesBarber",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://jamesbarber.mycouncillor.org.uk/",
+                "timestamp": "2015-01-25T20:39:46.113565",
+                "username": "stef",
+                "version_id": "75fea123a67b2958"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "cllrjamesbarber@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "http://facebook.com/james.barber",
+                  "gender": null,
+                  "homepage_url": "",
+                  "id": "4493",
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4493/image/5481e8f6b150e238702c061b",
+                  "name": "James Barber",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.libdems.org.uk/james_barber",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "CllrJamesBarber",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (libdem)",
+                "timestamp": "2014-12-11T12:13:25.341454",
+                "version_id": "2630eed273b3b9aa"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "cllrjamesbarber@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "facebook.com/james.barber",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "4493",
+                  "image": null,
+                  "name": "James Barber",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.libdems.org.uk/james_barber",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "CllrJamesBarber",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (libdem)",
+                "timestamp": "2014-12-05T17:18:45.397468",
+                "version_id": "71c6dd84e75cb3ea"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "cllrjamesbarber@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "facebook.com/james.barber",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "4493",
+                  "name": "James Barber",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.libdems.org.uk/james_barber",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "CllrJamesBarber",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (libdem)",
+                "timestamp": "2014-11-23T09:59:46.815649",
+                "version_id": "74162d6c8dc9c392"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "cllrjamesbarber@gmail.com",
+                  "facebook_personal_url": "facebook.com/james.barber",
+                  "homepage_url": "",
+                  "id": "4493",
+                  "name": "James Barber",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.libdems.org.uk/james_barber",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "CllrJamesBarber"
+                },
+                "information_source": "Created new candidate from official PPC data (libdem)",
+                "timestamp": "2014-11-22T08:58:14.286996",
+                "version_id": "546f80eea0f8fd03"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/551ad8b765b1a4c8286b964a"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/5526905a15d96fc0639777ab",
+          "id": "5526905a15d96fc0639777ab",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "552f866fed1c6ee164eed906",
+                "type": "twitter",
+                "value": "ralagaratnam"
+              }
+            ],
+            "email": "dulwich@ukiplambeth.co.uk",
+            "gender": "female",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/1086",
+            "id": "1086",
+            "identifiers": [
+              {
+                "id": "552f866fed1c6ee164eed907",
+                "identifier": "24633",
+                "scheme": "yournextmp-candidate"
+              }
+            ],
+            "image": "http://yournextmp.popit.mysociety.org/persons/1086/image/5526905859bbc5c063445b96",
+            "images": [
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "5526905859bbc5c063445b96",
+                "index": "first",
+                "local_path": "55/26/5526905859bbc5c063445b96",
+                "local_path_base": "55/26/5526905859bbc5c063445b96",
+                "md5sum": "0b6f64a6c72b163c8cbef813eeb38a21",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F1086%2Fimage%2F5526905859bbc5c063445b96",
+                "start_date": null,
+                "uploaded_by_user": "JPCarrington",
+                "url": "http://yournextmp.popit.mysociety.org/persons/1086/image/5526905859bbc5c063445b96",
+                "user_justification_for_use": "As featured on official party PPC pages: http://www.myukip.com/parliamentary-candidates-c-e.html",
+                "user_why_allowed": "profile-photo"
+              }
+            ],
+            "links": [
+              {
+                "id": "552f866fed1c6ee164eed908",
+                "note": "party PPC page",
+                "url": "http://ukiplambeth.co.uk/"
+              }
+            ],
+            "memberships": [],
+            "name": "Rathy Alagaratnam",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "ynmp-party:2",
+                "name": "Independent"
+              },
+              "2015": {
+                "id": "party:85",
+                "name": "UK Independence Party (UKIP)"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F1086%2Fimage%2F5526905859bbc5c063445b96",
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/66038",
+                "name": "Mitcham and Morden",
+                "post_id": "66038"
+              },
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/1086",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "dulwich@ukiplambeth.co.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "1086",
+                  "identifiers": [
+                    {
+                      "id": "5523c0e20e8c99ac61461651",
+                      "identifier": "24633",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Rathy Alagaratnam",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    },
+                    "2015": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": "http://ukiplambeth.co.uk/",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66038",
+                      "name": "Mitcham and Morden",
+                      "post_id": "66038"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ralagaratnam",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from JPCarrington who provided the message: \"As featured on official party PPC pages: http://www.myukip.com/parliamentary-candidates-c-e.html\"",
+                "timestamp": "2015-04-09T14:44:40.360376",
+                "username": "JPCarrington",
+                "version_id": "58c7e98cf0f9f709"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "dulwich@ukiplambeth.co.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "1086",
+                  "identifiers": [
+                    {
+                      "id": "546f8089d484cf5c58509b21",
+                      "identifier": "24633",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Rathy Alagaratnam",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    },
+                    "2015": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": "http://ukiplambeth.co.uk/",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66038",
+                      "name": "Mitcham and Morden",
+                      "post_id": "66038"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ralagaratnam",
+                  "wikipedia_url": ""
+                },
+                "information_source": "web search",
+                "timestamp": "2015-04-07T08:01:35.686403",
+                "username": "MarvinLandell",
+                "version_id": "562a8c37688a1c24"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "id": "1086",
+                  "image": null,
+                  "name": "Rathy Alagaratnam",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    },
+                    "2015": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66038",
+                      "name": "Mitcham and Morden",
+                      "post_id": "66038"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ralagaratnam",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.thecommentator.com/article/5374/tooting_view_we_re_back_to_racism_smears_against_ukip",
+                "timestamp": "2015-01-20T13:27:24.312322",
+                "username": "tfgg",
+                "version_id": "48b5dd61dd8efc51"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": null,
+                  "facebook_personal_url": null,
+                  "gender": "female",
+                  "homepage_url": null,
+                  "id": "1086",
+                  "identifiers": [
+                    {
+                      "identifier": "24633",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "name": "Rathy Alagaratnam",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    }
+                  },
+                  "party_ppc_page_url": null,
+                  "phone": null,
+                  "slug": "rathy-alagaratnam",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66038",
+                      "name": "Mitcham and Morden",
+                      "post_id": "66038"
+                    }
+                  },
+                  "twitter_username": null,
+                  "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:12:25.602150",
+                "version_id": "703737d8e635ad68"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/5526905a15d96fc0639777ab"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/552695d215d96fc06397a05a",
+          "id": "552695d215d96fc06397a05a",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "552f8639ed1c6ee164eed7ef",
+                "type": "twitter",
+                "value": "ReshamKotecha"
+              }
+            ],
+            "email": "resham4dwn@gmail.com",
+            "gender": "female",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/4186",
+            "id": "4186",
+            "identifiers": [],
+            "image": "http://yournextmp.popit.mysociety.org/persons/4186/image/552695cd59bbc5c063445be9",
+            "images": [
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "552695cd59bbc5c063445be9",
+                "index": "first",
+                "local_path": "55/26/552695cd59bbc5c063445be9",
+                "local_path_base": "55/26/552695cd59bbc5c063445be9",
+                "md5sum": "f7a68f1a75a4649798f17991b521c030",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "other",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F552695cd59bbc5c063445be9",
+                "start_date": null,
+                "uploaded_by_user": "tfgg",
+                "url": "http://yournextmp.popit.mysociety.org/persons/4186/image/552695cd59bbc5c063445be9",
+                "user_justification_for_use": "Emailed by candidate Sun, Apr 5, 2015 at 9:59 PM",
+                "user_why_allowed": "profile-photo"
+              },
+              {
+                "created": null,
+                "id": "5481e725b150e238702c04ee",
+                "md5sum": "0bfcb6ddc5d1e6b56077b54632c2933b",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Scraped from the official party PPC page",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F5481e725b150e238702c04ee",
+                "source": "Via the official party PPC page, based on https://www.conservatives.com/~/media/Images/Site Redesign/Profile Pictures/Non target candidates/Resham-Kotecha.ashx",
+                "url": "http://yournextmp.popit.mysociety.org/persons/4186/image/5481e725b150e238702c04ee"
+              }
+            ],
+            "links": [
+              {
+                "id": "552f8639ed1c6ee164eed7f2",
+                "note": "facebook page",
+                "url": "https://www.facebook.com/reshamkotechadwn"
+              },
+              {
+                "id": "552f8639ed1c6ee164eed7f1",
+                "note": "party PPC page",
+                "url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx"
+              },
+              {
+                "id": "552f8639ed1c6ee164eed7f0",
+                "note": "homepage",
+                "url": "http://reshamkotecha.com/"
+              }
+            ],
+            "memberships": [],
+            "name": "Resham Kotecha",
+            "other_names": [],
+            "party_memberships": {
+              "2015": {
+                "id": "party:52",
+                "name": "Conservative Party"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F552695cd59bbc5c063445be9",
+            "standing_in": {
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/4186",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "https://www.facebook.com/reshamkotechadwn",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "http://reshamkotecha.com/",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "4186",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4186/image/5481e725b150e238702c04ee",
+                  "linkedin_url": "",
+                  "name": "Resham Kotecha",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F5481e725b150e238702c04ee",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from tfgg who provided the message: \"Emailed by candidate Sun, Apr 5, 2015 at 9:59 PM\"",
+                "timestamp": "2015-04-09T15:07:57.989255",
+                "username": "JPCarrington",
+                "version_id": "131b804c26b97fa6"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "https://www.facebook.com/reshamkotechadwn",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "http://reshamkotecha.com/",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "4186",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4186/image/5481e725b150e238702c04ee",
+                  "linkedin_url": "",
+                  "name": "Resham Kotecha",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F5481e725b150e238702c04ee",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Remove duplicate facebook page",
+                "timestamp": "2015-04-07T21:10:40.303337",
+                "username": "tfgg",
+                "version_id": "5fd4f733e719ff98"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "https://www.facebook.com/reshamkotechadwn",
+                  "facebook_personal_url": "https://www.facebook.com/reshamkotechadwn",
+                  "gender": "female",
+                  "homepage_url": "http://reshamkotecha.com/",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "4186",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4186/image/5481e725b150e238702c04ee",
+                  "linkedin_url": "",
+                  "name": "Resham Kotecha",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F5481e725b150e238702c04ee",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "I am the candidate",
+                "timestamp": "2015-04-07T19:51:25.902595",
+                "username": "Resham",
+                "version_id": "5faac89b0b9ed34d"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/reshamkotechadwn",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "id": "4186",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4186/image/5481e725b150e238702c04ee",
+                  "linkedin_url": "",
+                  "name": "Resham Kotecha",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F5481e725b150e238702c04ee",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Gender based on name/photo",
+                "timestamp": "2015-02-08T17:16:16.730303",
+                "username": "edent",
+                "version_id": "4030060c51286fa7"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/reshamkotechadwn",
+                  "gender": null,
+                  "homepage_url": "",
+                  "id": "4186",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4186/image/5481e725b150e238702c04ee",
+                  "name": "Resham Kotecha",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4186%2Fimage%2F5481e725b150e238702c04ee",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (conservatives)",
+                "timestamp": "2015-01-31T18:05:26.789745",
+                "version_id": "74a8ed70ce70d3ec"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/reshamkotechadwn",
+                  "gender": null,
+                  "homepage_url": "",
+                  "id": "4186",
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4186/image/5481e725b150e238702c04ee",
+                  "name": "Resham Kotecha",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (conservatives)",
+                "timestamp": "2014-12-11T12:05:54.115386",
+                "version_id": "4e9365dec397d935"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/reshamkotechadwn",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "4186",
+                  "image": null,
+                  "name": "Resham Kotecha",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (conservatives)",
+                "timestamp": "2014-12-05T17:11:00.052526",
+                "version_id": "539f41f849eedd6a"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "4186",
+                  "name": "Resham Kotecha",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (conservatives)",
+                "timestamp": "2014-11-23T09:46:05.944469",
+                "version_id": "7e992e7e0d7fab5f"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "resham4dwn@gmail.com",
+                  "facebook_personal_url": "",
+                  "homepage_url": "",
+                  "id": "4186",
+                  "name": "Resham Kotecha",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:52",
+                      "name": "Conservative Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.conservatives.com/OurTeam/Prospective_Parliamentary_Candidates/Kotcha_Resham.aspx",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "ReshamKotecha"
+                },
+                "information_source": "Created new candidate from official PPC data (conservatives)",
+                "timestamp": "2014-11-22T08:54:31.382550",
+                "version_id": "676b035b2063912a"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/552695d215d96fc06397a05a"
+        },
+        {
+          "contact_details": [],
+          "election": "2010",
+          "end_date": "2010-05-06",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/5526e1c915d96fc06398efa4",
+          "id": "5526e1c915d96fc06398efa4",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [],
+            "email": "shane@gn.apc.org",
+            "gender": "male",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/2007",
+            "id": "2007",
+            "identifiers": [
+              {
+                "id": "552f855ced1c6ee164eecba5",
+                "identifier": "2961",
+                "scheme": "yournextmp-candidate"
+              }
+            ],
+            "images": [],
+            "links": [],
+            "memberships": [],
+            "name": "Shane Collins",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "party:63",
+                "name": "Green Party"
+              }
+            },
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              },
+              "2015": null
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/2007",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "shane@gn.apc.org",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "2007",
+                  "identifiers": [
+                    {
+                      "id": "547786cc737edc5252ce5af1",
+                      "identifier": "2961",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Shane Collins",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:63",
+                      "name": "Green Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.lambeth.gov.uk/sites/default/files/ec-dulwich-and-west-norwood-candidates-and-notice-of-poll-2015.pdf",
+                "timestamp": "2015-04-09T20:32:09.237610",
+                "username": "JPCarrington",
+                "version_id": "274e50504df330e4"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "shane@gn.apc.org",
+                  "facebook_page_url": null,
+                  "facebook_personal_url": null,
+                  "gender": "male",
+                  "homepage_url": null,
+                  "id": "2007",
+                  "identifiers": [
+                    {
+                      "identifier": "2961",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "name": "Shane Collins",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:63",
+                      "name": "Green Party"
+                    }
+                  },
+                  "party_ppc_page_url": null,
+                  "phone": "07939 196612",
+                  "slug": "shane-collins",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": null,
+                  "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:16:47.670167",
+                "version_id": "68a452284d95d9ab"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2005-05-06",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/5526e1c915d96fc06398efa4"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/552ba6f614bf03a83a343e6a",
+          "id": "552ba6f614bf03a83a343e6a",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "552f8715ed1c6ee164eedb88",
+                "type": "twitter",
+                "value": "rashidnix"
+              }
+            ],
+            "email": "rashid.nix@greenparty.org.uk",
+            "gender": "male",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/5688",
+            "id": "5688",
+            "identifiers": [],
+            "image": "http://yournextmp.popit.mysociety.org/persons/5688/image/552ba6ef62eb6fa83a5483ad",
+            "images": [
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "552ba6ef62eb6fa83a5483ad",
+                "index": "first",
+                "local_path": "55/2b/552ba6ef62eb6fa83a5483ad",
+                "local_path_base": "55/2b/552ba6ef62eb6fa83a5483ad",
+                "md5sum": "2ffb2f30c2b6b8658c25d51d1a1541db",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F5688%2Fimage%2F552ba6ef62eb6fa83a5483ad",
+                "start_date": null,
+                "uploaded_by_user": "mark",
+                "url": "http://yournextmp.popit.mysociety.org/persons/5688/image/552ba6ef62eb6fa83a5483ad",
+                "user_justification_for_use": "From https://twitter.com/rashidnix",
+                "user_why_allowed": "profile-photo"
+              },
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "54c570a62df1cc775b2402d6",
+                "local_path": "54/c5/54c570a62df1cc775b2402d6",
+                "local_path_base": "54/c5/54c570a62df1cc775b2402d6",
+                "md5sum": "b6fb047839880cf3417a32ecbccaf4e4",
+                "mime_type": "image/png",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F5688%2Fimage%2F54c570a62df1cc775b2402d6",
+                "start_date": null,
+                "url": "http://yournextmp.popit.mysociety.org/persons/5688/image/54c570a62df1cc775b2402d6"
+              }
+            ],
+            "links": [
+              {
+                "id": "552f8715ed1c6ee164eedb8a",
+                "note": "party PPC page",
+                "url": "http://london.greenparty.org.uk/elections/2015-general-election.html"
+              },
+              {
+                "id": "552f8715ed1c6ee164eedb89",
+                "note": "facebook personal",
+                "url": "https://www.facebook.com/pages/Rashid-Nix-Dulwich-West-Norwood-Green-Party/485901038217221"
+              }
+            ],
+            "memberships": [],
+            "name": "Rashid Nix",
+            "other_names": [
+              {
+                "id": "552f8715ed1c6ee164eedb87",
+                "name": "Julian Nicholls"
+              }
+            ],
+            "party_memberships": {
+              "2015": {
+                "id": "party:63",
+                "name": "Green Party"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F5688%2Fimage%2F552ba6ef62eb6fa83a5483ad",
+            "standing_in": {
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/5688",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "rashid.nix@greenparty.org.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/pages/Rashid-Nix-Dulwich-West-Norwood-Green-Party/485901038217221",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "5688",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/5688/image/54c570a62df1cc775b2402d6",
+                  "linkedin_url": "",
+                  "name": "Rashid Nix",
+                  "other_names": [
+                    {
+                      "id": "5523c6230e8c99ac61462cd0",
+                      "name": "Julian Nicholls"
+                    }
+                  ],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:63",
+                      "name": "Green Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://london.greenparty.org.uk/elections/2015-general-election.html",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F5688%2Fimage%2F54c570a62df1cc775b2402d6",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "rashidnix",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from mark who provided the message: \"From https://twitter.com/rashidnix\"",
+                "timestamp": "2015-04-13T11:22:23.835212",
+                "username": "mark",
+                "version_id": "7f02d29798913a7e"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "rashid.nix@greenparty.org.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/pages/Rashid-Nix-Dulwich-West-Norwood-Green-Party/485901038217221",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "id": "5688",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/5688/image/54c570a62df1cc775b2402d6",
+                  "linkedin_url": "",
+                  "name": "Rashid Nix",
+                  "other_names": [
+                    {
+                      "id": "54ee7c578b1074df10873885",
+                      "name": "Julian Nicholls"
+                    }
+                  ],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:63",
+                      "name": "Green Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://london.greenparty.org.uk/elections/2015-general-election.html",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F5688%2Fimage%2F54c570a62df1cc775b2402d6",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "rashidnix",
+                  "wikipedia_url": ""
+                },
+                "information_source": "\"please email them on firstname.lastname@greenparty.org.uk\" at bottom http://london.greenparty.org.uk/elections/2015-general-election.html",
+                "timestamp": "2015-02-28T12:50:45.411459",
+                "username": "RichCBury1",
+                "version_id": "7151fe0b80e95d81"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/pages/Rashid-Nix-Dulwich-West-Norwood-Green-Party/485901038217221",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "id": "5688",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/5688/image/54c570a62df1cc775b2402d6",
+                  "linkedin_url": "",
+                  "name": "Rashid Nix",
+                  "other_names": [
+                    {
+                      "id": "54e0d345f8751c7576e5744a",
+                      "name": "Julian Nicholls"
+                    }
+                  ],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:63",
+                      "name": "Green Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F5688%2Fimage%2F54c570a62df1cc775b2402d6",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "rashidnix",
+                  "wikipedia_url": ""
+                },
+                "information_source": "https://www.facebook.com/lambethgreenparty",
+                "timestamp": "2015-02-26T01:52:22.075125",
+                "username": "RichCBury1",
+                "version_id": "5f7938cb48463c61"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "id": "5688",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/5688/image/54c570a62df1cc775b2402d6",
+                  "linkedin_url": "",
+                  "name": "Rashid Nix",
+                  "other_names": [
+                    {
+                      "id": "54e0d306f8751c7576e57449",
+                      "name": "Julian Nicholls"
+                    }
+                  ],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:63",
+                      "name": "Green Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F5688%2Fimage%2F54c570a62df1cc775b2402d6",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "rashidnix",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Alternative name mentioned on http://www.brixtonbuzz.com/2014/05/green-party-puts-out-a-video-for-the-upcoming-coldharbour-ward-local-election/ and http://www.voice-online.co.uk/article/thinking-green",
+                "timestamp": "2015-02-15T17:11:33.600362",
+                "username": "mark",
+                "version_id": "2f846460ce944f93"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "id": "5688",
+                  "name": "Rashid Nix",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:63",
+                      "name": "Green Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "rashidnix",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Email from the candidate in reply to the email survey",
+                "timestamp": "2015-01-21T20:38:15.904612",
+                "username": "andylolz",
+                "version_id": "0a8102dbabf9fbc0"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/552ba6f614bf03a83a343e6a"
+        },
+        {
+          "contact_details": [],
+          "election": "2010",
+          "end_date": "2010-05-06",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/552cca2f8763f1cf35324ce8",
+          "id": "552cca2f8763f1cf35324ce8",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "552f866bed1c6ee164eed8fc",
+                "type": "twitter",
+                "value": "joneselizab"
+              }
+            ],
+            "email": null,
+            "gender": "female",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/52",
+            "id": "52",
+            "identifiers": [
+              {
+                "id": "552f866bed1c6ee164eed8fd",
+                "identifier": "21216",
+                "scheme": "yournextmp-candidate"
+              }
+            ],
+            "image": "http://yournextmp.popit.mysociety.org/persons/52/image/55268eb859bbc5c063445b88",
+            "images": [
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "55268eb859bbc5c063445b88",
+                "index": "first",
+                "local_path": "55/26/55268eb859bbc5c063445b88",
+                "local_path_base": "55/26/55268eb859bbc5c063445b88",
+                "md5sum": "d9a46366b845e85ce814aa564f6764c9",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F52%2Fimage%2F55268eb859bbc5c063445b88",
+                "start_date": null,
+                "uploaded_by_user": "JPCarrington",
+                "url": "http://yournextmp.popit.mysociety.org/persons/52/image/55268eb859bbc5c063445b88",
+                "user_justification_for_use": "As featured on official party PPC pages: http://www.myukip.com/parliamentary-candidates-c-e.html",
+                "user_why_allowed": "profile-photo"
+              }
+            ],
+            "links": [],
+            "memberships": [],
+            "name": "Elizabeth Jones",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "party:85",
+                "name": "UK Independence Party (UKIP)"
+              },
+              "2015": {
+                "id": "party:85",
+                "name": "UK Independence Party (UKIP)"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F52%2Fimage%2F55268eb859bbc5c063445b88",
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              },
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/66011",
+                "name": "Dartford",
+                "post_id": "66011"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/52",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "52",
+                  "identifiers": [
+                    {
+                      "id": "552bbc6914bf03a83a34d03c",
+                      "identifier": "21216",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/52/image/55268eb859bbc5c063445b88",
+                  "linkedin_url": "",
+                  "name": "Elizabeth Jones",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    },
+                    "2015": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F52%2Fimage%2F55268eb859bbc5c063445b88",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66011",
+                      "name": "Dartford",
+                      "post_id": "66011"
+                    }
+                  },
+                  "twitter_username": "joneselizab",
+                  "wikipedia_url": ""
+                },
+                "information_source": "https://twitter.com/joneselizab",
+                "timestamp": "2015-04-14T08:05:02.253769",
+                "username": "maybewhen",
+                "version_id": "0a407268e37240fd"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "52",
+                  "identifiers": [
+                    {
+                      "id": "5523beed0e8c99ac6146107d",
+                      "identifier": "21216",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Elizabeth Jones",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    },
+                    "2015": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66011",
+                      "name": "Dartford",
+                      "post_id": "66011"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from JPCarrington who provided the message: \"As featured on official party PPC pages: http://www.myukip.com/parliamentary-candidates-c-e.html\"",
+                "timestamp": "2015-04-09T14:37:44.813603",
+                "username": "JPCarrington",
+                "version_id": "5c5b39b5cb402d26"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "id": "52",
+                  "image": null,
+                  "name": "Elizabeth Jones",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    },
+                    "2015": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66011",
+                      "name": "Dartford",
+                      "post_id": "66011"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "After merging person 5253",
+                "timestamp": "2015-01-19T14:35:06.806487",
+                "username": "tfgg",
+                "version_id": "6cf27f7ad050c515"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": null,
+                  "facebook_personal_url": null,
+                  "gender": "female",
+                  "homepage_url": null,
+                  "id": "52",
+                  "identifiers": [
+                    {
+                      "identifier": "21216",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "name": "Elizabeth Jones",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": null,
+                  "phone": "",
+                  "slug": "elizabeth-jones",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": null,
+                  "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:07:32.617520",
+                "version_id": "3e9bf6a4cc5bdd6c"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "id": "5253",
+                  "name": "Elizabeth Jones",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66011",
+                      "name": "Dartford",
+                      "post_id": "66011"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.ukipsoutheast.com/constituencies.html",
+                "timestamp": "2014-12-21T22:16:26.346206",
+                "username": "RichCBury1",
+                "version_id": "5ee97e3d29d227f3"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2005-05-06",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/552cca2f8763f1cf35324ce8"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/553a78a3fffcae7b753a46a7",
+          "id": "553a78a3fffcae7b753a46a7",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "553a78a3fffcae7b753a46a5",
+                "type": "twitter",
+                "value": "helenhayes_"
+              }
+            ],
+            "death_date": null,
+            "dissolution_date": null,
+            "email": "helen@helenhayes.org.uk",
+            "end_date": null,
+            "founding_date": null,
+            "gender": "female",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/4322",
+            "id": "4322",
+            "identifiers": [],
+            "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+            "images": [
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "5481e7f0b150e238702c0586",
+                "local_path": "54/81/5481e7f0b150e238702c0586",
+                "local_path_base": "54/81/5481e7f0b150e238702c0586",
+                "md5sum": "abd0b57234cd0776276d511f73d45e1c",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Scraped from the official party PPC page",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+                "source": "Via the official party PPC page, based on http://action.labour.org.uk/page/-/site/img/people/headshots/helen%20hayes.jpg/@zx_180@zy_180/",
+                "start_date": null,
+                "url": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586"
+              }
+            ],
+            "initials": "HH",
+            "links": [
+              {
+                "id": "553a78a3fffcae7b753a46a4",
+                "note": "party PPC page",
+                "url": "http://www.labour.org.uk/people/detail/helen-hayes"
+              },
+              {
+                "id": "553a78a3fffcae7b753a46a3",
+                "note": "facebook personal",
+                "url": "https://www.facebook.com/helenhayes4DaWN"
+              },
+              {
+                "id": "553a78a3fffcae7b753a46a2",
+                "note": "homepage",
+                "url": "http://www.helenhayes.org.uk/"
+              }
+            ],
+            "memberships": [],
+            "name": "Helen Hayes",
+            "other_names": [],
+            "party_memberships": {
+              "2015": {
+                "id": "party:53",
+                "name": "Labour Party"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+            "sources": [],
+            "standing_in": {
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "start_date": null,
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/4322",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "helen@helenhayes.org.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "gender": "female",
+                  "homepage_url": "http://www.helenhayes.org.uk/",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "4322",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/553a788a9835427b757b1e10",
+                  "linkedin_url": "",
+                  "name": "Helen Hayes",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F553a788a9835427b757b1e10",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from mark who provided the message: \"Just for testing\"",
+                "timestamp": "2015-04-24T17:08:49.408842",
+                "username": "mark",
+                "version_id": "77585b712e4b8513"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "helen@helenhayes.org.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "gender": "female",
+                  "homepage_url": "http://www.helenhayes.org.uk/",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "4322",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+                  "linkedin_url": "",
+                  "name": "Helen Hayes",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from mark who provided the message: \"Just for testing\"",
+                "timestamp": "2015-04-24T17:08:26.378654",
+                "username": "mark",
+                "version_id": "77fdef4713b1f659"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "helen@helenhayes.org.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "gender": "female",
+                  "homepage_url": "http://www.helenhayes.org.uk/",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "4322",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+                  "linkedin_url": "",
+                  "name": "Helen Hayes",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Email from candidate Wed, Mar 4, 2015 at 10:50 PM",
+                "timestamp": "2015-03-05T22:07:48.435776",
+                "username": "tfgg",
+                "version_id": "70fd3ce5fb909bf8"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "helen.hayes@southwark.gov.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "gender": "female",
+                  "homepage_url": "http://www.helenhayes.org.uk/",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "4322",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+                  "linkedin_url": "",
+                  "name": "Helen Hayes",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Email Wed, Mar 4, 2015 at 2:44 PM",
+                "timestamp": "2015-03-04T15:43:34.316295",
+                "username": "tfgg",
+                "version_id": "223c3d5acd267028"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "Helen.Hayes@southwark.gov.uk",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "gender": "female",
+                  "homepage_url": "http://www.helenhayes.org.uk/",
+                  "id": "4322",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+                  "linkedin_url": "",
+                  "name": "Helen Hayes",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Email address found on http://www.southwarklabour.co.uk/your-councillors/college.aspx",
+                "timestamp": "2015-02-15T17:01:12.615321",
+                "username": "mark",
+                "version_id": "096a53e4dc42ffe0"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "gender": "female",
+                  "homepage_url": "http://www.helenhayes.org.uk/",
+                  "id": "4322",
+                  "identifiers": [],
+                  "image": "https://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+                  "name": "Helen Hayes",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "proxy_image": "https://yournextmp.popit.mysociety.org/image-proxy/https%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (labour)",
+                "timestamp": "2015-01-31T18:10:32.004939",
+                "version_id": "37df2d7221e97a5f"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "gender": "female",
+                  "homepage_url": "http://www.helenhayes.org.uk/",
+                  "id": "4322",
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+                  "name": "Helen Hayes",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F4322%2Fimage%2F5481e7f0b150e238702c0586",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Homepage from Twitter acct",
+                "timestamp": "2015-01-23T00:19:40.098606",
+                "username": "mattl",
+                "version_id": "545f01d6a53a7c00"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "facebook_personal_url": "https://facebook.com/helenhayes4DaWN",
+                  "gender": null,
+                  "homepage_url": "",
+                  "id": "4322",
+                  "image": "http://yournextmp.popit.mysociety.org/persons/4322/image/5481e7f0b150e238702c0586",
+                  "name": "Helen Hayes",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (labour)",
+                "timestamp": "2014-12-11T12:09:11.530534",
+                "version_id": "53fdb2d20e9e0788"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "facebook_personal_url": "https://facebook.com/helenhayes4DaWN",
+                  "gender": null,
+                  "homepage_url": "",
+                  "id": "4322",
+                  "image": null,
+                  "name": "Helen Hayes",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (labour)",
+                "timestamp": "2014-12-05T17:14:23.585061",
+                "version_id": "210b424a05bfaf6b"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "facebook_personal_url": "",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "4322",
+                  "name": "Helen Hayes",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "http://www.labour.org.uk/people/detail/helen-hayes",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Correcting a mis-pasting; source is still http://www.labour.org.uk/people/detail/helen-hayes",
+                "timestamp": "2014-12-01T12:23:40.130488",
+                "username": "mark",
+                "version_id": "2ee5c5e745649047"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "https://www.facebook.com/helenhayes4DaWN",
+                  "facebook_personal_url": "",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "4322",
+                  "name": "Helen Hayes",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "https://www.flickr.com/photos/mhl20/15736253747/",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "helenhayes_",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.labour.org.uk/people/detail/helen-hayes",
+                "timestamp": "2014-12-01T12:23:04.427092",
+                "username": "mark",
+                "version_id": "124cdc8e40cf6600"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "",
+                  "homepage_url": "",
+                  "id": "4322",
+                  "name": "Helen Hayes",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Updated candidate from official PPC data (labour)",
+                "timestamp": "2014-11-23T09:48:32.670194",
+                "version_id": "46996900b4c43769"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_personal_url": "",
+                  "homepage_url": "",
+                  "id": "4322",
+                  "name": "Helen Hayes",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "party:53",
+                      "name": "Labour Party"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": ""
+                },
+                "information_source": "Created new candidate from official PPC data (labour)",
+                "timestamp": "2014-11-22T08:56:10.676197",
+                "version_id": "5c1ecfbb976a6232"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/553a78a3fffcae7b753a46a7"
+        },
+        {
+          "contact_details": [],
+          "election": "2010",
+          "end_date": "2010-05-06",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/553a8b4beb65f38c57713404",
+          "id": "553a8b4beb65f38c57713404",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [
+              {
+                "id": "553a8b4aeb65f38c57713400",
+                "type": "twitter",
+                "value": "libdemMitch"
+              }
+            ],
+            "email": "mitchbrief@hotmail.com",
+            "gender": "male",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/3879",
+            "id": "3879",
+            "identifiers": [
+              {
+                "id": "553a8b4aeb65f38c577133ff",
+                "identifier": "2960",
+                "scheme": "yournextmp-candidate"
+              }
+            ],
+            "image": "http://candidates.127.0.0.1.xip.io:3000/persons/3879/image/553a8b4978c2688c57905d04",
+            "images": [
+              {
+                "birth_date": null,
+                "created": "",
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "553a8b4978c2688c57905d04",
+                "index": "first",
+                "local_path": "55/3a/553a8b4978c2688c57905d04",
+                "local_path_base": "55/3a/553a8b4978c2688c57905d04",
+                "md5sum": "27c3e88a4df62aa8990d2c2ec55cbb6c",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "profile-photo",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Fpersons%2F3879%2Fimage%2F553a8b4978c2688c57905d04",
+                "start_date": null,
+                "uploaded_by_user": "edent",
+                "url": "http://candidates.127.0.0.1.xip.io:3000/persons/3879/image/553a8b4978c2688c57905d04",
+                "user_justification_for_use": "This is the candidate\u2019s twitter profile image, from https://twitter.com/libdemMitch",
+                "user_why_allowed": "profile-photo"
+              }
+            ],
+            "links": [],
+            "memberships": [],
+            "name": "Jonathan Mitchell",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "party:90",
+                "name": "Liberal Democrats"
+              },
+              "2015": {
+                "id": "party:90",
+                "name": "Liberal Democrats"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Fpersons%2F3879%2Fimage%2F553a8b4978c2688c57905d04",
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              },
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/66069",
+                "name": "Hornchurch and Upminster",
+                "post_id": "66069"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/3879",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "mitchbrief@hotmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "3879",
+                  "identifiers": [
+                    {
+                      "id": "5534c14b0a19d9a717b115ba",
+                      "identifier": "2960",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Jonathan Mitchell",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    },
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66069",
+                      "name": "Hornchurch and Upminster",
+                      "post_id": "66069"
+                    }
+                  },
+                  "twitter_username": "libdemMitch",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from edent who provided the message: \"This is the candidate\u2019s twitter profile image, from https://twitter.com/libdemMitch\"",
+                "timestamp": "2015-04-24T18:28:25.634984",
+                "username": "mark",
+                "version_id": "1bbd96d6c7cfe070"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "mitchbrief@hotmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "3879",
+                  "identifiers": [
+                    {
+                      "id": "552f8212ed1c6ee164eeb67b",
+                      "identifier": "2960",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Jonathan Mitchell",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    },
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66069",
+                      "name": "Hornchurch and Upminster",
+                      "post_id": "66069"
+                    }
+                  },
+                  "twitter_username": "libdemMitch",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Added twitter handle",
+                "timestamp": "2015-04-20T09:05:15.079923",
+                "username": "andylolz",
+                "version_id": "155f7d7b01aab632"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "mitchbrief@hotmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "3879",
+                  "identifiers": [
+                    {
+                      "id": "5477878e737edc5252ce5e8c",
+                      "identifier": "2960",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Jonathan Mitchell",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    },
+                    "2015": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/66069",
+                      "name": "Hornchurch and Upminster",
+                      "post_id": "66069"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.libdems.org.uk/list_of_selected_candidates",
+                "timestamp": "2015-03-14T23:26:14.442419",
+                "username": "h2g2bob",
+                "version_id": "2569b66989c68823"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "mitchbrief@hotmail.com",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "id": "3879",
+                  "image": null,
+                  "name": "Jonathan Mitchell",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    },
+                    "2015": null
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.libdems.org.uk/james_barber",
+                "timestamp": "2014-12-16T11:00:00.070831",
+                "username": "edpw",
+                "version_id": "588dacadf6da837d"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "mitchbrief@hotmail.com",
+                  "facebook_page_url": null,
+                  "facebook_personal_url": null,
+                  "gender": "male",
+                  "homepage_url": null,
+                  "id": "3879",
+                  "identifiers": [
+                    {
+                      "identifier": "2960",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "name": "Jonathan Mitchell",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:90",
+                      "name": "Liberal Democrats"
+                    }
+                  },
+                  "party_ppc_page_url": null,
+                  "phone": "020 7733 1864",
+                  "slug": "jonathan-mitchell",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": null,
+                  "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:27:02.121393",
+                "version_id": "08b5d1506b8f6c71"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2005-05-06",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/553a8b4beb65f38c57713404"
+        },
+        {
+          "contact_details": [],
+          "election": "2015",
+          "end_date": "9999-12-31",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/554748f851a31e26552c19e8",
+          "id": "554748f851a31e26552c19e8",
+          "images": [],
+          "links": [],
+          "person_id": {
+            "birth_date": null,
+            "contact_details": [],
+            "email": null,
+            "gender": "male",
+            "honorific_prefix": null,
+            "honorific_suffix": null,
+            "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/2308",
+            "id": "2308",
+            "identifiers": [
+              {
+                "id": "554748f751a31e26552c19e5",
+                "identifier": "23967",
+                "scheme": "yournextmp-candidate"
+              }
+            ],
+            "image": "http://yournextmp.popit.mysociety.org/persons/2308/image/554748f770823d2655a7c7a6",
+            "images": [
+              {
+                "birth_date": null,
+                "created": null,
+                "death_date": null,
+                "dissolution_date": null,
+                "end_date": null,
+                "founding_date": null,
+                "id": "554748f770823d2655a7c7a6",
+                "index": "first",
+                "local_path": "55/47/554748f770823d2655a7c7a6",
+                "local_path_base": "55/47/554748f770823d2655a7c7a6",
+                "md5sum": "49dddb84b60b61e39b5a8fb62a267953",
+                "mime_type": "image/png",
+                "moderator_why_allowed": "copyright-assigned",
+                "notes": "Approved from photo moderation queue",
+                "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F2308%2Fimage%2F554748f770823d2655a7c7a6",
+                "start_date": null,
+                "uploaded_by_user": "mark",
+                "url": "http://yournextmp.popit.mysociety.org/persons/2308/image/554748f770823d2655a7c7a6",
+                "user_justification_for_use": "Taken by me at the 38degrees hustings on 2015-04-15 at Carnegie Library",
+                "user_why_allowed": "copyright-assigned"
+              }
+            ],
+            "links": [],
+            "memberships": [],
+            "name": "Robin Lambert",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "party:85",
+                "name": "UK Independence Party (UKIP)"
+              },
+              "2015": {
+                "id": "ynmp-party:2",
+                "name": "Independent"
+              }
+            },
+            "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F2308%2Fimage%2F554748f770823d2655a7c7a6",
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65754",
+                "name": "Hendon",
+                "post_id": "65754"
+              },
+              "2015": {
+                "mapit_url": "http://mapit.mysociety.org/area/65808",
+                "name": "Dulwich and West Norwood",
+                "post_id": "65808"
+              }
+            },
+            "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/2308",
+            "versions": [
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "2308",
+                  "identifiers": [
+                    {
+                      "id": "553a20968a7718264e4c53e8",
+                      "identifier": "23967",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/2308/image/554748f770823d2655a7c7a6",
+                  "linkedin_url": "",
+                  "name": "Robin Lambert",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    },
+                    "2015": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F2308%2Fimage%2F554748f770823d2655a7c7a6",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65754",
+                      "name": "Hendon",
+                      "post_id": "65754"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from mark who provided the message: \"Taken by me at the 38degrees hustings on 2015-04-15 at Carnegie Library\"",
+                "timestamp": "2015-05-04T10:24:55.112293",
+                "username": "mark",
+                "version_id": "5a3728671693782b"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "2308",
+                  "identifiers": [
+                    {
+                      "id": "553a2055ee539df34ee15372",
+                      "identifier": "23967",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "Robin Lambert",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    },
+                    "2015": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65754",
+                      "name": "Hendon",
+                      "post_id": "65754"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Saw the candidate at a hustings and http://www.times-series.co.uk/news/8108996.Election_2010__Candidate_profile_Robin_Lambert/",
+                "timestamp": "2015-04-24T10:53:10.410198",
+                "username": "mark",
+                "version_id": "0e5fb47e357043b0"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "female",
+                  "homepage_url": "",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "2308",
+                  "identifiers": [
+                    {
+                      "id": "552f7e3fed1c6ee164eea0e2",
+                      "identifier": "23967",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/7248/image/552ed9d942862f047e51ccae",
+                  "linkedin_url": "",
+                  "name": "Robin Lambert",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    },
+                    "2015": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F7248%2Fimage%2F552ed9d942862f047e51ccae",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65754",
+                      "name": "Hendon",
+                      "post_id": "65754"
+                    },
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "After merging person 7248",
+                "timestamp": "2015-04-24T10:52:05.494827",
+                "username": "mark",
+                "version_id": "5394be0983deefeb"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": null,
+                  "facebook_personal_url": null,
+                  "gender": "female",
+                  "homepage_url": null,
+                  "id": "2308",
+                  "identifiers": [
+                    {
+                      "identifier": "23967",
+                      "scheme": "yournextmp-candidate"
+                    }
+                  ],
+                  "name": "Robin Lambert",
+                  "party_memberships": {
+                    "2010": {
+                      "id": "party:85",
+                      "name": "UK Independence Party (UKIP)"
+                    }
+                  },
+                  "party_ppc_page_url": null,
+                  "phone": null,
+                  "slug": "robin-lambert",
+                  "standing_in": {
+                    "2010": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65754",
+                      "name": "Hendon",
+                      "post_id": "65754"
+                    }
+                  },
+                  "twitter_username": null,
+                  "wikipedia_url": null
+                },
+                "information_source": "Imported from YourNextMP data from 2010",
+                "timestamp": "2014-11-21T18:18:15.701692",
+                "version_id": "2c19e56f2fdf2eb9"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "Male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "7248",
+                  "identifiers": [],
+                  "image": "http://yournextmp.popit.mysociety.org/persons/7248/image/552ed9d942862f047e51ccae",
+                  "linkedin_url": "",
+                  "name": "Robin Lambert",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": "http://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F7248%2Fimage%2F552ed9d942862f047e51ccae",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "first name from SOPN",
+                "timestamp": "2015-04-15T22:39:12.561391",
+                "username": "sjorford",
+                "version_id": "57284d096856c0bc"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": null,
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "Male",
+                  "homepage_url": "",
+                  "honorific_prefix": null,
+                  "honorific_suffix": null,
+                  "id": "7248",
+                  "identifiers": [],
+                  "image": null,
+                  "linkedin_url": "",
+                  "name": "David Lambert",
+                  "other_names": [],
+                  "party_memberships": {
+                    "2015": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "proxy_image": null,
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "Approved a photo upload from mark who provided the message: \"Taken by me at the 38degrees hustings on 2015-04-15 at Carnegie Library\"",
+                "timestamp": "2015-04-15T21:36:25.026268",
+                "username": "mark",
+                "version_id": "0e3b63a5a76f9bd5"
+              },
+              {
+                "data": {
+                  "birth_date": null,
+                  "email": "",
+                  "facebook_page_url": "",
+                  "facebook_personal_url": "",
+                  "gender": "Male",
+                  "homepage_url": "",
+                  "honorific_prefix": "",
+                  "honorific_suffix": "",
+                  "id": "7248",
+                  "linkedin_url": "",
+                  "name": "David Lambert",
+                  "party_memberships": {
+                    "2015": {
+                      "id": "ynmp-party:2",
+                      "name": "Independent"
+                    }
+                  },
+                  "party_ppc_page_url": "",
+                  "standing_in": {
+                    "2015": {
+                      "mapit_url": "http://mapit.mysociety.org/area/65808",
+                      "name": "Dulwich and West Norwood",
+                      "post_id": "65808"
+                    }
+                  },
+                  "twitter_username": "",
+                  "wikipedia_url": ""
+                },
+                "information_source": "http://www.lambeth.gov.uk/sites/default/files/ec-dulwich-and-west-norwood-candidates-and-notice-of-poll-2015.pdf",
+                "timestamp": "2015-04-09T20:33:17.097904",
+                "username": "JPCarrington",
+                "version_id": "6ec99bcfe2870fd4"
+              }
+            ]
+          },
+          "post_id": "65808",
+          "role": "Candidate",
+          "start_date": "2010-05-07",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/554748f851a31e26552c19e8"
+        }
+      ],
+      "organization_id": "commons",
+      "role": "Member of Parliament",
+      "start_date": "2005-05-06",
+      "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/posts/65808"
+    }
+  ],
+  "total": 1
+}

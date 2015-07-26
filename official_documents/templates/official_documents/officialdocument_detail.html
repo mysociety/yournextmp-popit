@@ -1,9 +1,10 @@
 {% extends "base.html" %}
-{% load compressed %}
+{% load i18n %}
+{% load pipeline %}
 
 
 {% block extra_css %}
-{% compressed_css 'official_documents' %}
+{% stylesheet 'official_documents' %}
 {% endblock %}
 
 {% block hero %}<h1>{{ object.document_type }}</h1>{% endblock hero %}
@@ -11,12 +12,14 @@
 {% block content %}
 
 <p>
-{{ object.document_type }} for <a href="{% url 'constituency' mapit_area_id=object.mapit_id ignored_slug=constituency.name|slugify %}">{{ constituency.name }}</a>.
-The source URL for this document was:
-<a href="{{ object.source_url }}">{{ object.source_url }}</a>
+{% url 'constituency' election=object.election post_id=object.post_id ignored_slug=post_label|slugify as url %}
+{% blocktrans trimmed with type=object.document_type %}
+{{ type }} for <a href="{{ url }}">{{ post_label }}</a>.
+{% endblocktrans %}
+{% blocktrans trimmed with source_url=object.source_url %}
+The source URL for this document was: <a href="{{ source_url }}">{{ source_url }}</a>
+{% endblocktrans %}
 </p>
-
-
 
 <iframe
   src="http{% if request.is_secure %}s{% endif %}://docs.google.com/viewer?url=http{% if request.is_secure %}s{% endif %}://{{ request.get_host }}{{ object.uploaded_file.url | urlencode}}&amp;embedded=true"
@@ -25,7 +28,10 @@ The source URL for this document was:
   class="document_viewer"></iframe>
 
 {% if user.is_staff and user_can_upload_documents %}
-You can <a href="{% url 'admin:official_documents_officialdocument_change' object.id %}">edit this in the admin interface</a> (e.g. to delete it)
+{% url 'admin:official_documents_officialdocument_change' object.id as url %}
+{% blocktrans trimmed %}
+You can <a href="{{ url }}">edit this in the admin interface</a> (e.g. to delete it)
+{% endblocktrans %}
 {% endif %}
 
 {% endblock content %}

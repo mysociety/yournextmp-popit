@@ -1,18 +1,29 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% load i18n %}
 
 {% block content %}
 
-<h2>{{ results_count|intcomma }} candidate{{ results_count|pluralize }} missing {{ field }} field</h2>
-<h3>Of {{ candidates_2015|intcomma }} candidates in total
-({{ percent_empty|floatformat }}% blank)</h3>
+<h2>
+{% blocktrans trimmed with pretty_count=results_count|intcomma count results=results_count %}
+{{ pretty_count }} candidate missing {{ field }} field</h2>
+{% plural %}
+{{ pretty_count }} candidates missing {{ field }} field</h2>
+{% endblocktrans %}
+
+<h3>{% blocktrans trimmed with num_candidates_2015=candidates_2015|intcomma percent_empty=percent_empty|floatformat %}
+Of {{ num_candidates_2015 }} candidates in total ({{ percent_empty }}% blank)
+{% endblocktrans %}</h3>
 
 {% block advise %}
 <p>
-  Please <a href="{% url "tasks_home" %}">help out</a> by adding missing
+  {% url "tasks_home" as url %}
+  {% blocktrans trimmed %}
+  Please <a href="{{ url }}">help out</a> by adding missing
   information.  Make sure you read our
   <a href="https://docs.google.com/document/d/1iA5Tv3ZgjDHWNv6gbNESqL-C7Goz6ZSo1X9pPXwXspA/edit">guidance
   on sourcing fields.</a>
+  {% endblocktrans %}
 </p>
 {% endblock advise %}
 
@@ -21,19 +32,21 @@
     <a href="{% url "person-view" person.id person.name|slugify %}">
         {{ person.name }}
     </a>
-    (<a href="{% url "person-update" person.id %}">edit</a>)
+    (<a href="{% url "person-update" person.id %}">{% trans "edit" %}</a>)
     ({{ person.party_memberships.2015.name }}, {{ person.standing_in.2015.name }})
     {% if person.versions.0.data.twitter_username %}
-        &mdash; <a href="https://twitter.com/intent/tweet?text=Hi @{{ person.versions.0.data.twitter_username }} could you add your {{ field }} to your YourNextMP.com page please? https://yournextmp.com/person/{{person.id}}/">
-            Tweet them</a>{% endif %}
-    &mdash; <a href="https://duckduckgo.com/?q=%22{{ person.name }}%22+%22{{ person.standing_in.2015.name }}%22+{{ field }}">Search</a>
+        &mdash; <a href="https://twitter.com/intent/tweet?text={% blocktrans trimmed with username=person.versions.0.data.twitter_username id=person.id %}
+        Hi @{{ username }} could you add your {{ field }} to your YourNextMP.com page please? https://yournextmp.com/person/{{ id }}/
+        {% endblocktrans %}">
+            {% trans "Tweet them" %}</a>{% endif %}
+    &mdash; <a href="https://duckduckgo.com/?q=%22{{ person.name }}%22+%22{{ person.standing_in.2015.name }}%22+{{ field }}">{% trans "Search" %}</a>
 </li>
 {% endfor %}
 
 <nav role="menu" aria-label="Pagination">
    <ul class="pagination">
-<li>{% if previous %}<a href="?page={{ previous }}">Previous page</a>{% endif %}</li>
-<li>{% if next %}<a href="?page={{ next }}">Next page</a>{% endif %}</li>
+<li>{% if previous %}<a href="?page={{ previous }}">{% trans "Previous page" %}</a>{% endif %}</li>
+<li>{% if next %}<a href="?page={{ next }}">{% trans "Next page" %}</a>{% endif %}</li>
    </ul>
 </nav>
 

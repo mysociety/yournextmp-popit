@@ -1,16 +1,16 @@
-{% autoescape off %}Thank-you for uploading a photo of {{ candidate_name }}
-to YourNextMP, but unfortunately we can't use that image because:
+{% load i18n %}{% autoescape off %}{% blocktrans %}Thank-you for uploading a photo of {{ candidate_name }}
+to YourNextMP, but unfortunately we can't use that image because:{% endblocktrans %}
 
   {{ reason }}
 
-You can just reply to this email if you want to discuss that
+{% blocktrans %}You can just reply to this email if you want to discuss that
 further, or you can try uploading a photo with a different reason
-or justification for its use using this link:
+or justification for its use using this link:{% endblocktrans %}
 
   {{ retry_upload_link }}
 
-Many thanks,
-The YourNextMP volunteers
+{% blocktrans %}Many thanks,
+The YourNextMP volunteers{% endblocktrans %}
 
 -- 
-For administrators' use: {{ photo_review_url }}{% endautoescape %}
+{% blocktrans trimmed %}For administrators' use: {{ photo_review_url }}{% endblocktrans %}{% endautoescape %}

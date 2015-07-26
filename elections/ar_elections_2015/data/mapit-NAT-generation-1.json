@@ -1,0 +1,15 @@
+{
+    "0": {
+        "parent_area": null,
+        "generation_high": 1,
+        "all_names": {},
+        "id": 0,
+        "codes": {},
+        "name": "Argentina",
+        "country": "A",
+        "type_name": "nación",
+        "generation_low": 1,
+        "country_name": "Argentina",
+        "type": "NAT"
+    }
+}

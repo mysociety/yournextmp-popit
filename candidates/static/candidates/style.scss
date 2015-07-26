@@ -10,6 +10,36 @@ $color-offwhite: #ece7e1;
 $color-cream: #e4dfdb;
 $color-yellow: #fdf2d5;
 
+$header-background-color: $color-teal;
+$body-background-color: mix($color-offwhite, #fff, 60%);
+$footer-text-color: mix($color-offwhite, #000, 60%);
+$content-background-color: #fff;
+
+$muted-text-color: darken($color-cream, 20%);
+
+$message-background-color: #FDF2D5; // lighter version of $color-gold
+$message-border-color: lighten($color-gold, 30%);
+
+$highlight-background-color: $color-yellow;
+$information-background-color: mix($color-cyan, #fff, 15%);
+$danger-background-color: mix($color-red, #fff, 15%);
+
+$confirmation-background-color: $color-yellow;
+$error-background-color: mix($color-red, #fff, 15%);
+$error-text-color: darken($color-red, 10%);
+$error-border-color: mix($color-red, #fff, 30%);
+$error-input-border-color: mix($color-red, #fff, 40%);
+
+$avatar-background-color: #ddd;
+
+$unknown-candidate-status-color: $color-orange;
+$not-standing-candidate-status-color: $color-red;
+
+$homepage-description-background-color: $body-background-color;
+$homepage-description-text-color: #887; // dark desaturated browny-grey
+$homepage-activity-color: $color-cyan;
+$homepage-leaderboard-color: $color-gold;
+
 // Override Foundation variables here
 $primary-color: $color-cyan;
 $secondary-color: $color-cream;
@@ -22,35 +52,6 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
 
 @import "../foundation/scss/normalize";
 @import "../foundation/scss/foundation";
-
-.container {
-  @include grid-row();
-  padding-left: $column-gutter / 2;
-  padding-right: $column-gutter / 2;
-}
-
-.button, input[type="submit"].button {
-/*  @extend .radius; */
-}
-
-.code-sample {
-  margin: 1em;
-}
-
-.help-api p {
-  margin-top: 0.6em
-}
-
-.aka-note {
-  font-size: 80%
-}
-
-pre {
-  font-family: $code-font-family;
-}
-
-.candidate-won-button {
-}
 
 @import "header";
 @import "content";

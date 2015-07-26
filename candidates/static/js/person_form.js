@@ -1,54 +1,22 @@
-function setUpPartySelect2s() {
-  $('#id_party_gb').select2({width: '100%'});
-  $('#id_party_ni').select2({width: '100%'});
-}
+/* Get the element that should have its visibility changed to hide or show
+   a Select2. */
 
-function setUpConstituencySelect2() {
-  var constituencySelect = $('#id_constituency'),
-      hidden = constituencySelect.prop('tagName') == 'INPUT' &&
-        constituencySelect.attr('type') == 'hidden';
-  /* If it's a real select box (not a hidden input) make it into a
-   * Select2 box */
-  if (!hidden) {
-    constituencySelect.select2({
-      placeholder: 'Constituency',
-      allowClear: true,
-      width: '100%'
-    });
-  }
-  $('#id_constituency').on('change', function (e) {
-    update2015Selects(showSelects(), e['val']);
-  });
-  update2015Selects(showSelects(), constituencySelect.val());
-}
-
-function getSelect2Enclosure(select2ID) {
+function getSelect2Enclosure(selectElement) {
   /* This assumes that there's a label that's a sibling of the
    * Select2, and that they're the only elements in a containing
    * element (the one that will be returned by this function) */
-  return $(select2ID).select2('container').parent();
+  return selectElement.select2('container').parent();
 }
 
-function getStandingCheckbox() {
-  return $('#person-details select#id_standing');
-}
+/* Change the visibility of a Select2 widget; select2Element should be a
+   jQuery-wrapped element */
 
-function showSelects() {
-  var standingCheckbox = getStandingCheckbox();
-  if (standingCheckbox.length == 0) {
-    return true;
-  } else {
-    return standingCheckbox.val() == 'standing';
-  }
-}
-
-function setSelect2Visibility(select2ID, visibility) {
+function setSelect2Visibility(select2Element, visibility) {
   /* If visibility is false, this both disables the Select2 boxes and
    * hides them by hiding their enclosing element. Otherwise it
    * enables it and makes the enclosure visible. */
-  var element = $(select2ID),
-      enclosure = getSelect2Enclosure(select2ID);
-  element.prop(
+  var enclosure = getSelect2Enclosure(select2Element);
+  select2Element.prop(
     'disabled',
     !visibility
   );
@@ -59,47 +27,91 @@ function setSelect2Visibility(select2ID, visibility) {
   }
 }
 
-function update2015Selects(show, constituencyID) {
-  /* Whether we should show the party and constituency selects is
-     determined by the boolean 'show'.  If 'constituencyID' is also
-     specified then the right party selection is shown; if not just
-     default to showing parties registered in Great Britain. */
-  var ni, idToHide, idToShow,
-      idNI = '#id_party_ni',
-      idGB = '#id_party_gb';
-  if (show) {
-    if (constituencyID) {
-      ni = isNorthernIreland[constituencyID],
-      idToHide = ni ? idGB : idNI,
-      idToShow = ni ? idNI : idGB;
-    } else {
-      idToHide = idNI
-      idToShow = idGB
+/* Make all the party drop-downs into Select2 widgets */
+
+function setUpPartySelect2s() {
+  $('.party-select').select2({width: '100%'});
+}
+
+/* Make all the post drop-downs into Select2 widgets */
+
+function setUpPostSelect2s() {
+  $('.post-select').each(function(i) {
+    var postSelect = $(this),
+      hidden = postSelect.prop('tagName') == 'INPUT' &&
+         postSelect.attr('type') == 'hidden';
+    /* If it's a real select box (not a hidden input) make it into a
+     * Select2 box */
+    if (!hidden) {
+      postSelect.select2({
+        placeholder: 'Post',
+        allowClear: true,
+        width: '100%'
+      });
     }
-    setSelect2Visibility(idToHide, false);
-    setSelect2Visibility(idToShow, true);
-  } else {
-    setSelect2Visibility(idGB, false);
-    setSelect2Visibility(idNI, false);
-  }
-  setSelect2Visibility('#id_constituency', show);
-}
-
-function updateFields() {
-  var constituencySelect = $('#id_constituency'),
-      constituencyValue = constituencySelect.val();
-  update2015Selects(showSelects(), constituencyValue);
-}
-
-function setUpStandingCheckbox() {
-  updateFields();
-  getStandingCheckbox().on('change', function() {
+    postSelect.on('change', function (e) {
+      updateFields();
+    });
     updateFields();
   });
 }
 
+/* Update the visibility of the party and post drop-downs for a particular
+   election */
+
+function updateSelectsForElection(show, election) {
+  /* Whether we should show the party and post selects is
+     determined by the boolean 'show'. */
+  var partySelectToShowID,
+      postID = $('#id_constituency_' + election).val();
+  if (show) {
+    if (postID) {
+      partySet = postIDToPartySet[postID];
+      partySelectToShowID = 'id_party_' + partySet + '_' + election;
+      $('.party-select-' + election).each(function(i) {
+        setSelect2Visibility(
+          $(this),
+          $(this).attr('id') == partySelectToShowID
+        );
+      });
+    } else {
+      /* Then just show the first party select and hide the others: */
+      $('.party-select-' + election).each(function(i) {
+        setSelect2Visibility($(this), i == 0);
+      });
+    }
+  } else {
+    $('.party-select-' + election).each(function(i) {
+      setSelect2Visibility($(this), false);
+    });
+  }
+  setSelect2Visibility($('#id_constituency_' + election), show);
+}
+
+/* Make sure that the party and constituency select boxes are updated
+   when you choose whether the candidate is standing in that election
+   or not. */
+
+function setUpStandingCheckbox() {
+  $('#person-details select.standing-select').on('change', function() {
+    updateFields();
+  });
+}
+
+/* This should be called whenever the select drop-downs for party
+   and post that have to be shown might have to be shown.  */
+
+function updateFields() {
+  $('#person-details select.standing-select').each(function(i) {
+    var standing = $(this).val() == 'standing',
+        match = /^id_standing_(.*)/.exec($(this).attr('id')),
+        election = match[1];
+    updateSelectsForElection(standing, election); });
+}
+
 $(document).ready(function() {
   setUpPartySelect2s();
-  setUpConstituencySelect2();
+  setUpPostSelect2s();
   setUpStandingCheckbox();
+  updateFields();
 });

@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}popit-down{% endblock %}
 
-{% block title %}YourNextMP is Temporarily Unavailable{% endblock %}
+{% block title %}{% trans "YourNextMP is Temporarily Unavailable" %}{% endblock %}
 
 {% block hero %}
-  <h1>Error</h1>
+  <h1>{% trans "Error" %}</h1>
 {% endblock %}
 
 {% block content %}
 
 <div class="popit-down">
 
-<h2>Sorry, YourNextMP is temporarily unavailable</h2>
+<h2>{% trans "Sorry, YourNextMP is temporarily unavailable" %}</h2>
 
-<p>This usually means that we're having to do some brief
-maintenance, and the site will be back soon.</p>
+<p>{% blocktrans trimmed %}This usually means that we’re having to do some brief
+maintenance, and the site will be back soon.{% endblocktrans %}</p>
 
 </div>
 

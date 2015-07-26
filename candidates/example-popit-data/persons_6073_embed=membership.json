@@ -1,11 +1,119 @@
 {
   "result": {
     "birth_date": "1953-11-07",
+    "contact_details": [
+      {
+        "id": "552f8714ed1c6ee164eedb80",
+        "type": "twitter",
+        "value": "yorksgreenmarti"
+      }
+    ],
     "email": "martin.hemingway@greenparty.org.uk",
     "gender": "male",
+    "honorific_prefix": null,
+    "honorific_suffix": null,
     "html_url": "https://yournextmp.popit.mysociety.org/persons/6073",
     "id": "6073",
+    "identifiers": [
+      {
+        "id": "552f8714ed1c6ee164eedb81",
+        "identifier": "17905",
+        "scheme": "yournextmp-candidate"
+      }
+    ],
+    "image": "http://yournextmp.popit.mysociety.org/persons/6073/image/5526953959bbc5c063445be4",
+    "images": [
+      {
+        "birth_date": null,
+        "created": null,
+        "death_date": null,
+        "dissolution_date": null,
+        "end_date": null,
+        "founding_date": null,
+        "id": "5526953959bbc5c063445be4",
+        "index": "first",
+        "local_path": "55/26/5526953959bbc5c063445be4",
+        "local_path_base": "55/26/5526953959bbc5c063445be4",
+        "md5sum": "1e466ae8185c3bf738fe903cf11f0424",
+        "mime_type": "image/png",
+        "moderator_why_allowed": "profile-photo",
+        "notes": "Approved from photo moderation queue",
+        "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6073%2Fimage%2F5526953959bbc5c063445be4",
+        "start_date": null,
+        "uploaded_by_user": "Sokuto12",
+        "url": "http://yournextmp.popit.mysociety.org/persons/6073/image/5526953959bbc5c063445be4",
+        "user_justification_for_use": "I am a Yorkshire regional Green Party officer. ",
+        "user_why_allowed": "public-domain"
+      }
+    ],
+    "links": [
+      {
+        "id": "552f8714ed1c6ee164eedb83",
+        "note": "party PPC page",
+        "url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html"
+      },
+      {
+        "id": "552f8714ed1c6ee164eedb82",
+        "note": "homepage",
+        "url": "http://martinhemingway.blogspot.com/"
+      }
+    ],
+    "memberships": [
+      {
+        "contact_details": [],
+        "election": "2015",
+        "end_date": "9999-12-31",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953a15d96fc06397a027",
+        "id": "5526953a15d96fc06397a027",
+        "images": [],
+        "links": [],
+        "person_id": "6073",
+        "post_id": "65735",
+        "role": "Candidate",
+        "start_date": "2010-05-07",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953a15d96fc06397a027"
+      },
+      {
+        "contact_details": [],
+        "election": "2010",
+        "end_date": "2010-05-06",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953b15d96fc06397a028",
+        "id": "5526953b15d96fc06397a028",
+        "images": [],
+        "links": [],
+        "person_id": "6073",
+        "post_id": "66068",
+        "role": "Candidate",
+        "start_date": "2005-05-06",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953b15d96fc06397a028"
+      },
+      {
+        "contact_details": [],
+        "end_date": "9999-12-31",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953a15d96fc06397a025",
+        "id": "5526953a15d96fc06397a025",
+        "images": [],
+        "links": [],
+        "organization_id": "party:63",
+        "person_id": "6073",
+        "start_date": "2010-05-07",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953a15d96fc06397a025"
+      },
+      {
+        "contact_details": [],
+        "end_date": "2010-05-06",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953a15d96fc06397a026",
+        "id": "5526953a15d96fc06397a026",
+        "images": [],
+        "links": [],
+        "organization_id": "party:63",
+        "person_id": "6073",
+        "start_date": "2005-05-06",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953a15d96fc06397a026"
+      }
+    ],
     "name": "Martin Hemingway",
+    "other_names": [],
     "party_memberships": {
       "2010": {
         "id": "party:63",
@@ -16,394 +124,288 @@
         "name": "Green Party"
       }
     },
+    "proxy_image": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6073%2Fimage%2F5526953959bbc5c063445be4",
     "standing_in": {
       "2010": {
-        "post_id": "66068",
+        "mapit_url": "http://mapit.mysociety.org/area/66068",
         "name": "Leeds North West",
-        "mapit_url": "http://mapit.mysociety.org/area/66068"
+        "post_id": "66068"
       },
       "2015": {
-        "post_id": "65735",
+        "mapit_url": "http://mapit.mysociety.org/area/65735",
         "name": "Morley and Outwood",
-        "mapit_url": "http://mapit.mysociety.org/area/65735"
+        "post_id": "65735"
       }
     },
     "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/6073",
     "versions": [
       {
+        "data": {
+          "birth_date": "1953-11-07",
+          "email": "martin.hemingway@greenparty.org.uk",
+          "facebook_page_url": "",
+          "facebook_personal_url": "",
+          "gender": "male",
+          "homepage_url": "http://martinhemingway.blogspot.com/",
+          "honorific_prefix": "",
+          "honorific_suffix": "",
+          "id": "6073",
+          "identifiers": [
+            {
+              "id": "5523c58d0e8c99ac614629dd",
+              "identifier": "17905",
+              "scheme": "yournextmp-candidate"
+            }
+          ],
+          "image": null,
+          "linkedin_url": "",
+          "name": "Martin Hemingway",
+          "other_names": [],
+          "party_memberships": {
+            "2010": {
+              "id": "party:63",
+              "name": "Green Party"
+            },
+            "2015": {
+              "id": "party:63",
+              "name": "Green Party"
+            }
+          },
+          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
+          "proxy_image": null,
+          "standing_in": {
+            "2010": {
+              "mapit_url": "http://mapit.mysociety.org/area/66068",
+              "name": "Leeds North West",
+              "post_id": "66068"
+            },
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
+              "name": "Morley and Outwood",
+              "post_id": "65735"
+            }
+          },
+          "twitter_username": "yorksgreenmarti",
+          "wikipedia_url": ""
+        },
         "information_source": "Approved a photo upload from Sokuto12 who provided the message: \"I am a Yorkshire regional Green Party officer. \"",
         "timestamp": "2015-04-09T15:05:29.906839",
         "username": "JPCarrington",
-        "data": {
-          "facebook_page_url": "",
-          "identifiers": [
-            {
-              "scheme": "yournextmp-candidate",
-              "id": "5523c58d0e8c99ac614629dd",
-              "identifier": "17905"
-            }
-          ],
-          "proxy_image": null,
-          "name": "Martin Hemingway",
-          "honorific_suffix": "",
-          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
-          "gender": "male",
-          "image": null,
-          "linkedin_url": "",
-          "homepage_url": "http://martinhemingway.blogspot.com/",
-          "id": "6073",
-          "honorific_prefix": "",
-          "standing_in": {
-            "2010": {
-              "post_id": "66068",
-              "name": "Leeds North West",
-              "mapit_url": "http://mapit.mysociety.org/area/66068"
-            },
-            "2015": {
-              "post_id": "65735",
-              "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
-            }
-          },
-          "facebook_personal_url": "",
-          "twitter_username": "yorksgreenmarti",
-          "wikipedia_url": "",
-          "party_memberships": {
-            "2010": {
-              "id": "party:63",
-              "name": "Green Party"
-            },
-            "2015": {
-              "id": "party:63",
-              "name": "Green Party"
-            }
-          },
-          "birth_date": "1953-11-07",
-          "other_names": [],
-          "email": "martin.hemingway@greenparty.org.uk"
-        },
         "version_id": "2cee61171abf8254"
       },
       {
-        "username": "Sokuto12",
-        "timestamp": "2015-02-22T23:20:59.707557",
-        "information_source": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
         "data": {
+          "birth_date": "1953-11-07",
+          "email": "martin.hemingway@greenparty.org.uk",
           "facebook_page_url": "",
-          "name": "Martin Hemingway",
-          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
           "facebook_personal_url": "",
-          "image": null,
+          "gender": "male",
+          "homepage_url": "http://martinhemingway.blogspot.com/",
+          "id": "6073",
           "identifiers": [
             {
-              "scheme": "yournextmp-candidate",
               "id": "54dd2a69600a4cfd6d71ff35",
-              "identifier": "17905"
+              "identifier": "17905",
+              "scheme": "yournextmp-candidate"
             }
           ],
+          "image": null,
           "linkedin_url": "",
-          "proxy_image": null,
+          "name": "Martin Hemingway",
           "other_names": [],
-          "twitter_username": "yorksgreenmarti",
-          "standing_in": {
-            "2010": {
-              "post_id": "66068",
-              "name": "Leeds North West",
-              "mapit_url": "http://mapit.mysociety.org/area/66068"
-            },
-            "2015": {
-              "post_id": "65735",
-              "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
-            }
-          },
-          "homepage_url": "http://martinhemingway.blogspot.com/",
           "party_memberships": {
             "2010": {
-              "name": "Green Party",
-              "id": "party:63"
+              "id": "party:63",
+              "name": "Green Party"
             },
             "2015": {
-              "name": "Green Party",
-              "id": "party:63"
+              "id": "party:63",
+              "name": "Green Party"
             }
           },
-          "id": "6073",
-          "wikipedia_url": "",
-          "gender": "male",
-          "birth_date": "1953-11-07",
-          "email": "martin.hemingway@greenparty.org.uk"
+          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
+          "proxy_image": null,
+          "standing_in": {
+            "2010": {
+              "mapit_url": "http://mapit.mysociety.org/area/66068",
+              "name": "Leeds North West",
+              "post_id": "66068"
+            },
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
+              "name": "Morley and Outwood",
+              "post_id": "65735"
+            }
+          },
+          "twitter_username": "yorksgreenmarti",
+          "wikipedia_url": ""
         },
+        "information_source": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
+        "timestamp": "2015-02-22T23:20:59.707557",
+        "username": "Sokuto12",
         "version_id": "7cdf46ffbb019cdf"
       },
       {
-        "username": "tfgg",
-        "timestamp": "2015-02-12T22:34:17.383614",
-        "information_source": "After merging person 157",
         "data": {
+          "birth_date": "1953-11-07",
+          "email": "mhemingway@ntlworld.com",
           "facebook_page_url": "",
-          "name": "Martin Hemingway",
-          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
           "facebook_personal_url": "",
-          "image": null,
+          "gender": "male",
+          "homepage_url": "http://martinhemingway.blogspot.com/",
+          "id": "6073",
           "identifiers": [
             {
-              "scheme": "yournextmp-candidate",
               "id": "54778693737edc5252ce59e1",
-              "identifier": "17905"
+              "identifier": "17905",
+              "scheme": "yournextmp-candidate"
             }
           ],
+          "image": null,
           "linkedin_url": "",
-          "proxy_image": null,
+          "name": "Martin Hemingway",
           "other_names": [],
-          "twitter_username": "yorksgreenmarti",
-          "standing_in": {
-            "2010": {
-              "post_id": "66068",
-              "name": "Leeds North West",
-              "mapit_url": "http://mapit.mysociety.org/area/66068"
-            },
-            "2015": {
-              "post_id": "65735",
-              "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
-            }
-          },
-          "homepage_url": "http://martinhemingway.blogspot.com/",
           "party_memberships": {
             "2010": {
-              "name": "Green Party",
-              "id": "party:63"
+              "id": "party:63",
+              "name": "Green Party"
             },
             "2015": {
-              "name": "Green Party",
-              "id": "party:63"
+              "id": "party:63",
+              "name": "Green Party"
             }
           },
-          "id": "6073",
-          "wikipedia_url": "",
-          "gender": "male",
-          "birth_date": "1953-11-07",
-          "email": "mhemingway@ntlworld.com"
+          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
+          "proxy_image": null,
+          "standing_in": {
+            "2010": {
+              "mapit_url": "http://mapit.mysociety.org/area/66068",
+              "name": "Leeds North West",
+              "post_id": "66068"
+            },
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
+              "name": "Morley and Outwood",
+              "post_id": "65735"
+            }
+          },
+          "twitter_username": "yorksgreenmarti",
+          "wikipedia_url": ""
         },
+        "information_source": "After merging person 157",
+        "timestamp": "2015-02-12T22:34:17.383614",
+        "username": "tfgg",
         "version_id": "5c221860ca35abde"
       },
       {
-        "username": "andylolz",
-        "timestamp": "2015-02-10T12:30:27.884739",
-        "information_source": "Added twitter handle",
         "data": {
+          "birth_date": null,
+          "email": "mhemingway@ntlworld.com",
           "facebook_page_url": "",
-          "name": "Martin Hemingway",
-          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
           "facebook_personal_url": "",
-          "image": null,
-          "identifiers": [],
-          "linkedin_url": "",
-          "proxy_image": null,
-          "other_names": [],
-          "twitter_username": "yorksgreenmarti",
-          "standing_in": {
-            "2015": {
-              "post_id": "65735",
-              "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
-            }
-          },
+          "gender": "male",
           "homepage_url": "http://martinhemingway.blogspot.com/",
+          "id": "6073",
+          "identifiers": [],
+          "image": null,
+          "linkedin_url": "",
+          "name": "Martin Hemingway",
+          "other_names": [],
           "party_memberships": {
             "2015": {
-              "name": "Green Party",
-              "id": "party:63"
+              "id": "party:63",
+              "name": "Green Party"
             }
           },
-          "id": "6073",
-          "wikipedia_url": "",
-          "gender": "male",
-          "birth_date": null,
-          "email": "mhemingway@ntlworld.com"
+          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
+          "proxy_image": null,
+          "standing_in": {
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
+              "name": "Morley and Outwood",
+              "post_id": "65735"
+            }
+          },
+          "twitter_username": "yorksgreenmarti",
+          "wikipedia_url": ""
         },
+        "information_source": "Added twitter handle",
+        "timestamp": "2015-02-10T12:30:27.884739",
+        "username": "andylolz",
         "version_id": "0df50a6e0c7fb5cd"
       },
       {
-        "username": "RichCBury1",
-        "timestamp": "2015-02-05T02:57:43.549935",
-        "information_source": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
         "data": {
+          "birth_date": null,
+          "email": "mhemingway@ntlworld.com",
           "facebook_page_url": "",
-          "name": "Martin Hemingway",
-          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
           "facebook_personal_url": "",
+          "gender": "male",
+          "homepage_url": "http://martinhemingway.blogspot.com/",
+          "id": "6073",
+          "linkedin_url": "",
+          "name": "Martin Hemingway",
           "party_memberships": {
             "2015": {
-              "name": "Green Party",
-              "id": "party:63"
+              "id": "party:63",
+              "name": "Green Party"
             }
           },
-          "linkedin_url": "",
-          "id": "6073",
-          "twitter_username": "",
+          "party_ppc_page_url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
           "standing_in": {
             "2015": {
-              "post_id": "65735",
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
               "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
+              "post_id": "65735"
             }
           },
-          "homepage_url": "http://martinhemingway.blogspot.com/",
-          "wikipedia_url": "",
-          "gender": "male",
-          "birth_date": null,
-          "email": "mhemingway@ntlworld.com"
+          "twitter_username": "",
+          "wikipedia_url": ""
         },
+        "information_source": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
+        "timestamp": "2015-02-05T02:57:43.549935",
+        "username": "RichCBury1",
         "version_id": "770b28229d626003"
       },
       {
-        "information_source": "Imported from YourNextMP data from 2010",
-        "timestamp": "2014-11-21T18:08:02.159170",
         "data": {
+          "birth_date": "1953-11-07",
+          "email": "mhemingway@ntlworld.com",
           "facebook_page_url": null,
-          "slug": "martin-hemingway",
+          "facebook_personal_url": null,
+          "gender": "male",
+          "homepage_url": null,
+          "id": "157",
+          "identifiers": [
+            {
+              "identifier": "17905",
+              "scheme": "yournextmp-candidate"
+            }
+          ],
           "name": "Martin Hemingway",
-          "standing_in": {
+          "party_memberships": {
             "2010": {
-              "post_id": "66068",
-              "name": "Leeds North West",
-              "mapit_url": "http://mapit.mysociety.org/area/66068"
+              "id": "party:63",
+              "name": "Green Party"
             }
           },
           "party_ppc_page_url": null,
-          "gender": "male",
-          "identifiers": [
-            {
-              "scheme": "yournextmp-candidate",
-              "identifier": "17905"
-            }
-          ],
-          "facebook_personal_url": null,
-          "email": "mhemingway@ntlworld.com",
-          "twitter_username": null,
           "phone": "0113 274 1011",
-          "homepage_url": null,
-          "wikipedia_url": null,
-          "party_memberships": {
+          "slug": "martin-hemingway",
+          "standing_in": {
             "2010": {
-              "name": "Green Party",
-              "id": "party:63"
+              "mapit_url": "http://mapit.mysociety.org/area/66068",
+              "name": "Leeds North West",
+              "post_id": "66068"
             }
           },
-          "birth_date": "1953-11-07",
-          "id": "157"
+          "twitter_username": null,
+          "wikipedia_url": null
         },
+        "information_source": "Imported from YourNextMP data from 2010",
+        "timestamp": "2014-11-21T18:08:02.159170",
         "version_id": "513bbb5f07296825"
       }
-    ],
-    "honorific_prefix": null,
-    "honorific_suffix": null,
-    "image": "http://yournextmp.popit.mysociety.org/persons/6073/image/5526953959bbc5c063445be4",
-    "proxy_image": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6073%2Fimage%2F5526953959bbc5c063445be4",
-    "images": [
-      {
-        "mime_type": "image/png",
-        "uploaded_by_user": "Sokuto12",
-        "user_justification_for_use": "I am a Yorkshire regional Green Party officer. ",
-        "moderator_why_allowed": "profile-photo",
-        "md5sum": "1e466ae8185c3bf738fe903cf11f0424",
-        "notes": "Approved from photo moderation queue",
-        "user_why_allowed": "public-domain",
-        "index": "first",
-        "created": null,
-        "local_path": "55/26/5526953959bbc5c063445be4",
-        "local_path_base": "55/26/5526953959bbc5c063445be4",
-        "start_date": null,
-        "end_date": null,
-        "birth_date": null,
-        "death_date": null,
-        "founding_date": null,
-        "dissolution_date": null,
-        "proxy_url": "https://yournextmp.popit.mysociety.org/image-proxy/http%3A%2F%2Fyournextmp.popit.mysociety.org%2Fpersons%2F6073%2Fimage%2F5526953959bbc5c063445be4",
-        "url": "http://yournextmp.popit.mysociety.org/persons/6073/image/5526953959bbc5c063445be4",
-        "id": "5526953959bbc5c063445be4"
-      }
-    ],
-    "memberships": [
-      {
-        "contact_details": [],
-        "links": [],
-        "images": [],
-        "id": "5526953a15d96fc06397a027",
-        "end_date": "9999-12-31",
-        "start_date": "2010-05-07",
-        "role": "Candidate",
-        "post_id": "65735",
-        "person_id": "6073",
-        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953a15d96fc06397a027",
-        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953a15d96fc06397a027"
-      },
-      {
-        "contact_details": [],
-        "links": [],
-        "images": [],
-        "id": "5526953b15d96fc06397a028",
-        "end_date": "2010-05-06",
-        "start_date": "2005-05-06",
-        "role": "Candidate",
-        "post_id": "66068",
-        "person_id": "6073",
-        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953b15d96fc06397a028",
-        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953b15d96fc06397a028"
-      },
-      {
-        "contact_details": [],
-        "links": [],
-        "images": [],
-        "id": "5526953a15d96fc06397a025",
-        "end_date": "9999-12-31",
-        "start_date": "2010-05-07",
-        "organization_id": "party:63",
-        "person_id": "6073",
-        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953a15d96fc06397a025",
-        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953a15d96fc06397a025"
-      },
-      {
-        "contact_details": [],
-        "links": [],
-        "images": [],
-        "id": "5526953a15d96fc06397a026",
-        "end_date": "2010-05-06",
-        "start_date": "2005-05-06",
-        "organization_id": "party:63",
-        "person_id": "6073",
-        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/5526953a15d96fc06397a026",
-        "html_url": "https://yournextmp.popit.mysociety.org/memberships/5526953a15d96fc06397a026"
-      }
-    ],
-    "links": [
-      {
-        "note": "party PPC page",
-        "url": "http://yorkshireandhumber.greenparty.org.uk/candidates/morley-and-outwood-dr-martin-hemingway.html",
-        "id": "552f8714ed1c6ee164eedb83"
-      },
-      {
-        "note": "homepage",
-        "url": "http://martinhemingway.blogspot.com/",
-        "id": "552f8714ed1c6ee164eedb82"
-      }
-    ],
-    "contact_details": [
-      {
-        "type": "twitter",
-        "value": "yorksgreenmarti",
-        "id": "552f8714ed1c6ee164eedb80"
-      }
-    ],
-    "identifiers": [
-      {
-        "scheme": "yournextmp-candidate",
-        "identifier": "17905",
-        "id": "552f8714ed1c6ee164eedb81"
-      }
-    ],
-    "other_names": []
+    ]
   }
 }

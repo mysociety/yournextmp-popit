@@ -10,7 +10,7 @@ import requests
 from django.core.management.base import BaseCommand
 from django.core.files.storage import FileSystemStorage 
 
-from candidates.static_data import MapItData
+from candidates.election_specific import MAPIT_DATA
 from official_documents.models import OfficialDocument
 
 CSV_URL = 'https://docs.google.com/a/mysociety.org/spreadsheets/d/1jvWaQSENnASZfGne1IWRbDATMH2NT2xutyPEbZ5Is-8/export?format=csv&id=1jvWaQSENnASZfGne1IWRbDATMH2NT2xutyPEbZ5Is-8&gid=0'
@@ -50,13 +50,13 @@ class Command(BaseCommand):
             name = row['Constituency'].decode('utf-8')
             if not name:
                 continue
-            cons_data = MapItData.constituencies_2010_name_map[name]
+            cons_data = MAPIT_DATA.areas_by_name[('WMC', 22)][name]
             document_url = row['URL']
             if not document_url:
                 print u"No URL for {0}".format(name)
                 continue
             existing_documents = OfficialDocument.objects.filter(
-                mapit_id=cons_data['id']
+                post_id=cons_data['id']
             )
             if existing_documents.count() > 0:
                 print u"Skipping {0} since it already had documents".format(name)
@@ -75,8 +75,8 @@ class Command(BaseCommand):
                     name,
                 )
                 continue
-            filename = "official_documents/{mapit_id}/statement-of-persons-nominated{extension}".format(
-                mapit_id=cons_data['id'],
+            filename = "official_documents/{post_id}/statement-of-persons-nominated{extension}".format(
+                post_id=cons_data['id'],
                 extension=extension,
             )
             with open(downloaded_filename, 'rb') as f:
@@ -84,7 +84,7 @@ class Command(BaseCommand):
             OfficialDocument.objects.create(
                 document_type=OfficialDocument.NOMINATION_PAPER,
                 uploaded_file=storage_filename,
-                mapit_id=cons_data['id'],
+                post_id=cons_data['id'],
                 source_url=document_url
             )
             message = "Successfully added the Statement of Persons Nominated for {0}"

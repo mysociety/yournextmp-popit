@@ -1,46 +1,46 @@
 {
-    "result": {
-        "classification": "Candidate List",
+  "result": {
+    "classification": "Candidate List",
+    "contact_details": [],
+    "dissolution_date": "2010-05-06",
+    "founding_date": "2005-05-06",
+    "html_url": "http://yournextmp.popit.mysociety.org/organizations/candidates-2010-dulwich-and-west-norwood",
+    "id": "candidates-2010-dulwich-and-west-norwood",
+    "identifiers": [],
+    "links": [],
+    "memberships": [
+      {
+        "area": {
+          "id": "mapit:65808",
+          "identifier": "http://mapit.mysociety.org/area/65808",
+          "name": "Dulwich and West Norwood"
+        },
         "contact_details": [],
-        "dissolution_date": "2010-05-06",
-        "founding_date": "2005-05-06",
-        "html_url": "http://yournextmp.popit.mysociety.org/organizations/candidates-2010-dulwich-and-west-norwood",
-        "id": "candidates-2010-dulwich-and-west-norwood",
-        "identifiers": [],
+        "html_url": "http://yournextmp.popit.mysociety.org/memberships/53de95dd8b5ed1d13c5cb57e",
+        "id": "53de95dd8b5ed1d13c5cb57e",
         "links": [],
-        "memberships": [
-            {
-                "area": {
-                    "id": "mapit:65808",
-                    "identifier": "http://mapit.mysociety.org/area/65808",
-                    "name": "Dulwich and West Norwood"
-                },
-                "contact_details": [],
-                "html_url": "http://yournextmp.popit.mysociety.org/memberships/53de95dd8b5ed1d13c5cb57e",
-                "id": "53de95dd8b5ed1d13c5cb57e",
-                "links": [],
-                "organization_id": "candidates-2010-dulwich-and-west-norwood",
-                "person_id": "2007",
-                "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/53de95dd8b5ed1d13c5cb57e"
-            },
-            {
-                "area": {
-                    "id": "mapit:65808",
-                    "identifier": "http://mapit.mysociety.org/area/65808",
-                    "name": "Dulwich and West Norwood"
-                },
-                "contact_details": [],
-                "html_url": "http://yournextmp.popit.mysociety.org/memberships/53de95de8b5ed1d13c5cb580",
-                "id": "53de95de8b5ed1d13c5cb580",
-                "links": [],
-                "organization_id": "candidates-2010-dulwich-and-west-norwood",
-                "person_id": "2009",
-                "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/53de95de8b5ed1d13c5cb580"
-            }
-        ],
-        "name": "Candidates for Dulwich and West Norwood in 2010",
-        "other_names": [],
-        "posts": [],
-        "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/candidates-2010-dulwich-and-west-norwood"
-    }
+        "organization_id": "candidates-2010-dulwich-and-west-norwood",
+        "person_id": "2007",
+        "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/53de95dd8b5ed1d13c5cb57e"
+      },
+      {
+        "area": {
+          "id": "mapit:65808",
+          "identifier": "http://mapit.mysociety.org/area/65808",
+          "name": "Dulwich and West Norwood"
+        },
+        "contact_details": [],
+        "html_url": "http://yournextmp.popit.mysociety.org/memberships/53de95de8b5ed1d13c5cb580",
+        "id": "53de95de8b5ed1d13c5cb580",
+        "links": [],
+        "organization_id": "candidates-2010-dulwich-and-west-norwood",
+        "person_id": "2009",
+        "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/53de95de8b5ed1d13c5cb580"
+      }
+    ],
+    "name": "Candidates for Dulwich and West Norwood in 2010",
+    "other_names": [],
+    "posts": [],
+    "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/candidates-2010-dulwich-and-west-norwood"
+  }
 }

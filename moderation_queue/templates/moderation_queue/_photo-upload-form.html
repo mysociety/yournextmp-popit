@@ -1,14 +1,19 @@
+{% load i18n %}
+
 <form id="person-upload-photo" action="{% url 'photo-upload' popit_person_id %}" method="post" enctype="multipart/form-data">
 
   {% if queued_images %}
     <p>
-      <strong>Warning:</strong> there
-      {{ queued_images.count|pluralize:"is,are" }} already
-      {{ queued_images.count }} photo{{ queued_images.count|pluralize }}
-      of {{ person.name }} in the queue, waiting to be moderated:
+      {% blocktrans trimmed with name=person.name count queued_images=queued_images.count %}
+          <strong>Warning:</strong> there is already {{ queued_images }}
+          photo of {{ name }} in the queue, waiting to be moderated:
+      {% plural %}
+          <strong>Warning:</strong> there are already {{ queued_images }}
+          photos of {{ name }} in the queue, waiting to be moderated:
+      {% endblocktrans %}
       <ul>
         {% for qi in queued_images %}
-          <li>Photo uploaded by {{ qi.user.username }} at {{ qi.created }}</li>
+          <li>{% blocktrans with name=qi.user.username created=qi.created %}Photo uploaded by {{ name }} at {{ created }}{% endblocktrans %}</li>
         {% endfor %}
       </ul>
     </p>
@@ -17,12 +22,12 @@
   {{ form.non_field_errors }}
   {% csrf_token %}
   <p>
-    {% if queued_images %}If you still want to upload another photo of
-    {{ person.name }}, first
+    {% if queued_images %}{% blocktrans trimmed with name=person.name %}
+    If you still want to upload another photo of {{ name }}, first select an image from your computer:
+    {% endblocktrans %}
     {% else %}
-    First,
+    {% trans "First, select an image from your computer:" %}
     {% endif %}
-    select an image from your computer:
   </p>
   <p>
     {{ form.image.errors }}
@@ -30,20 +35,21 @@
   <p>
     {{ form.image }}
   </p>
-  <p>Now let us know about the copyright of this image by selecting one of
-   these options or explaining why we can use it:</p>
+  <p>{% blocktrans trimmed %}
+  Now let us know about the copyright of this image by selecting one of
+    these options or explaining why we can use it:{% endblocktrans %}</p>
   <div class="photo-why-allowed-radio-buttons">
     {{ form.why_allowed.errors }}
     {{ form.why_allowed }}
   </div>
   <p>
     {{ form.justification_for_use.errors }}
-    <label for="{{ form.justification_for_use.id_for_label }}">Here is my
-      justification for why this photo may be reasonably used on the website,
-      including the source URL:</label>
+    <label for="{{ form.justification_for_use.id_for_label }}">{% blocktrans trimmed %}
+    Here is my justification for why this photo may be reasonably used on the
+    website, including the source URL:{% endblocktrans %}</label>
     {{ form.justification_for_use }}
   </p>
   {{ form.popit_person_id }}
   {{ form.decision }}
-  <input type="submit" class="button" value="Upload">
+  <input type="submit" class="button" value="{% trans "Upload" %}">
 </form>

@@ -1,5 +1,7 @@
 from candidates.models import PopItPerson
-from candidates.popit import PopItApiMixin, popit_unwrap_pagination
+from candidates.popit import (
+    PopItApiMixin, popit_unwrap_pagination, get_base_url
+)
 
 from django.core.management.base import BaseCommand
 
@@ -18,7 +20,7 @@ class Command(PopItApiMixin, BaseCommand):
                 if data.get('last_party'):
                     needs_update = True
                     msg = "Fixing person {0}persons/{1}"
-                    print msg.format(self.get_base_url(), person_data['id'])
+                    print msg.format(get_base_url(), person_data['id'])
                     del data['last_party']
             if not needs_update:
                 continue

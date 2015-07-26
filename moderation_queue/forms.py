@@ -2,6 +2,7 @@ import re
 
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext as _
 
 from .models import QueuedImage
 
@@ -25,7 +26,7 @@ class UploadPersonPhotoForm(forms.ModelForm):
     def clean_popit_person_id(self):
         popit_person_id = self.cleaned_data['popit_person_id']
         if not re.search(r'^\d+$', popit_person_id):
-            raise ValidationError("The popit_person_id must be all digits")
+            raise ValidationError(_("The popit_person_id must be all digits"))
         return popit_person_id
 
     def clean(self):
@@ -35,8 +36,8 @@ class UploadPersonPhotoForm(forms.ModelForm):
         ).strip()
         why_allowed = cleaned_data.get('why_allowed')
         if why_allowed == 'other' and not justification_for_use:
-            message = "If you checked 'Other' then you must provide a " + \
-                "justification for why we can use it."
+            message = _("If you checked 'Other' then you must provide a "
+                "justification for why we can use it.")
             raise ValidationError(message)
         return cleaned_data
 

@@ -1,5 +1,5 @@
 .header {
-  background: $color-teal;
+  background: $header-background-color;
   color: #fff;
 
   a, h1, h2, h3 {
@@ -8,7 +8,7 @@
 
   a:hover, a:focus {
     display: inline-block;
-    border-bottom: 1px solid mix($color-teal, #fff, 50%);
+    border-bottom: 1px solid mix($header-background-color, #fff, 50%);
     margin-bottom: -1px;
   }
 
@@ -17,7 +17,7 @@
   }
 
   .lead {
-    color: mix($color-teal, #fff, 30%);
+    color: mix($header-background-color, #fff, 30%);
   }
 }
 
@@ -61,8 +61,8 @@
 }
 
 .message {
-   background: #FDF2D5; // lighter version of $color-gold
-   border: 1px solid lighten($color-gold, 30%);
+   background: $message-background-color;
+   border: 1px solid $message-border-color;
    border-radius: 3px;
    margin-bottom: 0.8em;
    padding: 0.8em;

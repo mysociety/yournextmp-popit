@@ -1,0 +1,19 @@
+{
+  "result": {
+    "area": {
+      "id": "mapit:65730",
+      "identifier": "http://mapit.mysociety.org/area/65730",
+      "name": "Aldershot"
+    },
+    "contact_details": [],
+    "html_url": "http://candidates.127.0.0.1.xip.io:3000/posts/65730",
+    "id": "65730",
+    "label": "Member of Parliament for Aldershot",
+    "links": [],
+    "memberships": [],
+    "organization_id": "commons",
+    "role": "Member of Parliament",
+    "start_date": "2005-05-06",
+    "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/posts/65730"
+  }
+}

@@ -1,161 +1,235 @@
 {
-  "total": 1,
+  "has_more": false,
   "page": 1,
   "per_page": 100,
-  "has_more": false,
   "prev_url": "http://yournextmp.popit.mysociety.org/api/v0.1/search/persons?q=party_memberships.2015.name%3A%22Labour%20Party%22&per_page=1&page=1",
   "result": [
     {
+      "contact_details": [
+        {
+          "id": "54d63424545e72c70ba009c9",
+          "type": "twitter",
+          "value": "DMiliband"
+        }
+      ],
+      "email": "edeelection@live.co.uk",
+      "gender": "male",
       "html_url": "http://yournextmp.popit.mysociety.org/persons/3814",
-      "url": "http://yournextmp.popit.mysociety.org/api/v0.1/persons/3814",
       "id": "3814",
+      "identifiers": [
+        {
+          "id": "54d63424545e72c70ba009c8",
+          "identifier": "4712",
+          "scheme": "yournextmp-candidate"
+        },
+        {
+          "id": "54d63424545e72c70ba009c7",
+          "identifier": "uk.org.publicwhip/person/11113",
+          "scheme": "uk.org.publicwhip"
+        }
+      ],
+      "links": [],
+      "memberships": [
+        {
+          "contact_details": [],
+          "election": "2010",
+          "end_date": "2010-05-06",
+          "html_url": "http://yournextmp.popit.mysociety.org/memberships/54c81fa1ae4d75fe5d0b0ffd",
+          "id": "54c81fa1ae4d75fe5d0b0ffd",
+          "links": [],
+          "person_id": "3814",
+          "post_id": "65719",
+          "role": "Candidate",
+          "start_date": "2005-05-06",
+          "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/54c81fa1ae4d75fe5d0b0ffd"
+        },
+        {
+          "contact_details": [],
+          "end_date": "2010-05-06",
+          "html_url": "http://yournextmp.popit.mysociety.org/memberships/54c81fa1ae4d75fe5d0b0ffc",
+          "id": "54c81fa1ae4d75fe5d0b0ffc",
+          "links": [],
+          "organization_id": "party:53",
+          "person_id": "3814",
+          "start_date": "2005-05-06",
+          "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/54c81fa1ae4d75fe5d0b0ffc"
+        }
+      ],
       "name": "David Miliband",
+      "other_names": [],
+      "party_memberships": {
+        "2010": {
+          "id": "party:53",
+          "name": "Labour Party"
+        }
+      },
+      "standing_in": {
+        "2010": {
+          "mapit_url": "http://mapit.mysociety.org/area/65719",
+          "name": "South Shields",
+          "post_id": "65719"
+        },
+        "2015": null
+      },
+      "url": "http://yournextmp.popit.mysociety.org/api/v0.1/persons/3814",
       "versions": [
         {
-          "version_id": "2aefde48347f5433",
           "data": {
-            "email": "edeelection@live.co.uk",
             "birth_date": null,
-            "party_memberships": {
-              "2010": {
-                "name": "Labour Party",
-                "id": "party:53"
-              }
-            },
-            "wikipedia_url": "",
+            "email": "edeelection@live.co.uk",
+            "facebook_page_url": "",
+            "facebook_personal_url": "",
+            "gender": "male",
             "homepage_url": "",
-            "standing_in": {
-              "2010": {
-                "mapit_url": "http://mapit.mysociety.org/area/65719",
-                "name": "South Shields",
-                "post_id": "65719"
-              },
-              "2015": null
-            },
-            "proxy_image": null,
-            "other_names": [],
+            "id": "3814",
             "identifiers": [
               {
-                "identifier": "4712",
                 "id": "54c6712fc71694775bfd3661",
-                "scheme": "yournextmp-candidate"
-              },
-              {
-                "identifier": "uk.org.publicwhip/person/11113",
-                "id": "54c6712fc71694775bfd3660",
-                "scheme": "uk.org.publicwhip"
-              }
-            ],
-            "gender": "male",
-            "name": "David Miliband",
-            "id": "3814",
-            "twitter_username": "DMiliband",
-            "facebook_personal_url": "",
-            "image": null,
-            "party_ppc_page_url": "",
-            "facebook_page_url": ""
-          },
-          "username": "andylolz",
-          "timestamp": "2015-01-27T23:30:38.859568",
-          "information_source": "http://tweetminster.co.uk/mps"
-        },
-        {
-          "version_id": "770d4ac364e27502",
-          "data": {
-            "id": "3814",
-            "birth_date": null,
-            "party_memberships": {
-              "2010": {
-                "name": "Labour Party",
-                "id": "party:53"
-              },
-              "2015": {
-                "name": "Labour Party",
-                "id": "party:53"
-              }
-            },
-            "wikipedia_url": "",
-            "email": "edeelection@live.co.uk",
-            "homepage_url": "",
-            "standing_in": {
-              "2010": {
-                "mapit_url": "http://mapit.mysociety.org/area/65719",
-                "name": "South Shields",
-                "post_id": "65719"
-              },
-              "2015": null
-            },
-            "twitter_username": "",
-            "other_names": [],
-            "proxy_image": null,
-            "facebook_personal_url": "",
-            "identifiers": [
-              {
                 "identifier": "4712",
-                "id": "546f83dfd484cf5c5850bd16",
                 "scheme": "yournextmp-candidate"
               },
               {
+                "id": "54c6712fc71694775bfd3660",
                 "identifier": "uk.org.publicwhip/person/11113",
                 "scheme": "uk.org.publicwhip"
               }
             ],
             "image": null,
-            "gender": "male",
-            "party_ppc_page_url": "",
             "name": "David Miliband",
-            "facebook_page_url": ""
-          },
-          "timestamp": "2015-01-26T16:54:06.925968",
-          "information_source": "Updated candidate with parlparse person id"
-        },
-        {
-          "version_id": "7ef3fe18619e8489",
-          "data": {
-            "email": "edeelection@live.co.uk",
-            "birth_date": null,
-            "party_memberships": {
-              "2010": {
-                "name": "Labour Party",
-                "id": "party:53"
-              }
-            },
-            "wikipedia_url": "",
-            "homepage_url": "",
-            "standing_in": {
-              "2010": {
-                "mapit_url": "http://mapit.mysociety.org/area/65719",
-                "name": "South Shields",
-                "post_id": "65719"
-              },
-              "2015": null
-            },
-            "twitter_username": "",
-            "id": "3814",
-            "facebook_personal_url": "",
-            "image": null,
-            "gender": "male",
-            "party_ppc_page_url": "",
-            "name": "David Miliband",
-            "facebook_page_url": ""
-          },
-          "username": "TimPatmore",
-          "timestamp": "2014-12-12T21:00:17.307545",
-          "information_source": "Stood down in 2011 triggering a by-election"
-        },
-        {
-          "version_id": "0ac876ae72f0c154",
-          "data": {
-            "slug": "david-miliband",
-            "birth_date": null,
+            "other_names": [],
             "party_memberships": {
               "2010": {
                 "id": "party:53",
                 "name": "Labour Party"
               }
             },
-            "wikipedia_url": null,
+            "party_ppc_page_url": "",
+            "proxy_image": null,
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65719",
+                "name": "South Shields",
+                "post_id": "65719"
+              },
+              "2015": null
+            },
+            "twitter_username": "DMiliband",
+            "wikipedia_url": ""
+          },
+          "information_source": "http://tweetminster.co.uk/mps",
+          "timestamp": "2015-01-27T23:30:38.859568",
+          "username": "andylolz",
+          "version_id": "2aefde48347f5433"
+        },
+        {
+          "data": {
+            "birth_date": null,
+            "email": "edeelection@live.co.uk",
+            "facebook_page_url": "",
+            "facebook_personal_url": "",
+            "gender": "male",
+            "homepage_url": "",
+            "id": "3814",
+            "identifiers": [
+              {
+                "id": "546f83dfd484cf5c5850bd16",
+                "identifier": "4712",
+                "scheme": "yournextmp-candidate"
+              },
+              {
+                "identifier": "uk.org.publicwhip/person/11113",
+                "scheme": "uk.org.publicwhip"
+              }
+            ],
+            "image": null,
+            "name": "David Miliband",
+            "other_names": [],
+            "party_memberships": {
+              "2010": {
+                "id": "party:53",
+                "name": "Labour Party"
+              },
+              "2015": {
+                "id": "party:53",
+                "name": "Labour Party"
+              }
+            },
+            "party_ppc_page_url": "",
+            "proxy_image": null,
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65719",
+                "name": "South Shields",
+                "post_id": "65719"
+              },
+              "2015": null
+            },
+            "twitter_username": "",
+            "wikipedia_url": ""
+          },
+          "information_source": "Updated candidate with parlparse person id",
+          "timestamp": "2015-01-26T16:54:06.925968",
+          "version_id": "770d4ac364e27502"
+        },
+        {
+          "data": {
+            "birth_date": null,
+            "email": "edeelection@live.co.uk",
+            "facebook_page_url": "",
+            "facebook_personal_url": "",
+            "gender": "male",
+            "homepage_url": "",
+            "id": "3814",
+            "image": null,
+            "name": "David Miliband",
+            "party_memberships": {
+              "2010": {
+                "id": "party:53",
+                "name": "Labour Party"
+              }
+            },
+            "party_ppc_page_url": "",
+            "standing_in": {
+              "2010": {
+                "mapit_url": "http://mapit.mysociety.org/area/65719",
+                "name": "South Shields",
+                "post_id": "65719"
+              },
+              "2015": null
+            },
+            "twitter_username": "",
+            "wikipedia_url": ""
+          },
+          "information_source": "Stood down in 2011 triggering a by-election",
+          "timestamp": "2014-12-12T21:00:17.307545",
+          "username": "TimPatmore",
+          "version_id": "7ef3fe18619e8489"
+        },
+        {
+          "data": {
+            "birth_date": null,
+            "email": "edeelection@live.co.uk",
+            "facebook_page_url": null,
+            "facebook_personal_url": null,
+            "gender": "male",
             "homepage_url": null,
+            "id": "3814",
+            "identifiers": [
+              {
+                "identifier": "4712",
+                "scheme": "yournextmp-candidate"
+              }
+            ],
+            "name": "David Miliband",
+            "party_memberships": {
+              "2010": {
+                "id": "party:53",
+                "name": "Labour Party"
+              }
+            },
+            "party_ppc_page_url": null,
+            "phone": "(0191) 456 8910",
+            "slug": "david-miliband",
             "standing_in": {
               "2010": {
                 "mapit_url": "http://mapit.mysociety.org/area/65719",
@@ -164,87 +238,14 @@
               }
             },
             "twitter_username": null,
-            "email": "edeelection@live.co.uk",
-            "facebook_personal_url": null,
-            "identifiers": [
-              {
-                "identifier": "4712",
-                "scheme": "yournextmp-candidate"
-              }
-            ],
-            "id": "3814",
-            "gender": "male",
-            "party_ppc_page_url": null,
-            "phone": "(0191) 456 8910",
-            "name": "David Miliband",
-            "facebook_page_url": null
+            "wikipedia_url": null
           },
+          "information_source": "Imported from YourNextMP data from 2010",
           "timestamp": "2014-11-21T18:26:39.314010",
-          "information_source": "Imported from YourNextMP data from 2010"
+          "version_id": "0ac876ae72f0c154"
         }
-      ],
-      "gender": "male",
-      "email": "edeelection@live.co.uk",
-      "standing_in": {
-        "2010": {
-          "post_id": "65719",
-          "name": "South Shields",
-          "mapit_url": "http://mapit.mysociety.org/area/65719"
-        },
-        "2015": null
-      },
-      "party_memberships": {
-        "2010": {
-          "id": "party:53",
-          "name": "Labour Party"
-        }
-      },
-      "memberships": [
-        {
-          "id": "54c81fa1ae4d75fe5d0b0ffd",
-          "html_url": "http://yournextmp.popit.mysociety.org/memberships/54c81fa1ae4d75fe5d0b0ffd",
-          "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/54c81fa1ae4d75fe5d0b0ffd",
-          "person_id": "3814",
-          "post_id": "65719",
-          "role": "Candidate",
-          "start_date": "2005-05-06",
-          "end_date": "2010-05-06",
-          "links": [],
-          "contact_details": []
-        },
-        {
-          "id": "54c81fa1ae4d75fe5d0b0ffc",
-          "html_url": "http://yournextmp.popit.mysociety.org/memberships/54c81fa1ae4d75fe5d0b0ffc",
-          "url": "http://yournextmp.popit.mysociety.org/api/v0.1/memberships/54c81fa1ae4d75fe5d0b0ffc",
-          "person_id": "3814",
-          "organization_id": "party:53",
-          "start_date": "2005-05-06",
-          "end_date": "2010-05-06",
-          "links": [],
-          "contact_details": []
-        }
-      ],
-      "links": [],
-      "contact_details": [
-        {
-          "id": "54d63424545e72c70ba009c9",
-          "type": "twitter",
-          "value": "DMiliband"
-        }
-      ],
-      "identifiers": [
-        {
-          "id": "54d63424545e72c70ba009c8",
-          "scheme": "yournextmp-candidate",
-          "identifier": "4712"
-        },
-        {
-          "id": "54d63424545e72c70ba009c7",
-          "scheme": "uk.org.publicwhip",
-          "identifier": "uk.org.publicwhip/person/11113"
-        }
-      ],
-      "other_names": []
+      ]
     }
-  ]
+  ],
+  "total": 1
 }

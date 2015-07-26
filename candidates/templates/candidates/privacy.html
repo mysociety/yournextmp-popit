@@ -1,60 +1,72 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}Privacy policy{% endblock %}
+{% block title %}{% trans "Privacy policy" %}{% endblock %}
 
 {% block hero %}
-  <h1>Privacy policy</h1>
+  <h1>{% trans "Privacy policy" %}</h1>
 {% endblock %}
 
 {% block content %}
 
 <div class="help-about">
 
-<h3>Simple Version</h3>
+<h3>{% trans "Simple Version" %}</h3>
 
-<p>This site is run
-by <a href="https://democracyclub.org.uk/">Democracy
-Club</a>.</p>
+<p>{% blocktrans trimmed %}
+This site is run by <a href="https://democracyclub.org.uk/">Democracy Club</a>.
+{% endblocktrans %}</p>
 
-<p>We make the following promises about your personal
-information as a user of the site:<p>
+<p>{% blocktrans trimmed %}
+We make the following promises about your personal
+information as a user of the site:
+{% endblocktrans %}</p>
 
 <ul>
-
-<li>We will not sell or distribute your email address or other
-personal information.</li>
-
-<li>We will gladly show you the personal data we store about you
-in order to run the website.</li>
-
+<li>{% blocktrans trimmed %}
+We will not sell or distribute your email address or other
+personal information.
+{% endblocktrans %}</li>
+<li>{% blocktrans trimmed %}
+We will gladly show you the personal data we store about you
+in order to run the website.
+{% endblocktrans %}</li>
 </ul>
 
-<p>We may use your email address to contact you about your use
+<p>{% blocktrans trimmed %}
+We may use your email address to contact you about your use
 of the site if it's problematic (or particularly helpful!), or
 with occasional announcements about YourNextMP and other
-Democracy Club projects.</p>
+Democracy Club projects.
+{% endblocktrans %}</p>
 
-<h3>Details</h3>
+<h3>{% trans "Details" %}</h3>
 
-<p>As well as your login details, we store your IP address along
+<p>{% blocktrans trimmed %}
+As well as your login details, we store your IP address along
 with any changes you make to the data on the site.  All this
-information is accessible to administrators of the site.</p>
+information is accessible to administrators of the site.
+{% endblocktrans %}</p>
 
-<p>Please note that this policy refers to the personal
+<p>{% blocktrans trimmed %}
+Please note that this policy refers to the personal
 information arising from creating a login on the site, not the
 personal information about candidates for elections -
 the reason for the site to exist is to make information about
 those candidates available to members of the public and website
 developers so that they can find out more about those
-candidates, their promises and policy positions.</p>
+candidates, their promises and policy positions.
+{% endblocktrans %}</p>
 
-<p>We also use Google Analytics to aggregate and track data
+<p>{% blocktrans trimmed %}
+We also use Google Analytics to aggregate and track data
 about usage of the site; you can
 use <a href="https://tools.google.com/dlpage/gaoptout/">a
 browser plugin to opt out of having data collected by Google
-Analytics.</a></p>
+Analytics</a>.
+{% endblocktrans %}</p>
 
 </div>
 

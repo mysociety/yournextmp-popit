@@ -6,11 +6,13 @@ class UploadDocumentForm(forms.ModelForm):
     class Meta:
         model = OfficialDocument
         fields = (
+            'election',
             'uploaded_file',
             'source_url',
-            'mapit_id',
+            'post_id',
             'document_type',
         )
 
-    mapit_id = forms.CharField(widget=forms.HiddenInput())
+    post_id = forms.CharField(widget=forms.HiddenInput())
+    election = forms.CharField(widget=forms.HiddenInput())
     document_type = forms.CharField(widget=forms.HiddenInput())

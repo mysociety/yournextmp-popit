@@ -1,19 +1,265 @@
 {
   "result": {
-    "id": "1953",
     "birth_date": null,
+    "contact_details": [],
     "email": null,
     "gender": "male",
     "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/1953",
-    "name": "Daithí McKay",
+    "id": "1953",
+    "identifiers": [
+      {
+        "id": "547786c0737edc5252ce5ab6",
+        "identifier": "24738",
+        "scheme": "yournextmp-candidate"
+      }
+    ],
+    "links": [],
+    "memberships": [
+      {
+        "contact_details": [],
+        "end_date": "9999-12-31",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667a",
+        "id": "547b3883737edc5252ce667a",
+        "links": [],
+        "organization_id": {
+          "classification": "Party",
+          "contact_details": [],
+          "dissolution_date": "9999-12-31",
+          "founding_date": "1999-01-14",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39",
+          "id": "party:39",
+          "identifiers": [
+            {
+              "id": "54d1273328e196800575399d",
+              "identifier": "PP39",
+              "scheme": "electoral-commission"
+            }
+          ],
+          "image": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3",
+          "images": [
+            {
+              "_id": {
+                "_bsontype": "ObjectID",
+                "id": "T\u00d1'4x\u00e4\u00a4\u0080\u00050\u0082\u00b3"
+              },
+              "birth_date": null,
+              "created": "2015-02-03T19:53:24.086Z",
+              "death_date": null,
+              "dissolution_date": null,
+              "end_date": null,
+              "founding_date": null,
+              "id": "54d1273478e4a480053082b3",
+              "local_path": "54/d1/54d1273478e4a480053082b3",
+              "local_path_base": "54/d1/54d1273478e4a480053082b3",
+              "md5sum": "c1d98d9e33c0cdf3e23b2d310fb09f41",
+              "mime_type": "image/gif",
+              "notes": "Emblem 1",
+              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3",
+              "source": "The Electoral Commission",
+              "start_date": null,
+              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3"
+            },
+            {
+              "_id": {
+                "_bsontype": "ObjectID",
+                "id": "T\u00d1'4x\u00e4\u00a4\u0080\u00050\u0082\u00b4"
+              },
+              "birth_date": null,
+              "created": "2015-02-03T19:53:24.221Z",
+              "death_date": null,
+              "dissolution_date": null,
+              "end_date": null,
+              "founding_date": null,
+              "id": "54d1273478e4a480053082b4",
+              "local_path": "54/d1/54d1273478e4a480053082b4",
+              "local_path_base": "54/d1/54d1273478e4a480053082b4",
+              "md5sum": "b3a620a360e892d097d61595cd6e43f2",
+              "mime_type": "image/gif",
+              "notes": "Emblem 2",
+              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b4",
+              "source": "The Electoral Commission",
+              "start_date": null,
+              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b4"
+            },
+            {
+              "_id": {
+                "_bsontype": "ObjectID",
+                "id": "T\u00d1'4x\u00e4\u00a4\u0080\u00050\u0082\u00b5"
+              },
+              "birth_date": null,
+              "created": "2015-02-03T19:53:24.407Z",
+              "death_date": null,
+              "dissolution_date": null,
+              "end_date": null,
+              "founding_date": null,
+              "id": "54d1273478e4a480053082b5",
+              "local_path": "54/d1/54d1273478e4a480053082b5",
+              "local_path_base": "54/d1/54d1273478e4a480053082b5",
+              "md5sum": "ff965ad052914c5e84e6eff3e14a30d4",
+              "mime_type": "image/gif",
+              "notes": "Emblem 3",
+              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b5",
+              "source": "The Electoral Commission",
+              "start_date": null,
+              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b5"
+            }
+          ],
+          "links": [],
+          "memberships": [],
+          "name": "Sinn F\u00e9in",
+          "other_names": [],
+          "posts": [],
+          "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3",
+          "register": "Northern Ireland",
+          "slug": "sinn-fein",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:39"
+        },
+        "person_id": "1953",
+        "start_date": "2010-05-07",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667a"
+      },
+      {
+        "contact_details": [],
+        "end_date": "2010-05-06",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667b",
+        "id": "547b3883737edc5252ce667b",
+        "links": [],
+        "organization_id": {
+          "classification": "Party",
+          "contact_details": [],
+          "dissolution_date": "9999-12-31",
+          "founding_date": "1999-01-14",
+          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39",
+          "id": "party:39",
+          "identifiers": [
+            {
+              "id": "54d1273328e196800575399d",
+              "identifier": "PP39",
+              "scheme": "electoral-commission"
+            }
+          ],
+          "image": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3",
+          "images": [
+            {
+              "_id": {
+                "_bsontype": "ObjectID",
+                "id": "T\u00d1'4x\u00e4\u00a4\u0080\u00050\u0082\u00b3"
+              },
+              "birth_date": null,
+              "created": "2015-02-03T19:53:24.086Z",
+              "death_date": null,
+              "dissolution_date": null,
+              "end_date": null,
+              "founding_date": null,
+              "id": "54d1273478e4a480053082b3",
+              "local_path": "54/d1/54d1273478e4a480053082b3",
+              "local_path_base": "54/d1/54d1273478e4a480053082b3",
+              "md5sum": "c1d98d9e33c0cdf3e23b2d310fb09f41",
+              "mime_type": "image/gif",
+              "notes": "Emblem 1",
+              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3",
+              "source": "The Electoral Commission",
+              "start_date": null,
+              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3"
+            },
+            {
+              "_id": {
+                "_bsontype": "ObjectID",
+                "id": "T\u00d1'4x\u00e4\u00a4\u0080\u00050\u0082\u00b4"
+              },
+              "birth_date": null,
+              "created": "2015-02-03T19:53:24.221Z",
+              "death_date": null,
+              "dissolution_date": null,
+              "end_date": null,
+              "founding_date": null,
+              "id": "54d1273478e4a480053082b4",
+              "local_path": "54/d1/54d1273478e4a480053082b4",
+              "local_path_base": "54/d1/54d1273478e4a480053082b4",
+              "md5sum": "b3a620a360e892d097d61595cd6e43f2",
+              "mime_type": "image/gif",
+              "notes": "Emblem 2",
+              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b4",
+              "source": "The Electoral Commission",
+              "start_date": null,
+              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b4"
+            },
+            {
+              "_id": {
+                "_bsontype": "ObjectID",
+                "id": "T\u00d1'4x\u00e4\u00a4\u0080\u00050\u0082\u00b5"
+              },
+              "birth_date": null,
+              "created": "2015-02-03T19:53:24.407Z",
+              "death_date": null,
+              "dissolution_date": null,
+              "end_date": null,
+              "founding_date": null,
+              "id": "54d1273478e4a480053082b5",
+              "local_path": "54/d1/54d1273478e4a480053082b5",
+              "local_path_base": "54/d1/54d1273478e4a480053082b5",
+              "md5sum": "ff965ad052914c5e84e6eff3e14a30d4",
+              "mime_type": "image/gif",
+              "notes": "Emblem 3",
+              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b5",
+              "source": "The Electoral Commission",
+              "start_date": null,
+              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b5"
+            }
+          ],
+          "links": [],
+          "memberships": [],
+          "name": "Sinn F\u00e9in",
+          "other_names": [],
+          "posts": [],
+          "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3",
+          "register": "Northern Ireland",
+          "slug": "sinn-fein",
+          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:39"
+        },
+        "person_id": "1953",
+        "start_date": "2005-05-06",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667b"
+      },
+      {
+        "contact_details": [],
+        "election": "2015",
+        "end_date": "9999-12-31",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667c",
+        "id": "547b3883737edc5252ce667c",
+        "links": [],
+        "organization_id": null,
+        "person_id": "1953",
+        "post_id": "66135",
+        "role": "Candidate",
+        "start_date": "2010-05-07",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667c"
+      },
+      {
+        "contact_details": [],
+        "election": "2010",
+        "end_date": "2010-05-06",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667d",
+        "id": "547b3883737edc5252ce667d",
+        "links": [],
+        "organization_id": null,
+        "person_id": "1953",
+        "post_id": "66135",
+        "role": "Candidate",
+        "start_date": "2005-05-06",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667d"
+      }
+    ],
+    "name": "Daith\u00ed McKay",
+    "other_names": [],
     "party_memberships": {
       "2010": {
         "id": "party:39",
-        "name": "Sinn Féin"
+        "name": "Sinn F\u00e9in"
       },
       "2015": {
         "id": "party:39",
-        "name": "Sinn Féin"
+        "name": "Sinn F\u00e9in"
       }
     },
     "standing_in": {
@@ -31,370 +277,126 @@
     "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/1953",
     "versions": [
       {
-        "version_id": "7ed798f6db78b044",
-        "username": "stephenglenn",
+        "data": {
+          "birth_date": null,
+          "email": "",
+          "facebook_page_url": "",
+          "facebook_personal_url": "",
+          "gender": "male",
+          "homepage_url": "",
+          "id": "1953",
+          "name": "Daith\u00ed McKay",
+          "party_memberships": {
+            "2010": {
+              "id": "party:39",
+              "name": "Sinn F\u00e9in"
+            },
+            "2015": {
+              "id": "party:39",
+              "name": "Sinn F\u00e9in"
+            }
+          },
+          "party_ppc_page_url": "",
+          "standing_in": {
+            "2010": {
+              "mapit_url": "http://mapit.mysociety.org/area/66135",
+              "name": "North Antrim",
+              "post_id": "66135"
+            },
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/66135",
+              "name": "North Antrim",
+              "post_id": "66135"
+            }
+          },
+          "twitter_username": "",
+          "wikipedia_url": ""
+        },
+        "information_source": "http://www.sinnfein.ie/contents/31778",
         "timestamp": "2014-11-30T15:32:18.683833",
-        "information_source": "http://www.sinnfein.ie/contents/31778",
-        "data": {
-          "wikipedia_url": "",
-          "twitter_username": "",
-          "standing_in": {
-            "2010": {
-              "post_id": "66135",
-              "name": "North Antrim",
-              "mapit_url": "http://mapit.mysociety.org/area/66135"
-            },
-            "2015": {
-              "post_id": "66135",
-              "name": "North Antrim",
-              "mapit_url": "http://mapit.mysociety.org/area/66135"
-            }
-          },
-          "party_ppc_page_url": "",
-          "party_memberships": {
-            "2010": {
-              "name": "Sinn Féin",
-              "id": "party:39"
-            },
-            "2015": {
-              "name": "Sinn Féin",
-              "id": "party:39"
-            }
-          },
-          "name": "Daithí McKay",
-          "id": "1953",
-          "homepage_url": "",
-          "gender": "male",
-          "facebook_personal_url": "",
-          "facebook_page_url": "",
-          "email": "",
-          "birth_date": null
-        }
-      },
-      {
-        "version_id": "3601451dec780feb",
         "username": "stephenglenn",
-        "timestamp": "2014-11-30T15:31:41.228893",
-        "information_source": "http://www.sinnfein.ie/contents/31778",
+        "version_id": "7ed798f6db78b044"
+      },
+      {
         "data": {
-          "wikipedia_url": "",
-          "twitter_username": "",
-          "standing_in": {
+          "birth_date": null,
+          "email": "",
+          "facebook_page_url": "",
+          "facebook_personal_url": "",
+          "gender": "male",
+          "homepage_url": "",
+          "id": "1953",
+          "name": "Daithi McKay",
+          "party_memberships": {
             "2010": {
-              "post_id": "66135",
-              "name": "North Antrim",
-              "mapit_url": "http://mapit.mysociety.org/area/66135"
+              "id": "party:39",
+              "name": "Sinn F\u00e9in"
             },
             "2015": {
-              "post_id": "66135",
-              "name": "North Antrim",
-              "mapit_url": "http://mapit.mysociety.org/area/66135"
+              "id": "party:39",
+              "name": "Sinn F\u00e9in"
             }
           },
           "party_ppc_page_url": "",
-          "party_memberships": {
-            "2010": {
-              "name": "Sinn Féin",
-              "id": "party:39"
-            },
-            "2015": {
-              "name": "Sinn Féin",
-              "id": "party:39"
-            }
-          },
-          "name": "Daithi McKay",
-          "id": "1953",
-          "homepage_url": "",
-          "gender": "male",
-          "facebook_personal_url": "",
-          "facebook_page_url": "",
-          "email": "",
-          "birth_date": null
-        }
-      },
-      {
-        "version_id": "37ff18426f42abdd",
-        "timestamp": "2014-11-21T18:16:32.585439",
-        "information_source": "Imported from YourNextMP data from 2010",
-        "data": {
-          "wikipedia_url": null,
-          "twitter_username": null,
           "standing_in": {
             "2010": {
-              "post_id": "66135",
+              "mapit_url": "http://mapit.mysociety.org/area/66135",
               "name": "North Antrim",
-              "mapit_url": "http://mapit.mysociety.org/area/66135"
+              "post_id": "66135"
+            },
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/66135",
+              "name": "North Antrim",
+              "post_id": "66135"
             }
           },
-          "slug": "daithi-mckay",
-          "phone": null,
-          "party_ppc_page_url": null,
+          "twitter_username": "",
+          "wikipedia_url": ""
+        },
+        "information_source": "http://www.sinnfein.ie/contents/31778",
+        "timestamp": "2014-11-30T15:31:41.228893",
+        "username": "stephenglenn",
+        "version_id": "3601451dec780feb"
+      },
+      {
+        "data": {
+          "birth_date": null,
+          "email": null,
+          "facebook_page_url": null,
+          "facebook_personal_url": null,
+          "gender": "male",
+          "homepage_url": null,
+          "id": "1953",
+          "identifiers": [
+            {
+              "identifier": "24738",
+              "scheme": "yournextmp-candidate"
+            }
+          ],
+          "name": "Daithi McKay",
           "party_memberships": {
             "2010": {
-              "name": "Sinn Féin",
-              "id": "party:39"
+              "id": "party:39",
+              "name": "Sinn F\u00e9in"
             }
           },
-          "name": "Daithi McKay",
-          "identifiers": [
-            {
-              "scheme": "yournextmp-candidate",
-              "identifier": "24738"
+          "party_ppc_page_url": null,
+          "phone": null,
+          "slug": "daithi-mckay",
+          "standing_in": {
+            "2010": {
+              "mapit_url": "http://mapit.mysociety.org/area/66135",
+              "name": "North Antrim",
+              "post_id": "66135"
             }
-          ],
-          "id": "1953",
-          "homepage_url": null,
-          "gender": "male",
-          "facebook_personal_url": null,
-          "facebook_page_url": null,
-          "email": null,
-          "birth_date": null
-        }
-      }
-    ],
-    "memberships": [
-      {
-        "id": "547b3883737edc5252ce667a",
-        "end_date": "9999-12-31",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667a",
-        "organization_id": {
-          "id": "party:39",
-          "classification": "Party",
-          "dissolution_date": "9999-12-31",
-          "founding_date": "1999-01-14",
-          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39",
-          "image": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3",
-          "images": [
-            {
-              "dissolution_date": null,
-              "founding_date": null,
-              "death_date": null,
-              "birth_date": null,
-              "end_date": null,
-              "start_date": null,
-              "id": "54d1273478e4a480053082b3",
-              "local_path_base": "54/d1/54d1273478e4a480053082b3",
-              "local_path": "54/d1/54d1273478e4a480053082b3",
-              "created": "2015-02-03T19:53:24.086Z",
-              "_id": {
-                "_bsontype": "ObjectID",
-                "id": "TÑ'4xä¤\u00050³"
-              },
-              "source": "The Electoral Commission",
-              "notes": "Emblem 1",
-              "md5sum": "c1d98d9e33c0cdf3e23b2d310fb09f41",
-              "mime_type": "image/gif",
-              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3",
-              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3"
-            },
-            {
-              "mime_type": "image/gif",
-              "md5sum": "b3a620a360e892d097d61595cd6e43f2",
-              "notes": "Emblem 2",
-              "source": "The Electoral Commission",
-              "_id": {
-                "_bsontype": "ObjectID",
-                "id": "TÑ'4xä¤\u00050´"
-              },
-              "created": "2015-02-03T19:53:24.221Z",
-              "local_path": "54/d1/54d1273478e4a480053082b4",
-              "local_path_base": "54/d1/54d1273478e4a480053082b4",
-              "id": "54d1273478e4a480053082b4",
-              "start_date": null,
-              "end_date": null,
-              "birth_date": null,
-              "death_date": null,
-              "founding_date": null,
-              "dissolution_date": null,
-              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b4",
-              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b4"
-            },
-            {
-              "dissolution_date": null,
-              "founding_date": null,
-              "death_date": null,
-              "birth_date": null,
-              "end_date": null,
-              "start_date": null,
-              "id": "54d1273478e4a480053082b5",
-              "local_path_base": "54/d1/54d1273478e4a480053082b5",
-              "local_path": "54/d1/54d1273478e4a480053082b5",
-              "created": "2015-02-03T19:53:24.407Z",
-              "_id": {
-                "_bsontype": "ObjectID",
-                "id": "TÑ'4xä¤\u00050µ"
-              },
-              "source": "The Electoral Commission",
-              "notes": "Emblem 3",
-              "md5sum": "ff965ad052914c5e84e6eff3e14a30d4",
-              "mime_type": "image/gif",
-              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b5",
-              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b5"
-            }
-          ],
-          "name": "Sinn Féin",
-          "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3",
-          "register": "Northern Ireland",
-          "slug": "sinn-fein",
-          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:39",
-          "posts": [],
-          "memberships": [],
-          "links": [],
-          "contact_details": [],
-          "identifiers": [
-            {
-              "id": "54d1273328e196800575399d",
-              "scheme": "electoral-commission",
-              "identifier": "PP39"
-            }
-          ],
-          "other_names": []
+          },
+          "twitter_username": null,
+          "wikipedia_url": null
         },
-        "person_id": "1953",
-        "start_date": "2010-05-07",
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667a",
-        "links": [],
-        "contact_details": []
-      },
-      {
-        "id": "547b3883737edc5252ce667b",
-        "end_date": "2010-05-06",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667b",
-        "organization_id": {
-          "id": "party:39",
-          "classification": "Party",
-          "dissolution_date": "9999-12-31",
-          "founding_date": "1999-01-14",
-          "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39",
-          "image": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3",
-          "images": [
-            {
-              "dissolution_date": null,
-              "founding_date": null,
-              "death_date": null,
-              "birth_date": null,
-              "end_date": null,
-              "start_date": null,
-              "id": "54d1273478e4a480053082b3",
-              "local_path_base": "54/d1/54d1273478e4a480053082b3",
-              "local_path": "54/d1/54d1273478e4a480053082b3",
-              "created": "2015-02-03T19:53:24.086Z",
-              "_id": {
-                "_bsontype": "ObjectID",
-                "id": "TÑ'4xä¤\u00050³"
-              },
-              "source": "The Electoral Commission",
-              "notes": "Emblem 1",
-              "md5sum": "c1d98d9e33c0cdf3e23b2d310fb09f41",
-              "mime_type": "image/gif",
-              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b3",
-              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3"
-            },
-            {
-              "mime_type": "image/gif",
-              "md5sum": "b3a620a360e892d097d61595cd6e43f2",
-              "notes": "Emblem 2",
-              "source": "The Electoral Commission",
-              "_id": {
-                "_bsontype": "ObjectID",
-                "id": "TÑ'4xä¤\u00050´"
-              },
-              "created": "2015-02-03T19:53:24.221Z",
-              "local_path": "54/d1/54d1273478e4a480053082b4",
-              "local_path_base": "54/d1/54d1273478e4a480053082b4",
-              "id": "54d1273478e4a480053082b4",
-              "start_date": null,
-              "end_date": null,
-              "birth_date": null,
-              "death_date": null,
-              "founding_date": null,
-              "dissolution_date": null,
-              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b4",
-              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b4"
-            },
-            {
-              "dissolution_date": null,
-              "founding_date": null,
-              "death_date": null,
-              "birth_date": null,
-              "end_date": null,
-              "start_date": null,
-              "id": "54d1273478e4a480053082b5",
-              "local_path_base": "54/d1/54d1273478e4a480053082b5",
-              "local_path": "54/d1/54d1273478e4a480053082b5",
-              "created": "2015-02-03T19:53:24.407Z",
-              "_id": {
-                "_bsontype": "ObjectID",
-                "id": "TÑ'4xä¤\u00050µ"
-              },
-              "source": "The Electoral Commission",
-              "notes": "Emblem 3",
-              "md5sum": "ff965ad052914c5e84e6eff3e14a30d4",
-              "mime_type": "image/gif",
-              "url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:39/image/54d1273478e4a480053082b5",
-              "proxy_url": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b5"
-            }
-          ],
-          "name": "Sinn Féin",
-          "proxy_image": "http://candidates.127.0.0.1.xip.io:3000/image-proxy/http%3A%2F%2Fcandidates.127.0.0.1.xip.io%3A3000%2Forganizations%2Fparty%3A39%2Fimage%2F54d1273478e4a480053082b3",
-          "register": "Northern Ireland",
-          "slug": "sinn-fein",
-          "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:39",
-          "posts": [],
-          "memberships": [],
-          "links": [],
-          "contact_details": [],
-          "identifiers": [
-            {
-              "id": "54d1273328e196800575399d",
-              "scheme": "electoral-commission",
-              "identifier": "PP39"
-            }
-          ],
-          "other_names": []
-        },
-        "person_id": "1953",
-        "start_date": "2005-05-06",
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667b",
-        "links": [],
-        "contact_details": []
-      },
-      {
-        "id": "547b3883737edc5252ce667c",
-        "organization_id": null,
-        "end_date": "9999-12-31",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667c",
-        "person_id": "1953",
-        "post_id": "66135",
-        "role": "Candidate",
-        "start_date": "2010-05-07",
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667c",
-        "links": [],
-        "contact_details": []
-      },
-      {
-        "id": "547b3883737edc5252ce667d",
-        "organization_id": null,
-        "end_date": "2010-05-06",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/547b3883737edc5252ce667d",
-        "person_id": "1953",
-        "post_id": "66135",
-        "role": "Candidate",
-        "start_date": "2005-05-06",
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/547b3883737edc5252ce667d",
-        "links": [],
-        "contact_details": []
+        "information_source": "Imported from YourNextMP data from 2010",
+        "timestamp": "2014-11-21T18:16:32.585439",
+        "version_id": "37ff18426f42abdd"
       }
-    ],
-    "links": [],
-    "contact_details": [],
-    "identifiers": [
-      {
-        "id": "547786c0737edc5252ce5ab6",
-        "identifier": "24738",
-        "scheme": "yournextmp-candidate"
-      }
-    ],
-    "other_names": []
+    ]
   }
 }

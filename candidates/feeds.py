@@ -4,14 +4,15 @@ from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from django.utils.feedgenerator import Atom1Feed
 from django.utils.text import slugify
+from django.utils.translation import ugettext_lazy as _
 
 from .models import LoggedAction
 
 lock_re = re.compile(r'^(?:Unl|L)ocked\s*constituency (.*) \((\d+)\)$')
 
 class RecentChangesFeed(Feed):
-    title = "YourNextMP recent changes"
-    description = "Changes to YNMP candidates"
+    title = _("YourNextMP recent changes")
+    description = _("Changes to YNMP candidates")
     link = "/feeds/changes.xml"
     feed_type = Atom1Feed
 
@@ -32,14 +33,8 @@ class RecentChangesFeed(Feed):
             )
 
     def item_description(self, item):
-        description =  u"""
-        {0}
-
-        Updated at {1}
-        """.format(
-            item.source,
-            str(item.updated),
-        )
+        updated = _(u"Updated at {0}").format(str(item.updated))
+        description = u"{0}\n\n{1}\n".format(item.source, updated)
 
         return description
 
@@ -49,7 +44,7 @@ class RecentChangesFeed(Feed):
         m = lock_re.search(item.source)
         if m:
             return reverse('constituency', kwargs={
-                'mapit_area_id': m.group(2),
+                'post_id': m.group(2),
                 'ignored_slug': slugify(m.group(1))
             })
         else:

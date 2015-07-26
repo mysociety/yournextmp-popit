@@ -1,45 +1,50 @@
 {% load prettyjson %}
+{% load i18n %}
 
 <div class="person__versions">
-    <h2>All versions</h2>
+    <h2>{% trans "All versions" %}</h2>
     {% for version in person.version_diffs %}
       <div class="version">
         <dl>
-          <dt>Version</dt>
+          <dt>{% trans "Version" %}</dt>
           <dd>
-            {{ version.version_id }} <a class="button tiny js-toggle-full-version-json">Hide full version</a>
+            {{ version.version_id }} <a class="button tiny js-toggle-full-version-json">{% trans "Hide full version" %}</a>
             <pre class="full-version-json">{{ version.data|prettyjson }}</pre>
           </dd>
-          <dt>Username</dt>
+          <dt>{% trans "Username" %}</dt>
           <dd>{{ version.username }}</dd>
-          <dt>Timestamp</dt>
+          <dt>{% trans "Timestamp" %}</dt>
           <dd>{{ version.timestamp }}</dd>
-          <dt>Source</dt>
+          <dt>{% trans "Source" %}</dt>
           <dd>{{ version.information_source }}</dd>
-          <dt>Changes made</dt>
+          <dt>{% trans "Changes made" %}</dt>
           <dd>
             <p class="version-diff">
               {% for operation in version.diff %}
                 {% if operation.op == 'add' %}
-                   <span class="version-op-add">Added {{ operation.path }} => {{ operation.value|prettyjson }}</span>
+                   <span class="version-op-add">{% trans "Added:" %} {{ operation.path }} => {{ operation.value|prettyjson }}</span>
                 {% elif operation.op == 'remove' %}
-                   <span class="version-op-remove">Removed {{ operation.path }} (previously it was {{ operation.previous_value|prettyjson }})</span>
+                   <span class="version-op-remove">{% trans "Removed:" %} {{ operation.path }}
+                    {% blocktrans trimmed with previous=operation.previous_value|prettyjson %}
+                    (previously it was {{ previous }}){% endblocktrans %}</span>
                 {% elif operation.op == 'replace' %}
-                   <span class="version-op-replace">At {{ operation.path }} replaced {{ operation.previous_value|prettyjson }} with {{ operation.value|prettyjson }}</span>
+                   <span class="version-op-replace">{% blocktrans trimmed with field=operation.path previous=operation.previous_value|prettyjson current=operation.value|prettyjson %}
+                   At {{ field }} replaced {{ previous }} with {{ current }}</span>
+                   {% endblocktrans %}
                 {% else %}
-                   <span class="version-op-unknown">UNEXPECTED OPERATION: {{ operation|prettyjson }}</span>
+                   <span class="version-op-unknown">{% trans "UNEXPECTED OPERATION:" %} {{ operation|prettyjson }}</span>
                 {% endif %}<br/>
               {% endfor %}
             </p>
           </dd>
           {% if user.is_authenticated and not forloop.first %}
-          <dt>Revert to this</dt>
+          <dt>{% trans "Revert to this" %}</dt>
           <dd>
             <form id="revert-form-{{ version.version_id }}" action="{% url 'person-revert' person_id=person.id %}" method="post" class="version-revert">
               {% csrf_token %}
               <input type="hidden" name="version_id" value="{{ version.version_id }}"/>
-              <input type="text" name="source" id="id_source" maxlength="512" required="required" value="Reverting to version {{ version.version_id }} because…"/>
-              <input type="submit" class="button tiny alert" value="Revert" />
+              <input type="text" name="source" id="id_source" maxlength="512" required="required" value="{% blocktrans with id=version.version_id %}Reverting to version {{ id }} because…{% endblocktrans %}"/>
+              <input type="submit" class="button tiny alert" value="{% trans "Revert" %}" />
             </form>
           </dd>
           {% endif %}

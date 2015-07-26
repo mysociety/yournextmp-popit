@@ -1,179 +1,180 @@
 {
   "result": {
-    "name": "Arnie Craven",
-    "honorific_suffix": null,
-    "gender": "male",
-    "versions": [
+    "birth_date": null,
+    "contact_details": [
       {
-        "information_source": "I am the candidate",
-        "timestamp": "2015-04-28T12:15:59.112114",
-        "username": "arnieetc",
-        "data": {
-          "facebook_page_url": "",
-          "honorific_suffix": "",
-          "party_ppc_page_url": "",
-          "image": null,
-          "facebook_personal_url": "",
-          "id": "6833",
-          "other_names": [],
-          "proxy_image": null,
-          "honorific_prefix": "Mr",
-          "wikipedia_url": "",
-          "party_memberships": {
-            "2015": {
-              "name": "Yorkshire First",
-              "id": "party:2120"
-            }
-          },
-          "email": "morleyandoutwood@yorkshirefirst.org.uk",
-          "twitter_username": "arnieetc",
-          "name": "Arnie Craven",
-          "gender": "male",
-          "identifiers": [],
-          "linkedin_url": "",
-          "standing_in": {
-            "2015": {
-              "post_id": "65735",
-              "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
-            }
-          },
-          "homepage_url": "",
-          "birth_date": null
-        },
-        "version_id": "7de7521911b140af"
-      },
-      {
-        "information_source": "I am he",
-        "timestamp": "2015-03-24T22:35:05.135480",
-        "username": "arnieetc",
-        "data": {
-          "facebook_page_url": "",
-          "name": "Arnie Craven",
-          "honorific_suffix": "",
-          "party_ppc_page_url": "",
-          "gender": "male",
-          "image": null,
-          "identifiers": [],
-          "other_names": [],
-          "proxy_image": null,
-          "id": "6833",
-          "standing_in": {
-            "2015": {
-              "post_id": "65735",
-              "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
-            }
-          },
-          "honorific_prefix": "",
-          "linkedin_url": "",
-          "facebook_personal_url": "",
-          "twitter_username": "",
-          "wikipedia_url": "",
-          "party_memberships": {
-            "2015": {
-              "name": "Yorkshire First",
-              "id": "party:2120"
-            }
-          },
-          "birth_date": null,
-          "homepage_url": "",
-          "email": "morleyandoutwood@yorkshirefirst.org.uk"
-        },
-        "version_id": "3b9b2044b6bed63a"
-      },
-      {
-        "information_source": "http://www.yorkshirefirst.org.uk/election-candidates/",
-        "timestamp": "2015-03-18T01:37:47.869843",
-        "username": "h2g2bob",
-        "data": {
-          "facebook_page_url": "",
-          "name": "Arnie Craven",
-          "honorific_suffix": "",
-          "party_ppc_page_url": "",
-          "gender": "male",
-          "facebook_personal_url": "",
-          "email": "",
-          "honorific_prefix": "",
-          "standing_in": {
-            "2015": {
-              "post_id": "65735",
-              "name": "Morley and Outwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65735"
-            }
-          },
-          "homepage_url": "",
-          "linkedin_url": "",
-          "twitter_username": "",
-          "wikipedia_url": "",
-          "party_memberships": {
-            "2015": {
-              "name": "Yorkshire First",
-              "id": "party:2120"
-            }
-          },
-          "birth_date": null,
-          "id": "6833"
-        },
-        "version_id": "46b93b40b4a9717b"
+        "id": "553f79ff21708d3803cce38b",
+        "type": "twitter",
+        "value": "arnieetc"
       }
     ],
-    "id": "6833",
-    "honorific_prefix": "Mr",
-    "standing_in": {
-      "2015": {
-        "post_id": "65735",
-        "name": "Morley and Outwood",
-        "mapit_url": "http://mapit.mysociety.org/area/65735"
-      }
-    },
-    "party_memberships": {
-      "2015": {
-        "name": "Yorkshire First",
-        "id": "party:2120"
-      }
-    },
-    "birth_date": null,
     "email": "morleyandoutwood@yorkshirefirst.org.uk",
+    "gender": "male",
+    "honorific_prefix": "Mr",
+    "honorific_suffix": null,
     "html_url": "https://yournextmp.popit.mysociety.org/persons/6833",
-    "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/6833",
+    "id": "6833",
+    "identifiers": [],
     "images": [],
+    "links": [],
     "memberships": [
       {
         "contact_details": [],
-        "links": [],
-        "images": [],
-        "id": "553f79ff21708d3803cce38d",
+        "election": "2015",
         "end_date": "9999-12-31",
-        "start_date": "2010-05-07",
-        "role": "Candidate",
-        "post_id": "65735",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/553f79ff21708d3803cce38d",
+        "id": "553f79ff21708d3803cce38d",
+        "images": [],
+        "links": [],
         "person_id": "6833",
-        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/553f79ff21708d3803cce38d",
-        "html_url": "https://yournextmp.popit.mysociety.org/memberships/553f79ff21708d3803cce38d"
+        "post_id": "65735",
+        "role": "Candidate",
+        "start_date": "2010-05-07",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/553f79ff21708d3803cce38d"
       },
       {
         "contact_details": [],
-        "links": [],
-        "images": [],
-        "id": "553f79ff21708d3803cce38c",
         "end_date": "9999-12-31",
-        "start_date": "2010-05-07",
+        "html_url": "https://yournextmp.popit.mysociety.org/memberships/553f79ff21708d3803cce38c",
+        "id": "553f79ff21708d3803cce38c",
+        "images": [],
+        "links": [],
         "organization_id": "party:2120",
         "person_id": "6833",
-        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/553f79ff21708d3803cce38c",
-        "html_url": "https://yournextmp.popit.mysociety.org/memberships/553f79ff21708d3803cce38c"
+        "start_date": "2010-05-07",
+        "url": "https://yournextmp.popit.mysociety.org/api/v0.1/memberships/553f79ff21708d3803cce38c"
       }
     ],
-    "links": [],
-    "contact_details": [
+    "name": "Arnie Craven",
+    "other_names": [],
+    "party_memberships": {
+      "2015": {
+        "id": "party:2120",
+        "name": "Yorkshire First"
+      }
+    },
+    "standing_in": {
+      "2015": {
+        "mapit_url": "http://mapit.mysociety.org/area/65735",
+        "name": "Morley and Outwood",
+        "post_id": "65735"
+      }
+    },
+    "url": "https://yournextmp.popit.mysociety.org/api/v0.1/persons/6833",
+    "versions": [
       {
-        "type": "twitter",
-        "value": "arnieetc",
-        "id": "553f79ff21708d3803cce38b"
+        "data": {
+          "birth_date": null,
+          "email": "morleyandoutwood@yorkshirefirst.org.uk",
+          "facebook_page_url": "",
+          "facebook_personal_url": "",
+          "gender": "male",
+          "homepage_url": "",
+          "honorific_prefix": "Mr",
+          "honorific_suffix": "",
+          "id": "6833",
+          "identifiers": [],
+          "image": null,
+          "linkedin_url": "",
+          "name": "Arnie Craven",
+          "other_names": [],
+          "party_memberships": {
+            "2015": {
+              "id": "party:2120",
+              "name": "Yorkshire First"
+            }
+          },
+          "party_ppc_page_url": "",
+          "proxy_image": null,
+          "standing_in": {
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
+              "name": "Morley and Outwood",
+              "post_id": "65735"
+            }
+          },
+          "twitter_username": "arnieetc",
+          "wikipedia_url": ""
+        },
+        "information_source": "I am the candidate",
+        "timestamp": "2015-04-28T12:15:59.112114",
+        "username": "arnieetc",
+        "version_id": "7de7521911b140af"
+      },
+      {
+        "data": {
+          "birth_date": null,
+          "email": "morleyandoutwood@yorkshirefirst.org.uk",
+          "facebook_page_url": "",
+          "facebook_personal_url": "",
+          "gender": "male",
+          "homepage_url": "",
+          "honorific_prefix": "",
+          "honorific_suffix": "",
+          "id": "6833",
+          "identifiers": [],
+          "image": null,
+          "linkedin_url": "",
+          "name": "Arnie Craven",
+          "other_names": [],
+          "party_memberships": {
+            "2015": {
+              "id": "party:2120",
+              "name": "Yorkshire First"
+            }
+          },
+          "party_ppc_page_url": "",
+          "proxy_image": null,
+          "standing_in": {
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
+              "name": "Morley and Outwood",
+              "post_id": "65735"
+            }
+          },
+          "twitter_username": "",
+          "wikipedia_url": ""
+        },
+        "information_source": "I am he",
+        "timestamp": "2015-03-24T22:35:05.135480",
+        "username": "arnieetc",
+        "version_id": "3b9b2044b6bed63a"
+      },
+      {
+        "data": {
+          "birth_date": null,
+          "email": "",
+          "facebook_page_url": "",
+          "facebook_personal_url": "",
+          "gender": "male",
+          "homepage_url": "",
+          "honorific_prefix": "",
+          "honorific_suffix": "",
+          "id": "6833",
+          "linkedin_url": "",
+          "name": "Arnie Craven",
+          "party_memberships": {
+            "2015": {
+              "id": "party:2120",
+              "name": "Yorkshire First"
+            }
+          },
+          "party_ppc_page_url": "",
+          "standing_in": {
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65735",
+              "name": "Morley and Outwood",
+              "post_id": "65735"
+            }
+          },
+          "twitter_username": "",
+          "wikipedia_url": ""
+        },
+        "information_source": "http://www.yorkshirefirst.org.uk/election-candidates/",
+        "timestamp": "2015-03-18T01:37:47.869843",
+        "username": "h2g2bob",
+        "version_id": "46b93b40b4a9717b"
       }
-    ],
-    "identifiers": [],
-    "other_names": []
+    ]
   }
 }

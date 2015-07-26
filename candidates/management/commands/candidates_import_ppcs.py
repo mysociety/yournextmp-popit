@@ -22,9 +22,9 @@ from django.conf import settings
 import requests
 
 from candidates.models import PopItPerson
-from candidates.static_data import MapItData
+from candidates.election_specific import MAPIT_DATA
 from candidates.views.version_data import get_change_metadata
-from candidates.popit import PopItApiMixin
+from candidates.popit import PopItApiMixin, get_search_url
 
 from ..images import image_uploaded_already, get_file_md5sum
 
@@ -73,7 +73,7 @@ def cons_key(s):
 
 constituency_lookup = {
     cons_key(k): v for k, v in
-    MapItData.constituencies_2010_name_map.items()
+    MAPIT_DATA.areas_by_name[('WMC', 22)].items()
 }
 
 class UnknownConstituencyException(Exception):
@@ -372,7 +372,7 @@ class Command(PopItApiMixin, BaseCommand):
         # Search PopIt for anyone with the same name. (FIXME: we
         # should make this a bit fuzzier when the PopIt API
         # supports that.)
-        person_search_url = self.get_search_url(
+        person_search_url = get_search_url(
             'persons', '"' + ppc_data['name'] + '"'
         )
         r = requests.get(

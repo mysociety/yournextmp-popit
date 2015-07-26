@@ -3,66 +3,98 @@
 
 import re
 
+from django.conf import settings
+from django.utils.translation import ugettext as _
+
 import jsonpatch
 import jsonpointer
 
-def get_descriptive_value(year, attribute, value, leaf):
-    """Get a sentence fragmetn describing someone's status in a particular year
 
-    'attribute' is either "standing_in" or "party_membership", 'year'
-    is either "2010" or "2015", and 'value' is what would be under
-    that year in the 'standing_in' or 'party_memberships' dictionary
-    (see the comment at the top of update.py)."""
 
-    prefix = {'2010': u'was', '2015': u'is'}[year]
+def get_descriptive_value(election, attribute, value, leaf):
+    """Get a sentence fragment describing someone's status in a particular year
+
+    'attribute' is either "standing_in" or "party_membership", 'election'
+    is one of the keys from settings.ELECTIONS, and 'value' is what would
+    be under that year in the 'standing_in' or 'party_memberships'
+    dictionary (see the comment at the top of update.py)."""
+
+    election_data = settings.ELECTIONS[election]
+    current_election = election_data.get('current')
+    election_name = election_data['name']
+
     if attribute == 'party_memberships':
         if leaf:
             # In that case, there's only a particular value in the
             # dictionary that's changed:
             if leaf == 'name':
-                message = u"{0} known to be standing for the party '{1}' in {2}"
-                return message.format(prefix, value, year)
+                if current_election:
+                    message = _(u"is known to be standing for the party '{party}' in the {election}")
+                else:
+                    message = _(u"was known to be standing for the party '{party}' in the {election}")
+                return message.format(party=value, election=election_name)
             elif leaf == 'id':
-                message = u'{0} known to be standing for the party with ID {1} in {2}'
-                return message.format(prefix, value, year)
+                if current_election:
+                    message = _(u'is known to be standing for the party with ID {party} in the {election}')
+                else:
+                    message = _(u'was known to be standing for the party with ID {party} in the {election}')
+                return message.format(party=value, election=election_name)
             else:
-                message = u"Unexpected leaf {0} (attribute: {1}, year: {2}"
+                message = _(u"Unexpected leaf {0} (attribute: {1}, election: {2}")
                 raise Exception, message.format(
-                    leaf, attribute, year
+                    leaf, attribute, election
                 )
         else:
-            message = u'{0} known to be standing for the party "{1}" in {2}'
-            return message.format(prefix, value['name'], year)
+            if current_election:
+                message = _(u'is known to be standing for the party "{party}" in the {election}')
+            else:
+                message = _(u'was known to be standing for the party "{party}" in the {election}')
+            return message.format(party=value['name'], election=election_name)
     elif attribute == 'standing_in':
         if value is None:
-            message = u'{0} known not to be standing in {1}'
-            return message.format(prefix, year)
+            if current_election:
+                message = _(u'is known not to be standing in the {election}')
+            else:
+                message = _(u'was known not to be standing in the {election}')
+            return message.format(election=election_name)
         else:
             if leaf:
                 if leaf == 'post_id':
-                    message = "{0} known to be standing for the post with ID {1} in {2}"
-                    return message.format(prefix, value, year)
+                    if current_election:
+                        message = _("is known to be standing for the post with ID {party} in the {election}")
+                    else:
+                        message = _("was known to be standing for the post with ID {party} in the {election}")
+                    return message.format(party=value, election=election_name)
                 elif leaf == 'mapit_url':
-                    message = "{0} known to be standing in the constituency with MapIt URL {1} in {2}"
-                    return message.format(prefix, value, year)
+                    if current_election:
+                        message = _("is known to be standing in the constituency with MapIt URL {party} in the {election}")
+                    else:
+                        message = _("was known to be standing in the constituency with MapIt URL {party} in the {election}")
+                    return message.format(party=value, election=election_name)
                 elif leaf == 'name':
-                    message = "{0} known to be standing in {1} in {2}"
-                    return message.format(prefix, value, year)
+                    if current_election:
+                        message = _("is known to be standing in {party} in the {election}")
+                    else:
+                        message = _("was known to be standing in {party} in the {election}")
+                    return message.format(party=value, election=election_name)
                 elif leaf == 'elected':
-                    return "was {whether}elected in {year}".format(
-                        whether=('' if value else 'not '),
-                        year=year
-                    )
+                    if value:
+                        return _("was elected in the {election}").format(election=election_name)
+                    else:
+                        return _("was not elected in the {election}").format(election=election_name)
                 else:
-                    message = u"Unexpected leaf {0} (attribute: {1}, year: {2}"
+                    message = _(u"Unexpected leaf {0} (attribute: {1}, election: {2}")
                     raise Exception, message.format(
-                        leaf, attribute, year
+                        leaf, attribute, election
                     )
             else:
-                message = u'{0} known to be standing in {1} in {2}'
-                return message.format(prefix, value['name'], year)
+                if current_election:
+                    message = _(u'is known to be standing in {party} in the {election}')
+                else:
+                    message = _(u'was known to be standing in {party} in the {election}')
+                return message.format(party=value['name'], election=election_name)
 
-def explain_standing_in_and_party_memberships(operation, attribute, year, leaf):
+def explain_standing_in_and_party_memberships(operation, attribute, election, leaf):
     """Set 'value' and 'previous_value' in operation to a readable explanation
 
     'attribute' is one of 'standing_in' or 'party_memberships'."""
@@ -70,23 +102,23 @@ def explain_standing_in_and_party_memberships(operation, attribute, year, leaf):
     for key in ('previous_value', 'value'):
         if key not in operation:
             continue
-        if year:
+        if election:
             operation[key] = get_descriptive_value(
-                year,
+                election,
                 attribute,
                 operation[key],
                 leaf,
             )
         else:
             clauses = []
-            for year, value in (operation[key] or {}).items():
+            for election, value in (operation[key] or {}).items():
                 clauses.append(get_descriptive_value(
-                    year,
+                    election,
                     attribute,
                     value,
                     leaf,
                 ))
-            operation[key] = ' and '.join(clauses)
+            operation[key] = _(u' and ').join(clauses)
 
 def get_version_diff(from_data, to_data):
     """Calculate the diff (a mangled JSON patch) between from_data and to_data"""
@@ -99,7 +131,7 @@ def get_version_diff(from_data, to_data):
         # differently so they can be presented in human-readable form,
         # so match those cases first:
         m = re.search(
-            r'(standing_in|party_memberships)(?:/(201[05]))?(?:/(\w+))?',
+            r'(standing_in|party_memberships)(?:/([-_A-Za-z0-9]+))?(?:/(\w+))?',
             operation['path'],
         )
         if op in ('replace', 'remove'):
@@ -108,9 +140,9 @@ def get_version_diff(from_data, to_data):
                     from_data,
                     operation['path']
                 )
-        attribute, year, leaf = m.groups() if m else (None, None, None)
+        attribute, election, leaf = m.groups() if m else (None, None, None)
         if attribute:
-            explain_standing_in_and_party_memberships(operation, attribute, year, leaf)
+            explain_standing_in_and_party_memberships(operation, attribute, election, leaf)
         if op in ('replace', 'remove'):
             # Ignore replacing no data with no data:
             if op == 'replace' and \

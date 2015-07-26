@@ -1,0 +1,439 @@
+@import "../foundation/scss/foundation/functions";
+
+$color-darkgreen: #16312d;
+$color-green: #155847;
+$color-lightgreen: #1e9577;
+$color-palegreen: #bcdad5;
+$color-pink: #dd3975;
+$color-offwhite: #f3f3f3;
+$color-cream: #e4dfdb;
+$color-red: #c55e59;
+$color-yellow: #fdf2d5;
+$color-grey: #d3d3d3;
+
+$header-background-color: $color-green;
+$body-background-color: $color-darkgreen;
+$footer-text-color: mix($color-darkgreen, #fff, 50%);
+$content-background-color: $color-offwhite;
+
+$muted-text-color: darken($color-grey, 20%);
+
+$message-background-color: mix($color-palegreen, #fff, 50%);
+$message-border-color: mix($color-palegreen, #fff, 80%);
+
+$highlight-background-color: $color-yellow;
+$information-background-color: #E1F2F5; // very pale blue
+$danger-background-color: mix($color-red, #fff, 15%);
+$confirmation-background-color: $color-yellow;
+
+$error-background-color: mix($color-red, #fff, 15%);
+$error-text-color: darken($color-red, 10%);
+$error-border-color: mix($color-red, #fff, 30%);
+$error-input-border-color: mix($color-red, #fff, 40%);
+
+$avatar-background-color: #dddddd;
+
+$unknown-candidate-status-color: $color-pink;
+$not-standing-candidate-status-color: $color-red;
+
+$homepage-description-background-color: $body-background-color;
+$homepage-description-text-color: #887; // dark desaturated browny-grey
+$homepage-activity-color: #333;
+$homepage-leaderboard-color: #333;
+
+// Override Foundation variables here
+$primary-color: $color-lightgreen;
+$secondary-color: $color-grey;
+$button-tny: rem-calc(6);
+$button-sml: rem-calc(8);
+$button-med: rem-calc(10);
+$button-lrg: rem-calc(14);
+$button-radius: 3px;
+$header-font-family: "Politica", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
+
+$high_dpi_screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi';
+
+@font-face {
+  font-family: Politica;
+  src: url(fonts/POLITICA.TTF);
+}
+
+@font-face {
+  font-family: Politica;
+  src: url(fonts/POLITICA_BOLD.TTF);
+  font-weight: bold;
+}
+
+@import "../foundation/scss/normalize";
+@import "../foundation/scss/foundation";
+
+@import "../candidates/header";
+@import "../candidates/content";
+@import "../candidates/footer";
+@import "../candidates/forms";
+
+@import "../candidates/finder";
+@import "../candidates/people";
+@import "../candidates/versions";
+@import "../candidates/parties";
+@import "../candidates/person_edit";
+@import "../candidates/copyright-assignment";
+@import "../candidates/leaderboards";
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    line-height: 1.1em;
+}
+
+a {
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+.button {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.header {
+    font-family: $header-font-family;
+    font-size: 1.3125em; // 21px up from default 16px
+    text-align: center;
+    color: $color-palegreen;
+
+    .container {
+        position: relative;
+    }
+
+    a {
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+.header__logo {
+    display: block !important;
+    margin: 1em auto 0 auto;
+    width: 230px;
+    height: 53px;
+    background: transparent url(img/logo-yqs-investigacion.png) center center no-repeat;
+    text-indent: -9999px;
+
+    // Special case for very narrow screens,
+    // to leave room for social icons
+    @media (max-width: 30em) {
+        width: 230px * 0.75;
+        height: 53px * 0.75;
+        background-size: 230px * 0.75;
+        margin-left: 0;
+        margin-top: 0.5em;
+    }
+
+    @media ($high_dpi_screen) {
+        background-image: url(img/logo-yqs-investigacion@2.png);
+        background-size: 230px;
+
+        @media (max-width: 30em) {
+            background-size: 230px * 0.75;
+        }
+    }
+}
+
+a.header__logo,
+.header__nav__social a {
+  &:hover, &:focus {
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.header__nav__item {
+  display: inline-block;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+
+  @media #{$medium-up} {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+  }
+}
+
+.header__nav__primary {
+    margin-bottom: 0.5em;
+}
+
+.header__nav__social {
+    position: absolute;
+    top: 0;
+    right: $column-gutter / 2;
+
+    a {
+        display: block;
+        float: left;
+        width: 36px;
+        height: 50px;
+        text-indent: -9999px;
+        background-position: 8px 22px;
+        background-repeat: no-repeat;
+
+        &[href*="facebook"] {
+            background-color: #3b5998;
+            background-image: url(img/logo-facebook.png);
+        }
+
+        &[href*="twitter"] {
+            background-color: #55acee;
+            background-image: url(img/logo-twitter.png);
+        }
+
+        &:hover,
+        &:focus {
+            height: 54px;
+            background-position: 8px 26px;
+        }
+    }
+}
+
+@media #{$medium-up} {
+    .header__nav {
+        @include clearfix();
+        margin-left: -0.5em;
+        margin-right: -0.5em;
+    }
+
+    .header__nav__primary {
+        float: left;
+        margin-bottom: 0;
+    }
+
+    .header__nav__secondary {
+        float: right;
+    }
+}
+
+.header__hero {
+    background-color: $color-lightgreen;
+    padding: 1em 0;
+    text-align: left;
+
+    @media #{$medium-up} {
+      h1 {
+          font-size: $h1-font-size * 0.8;
+      }
+
+      h2 {
+          font-size: $h2-font-size * 0.8;
+      }
+    }
+}
+
+.person__hero {
+    h1 {
+        color: #fff;
+
+        & + p {
+            color: $color-palegreen;
+        }
+    }
+
+    p {
+        font-family: $body-font-family;
+    }
+
+    @media #{$medium-up} {
+        h1 {
+            font-size: $h1-font-size;
+            margin-bottom: 0.1em;
+        }
+
+        .person-avatar {
+            height: 4em;
+        }
+    }
+}
+
+.footer {
+    a {
+        color: $color-lightgreen;
+    }
+
+    h4 {
+        color: inherit;
+        font-family: inherit;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    p + h4 {
+        margin-top: 1em;
+    }
+
+    img {
+        margin-right: 1em;
+        margin-top: 0.3em;
+    }
+}
+
+@media #{$medium-up} {
+    .footer__links,
+    .footer__bylines {
+        width: auto;
+    }
+}
+
+// Home page
+
+body.finder .content {
+    padding-bottom: 0;
+    padding-top: 0;
+
+    .container {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+}
+
+.finder__getting-started {
+    background-color: darken($color-offwhite, 5%);
+}
+
+.finder__getting-started__demo {
+    margin-bottom: 2em;
+}
+
+.finder__intro {
+    p {
+        font-size: 1.2em;
+    }
+}
+
+.finder__forms {
+    background-color: $color-palegreen;
+    border: 1px solid darken($color-palegreen, 5%);
+    padding: 1em;
+    margin-bottom: 0;
+
+    label {
+        font-size: 1em;
+        margin-bottom: 1em;
+    }
+
+    .button {
+        @include button-style($color-pink, true);
+    }
+}
+
+.iframe-4-by-3 {
+    position: relative;
+    padding-top: 75%;
+    padding-bottom: 30px;
+    height: 0;
+    overflow: auto;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+@media #{$medium-up} {
+    .finder__intro {
+        width: 50%;
+    }
+
+    .finder__forms {
+        top: auto;
+        bottom: -2em;
+        padding: 2em 3em;
+    }
+
+    .finder__getting-started {
+        body.finder & .container { // TODO: overspecified selector!!
+            padding-top: 3em;
+            padding-bottom: 4em;
+        }
+
+        h2 {
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .finder__getting-started__demo {
+        @include grid-column($columns: 6, $collapse: true);
+    }
+
+    .finder__getting-started__help {
+        @include grid-column($columns: 5, $collapse: true, $offset: 1);
+    }
+
+    .finder__getting-started__priorities {
+        list-style: none;
+        margin: 0;
+
+        li a {
+            display: block;
+            padding: 0.5em 0;
+        }
+
+        li + li {
+            border-top: 1px solid mix($color-offwhite, $color-green, 80%);
+        }
+    }
+}
+
+.person__actions__action {
+    background-color: $message-background-color;
+}
+
+.person__actions__edit,
+.person__actions__sourcing {
+    background-color: $highlight-background-color;
+}
+
+.person__actions__data {
+    background-color: $information-background-color;
+}
+
+.person__actions__merge {
+    background-color: $danger-background-color;
+}
+
+.official-documents {
+    @extend .candidates__known;
+}
+
+@media #{$medium-up} {
+    .candidates__known {
+        background-image: url(img/icon-candidates.png);
+    }
+
+    .candidates__new {
+        background-image: url(img/icon-add-candidate.png);
+    }
+
+    .candidates__previous {
+        background-image: url(img/icon-question.png);
+    }
+
+    .candidates__not-standing {
+        background-image: url(img/icon-cross.png);
+    }
+
+    .official-documents {
+        background-image: url(img/icon-documents.png);
+    }
+}

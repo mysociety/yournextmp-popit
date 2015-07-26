@@ -2,7 +2,6 @@ from datetime import date
 from django.conf import settings
 from auth_helpers.views import user_in_group
 from candidates.models import (
-    election_date_2015,
     TRUSTED_TO_MERGE_GROUP_NAME,
     TRUSTED_TO_LOCK_GROUP_NAME,
     TRUSTED_TO_RENAME_GROUP_NAME,
@@ -10,6 +9,7 @@ from candidates.models import (
 )
 from moderation_queue.models import QueuedImage, PHOTO_REVIEWERS_GROUP_NAME
 from official_documents.models import DOCUMENT_UPLOADERS_GROUP_NAME
+from django.utils.translation import to_locale, get_language
 
 SETTINGS_TO_ADD = (
     'GOOGLE_ANALYTICS_ACCOUNT',
@@ -17,6 +17,8 @@ SETTINGS_TO_ADD = (
     'MEDIA_URL',
     'SUPPORT_EMAIL',
     'EDITS_ALLOWED',
+    'ELECTIONS_CURRENT',
+    'ELECTIONS_BY_DATE',
 )
 
 
@@ -34,9 +36,14 @@ def election_date(request):
     """Add knowledge of the election date to the context"""
 
     return {
-        'DATE_ELECTION': election_date_2015,
         'DATE_TODAY': date.today(),
     }
+
+
+def locale(request):
+    """Convert the language string to a locale"""
+    """Copied from: http://stackoverflow.com/a/6362929 """
+    return {'LOCALE': to_locale(get_language())}
 
 
 def add_notification_data(request):

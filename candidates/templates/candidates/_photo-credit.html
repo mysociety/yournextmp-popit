@@ -1,22 +1,22 @@
+{% load i18n %}
 {% with contributor=image.uploaded_by_user %}
 {% with user_reason=image.user_why_allowed %}
 {% with mod_reason=image.moderator_why_allowed %}
 {% with user_comment=image.user_justification_for_use %}
 
   {% if contributor %}
-    This photo was uploaded by the user &lsquo;{{ contributor }}&rsquo;.
+    {% blocktrans %}This photo was uploaded by the user ‘{{ contributor }}’.{% endblocktrans %}
   {% endif %}
   {% if user_reason and user_reason != 'other'  %}
-    Their justification for its use on the site was that
+    {% trans "Their justification for its use on the site was:" %}
     {% include 'candidates/_photo-expand-reason.html' with reason=user_reason %}.
   {% endif %}
   {% if user_comment %}
-    They commented: &ldquo;{{ user_comment }}&rdquo;.
+    {% blocktrans %}They commented: “{{ user_comment }}”.{% endblocktrans %}
   {% endif %}
   {% if mod_reason != user_reason %}
-    The volunteer moderator who reviewed this photo picked a
-    different justification for its use on the site, which was
-    that
+    {% blocktrans trimmed %}The volunteer moderator who reviewed this photo picked a
+    different justification for its use on the site, which was:{% endblocktrans %}
     {% include 'candidates/_photo-expand-reason.html' with reason=mod_reason %}.
   {% endif %}
 
@@ -24,10 +24,10 @@
 
   {% if 'Approved from photo moderation queue' not in image.notes %}
     {% if image.source %}
-      The source of the image was &ldquo;{{ image.source }}&rdquo;.
+      {% blocktrans with source=image.source %}The source of the image was “{{ source }}”.{% endblocktrans %}
     {% endif %}
     {% if image.notes and 'md5sum:' not in image.notes %}
-      Notes about this image: &ldquo;{{ image.notes }}&rdquo;.
+      {% blocktrans with notes=image.notes %}Notes about this image: “{{ notes }}”.{% endblocktrans %}
     {% endif %}
   {% endif %}
 

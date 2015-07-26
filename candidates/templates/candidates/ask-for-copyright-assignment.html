@@ -1,24 +1,27 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}YourNextMP user agreement{% endblock %}
+{% block title %}{% trans "YourNextMP user agreement" %}{% endblock %}
 
 {% block hero %}
-  <h1>YourNextMP user agreement</h1>
+  <h1>{% trans "YourNextMP user agreement" %}</h1>
 {% endblock %}
 
 {% block content %}
 
-<p>Before you carry on to edit data in YourNextMP, we need you to
-  agree that your contributions to this site (with the exception of
-  photo uploads) are owned by Democracy Club Limited. In return, we
-  agree to make the complete database available under an open licence
-  such as
-  <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
-  or remove copyright restrictions by releasing into the public domain
-  (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).
-  </p>
+<p>{% blocktrans trimmed %}
+Before you carry on to edit data in YourNextMP, we need you to
+agree that your contributions to this site (with the exception of
+photo uploads) are owned by Democracy Club Limited. In return, we
+agree to make the complete database available under an open licence
+such as
+<a href="http://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+or remove copyright restrictions by releasing into the public domain
+(<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).
+{% endblocktrans %}
+</p>
 
 <form method="post" action="">
   {% csrf_token %}
@@ -27,24 +30,27 @@
   {{ form.assigned_to_dc.errors }}
   {{ form.assigned_to_dc }}
     <label for="{{ form.assigned_to_dc.id_for_label }}">
-      <strong>I assign the copyright of my contributions
-      to YourNextMP (apart from photo uploads) to Democracy Club
-      Limited.</strong>
+      <strong>{% blocktrans trimmed %}I assign the copyright of my
+      contributions to YourNextMP (apart from photo uploads) to Democracy Club
+      Limited.{% endblocktrans %}</strong>
     </label>
   </p>
-  <input type="submit" class="button" value="Continue" />
+  <input type="submit" class="button" value="{% trans "Continue" %}">
 </form>
 
-<p>Otherwise you can
-  <a href="{% url 'account_logout' %}?next={{ next_path_escaped }}">log
-  out</a>. Please do <a href="mailto:{{ settings.SUPPORT_EMAIL }}">email us</a>
-  if you have any questions about this agreement.</p>
+{% url 'account_logout' as url|add:"?next="|add:next_path_escaped %}
+<p>{% blocktrans trimmed with email=settings.SUPPORT_EMAIL %}
+  Otherwise you can <a href="{{ url }}">log out</a>. Please do
+  <a href="mailto:{{ email }}">email us</a> if you have any
+  questions about this agreement.
+  {% endblocktrans %}</p>
 
 <div class="further-copyright-explanation">
 
-  <h4>Why are we asking you to agree to this?</h4>
+  <h4>{% trans "Why are we asking you to agree to this?" %}</h4>
 
-  <p>When we originally set up YourNextMP for the 2015 general
+  <p>{% blocktrans trimmed %}
+    When we originally set up YourNextMP for the 2015 general
     election we didn't get legal advice about the best way to deal
     with copyright and licensing. It turns out that the way that the
     user agreement that was worded on the 'About' page had a few
@@ -56,6 +62,7 @@
     the hard work of contributors to YourNextMP being co-opted by
     companies building closed candidate databases is to ask you to
     assign the copyright of your contributions to Democracy Club.
+    {% endblocktrans %}
   </p>
 
 </div>

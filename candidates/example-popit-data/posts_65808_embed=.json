@@ -1,21 +1,21 @@
 {
   "result": {
     "area": {
-      "name": "Dulwich and West Norwood",
+      "id": "mapit:65808",
       "identifier": "http://mapit.mysociety.org/area/65808",
-      "id": "mapit:65808"
+      "name": "Dulwich and West Norwood"
     },
     "candidates_locked": false,
+    "contact_details": [],
     "html_url": "http://candidates.127.0.0.1.xip.io:3000/posts/65808",
     "id": "65808",
+    "images": [],
     "label": "Member of Parliament for Dulwich and West Norwood",
+    "links": [],
+    "memberships": [],
     "organization_id": "commons",
     "role": "Member of Parliament",
     "start_date": "2005-05-06",
-    "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/posts/65808",
-    "images": [],
-    "memberships": [],
-    "links": [],
-    "contact_details": []
+    "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/posts/65808"
   }
 }

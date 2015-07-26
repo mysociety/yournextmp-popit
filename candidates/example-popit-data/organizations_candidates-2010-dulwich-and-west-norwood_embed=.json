@@ -1,16 +1,16 @@
 {
-    "result": {
-        "classification": "Candidate List",
-        "contact_details": [],
-        "dissolution_date": "2010-05-06",
-        "founding_date": "2005-05-06",
-        "html_url": "http://yournextmp.popit.mysociety.org/organizations/candidates-2010-dulwich-and-west-norwood",
-        "id": "candidates-2010-dulwich-and-west-norwood",
-        "identifiers": [],
-        "links": [],
-        "name": "Candidates for Dulwich and West Norwood in 2010",
-        "other_names": [],
-        "posts": [],
-        "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/candidates-2010-dulwich-and-west-norwood"
-    }
+  "result": {
+    "classification": "Candidate List",
+    "contact_details": [],
+    "dissolution_date": "2010-05-06",
+    "founding_date": "2005-05-06",
+    "html_url": "http://yournextmp.popit.mysociety.org/organizations/candidates-2010-dulwich-and-west-norwood",
+    "id": "candidates-2010-dulwich-and-west-norwood",
+    "identifiers": [],
+    "links": [],
+    "name": "Candidates for Dulwich and West Norwood in 2010",
+    "other_names": [],
+    "posts": [],
+    "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/candidates-2010-dulwich-and-west-norwood"
+  }
 }

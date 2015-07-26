@@ -1,15 +1,15 @@
 from django.contrib.auth.models import AnonymousUser
-from django.test import TestCase
+from django_webtest import WebTest
 
 from mock import patch, MagicMock
 
-from .fake_popit import FakePersonCollection
+from .auth import TestUserMixin
+from .fake_popit import FakePersonCollection, FakePostCollection
 from .helpers import equal_call_args
 from ..popit import PopItApiMixin
-from ..views import CandidacyMixin
 from ..models import PopItPerson
 
-class MinimalUpdateClass(CandidacyMixin, PopItApiMixin):
+class MinimalUpdateClass(PopItApiMixin):
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
@@ -40,7 +40,7 @@ EXPECTED_ARGS = {
             'url': 'http://notreallyfacebook/tessajowellcampaign',
         },
         {
-            'note': 'party PPC page',
+            'note': 'party candidate page',
             'url': 'http://labour.example.org/tessajowell',
         },
         {
@@ -172,7 +172,7 @@ def mock_create_person(mocked_post):
     return mock_api, mocked_post, person
 
 
-class TestCreatePerson(TestCase):
+class TestCreatePerson(TestUserMixin, WebTest):
 
     def test_create_jane_doe(self):
 
@@ -188,3 +188,39 @@ class TestCreatePerson(TestCase):
         )
         self.assertEqual(1, mocked_post.call_count)
         self.assertFalse(mock_api.called)
+
+    @patch('candidates.popit.PopIt')
+    @patch.object(FakePersonCollection, 'post')
+    @patch('candidates.models.popit.invalidate_posts')
+    def test_create_from_post_page(
+            self,
+            mocked_invalidate_posts,
+            mocked_post,
+            mock_popit
+    ):
+        '''This is to check that posts are invalidated on creation'''
+
+        mock_popit.return_value.persons = FakePersonCollection
+        mock_popit.return_value.posts = FakePostCollection
+        mocked_post.return_value = {'result': {'id': '789'}}
+        response = self.app.get(
+            '/election/2015/post/65808/dulwich-and-west-norwood',
+            user=self.user,
+        )
+        form = response.forms['new-candidate-form']
+        form['name'] = 'Elizabeth Bennet'
+        form['email'] = 'lizzie@example.com'
+        form['source'] = 'Testing adding a new person to a post'
+        form['party_gb_2015'] = 'party:53'
+        submission_response = form.submit()
+        self.assertEqual(submission_response.status_code, 302)
+        self.assertEqual(
+            submission_response.location,
+            'http://localhost:80/person/789'
+        )
+        # Check that the post the person is being added to has been
+        # invalidated:
+        self.assertEqual(mocked_invalidate_posts.call_count, 1)
+        args = mocked_invalidate_posts.call_args_list[0][0]
+        self.assertEqual(args, (set([u'65808']),))
+        self.assertEqual(mocked_invalidate_posts.call_args_list[0][1], {})

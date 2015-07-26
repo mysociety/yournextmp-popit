@@ -1,13 +1,16 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block hero %}<h1>Upload document</h1>{% endblock hero %}
+{% block hero %}
+<h1>{% trans "Upload document" %}</h1>
+{% endblock hero %}
 
 
 {% block content %}
-<h2>Document relating to {{ constituency.name }}</h2>
+<h2>{% blocktrans %}Document relating to {{ post_label }}{% endblocktrans %}</h2>
 <form id="document-upload-form" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
-  <p><button type=submit class="button">Upload</button></p>
+  <p><input type=submit class="button" value="{% trans "Upload" %}"></p>
 </form>
 {% endblock content %}

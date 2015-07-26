@@ -58,3 +58,6 @@ gem install --no-ri --no-rdoc compass -v 0.12.7
 
 # gather all the static files in one place
 ./manage.py collectstatic --noinput
+
+# Compile all translations from .po files into .mo files
+./manage.py compilemessages

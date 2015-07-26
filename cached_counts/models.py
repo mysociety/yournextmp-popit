@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.dispatch import receiver
 from django.core.urlresolvers import reverse
@@ -16,35 +17,46 @@ class CachedCount(models.Model):
     name = models.CharField(blank=False, max_length=100)
     count = models.IntegerField(blank=False, null=False)
     object_id = models.CharField(blank=True, max_length=100)
+    election = models.CharField(blank=True, null=True, max_length=512)
 
     class Meta:
         ordering = ['-count', 'name']
 
-    @classmethod
-    def total_2015(cls):
-        print cls.objects.get(name="total_2015")
-        return cls.objects.get(name="total_2015").count
+    def __repr__(self):
+        fmt = '<CachedCount: election={e} count_type={ct}, name={n}, count={c}, object_id={o}>'
+        return fmt.format(
+            e=repr(self.election),
+            ct=repr(self.count_type),
+            n=repr(self.name),
+            c=repr(self.count),
+            o=repr(self.object_id),
+        )
 
-    @property
-    def object_url(self):
-        if self.count_type == "constituency":
-            return reverse('constituency', kwargs={
-                'mapit_area_id': self.object_id,
-                'ignored_slug': slugify(self.name)
-            })
+    def __unicode__(self):
+        return repr(self)
 
     @classmethod
-    def increment_count(cls, count_type, object_id):
+    def increment_count(cls, election, count_type, object_id):
         """
         Increments the count of the object with the type of `count_type` and
         the id of `object_id`.  If this object does not exist, do nothing.
         """
         filters = {
+            'election': election,
             'count_type': count_type,
             'object_id': object_id,
         }
 
         cls.objects.filter(**filters).update(count=models.F('count') + 1)
+
+    @classmethod
+    def get_attention_needed_queryset(cls):
+        # FIXME: this should probably be a queryset method instead.
+        current_election_slugs = [t[0] for t in settings.ELECTIONS_CURRENT]
+        return cls.objects.filter(
+            count_type='post',
+            election__in=current_election_slugs
+        ).order_by('count', '?')
 
 
 @receiver(person_added, sender=PopItPerson)
@@ -57,10 +69,13 @@ def person_added_handler(sender, **kwargs):
     data = kwargs['data']
 
     # constituency
-    constituency_url = data['standing_in'].get('2015', {}).get('mapit_url')
-    constituency_id = constituency_url.split('/')[-1]
-    CachedCount.increment_count('constituency', constituency_id)
+    for election, standing_in_data in data['standing_in'].items():
+        if standing_in_data:
+            post_id = standing_in_data.get('post_id')
+            CachedCount.increment_count(election, 'post', post_id)
 
     # party
-    party_id = data['party_memberships'].get('2015', {}).get('id')
-    CachedCount.increment_count('party', party_id)
+    for election, party_membership_data in data['party_memberships'].items():
+        if party_membership_data:
+            party_id = party_membership_data['id']
+            CachedCount.increment_count(election, 'party', party_id)

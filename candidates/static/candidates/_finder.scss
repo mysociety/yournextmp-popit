@@ -19,8 +19,8 @@
 }
 
 .finder__description {
-  background-color: mix($color-offwhite, #fff, 60%);
-  color: #887; // dark desaturated browny-grey
+  background-color: $homepage-description-background-color;
+  color: $homepage-description-text-color;
   padding: 2.5em 0;
 
   p:last-child {
@@ -73,10 +73,10 @@
 
 .finder__activity__changes {
   a {
-    color: $color-cyan;
+    color: $homepage-activity-color;
 
     &:hover, &:focus {
-      color: darken($color-cyan, 10%);
+      color: darken($homepage-activity-color, 10%);
     }
   }
 }
@@ -87,10 +87,10 @@
   }
 
   a {
-    color: $color-gold;
+    color: $homepage-leaderboard-color;
 
     &:hover, &:focus {
-      color: darken($color-gold, 10%);
+      color: darken($homepage-leaderboard-color, 10%);
     }
   }
 }
@@ -195,5 +195,5 @@
 
 #form-name .errorlist, #form-postcode .errorlist {
   list-style: none;
-  color: $color-red;
+  color: $error-text-color;
 }

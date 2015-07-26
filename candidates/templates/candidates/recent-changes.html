@@ -1,22 +1,23 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}Recent changes to the candidate (PPC) database{% endblock %}
+{% block title %}{% trans "Recent changes to the candidate database" %}{% endblock %}
 
 {% block hero %}
-  <h1>Recent Changes</h1>
+  <h1>{% trans "Recent Changes" %}</h1>
 {% endblock %}
 
 {% block content %}
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Date and time</th>
-    <th>Action</th>
-    <th>Candidate edited</th>
-    <th>Information source</th>
+    <th>{% trans "User" %}</th>
+    <th>{% trans "Date and time" %}</th>
+    <th>{% trans "Action" %}</th>
+    <th>{% trans "Candidate edited" %}</th>
+    <th>{% trans "Information source" %}</th>
   </tr>
   {% for action in actions %}
     <tr>
@@ -36,15 +37,15 @@
 <div class="pagination">
     <span class="step-links">
         {% if actions.has_previous %}
-            <a href="?page={{ actions.previous_page_number }}">previous</a>
+            <a href="?page={{ actions.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}
 
         <span class="current">
-            Page {{ actions.number }} of {{ actions.paginator.num_pages }}.
+            {% blocktrans with n=actions.number num=actions.paginator.num_pages %}Page {{ n }} of {{ num }}.{% endblocktrans %}
         </span>
 
         {% if actions.has_next %}
-            <a href="?page={{ actions.next_page_number }}">next</a>
+            <a href="?page={{ actions.next_page_number }}">{% trans "next" %}</a>
         {% endif %}
     </span>
 </div>

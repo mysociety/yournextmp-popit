@@ -1,0 +1,10 @@
+{% autoescape off %}¡Hola! ¡Gracias por ser parte de Yo Quiero Saber!
+
+Estás recibiendo este e-mail porque te registraste en Yo Quiero Saber Investigación Colectiva.
+
+Para confirmar tu registración ingresa a {{ activate_url }}
+
+Si no deseas esta suscripción, ignora éste mensaje.
+
+Gracias desde el equipo de Yo Quiero Saber.
+{% endautoescape %}

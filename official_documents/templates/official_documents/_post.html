@@ -1,0 +1,38 @@
+{% load i18n %}
+
+{% if some_official_documents %}
+  <p>{% trans "The following official documents are associate with this post:" %}</p>
+{% endif %}
+
+{% for doc_type, docs in official_documents %}
+
+  <h4>{{ doc_type.1 }}</h4>
+
+  {% if docs %}
+
+    <ul>
+      {% for doc in docs %}
+        <li>{% blocktrans trimmed with url=doc.get_absolute_url type=doc.document_type created=doc.created %}
+            <a href="{{ url }}">{{ type }}</a> uploaded on {{ created }}
+            {% endblocktrans %}
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+
+  {% blocktrans trimmed with post_label=post_data.label type=doc_type.1 %}
+    We don't have any {{ type }} for the post {{ post_data.label }}.
+  {% endblocktrans %}
+
+    {% if user_can_upload_documents %}
+    {% url 'upload_document_view' election=election post_id=post_data.id as url %}
+    {% blocktrans trimmed with type=doc_type.0 %}
+      As you have permission to upload documents, you can
+      <a href="{{ url }}">upload a {{ type }}</a>.
+    {% endblocktrans %}
+    {% endif %}
+
+  {% endif %}
+
+{% endfor %}

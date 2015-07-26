@@ -8,6 +8,8 @@ from django.contrib.auth.models import User, Group
 from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
 
+from PIL import Image
+import StringIO
 from django_webtest import WebTest
 from mock import patch
 
@@ -16,6 +18,14 @@ from candidates.models import LoggedAction
 from candidates.tests.fake_popit import FakePersonCollection
 
 TEST_MEDIA_ROOT=realpath(join(dirname(__file__), 'media'))
+
+def get_image_type_and_dimensions(image_data):
+    image = Image.open(StringIO.StringIO(image_data))
+    return {
+        'format': image.format,
+        'width': image.size[0],
+        'height': image.size[1],
+    }
 
 class PhotoReviewTests(WebTest):
 
@@ -187,6 +197,12 @@ class PhotoReviewTests(WebTest):
             set(['files', 'headers', 'data']),
         )
         self.assertIn('APIKey', post_call_kwargs['headers'])
+        posted_image_data = post_call_kwargs['files']['image']
+        self.assertEqual(
+            get_image_type_and_dimensions(posted_image_data),
+            {'format': 'PNG', 'width': 427, 'height': 639},
+        )
+        del post_call_kwargs['data']['md5sum']
         self.assertEqual(
             post_call_kwargs['data'],
             {'user_justification_for_use':
@@ -196,7 +212,6 @@ class PhotoReviewTests(WebTest):
              'moderator_why_allowed': u'profile-photo',
              'uploaded_by_user': u'john',
              'index': 'first',
-             'md5sum': '603b269fccc667d72dbf462de31476b0',
              'mime_type': 'image/png',
              'created': None}
         )

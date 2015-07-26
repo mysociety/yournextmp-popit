@@ -1,22 +1,24 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}constituencies{% endblock %}
 
-{% block title %}Candidates (PPCs) by constituency for the UK 2015 General Election{% endblock %}
+{% block title %}{% trans "Candidates by constituency for the UK 2015 General Election" %}{% endblock %}
 
 {% block hero %}
-  <h1>All Constituencies for the 2015 General Election</h1>
+  <h1>{% trans "All Constituencies for the 2015 General Election" %}</h1>
 {% endblock %}
 
 {% block content %}
 
-<p>Follow one of the links below to see the known candidates
-(PPCs) for that constituency:</p>
+<p>{% blocktrans trimmed %}
+Follow one of the links below to see the known candidates
+for that constituency:{% endblocktrans %}</p>
 
 <ul>
   {% for c in all_constituencies %}  
     <li>
-     <a href="{% url 'constituency' mapit_area_id=c.0 ignored_slug=c.1.name|slugify %}">{{ c.1.name }}</a>
+     <a href="{% url 'constituency' election=election post_id=c.0 ignored_slug=c.1.name|slugify %}">{{ c.1.name }}</a>
     </li>
   {% endfor %}
 </ul>

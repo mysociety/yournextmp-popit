@@ -6,7 +6,9 @@ import sys
 from StringIO import StringIO
 
 from candidates.models import fix_dates, PopItPerson
-from candidates.popit import PopItApiMixin, popit_unwrap_pagination
+from candidates.popit import (
+    PopItApiMixin, popit_unwrap_pagination, get_base_url
+)
 
 from django.core.management.base import BaseCommand
 
@@ -89,7 +91,7 @@ class Command(PopItApiMixin, BaseCommand):
             ):
                 print message.format(
                     titled=collection.title(),
-                    base_url=self.get_base_url(),
+                    base_url=get_base_url(),
                     plural=(collection + "s"),
                     id=item['id']
                 )

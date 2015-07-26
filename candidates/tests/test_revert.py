@@ -7,12 +7,15 @@ from .helpers import equal_call_args
 from django_webtest import WebTest
 
 from .auth import TestUserMixin
-from .fake_popit import FakePersonCollection, FakePostCollection
+from .fake_popit import (
+    FakePersonCollection, FakePostCollection, fake_mp_post_search_results
+)
 
 example_timestamp = '2014-09-29T10:11:59.216159'
 example_version_id = '5aa6418325c1a0bb'
 
 
+@patch('candidates.popit.requests')
 @patch('candidates.popit.PopIt')
 class TestRevertPersonView(TestUserMixin, WebTest):
 
@@ -24,12 +27,14 @@ class TestRevertPersonView(TestUserMixin, WebTest):
             mock_create_version_id,
             mock_get_current_timestamp,
             mocked_put,
-            mock_popit
+            mock_popit,
+            mock_requests,
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
         mock_get_current_timestamp.return_value = example_timestamp
         mock_create_version_id.return_value = example_version_id
+        mock_requests.get.side_effect = fake_mp_post_search_results
                
         response = self.app.get('/person/2009/update', user=self.user)
         revert_form = response.forms['revert-form-5469de7db0cbd155']

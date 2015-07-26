@@ -1,31 +1,31 @@
 {
-    "birth_date": "",
-    "email": "jowell@example.com",
-    "homepage_url": "",
-    "id": "2009",
-    "name": "Tessa Jowell",
-    "party_memberships": {
-        "2010": {
-            "id": "party:53",
-            "name": "Labour Party"
-        },
-        "2015": {
-            "id": "party:53",
-            "name": "Labour Party"
-        }
+  "birth_date": "",
+  "email": "jowell@example.com",
+  "homepage_url": "",
+  "id": "2009",
+  "name": "Tessa Jowell",
+  "party_memberships": {
+    "2010": {
+      "id": "party:53",
+      "name": "Labour Party"
     },
-    "standing_in": {
-        "2010": {
-            "mapit_url": "http://mapit.mysociety.org/area/65808",
-            "name": "Dulwich and West Norwood",
-            "post_id": "65808"
-        },
-        "2015": {
-            "mapit_url": "http://mapit.mysociety.org/area/65808",
-            "name": "Dulwich and West Norwood",
-            "post_id": "65808"
-        }
+    "2015": {
+      "id": "party:53",
+      "name": "Labour Party"
+    }
+  },
+  "standing_in": {
+    "2010": {
+      "mapit_url": "http://mapit.mysociety.org/area/65808",
+      "name": "Dulwich and West Norwood",
+      "post_id": "65808"
     },
-    "versions": [],
-    "wikipedia_url": ""
+    "2015": {
+      "mapit_url": "http://mapit.mysociety.org/area/65808",
+      "name": "Dulwich and West Norwood",
+      "post_id": "65808"
+    }
+  },
+  "versions": [],
+  "wikipedia_url": ""
 }

@@ -9,17 +9,28 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS, LANGUAGES
+from django.utils.translation import to_locale, ugettext_lazy as _
+from collections import defaultdict
+import importlib
 import os
+import re
 import sys
 import yaml
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 from .helpers import mkdir_p
 
+configuration_file_basename = 'general.yml'
+# All the test data is specific to the UK, so if we seem to be running
+# tests, use the general.yml-example (which has UK settings):
+if 'test' in sys.argv:
+    configuration_file_basename = 'general.yml-example'
+
 configuration_file = os.path.join(
-    BASE_DIR, 'conf', 'general.yml'
+    BASE_DIR, 'conf', configuration_file_basename
 )
+
 with open(configuration_file) as f:
     conf = yaml.load(f)
 
@@ -75,8 +86,11 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     "mysite.context_processors.election_date",
     "mysite.context_processors.add_group_permissions",
     "mysite.context_processors.add_notification_data",
-    "django.core.context_processors.i18n",
+    "mysite.context_processors.locale",
 )
+
+ELECTION_APP = conf['ELECTION_APP']
+ELECTION_APP_FULLY_QUALIFIED = 'elections.' + ELECTION_APP
 
 # Application definition
 
@@ -90,21 +104,23 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_nose',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.twitter',
     'pipeline',
+    ELECTION_APP_FULLY_QUALIFIED,
     'candidates',
     'tasks',
     'cached_counts',
     'moderation_queue',
     'auth_helpers',
     'debug_toolbar',
+    'template_timings_panel',
     'official_documents',
     'results',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
 )
 
 SITE_ID = 1
@@ -113,6 +129,7 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'candidates.middleware.PopItDownMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -151,6 +168,22 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+    'template_timings_panel.panels.TemplateTimings.TemplateTimings',
+]
+
 INTERNAL_IPS = ['127.0.0.1']
 
 # Database
@@ -178,9 +211,28 @@ else:
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'es_AR'
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
 
-TIME_ZONE = 'Europe/London'
+# The code below sets LANGUAGES to only those we have translations
+# for, so at the time of writing that will be:
+#   [('en', 'English'), ('es-ar', 'Argentinian Spanish')]
+# whereas the default setting is a long list of languages which
+# includes:
+#   ('es', 'Spanish').
+# If someone's browser sends 'Accept-Language: es', that means that it
+# will be found in this list, but since there are no translations for 'es'
+# it'll fall back to LANGUAGE_CODE.  However, if there is no 'es' in
+# LANGUAGES, then Django will attempt to do a best match, so if
+# Accept-Language is 'es' then it will use the 'es-ar' translation.  We think
+# this is generally desirable (e.g. so someone can see YourNextMP in Spanish
+# if their browser asks for Spanish).
+LANGUAGES = [l for l in LANGUAGES if os.path.exists(os.path.join(LOCALE_PATHS[0], to_locale(l[0])))]
+
+LANGUAGE_CODE = conf.get('LANGUAGE_CODE', 'en-gb')
+
+TIME_ZONE = conf.get('TIME_ZONE', 'Europe/London')
 
 USE_I18N = True
 
@@ -211,12 +263,17 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'mysite/static'),
 )
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
 PIPELINE_CSS = {
     'image-review': {
         'source_filenames': (
             'moderation_queue/css/jquery.Jcrop.css',
             'moderation_queue/css/crop.scss',
-            'moderation_queue/css/photo-upload.scss',
         ),
         'output_filename': 'css/image-review.css',
     },
@@ -234,6 +291,7 @@ PIPELINE_CSS = {
             'jquery/jquery-ui.css',
             'jquery/jquery-ui.structure.css',
             'jquery/jquery-ui.theme.css',
+            'moderation_queue/css/photo-upload.scss',
         ),
         'output_filename': 'css/all.css',
     }
@@ -270,7 +328,7 @@ PIPELINE_JS = {
             'foundation/js/foundation/foundation.abide.js',
             'foundation/js/foundation/foundation.tab.js',
             'select2/select2.js',
-            'js/mapit-areas-ni.js',
+            'js/post-to-party-set.js',
             'js/constituency.js',
             'js/person_form.js',
             'js/versions.js',
@@ -283,6 +341,8 @@ PIPELINE_COMPILERS = (
   'pipeline.compilers.sass.SASSCompiler',
 )
 
+PIPELINE_SASS_ARGUMENTS = '--trace'
+
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 
@@ -291,8 +351,6 @@ PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yui.YUICompressor'
 PIPELINE_YUI_BINARY = '/usr/bin/env yui-compressor'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-SOUTH_TESTS_MIGRATE = False
 
 NOSE_ARGS = [
     '--nocapture',
@@ -303,8 +361,8 @@ NOSE_ARGS = [
     '--ignore-files=faces',
 ]
 
-SOURCE_HINTS = u'''Please don't quote third-party candidate sites \u2014
-we prefer URLs of news stories or official candidate pages.'''
+SOURCE_HINTS = _(u'''Please don't quote third-party candidate sites \u2014
+we prefer URLs of news stories or official candidate pages.''')
 
 # By default, cache successful results from MapIt for a day
 MAPIT_CACHE_SECONDS = 86400
@@ -333,7 +391,55 @@ RESTRICT_RENAMES = conf.get('RESTRICT_RENAMES')
 
 EDITS_ALLOWED = conf.get('EDITS_ALLOWED', True)
 
-from os import path
-LOCALE_PATHS = (
-    path.join(path.abspath(path.dirname(__file__)), 'locale'),
+# Import any settings from the election application's settings module:
+ELECTION_SETTINGS_MODULE = ELECTION_APP_FULLY_QUALIFIED + '.settings'
+elections_module = importlib.import_module(ELECTION_SETTINGS_MODULE)
+
+ELECTIONS = elections_module.ELECTIONS
+
+ELECTIONS_BY_DATE = sorted(
+    ELECTIONS.items(),
+    key=lambda e: (e[1]['election_date'], e[0]),
 )
+
+ELECTION_RE = '(?P<election>'
+ELECTION_RE += '|'.join(
+    re.escape(t[0]) for t in ELECTIONS_BY_DATE
+)
+ELECTION_RE += ')'
+
+ELECTIONS_CURRENT = [t for t in ELECTIONS_BY_DATE if t[1].get('current')]
+
+# Make sure there's a trailing slash at the end of base MapIt URL:
+MAPIT_BASE_URL = re.sub(r'/*$', '/', elections_module.MAPIT_BASE_URL)
+
+MAPIT_TYPES = set()
+for e in ELECTIONS_CURRENT:
+    for mapit_type in e[1]['mapit_types']:
+        MAPIT_TYPES.add(mapit_type)
+
+KNOWN_MAPIT_GENERATIONS = set(
+    e[1]['mapit_generation'] for e in ELECTIONS_CURRENT
+)
+if len(KNOWN_MAPIT_GENERATIONS) > 1:
+    message = "More than one MapIt generation for current elections: {0}"
+    raise Exception(message.format(KNOWN_MAPIT_GENERATIONS))
+
+MAPIT_CURRENT_GENERATION = list(KNOWN_MAPIT_GENERATIONS)[0]
+
+MAPIT_TYPES_GENERATIONS_ELECTIONS = defaultdict(list)
+for election_tuple in ELECTIONS_CURRENT:
+    for mapit_type in election_tuple[1]['mapit_types']:
+        mapit_tuple = (mapit_type, election_tuple[1]['mapit_generation'])
+        MAPIT_TYPES_GENERATIONS_ELECTIONS[mapit_tuple].append(election_tuple)
+
+# Use Matthew's suggestion for allowing local settings overrides with
+# both Python 2 and Python 3; this uses exec rather than import so
+# that the local settings can modify existing values rather than just
+# overwriting them.
+LOCAL_SETTINGS_FILE = os.path.join(BASE_DIR, 'mysite', 'local_settings.py')
+try:
+    with open(LOCAL_SETTINGS_FILE) as f:
+        exec(compile(f.read(), 'local_settings.py', 'exec'))
+except IOError:
+    pass

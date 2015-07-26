@@ -1,12 +1,89 @@
-
 {
   "result": {
-    "id": "2009",
-    "slug": "tessa-jowell",
-    "name": "Tessa Jowell",
-    "gender": "female",
-    "phone": "02086931826",
+    "contact_details": [],
     "email": "jowell@example.com",
+    "gender": "female",
+    "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/2009",
+    "id": "2009",
+    "identifiers": [
+      {
+        "id": "544e3df981b7fa64bfccdaac",
+        "identifier": "2009",
+        "scheme": "yournextmp-candidate"
+      },
+      {
+        "id": "54d2d3725b6aac303dfcd68b",
+        "identifier": "uk.org.publicwhip/person/10326",
+        "scheme": "uk.org.publicwhip"
+      }
+    ],
+    "links": [],
+    "memberships": [
+      {
+        "contact_details": [],
+        "election": "2010",
+        "end_date": "2010-05-06",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed18",
+        "id": "544fa90544e64207e0caed18",
+        "links": [],
+        "organization_id": null,
+        "person_id": "2009",
+        "post_id": "65808",
+        "role": "Candidate",
+        "start_date": "2005-05-06",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed18"
+      },
+      {
+        "contact_details": [],
+        "end_date": "2010-05-06",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed16",
+        "id": "544fa90544e64207e0caed16",
+        "links": [],
+        "organization_id": "party:53",
+        "person_id": "2009",
+        "start_date": "2005-05-06",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed16"
+      },
+      {
+        "contact_details": [],
+        "end_date": "9999-12-31",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed15",
+        "id": "544fa90544e64207e0caed15",
+        "links": [],
+        "organization_id": "party:53",
+        "person_id": "2009",
+        "start_date": "2010-05-07",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed15"
+      },
+      {
+        "contact_details": [],
+        "election": "2015",
+        "end_date": "9999-12-31",
+        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed17",
+        "id": "544fa90544e64207e0caed17",
+        "links": [],
+        "organization_id": null,
+        "person_id": "2009",
+        "post_id": "65808",
+        "role": "Candidate",
+        "start_date": "2010-05-07",
+        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed17"
+      }
+    ],
+    "name": "Tessa Jowell",
+    "other_names": [],
+    "party_memberships": {
+      "2010": {
+        "id": "party:53",
+        "name": "Labour Party"
+      },
+      "2015": {
+        "id": "party:53",
+        "name": "Labour Party"
+      }
+    },
+    "phone": "02086931826",
+    "slug": "tessa-jowell",
     "standing_in": {
       "2010": {
         "mapit_url": "http://mapit.mysociety.org/area/65808",
@@ -19,151 +96,75 @@
         "post_id": "65808"
       }
     },
-    "party_memberships": {
-      "2010": {
-        "id": "party:53",
-        "name": "Labour Party"
-      },
-      "2015": {
-        "id": "party:53",
-        "name": "Labour Party"
-      }
-    },
+    "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/2009",
     "versions": [
       {
-        "username": "symroe",
+        "data": {
+          "birth_date": null,
+          "email": "jowell@example.com",
+          "homepage_url": "",
+          "id": "2009",
+          "name": "Tessa Jowell",
+          "party_memberships": {
+            "2010": {
+              "id": "party:53",
+              "name": "Labour Party"
+            },
+            "2015": {
+              "id": "party:53",
+              "name": "Labour Party"
+            }
+          },
+          "standing_in": {
+            "2010": {
+              "mapit_url": "http://mapit.mysociety.org/area/65808",
+              "name": "Dulwich and West Norwood",
+              "post_id": "65808"
+            },
+            "2015": {
+              "mapit_url": "http://mapit.mysociety.org/area/65808",
+              "name": "Dulwich and West Norwood",
+              "post_id": "65808"
+            }
+          },
+          "twitter_username": "",
+          "wikipedia_url": ""
+        },
         "information_source": "Just adding example data",
         "ip": "127.0.0.1",
-        "version_id": "35ec2d5821176ccc",
         "timestamp": "2014-10-28T14:32:36.835429",
+        "username": "symroe",
+        "version_id": "35ec2d5821176ccc"
+      },
+      {
         "data": {
-          "name": "Tessa Jowell",
-          "id": "2009",
-          "twitter_username": "",
-          "standing_in": {
-            "2010": {
-              "post_id": "65808",
-              "name": "Dulwich and West Norwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65808"
-            },
-            "2015": {
-              "post_id": "65808",
-              "name": "Dulwich and West Norwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65808"
-            }
-          },
-          "homepage_url": "",
           "birth_date": null,
-          "wikipedia_url": "",
+          "email": "tessa.jowell@example.com",
+          "homepage_url": "",
+          "id": "2009",
+          "name": "Tessa Jowell",
           "party_memberships": {
             "2010": {
               "id": "party:53",
               "name": "Labour Party"
-            },
-            "2015": {
-              "id": "party:53",
-              "name": "Labour Party"
             }
           },
-          "email": "jowell@example.com"
-        }
-      },
-      {
-        "username": "mark",
+          "standing_in": {
+            "2010": {
+              "mapit_url": "http://mapit.mysociety.org/area/65808",
+              "name": "Dulwich and West Norwood",
+              "post_id": "65808"
+            }
+          },
+          "twitter_username": "",
+          "wikipedia_url": ""
+        },
         "information_source": "An initial version",
         "ip": "127.0.0.1",
-        "version_id": "5469de7db0cbd155",
         "timestamp": "2014-10-01T15:12:34.732426",
-        "data": {
-          "name": "Tessa Jowell",
-          "id": "2009",
-          "twitter_username": "",
-          "standing_in": {
-            "2010": {
-              "post_id": "65808",
-              "name": "Dulwich and West Norwood",
-              "mapit_url": "http://mapit.mysociety.org/area/65808"
-            }
-          },
-          "homepage_url": "",
-          "birth_date": null,
-          "wikipedia_url": "",
-          "party_memberships": {
-            "2010": {
-              "id": "party:53",
-              "name": "Labour Party"
-            }
-          },
-          "email": "tessa.jowell@example.com"
-        }
+        "username": "mark",
+        "version_id": "5469de7db0cbd155"
       }
-    ],
-    "memberships": [
-      {
-        "id": "544fa90544e64207e0caed18",
-        "organization_id": null,
-        "person_id": "2009",
-        "post_id": "65808",
-        "role": "Candidate",
-        "start_date": "2005-05-06",
-        "end_date": "2010-05-06",
-        "links": [],
-        "contact_details": [],
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed18",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed18"
-      },
-      {
-        "id": "544fa90544e64207e0caed16",
-        "person_id": "2009",
-        "organization_id": "party:53",
-        "start_date": "2005-05-06",
-        "end_date": "2010-05-06",
-        "links": [],
-        "contact_details": [],
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed16",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed16"
-      },
-      {
-        "id": "544fa90544e64207e0caed15",
-        "person_id": "2009",
-        "organization_id": "party:53",
-        "start_date": "2010-05-07",
-        "end_date": "9999-12-31",
-        "links": [],
-        "contact_details": [],
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed15",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed15"
-      },
-      {
-        "id": "544fa90544e64207e0caed17",
-        "organization_id": null,
-        "person_id": "2009",
-        "post_id": "65808",
-        "role": "Candidate",
-        "start_date": "2010-05-07",
-        "end_date": "9999-12-31",
-        "links": [],
-        "contact_details": [],
-        "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544fa90544e64207e0caed17",
-        "html_url": "http://candidates.127.0.0.1.xip.io:3000/memberships/544fa90544e64207e0caed17"
-      }
-    ],
-    "links": [],
-    "contact_details": [],
-    "identifiers": [
-      {
-        "id": "544e3df981b7fa64bfccdaac",
-        "scheme": "yournextmp-candidate",
-        "identifier": "2009"
-      },
-      {
-        "id": "54d2d3725b6aac303dfcd68b",
-        "scheme": "uk.org.publicwhip",
-        "identifier": "uk.org.publicwhip/person/10326"
-      }
-    ],
-    "other_names": [],
-    "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/persons/2009",
-    "html_url": "http://candidates.127.0.0.1.xip.io:3000/persons/2009"
+    ]
   }
 }

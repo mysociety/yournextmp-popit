@@ -1,4 +1,5 @@
-<p>Editing of data in YourNextMP is now disabled, but if
-  you have a correction, please email it to
-  <a href="mailto:{{ settings.SUPPORT_EMAIL }}">{{ settings.SUPPORT_EMAIL }}</a>
-</p>
+{% load i18n %}
+<p>{% blocktrans trimmed with email=settings.SUPPORT_EMAIL %}
+Editing of data in YourNextMP is now disabled, but if you have a correction,
+please email it to <a href="mailto:{{ email }}">{{ email }}</a>
+{% endblocktrans %}</p>

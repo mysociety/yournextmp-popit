@@ -1,60 +1,75 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}About this site{% endblock %}
+{% block title %}{% trans "About this site" %}{% endblock %}
 
 {% block hero %}
-  <h1>About this site</h1>
+  <h1>{% trans "About this site" %}</h1>
 {% endblock %}
 
 {% block content %}
+{% with email=settings.SUPPORT_EMAIL %}
 
 <div class="help-about">
 
-<p>Please
-email <a href="mailto:{{ settings.SUPPORT_EMAIL }}">{{ settings.SUPPORT_EMAIL }}</a>
+<p>{% blocktrans trimmed %}
+Please email <a href="mailto:{{ email }}">{{ email }}</a>
 with any feedback or bug reports. If you'd like to discuss this
 site or any other project relating to elections in the UK, we'd
 suggest that you post to
 the <a href="https://groups.google.com/forum/#!forum/democracy-club">Democracy
-Club Google Group</a>.</p>
+Club Google Group</a>.
+{% endblocktrans %}</p>
 
-<p>The source code for this site
-is <a href="https://github.com/mysociety/yournextmp-popit/">available
+<p>{% blocktrans trimmed %}
+The source code for this site
+is <a href="https://github.com/mysociety/yournextrepresentative/">available
 on GitHub</a>, and you can find
-a <a href="https://github.com/mysociety/yournextmp-popit/issues">list
-of known bugs</a> there as well.</p>
+a <a href="https://github.com/mysociety/yournextrepresentative/issues">list
+of known bugs</a> there as well.
+{% endblocktrans %}</p>
 
-<p>This site was developed by Mark Longair (mySociety), Sym Roe
-(Democracy Club) and Zarino Zappia (mySociety).</p>
+<p>{% blocktrans trimmed %}
+This site was developed by Mark Longair (mySociety), Sym Roe
+(Democracy Club) and Zarino Zappia (mySociety).
+{% endblocktrans %}</p>
 
-<p>The data on candidates from the last UK general election in
+<p>{% blocktrans trimmed %}
+The data on candidates from the last UK general election in
 2010 is all taken from Edmund von der
 Burg's <a href="http://www.yournextmp.com">YourNextMP.com</a>,
-with many thanks.</p>
+with many thanks.
+{% endblocktrans %}</p>
 
-<p>You can use the data from this site, via the
-<a href="{% url 'help-api' %}">API or CSV download</a>, under the
+{% url 'help-api' as api_url %}
+<p>{% blocktrans trimmed %}
+You can use the data from this site, via the
+<a href="{{ api_url }}">API or CSV download</a>, under the
 terms of the Creative Commons license
 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike
-(CC-BY-SA)</a> with the exception of:</p>
+(CC-BY-SA)</a> with the exception of:
+{% endblocktrans %}</p>
 
 <ul>
-<li>The party logos, which are taken from the Electoral Commission's website</li>
-<li>Candidate photos, which are typically either
-submitted by the candidates themselves, or from sources where it
-seems reasonable that we might use them on this site, such as
-the party's official page for that candidate, or their social
-media profile picture.</li>
+    <li>{% trans "The party logos, which are taken from the Electoral Commission's website" %}</li>
+    <li>{% blocktrans trimmed %}
+Candidate photos, which are typically either submitted by the candidates
+themselves, or from sources where it seems reasonable that we might use them on
+this site, such as the party's official page for that candidate, or their
+social media profile picture.
+{% endblocktrans %}</li>
 </ul>
 
-<p>If the CC-BY-SA licence is problematic for you, but you feel that
-you have a worthwhile use of the data in mind,
-please <a href="mailto:{{ settings.SUPPORT_EMAIL }}">contact us</a> to
-discuss your situation further.</p>
+<p>{% blocktrans trimmed %}
+If the CC-BY-SA licence is problematic for you, but you feel that you have a
+worthwhile use of the data in mind, please <a href="mailto:{{ email }}">contact
+us</a> to discuss your situation further.
+{% endblocktrans %}</p>
 
-<p>For complicated reasons relating to database licensing, we have put
+<p>{% blocktrans trimmed %}
+For complicated reasons relating to database licensing, we have put
 the data as of the 4th of March 2015 into the public domain by
 declaring it to
 be <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>. This
@@ -62,21 +77,27 @@ data is available
 <a href="{{ MEDIA_URL }}csv-archives/cc0-snapshot-out-of-date/">here</a>
 but please be warned that this snapshot will become inaccurate very quickly
 - please use
-<a href="{% url 'help-api' %}">the up-to-date data</a> instead.
+<a href="{{ api_url }}">the up-to-date data</a> instead.
+{% endblocktrans %}
 
-<h3>Privacy Policy</h3>
+<h3>{% trans "Privacy Policy" %}</h3>
 
-<p>The privacy policy of this site can be found
-<a href="{% url 'help-privacy' %}">here</a>.</p>
+{% url 'help-privacy' as url %}
+<p>{% blocktrans trimmed %}
+The privacy policy of this site can be found
+<a href="{{ url }}">here</a>.
+{% endblocktrans %}</p>
 
-<h3>Disclaimer</h3>
+<h3>{% trans "Disclaimer" %}</h3>
 
-<p>The data on this website is crowd-sourced and may not be
+<p>{% blocktrans trimmed %}
+The data on this website is crowd-sourced and may not be
 complete (or may contain inaccuracies). If you find an error,
 please either update the page yourself, or
-<a href="mailto:{{ settings.SUPPORT_EMAIL }}">email us</a> to report
-the problem..</p>
+<a href="mailto:{{ email }}">email us</a> to report
+the problem.{% endblocktrans %}</p>
 
 </div>
 
+{% endwith %}
 {% endblock %}

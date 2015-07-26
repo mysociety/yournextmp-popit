@@ -3,7 +3,7 @@ from django.conf.urls import patterns, url
 import views
 
 urlpatterns = patterns('',
-    url(r'^upload/(?P<mapit_id>\d+)/$',
+    url(r'^upload/election/(?P<election>[-\w]+)/post/(?P<post_id>[-\w]+)/$',
         views.CreateDocumentView.as_view(),
         name='upload_document_view'),
     url(r'^(?P<pk>\d+)/$',

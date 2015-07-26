@@ -13,13 +13,14 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 from django.utils.http import urlquote
+from django.utils.translation import ugettext as _
 from django.views.generic import ListView, TemplateView
 
 from PIL import Image
 
 from auth_helpers.views import GroupRequiredMixin
 from candidates.management.images import get_file_md5sum
-from candidates.popit import PopItApiMixin
+from candidates.popit import PopItApiMixin, get_base_url
 
 from .forms import UploadPersonPhotoForm, PhotoReviewForm
 from .models import QueuedImage, PHOTO_REVIEWERS_GROUP_NAME
@@ -27,7 +28,6 @@ from .models import QueuedImage, PHOTO_REVIEWERS_GROUP_NAME
 from candidates.popit import create_popit_api_object
 from candidates.models import PopItPerson, LoggedAction
 from candidates.views.version_data import get_client_ip, get_change_metadata
-from candidates.views import CandidacyMixin
 
 @login_required
 def upload_photo(request, popit_person_id):
@@ -112,7 +112,7 @@ def value_if_none(v, default):
     return default if v is None else v
 
 
-class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateView):
+class PhotoReview(GroupRequiredMixin, PopItApiMixin, TemplateView):
     """The class-based view for approving or rejecting a particular photo"""
 
     template_name = 'moderation_queue/photo-review.html'
@@ -218,7 +218,7 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
         person_id = self.queued_image.popit_person_id
         person = PopItPerson.create_from_popit(self.api, person_id)
         image_upload_url = '{base}persons/{person_id}/image'.format(
-            base=self.get_base_url(),
+            base=get_base_url(),
             person_id=person_id
         )
         data = {
@@ -227,7 +227,7 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
             'user_justification_for_use': self.queued_image.justification_for_use,
             'moderator_why_allowed': moderator_why_allowed,
             'mime_type': 'image/png',
-            'notes': 'Approved from photo moderation queue',
+            'notes': _('Approved from photo moderation queue'),
             'uploaded_by_user': self.queued_image.user.username,
             'created': None,
         }
@@ -283,8 +283,8 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
                     form.cleaned_data[field]
                 )
             self.queued_image.save()
-            update_message = (u'Approved a photo upload from ' +
-                u'{uploading_user} who provided the message: ' +
+            update_message = _(u'Approved a photo upload from '
+                u'{uploading_user} who provided the message: '
                 u'"{message}"').format(
                 uploading_user=self.queued_image.user.username,
                 message=self.queued_image.justification_for_use,
@@ -308,7 +308,7 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
                 source=update_message,
             )
             self.send_mail(
-                'YourNextMP image upload approved',
+                _('YourNextMP image upload approved'),
                 render_to_string(
                     'moderation_queue/photo_approved_email.txt',
                     {'candidate_page_url':
@@ -317,13 +317,13 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
             )
             flash(
                 messages.SUCCESS,
-                u'You approved a photo upload for ' + candidate_link
+                _(u'You approved a photo upload for %s') % candidate_link
             )
         elif decision == 'rejected':
             self.queued_image.decision = 'rejected'
             self.queued_image.save()
-            update_message = u'Rejected a photo upload from ' + \
-                u'{uploading_user}'.format(
+            update_message = _(u'Rejected a photo upload from '
+                u'{uploading_user}').format(
                 uploading_user=self.queued_image.user.username,
             )
             LoggedAction.objects.create(
@@ -341,7 +341,7 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
                 )
             )
             self.send_mail(
-                'YourNextMP image moderation results',
+                _('YourNextMP image moderation results'),
                 render_to_string(
                     'moderation_queue/photo_rejected_email.txt',
                     {'reason': form.cleaned_data['rejection_reason'],
@@ -353,23 +353,23 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
             )
             flash(
                 messages.INFO,
-                u'You rejected a photo upload for ' + candidate_link
+                _(u'You rejected a photo upload for %s') % candidate_link
             )
         elif decision == 'undecided':
             # If it's left as undecided, just redirect back to the
             # photo review queue...
             flash(
                 messages.INFO,
-                u'You left a photo upload for {0} in the queue'.format(
+                _(u'You left a photo upload for {0} in the queue').format(
                     candidate_link
                 )
             )
         elif decision == 'ignore':
             self.queued_image.decision = 'ignore'
             self.queued_image.save()
-            update_message = u'Ignored a photo upload from ' + \
-                u'{uploading_user} (This usually means it was a duplicate)' \
-                .format(uploading_user=self.queued_image.user.username)
+            update_message = _(u'Ignored a photo upload from '
+                u'{uploading_user} (This usually means it was a duplicate)').format(
+                uploading_user=self.queued_image.user.username)
             LoggedAction.objects.create(
                 user=self.request.user,
                 action_type='photo-ignore',
@@ -380,7 +380,7 @@ class PhotoReview(GroupRequiredMixin, CandidacyMixin, PopItApiMixin, TemplateVie
             )
             flash(
                 messages.INFO,
-                u'You indicated a photo upload for {0} should be ignored'.format(
+                _(u'You indicated a photo upload for {0} should be ignored').format(
                     candidate_link
                 )
             )

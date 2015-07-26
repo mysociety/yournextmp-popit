@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.signals import post_save
+from django.utils.translation import ugettext as _
 
 
 class MaxPopItIds(models.Model):
@@ -25,8 +26,8 @@ class MaxPopItIds(models.Model):
             max_persons.max_id = max_id
             max_persons.save()
         else:
-            raise ValueError('given max_id is lower than the previous one ({'
-                             '0} vs {1})'.format(max_id, max_persons.max_id))
+            raise ValueError(_('given max_id is lower than the previous one ({'
+                             '0} vs {1})').format(max_id, max_persons.max_id))
 
 
 class LoggedAction(models.Model):

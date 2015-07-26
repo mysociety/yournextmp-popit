@@ -1,0 +1,10 @@
+[main]
+host = https://www.transifex.com
+type = PO
+
+[yournextmp.project]
+file_filter = locale/<lang>/LC_MESSAGES/django.po
+source_file = locale/en/LC_MESSAGES/django.po
+source_lang = en
+type = PO
+

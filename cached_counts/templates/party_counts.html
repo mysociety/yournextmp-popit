@@ -1,19 +1,22 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-    <h2>Number of known 2015 candidates per party</h2>
+<h2>{% blocktrans trimmed with election_name=election_data.name %}
+    Number of known {{ election_name }} candidates per party
+    {% endblocktrans %}</h2>
     <table class="counts_table">
         <thead>
-            <th>Constituency Name</th>
-            <th>Known 2015 Candidates</th>
+            <th>{% trans "Party Name" %}</th>
+            <th>{% trans "Number of Candidates" %}</th>
         </thead>
         <tbody>
         {% for object in object_list %}
             <tr {% if object.count == 0 %}class="no_known"{% endif%}>
               {% if object.count == 0 %}
-                <td>{{ object.name }}</a></td>
+                <td>{{ object.name }}</td>
               {% else %}
-                <td><a href="{% url 'party' organization_id=object.object_id ignored_slug=object.name|slugify %}">{{ object.name }}</a></td>
+                <td><a href="{% url 'party' election=election organization_id=object.object_id ignored_slug=object.name|slugify %}">{{ object.name }}</a></td>
               {% endif %}
               <td>{{ object.count}}</td>
             </tr>

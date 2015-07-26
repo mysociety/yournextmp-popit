@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}candidacy-create-demand-source{% endblock %}
 
-{% block title %}How do you know that {{ person.name }} is standing?{% endblock %}
+{% block title %}{% blocktrans with name=person.name %}How do you know that {{ name }} is standing?{% endblocktrans %}{% endblock %}
 
 {% block hero %}
-  <h1>How do you know that {{ person.name }} is standing?</h1>
+  <h1>{% blocktrans with name=person.name %}How do you know that {{ name }} is standing?{% endblocktrans %}</h1>
 {% endblock %}
 
 {% block content %}
 
-<p>Before updating our records we need to know the source for
-your information that {{ person.name }} is standing for election
-in the 2015 general election in {{ constituency.name }}.</p>
+<p>{% blocktrans trimmed with name=person.name election_name=election_data.name %}
+Before updating our records we need to know the source for
+your information that {{ name }} is standing for election
+to the post of {{ post_label }} in the {{ election_name }}.{% endblocktrans %}</p>
 
 {% include 'candidates/_source-plain.html' with action='candidacy-create' %}
 

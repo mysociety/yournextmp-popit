@@ -1,5 +1,32 @@
 .content {
-  background-color: #fff;
+  background-color: $content-background-color;
   padding-top: 2em;
   padding-bottom: 2em;
+}
+
+.container {
+  max-width: 960px; // for browsers that don't understand rems
+  @include grid-row();
+  padding-left: $column-gutter / 2;
+  padding-right: $column-gutter / 2;
+}
+
+.button, input[type="submit"].button {
+  @extend .radius;
+}
+
+.code-sample {
+  margin: 1em;
+}
+
+.help-api p {
+  margin-top: 0.6em
+}
+
+.aka-note {
+  font-size: 80%
+}
+
+pre {
+  font-family: $code-font-family;
 }

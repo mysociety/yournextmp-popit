@@ -22,4 +22,4 @@ EOF
 source "$HOME/.bashrc"
 
 cd ~/yournextmp
-yournextmp-popit/bin/pre-deploy
+yournextrepresentative/bin/pre-deploy

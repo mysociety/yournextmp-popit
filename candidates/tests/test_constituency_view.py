@@ -15,7 +15,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
         mock_popit.return_value.posts = FakePostCollection
 
         # Just a smoke test for the moment:
-        response = self.app.get('/constituency/65808/dulwich-and-west-norwood')
+        response = self.app.get('/election/2015/post/65808/dulwich-and-west-norwood')
         response.mustcontain('<a href="/person/2009/tessa-jowell" class="candidate-name">Tessa Jowell</a> <span class="party">Labour Party</span>')
         # There should be no forms on the page if you're not logged in:
 
@@ -28,7 +28,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
 
         # Just a smoke test for the moment:
         response = self.app.get(
-            '/constituency/65808/dulwich-and-west-norwood',
+            '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user
         )
         response.mustcontain('<a href="/person/2009/tessa-jowell" class="candidate-name">Tessa Jowell</a> <span class="party">Labour Party</span>')

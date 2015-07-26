@@ -1,6 +1,8 @@
 from copy import deepcopy
 from urlparse import urlunsplit
 
+import requests
+
 from django.conf import settings
 from django.utils.http import urlquote
 
@@ -21,20 +23,39 @@ def create_popit_api_object():
         api_properties['password'] = settings.POPIT_PASSWORD
     return PopIt(**api_properties)
 
-def popit_unwrap_pagination(api_collection, **kwargs):
+def generic_unwrap_pagination(get_json_response):
     page = 1
     keep_fetching = True
     while keep_fetching:
-        get_kwargs = {
+        pagination_kwargs = {
             'per_page': 50,
-            'page': page,
+            'page': page
         }
-        get_kwargs.update(kwargs)
-        response = api_collection.get(**get_kwargs)
-        keep_fetching = response.get('has_more', False)
+        json_response = get_json_response(pagination_kwargs)
+        keep_fetching = json_response.get('has_more', False)
         page += 1
-        for api_object in response['result']:
+        for api_object in json_response['result']:
             yield api_object
+
+def popit_unwrap_pagination(api_collection, **kwargs):
+    def get_json_response(pagination_kwargs):
+        get_kwargs = kwargs.copy()
+        get_kwargs.update(pagination_kwargs)
+        return api_collection.get(**get_kwargs)
+    return generic_unwrap_pagination(get_json_response)
+
+def unwrap_search_pagination(collection, query, **kwargs):
+    def get_json_response(pagination_kwargs):
+        get_kwargs = kwargs.copy()
+        get_kwargs.update(pagination_kwargs)
+        search_url = get_search_url(collection, query, **get_kwargs)
+        r = requests.get(search_url)
+        return r.json()
+    return generic_unwrap_pagination(get_json_response)
+
+def get_all_posts(role, **kwargs):
+    kwargs.setdefault('embed', '')
+    return unwrap_search_pagination('posts', 'role:"' + role + '"', **kwargs)
 
 def merge_popit_dicts(primary, secondary):
     result = {}
@@ -79,16 +100,7 @@ def merge_popit_people(primary, secondary):
             result[primary_key] = primary_value
     return result
 
-
-class PopItApiMixin(object):
-
-    """This provides helper methods for manipulating data in a PopIt instance"""
-
-    def __init__(self, *args, **kwargs):
-        super(PopItApiMixin, self).__init__(*args, **kwargs)
-        self.api = create_popit_api_object()
-
-    def get_base_url(self):
+def get_base_url():
         port = settings.POPIT_PORT
         instance_hostname = settings.POPIT_INSTANCE + \
             '.' + settings.POPIT_HOSTNAME
@@ -99,13 +111,21 @@ class PopItApiMixin(object):
         )
         return base_url
 
-    def get_search_url(self, collection, query, **kwargs):
-        base_search_url = self.get_base_url() + 'search/'
-        parameters = {
-            'q': query,
-        }
-        parameters.update(kwargs)
-        query_string = '&'.join(
-            k + '=' + urlquote(v) for k, v in parameters.items()
-        )
-        return base_search_url + collection + '?' + query_string
+def get_search_url(collection, query, **kwargs):
+    base_search_url = get_base_url() + 'search/'
+    parameters = {
+        'q': query,
+    }
+    parameters.update(kwargs)
+    query_string = '&'.join(
+        k + '=' + urlquote(v) for k, v in parameters.items()
+    )
+    return base_search_url + collection + '?' + query_string
+
+class PopItApiMixin(object):
+
+    """This provides helper methods for manipulating data in a PopIt instance"""
+
+    def __init__(self, *args, **kwargs):
+        self.api = create_popit_api_object()
+        super(PopItApiMixin, self).__init__(*args, **kwargs)

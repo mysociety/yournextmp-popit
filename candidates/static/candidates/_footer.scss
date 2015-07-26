@@ -1,14 +1,10 @@
 body,
 .footer {
-  background-color: mix($color-offwhite, #fff, 60%);
-}
-
-.content {
-  background-color: #fff;
+  background-color: $body-background-color;
 }
 
 .footer {
-  color: mix($color-offwhite, #000, 60%);
+  color: $footer-text-color;
   padding-top: 2em;
   padding-bottom: 2em;
 

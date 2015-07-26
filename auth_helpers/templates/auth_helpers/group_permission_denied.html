@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}Permission denied{% endblock %}
+{% block title %}{% trans "Permission denied" %}{% endblock %}
 
 {% block hero %}
-  <h1>Permission denied</h1>
+  <h1>{% trans "Permission denied" %}</h1>
 {% endblock %}
 
 {% block content %}
 <p>
+{% blocktrans trimmed %}
 You must be in the member of a particular group in order to view that page.
 Please contact the administrators of the site if you feel that you should
 have access to this page.
+{% endblocktrans %}
 </p>
 
 {% endblock %}

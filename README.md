@@ -2,21 +2,19 @@
 
 The idea of this project is to make a web-based front-end to
 [PopIt](http://popit.poplus.org/) for crowd-sourcing candidates
-who are standing in the next UK general election in 2015.
-
-This is pretty functional now - we're testing with small numbers
-of users at the moment, but will make it more widely available
-soon.
+for upcoming elections; it was used for
+[YourNextMP](https://yournextmp.com) in the UK for the 2015
+General Election.
 
 ## Known Bugs
 
 You can find a list of known issues to work on here:
 
-* https://github.com/mysociety/yournextmp-popit/issues
+* https://github.com/mysociety/yournextrepresentative/issues
 
 These are prioritized in Huboard:
 
-* https://huboard.com/mysociety/yournextmp-popit
+* https://huboard.com/mysociety/yournextrepresentative
 
 ## Getting a development version running:
 
@@ -34,13 +32,13 @@ Make a new directory called `yournextmp`, change into that directory and clone t
 
 Copy the example Vagrantfile to the root of your new directory:
 
-    cp yournextmp-popit/Vagrantfile-example ./Vagrantfile
+    cp yournextrepresentative/Vagrantfile-example ./Vagrantfile
 
 Copy the example configuration file to `conf/general.yml`:
 
-    cp yournextmp-popit/conf/general.yml-example yournextmp-popit/conf/general.yml
+    cp yournextrepresentative/conf/general.yml-example yournextrepresentative/conf/general.yml
 
-Edit `yournextmp-popit/conf/general.yml` to fill in details of
+Edit `yournextrepresentative/conf/general.yml` to fill in details of
 the PopIt instance you're using.
 
 Start that vagrant box with:
@@ -55,7 +53,7 @@ Log in to the box with:
 
 Move to the app directory
 
-    cd yournextmp-popit
+    cd yournextrepresentative
 
 Add a superuser account:
 
@@ -85,14 +83,14 @@ stage.
 After logging in again, the only steps you should need to run
 the development server again are:
 
-    cd yournextmp-popit
+    cd yournextrepresentative
     ./manage.py runserver 0.0.0.0:8000
 
 ### Running the tests
 
 SSH into the vagrant machine, then run:
 
-    cd yournextmp-popit
+    cd yournextrepresentative
     ./manage.py test
 
 ### Mirror the live database into your development copy
@@ -107,7 +105,7 @@ Assuming you have a local development instance of PopIt, change
 into the root of the PopIt repository, and run:
 
      NODE_ENV=development bin/replace-database \
-         "$DUMP_DIRECTORY"/yournextmp-popit- \
+         "$DUMP_DIRECTORY"/yournextrepresentative- \
          candidates \
          popitdev__master
 
@@ -118,3 +116,49 @@ master database in MongoDB.
 Then set the maximum PopIt person ID by running:
 
     ./manage.py candidates_set_max_person_id
+
+### Customizing YourNextMP for a new election
+
+(This is a rough description at the moment; making YourNextMP fully
+generic is a work-in-progress.)
+
+To use this code to collect informations about candidates in a new
+jurisdiction, you should start by adding a new election application
+under `elections` - you can use `uk_general_election_2015` as an
+example. You should then set `ELECTION_APP` in your `general.yml` to
+the name of that application (not including `elections.`).
+
+In that application, you should create a `settings` module which
+defines `ELECTIONS`.
+
+If you want to customize behaviour of YourNextMP for this
+jurisdiction, then you can do one of the following:
+
+* Override generic templates in your election application.
+
+* Add a urls.py and views.py and override and augment and of the
+  generic URLs that you want to customize.
+
+* Some data and behaviour will need to be customized by adding
+  functions or variables in `lib.py` in your election application.
+
+You will also have to decide if you you want to create "party sets" or
+"post groups" for the elections you're supporting.  These are
+potentially confusing, so here are some quick descriptions:
+
+#### Party Sets
+
+It's sometimes the case that there are different sets of parties
+available for different posts that are up for election.  (For example,
+in the UK General Election, there are distinct registers of parties
+for constituencies in Northern Ireland and Great Britain.)
+
+#### Post Groups
+
+Each post can be in a particular "post group"; these are only used to
+group the posts on the party detail page for a particular
+election. (For example, in the UK General Election, it was useful to
+group posts on that page by whether they were associated with a
+constituency in England, Scotland, Northern Ireland or Wales.
+
+FIXME: add details of translating the interface

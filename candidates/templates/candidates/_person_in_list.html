@@ -12,11 +12,5 @@
 {% endif %}
 <div class="person-name-and-party">
   <a href="{% url 'person-view' c.id c.name|slugify %}" class="candidate-name">{{ c.name }}</a>
-  {% if year == '2015' %}
-    <span class="party">{{c.parties.2015.name }}</span>
-  {% elif year == '2010' %}
-    <span class="party">{{c.parties.2010.name }}</span>
-  {% else %}
-    <span class="party">BUG: UNKNOWN YEAR</span>
-  {% endif %}
+  <span class="party">{{ c.last_party.name }}</span>
 </div>

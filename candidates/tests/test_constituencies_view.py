@@ -9,7 +9,7 @@ class TestConstituencyDetailView(WebTest):
     @patch('candidates.popit.PopIt')
     def test_constituencies_page(self, mock_popit):
         # Just a smoke test to check that the page loads:
-        response = self.app.get('/constituencies')
+        response = self.app.get('/election/2015/constituencies')
         aberdeen_north = response.html.find(
             'a', text=re.compile(r'York Outer')
         )

@@ -3,6 +3,7 @@ import datetime
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 PHOTO_REVIEWERS_GROUP_NAME = 'Photo Reviewers'
@@ -16,10 +17,10 @@ class QueuedImage(models.Model):
     IGNORE = 'ignore'
 
     DECISION_CHOICES = (
-        (APPROVED, 'Approved'),
-        (REJECTED, 'Rejected'),
-        (UNDECIDED, 'Undecided'),
-        (IGNORE, 'Ignore'),
+        (APPROVED, _('Approved')),
+        (REJECTED, _('Rejected')),
+        (UNDECIDED, _('Undecided')),
+        (IGNORE, _('Ignore')),
     )
 
     PUBLIC_DOMAIN = 'public-domain'
@@ -29,17 +30,17 @@ class QueuedImage(models.Model):
 
     WHY_ALLOWED_CHOICES = (
         (PUBLIC_DOMAIN,
-         "This photograph is free of any copyright restrictions"),
+         _("This photograph is free of any copyright restrictions")),
         (COPYRIGHT_ASSIGNED,
-         "I own copyright of this photo and I assign the copyright " + \
-         "to Democracy Club Limited in return for it being displayed " + \
-         "on YourNextMP"),
+         _("I own copyright of this photo and I assign the copyright "
+         "to Democracy Club Limited in return for it being displayed "
+         "on YourNextMP")),
         (PROFILE_PHOTO,
-         "This is the candidate's public profile photo from social " + \
-         "media (e.g. Twitter, Facebook) or their official campaign " + \
-         "page"),
+         _("This is the candidate's public profile photo from social "
+         "media (e.g. Twitter, Facebook) or their official campaign "
+         "page")),
         (OTHER,
-         "Other"),
+         _("Other")),
     )
 
     why_allowed = models.CharField(
@@ -67,11 +68,11 @@ class QueuedImage(models.Model):
 
     face_detection_tried = models.BooleanField(default=False)
 
-    created = models.DateTimeField(auto_now_add=True, default=datetime.datetime.now)
-    updated = models.DateTimeField(auto_now=True, default=datetime.datetime.now)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        message = u'Image uploaded by {user} of candidate {popit_person_id}'
+        message = _(u'Image uploaded by {user} of candidate {popit_person_id}')
         return message.format(
             user=self.user,
             popit_person_id=self.popit_person_id

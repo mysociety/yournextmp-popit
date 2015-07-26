@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
 {% load imagefixes %}
 
 {% block body_class %}party{% endblock %}
 
-{% block title %}{{ party_name }} &#8212; Candidates (PPCs) by constituency for the UK 2015 General Election{% endblock %}
+{% block title %}{% blocktrans %}{{ party_name }} &#8212; Candidates by constituency for the UK 2015 General Election{% endblocktrans %}{% endblock %}
 
 {% block hero %}
   <h1>{{ party_name }}</h1>
@@ -16,48 +17,62 @@
 
   {% if party_name == 'Independent' %}
 
-    <p>This shows all the constituencies that have independent
-      candidates standing in them at the 2015 general election</p>
+    <p>{% blocktrans trimmed %}This shows all the constituencies that have independent
+      candidates standing in them at the 2015 general election{% endblocktrans %}</p>
 
   {% elif party_name == 'Speaker seeking re-election' %}
 
-    <p>The Speaker of the House of Commons stands as a "The
+    <p>{% blocktrans trimmed %}The Speaker of the House of Commons stands as a "The
       Speaker seeking re-election" rather than a particular party
       at a general election; for more information, please
       see <a href="http://www.parliament.uk/about/faqs/house-of-commons-faqs/speakers-election/">Parliament's
-      website</a>.</p>
+      website</a>.{% endblocktrans %}</p>
 
   {% elif register %}
 
-    <p>{{ party_name }} is on the Electoral Commission's register for {{ register }}.</p>
+    <p>{% blocktrans %}{{ party_name }} is on the Electoral Commission's register for {{ register }}.{% endblocktrans %}</p>
 
-    <p>You can find more data about the party's registration at the
-      <a href="{{ ec_url }}">Electoral Commission page for {{ party_name }}</a>.</p>
+    <p>{% blocktrans trimmed %}You can find more data about the party's registration at the
+      <a href="{{ ec_url }}">Electoral Commission page for {{ party_name }}</a>.{% endblocktrans %}</p>
     <p></p>
 
   {% endif %}
 
-  {% for country, country_data in candidates_by_country %}
-    <h3>{{ country }}</h3>
+  {% for country, country_data in candidates_by_post_group %}
+    {% if country %}
+      <h3>{{ country }}</h3>
+    {% endif %}
     {% if country_data.constituencies %}
       <ul>
         {% for post_id, constituency_name, candidate in country_data.constituencies %}
+          {% url 'constituency' election=election post_id=post_id ignored_slug=constituency_name|slugify as post_url %}
           {% if candidate %}
-            <li><a href="{% url 'person-view' person_id=candidate.person_id %}">{{ candidate.person_name }}</a>
-              is standing in
-              <a href="{% url 'constituency' mapit_area_id=post_id ignored_slug=constituency_name|slugify %}">{{ candidate.constituency_name }}</a></li>
+            {% url 'person-view' person_id=candidate.person_id as person_url %}
+            <li>{% blocktrans trimmed with name=candidate.person_name post=candidate.constituency_name %}
+              <a href="{{ person_url }}">{{ name }}</a> is standing in
+              <a href="{{ post_url }}">{{ post }}</a>{% endblocktrans %}</li>
           {% elif country_data.stats.show_all %}
-            <li>No candidate in <a href="{% url 'constituency' mapit_area_id=post_id ignored_slug=constituency_name|slugify %}">{{ constituency_name }}</a></li>
+            <li>{% blocktrans trimmed %}
+              No candidate in <a href="{{ post_url }}">{{ constituency_name }}</a>
+              {% endblocktrans %}</li>
           {% endif %}
         {% endfor %}
       </ul>
       {% if not country_data.stats.show_all %}
-        <p>There were also {{ country_data.stats.missing }} constituencies in
-          {{ country }} that {{ party_name }} aren't standing a candidate in.
-        </p>
+        {% if country %}
+          <p>{% blocktrans trimmed with missing=country_data.stats.missing %}
+            There were also {{ missing }} posts in
+            {{ country }} that {{ party_name }} aren't standing a candidate for.{% endblocktrans %}
+          </p>
+        {% else %}
+          <p>{% blocktrans trimmed with missing=country_data.stats.missing %}
+            There were also {{ missing }} posts
+            that {{ party_name }} aren't standing a candidate for.{% endblocktrans %}
+          </p>
+        {% endif %}
       {% endif %}
     {% else %}
-      <p>We don't know of any {{ party_name }} candidates in {{ country }} so far.</p>
+      <p>{% blocktrans %}We don't know of any {{ party_name }} candidates in {{ country }} so far.{% endblocktrans %}</p>
     {% endif %}
 
   {% endfor %}

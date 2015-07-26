@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% load metadescription %}
+{% load standing %}
+{% load exists %}
+
+{% block body_class %}areas{% endblock %}
+
+{% block title %}{% blocktrans %}Areas: {{ all_area_names }}{% endblocktrans %}{% endblock %}
+
+{% block hero %}
+  <h1>{% blocktrans %}Areas: {{ all_area_names }}{% endblocktrans %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  {% for post in posts %}
+    {% with election=post.election election_data=post.election_data candidate_list_edits_allowed=post.candidate_list_edits_allowed candidates_locked=post.candidates_locked post_data=post.post_data add_candidate_form=post.add_candidate_form candidates=post.candidates %}
+
+      {% include 'candidates/_candidates_for_post.html' %}
+
+    {% endwith %}
+  {% endfor %}
+
+{% endblock %}

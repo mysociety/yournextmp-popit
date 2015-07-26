@@ -1,7 +1,9 @@
 import sys
 
 from candidates.models import PopItPerson
-from candidates.popit import PopItApiMixin, popit_unwrap_pagination
+from candidates.popit import (
+    PopItApiMixin, popit_unwrap_pagination, get_base_url
+)
 
 from django.core.management.base import BaseCommand
 
@@ -24,7 +26,7 @@ class Command(PopItApiMixin, BaseCommand):
                 per_page=100
         ):
             msg = "Person {0}persons/{1}"
-            print msg.format(self.get_base_url(), person_data['id'])
+            print msg.format(get_base_url(), person_data['id'])
             strip_bogus_fields(
                 person_data,
                 [

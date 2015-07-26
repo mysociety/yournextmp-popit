@@ -10,7 +10,7 @@ class TestModels(TestCase):
 
     def test_unicode(self):
         doc = OfficialDocument(
-            mapit_id='XXX',
+            post_id='XXX',
             source_url="http://example.com/",
         )
 

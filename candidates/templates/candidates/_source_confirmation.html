@@ -1,15 +1,16 @@
+{% load i18n %}
 <div class="source-confirmation source-confirmation-{{ standing }}">
-  <form method="post" action="{% url action %}">
+  <form method="post" action="{% url action election=election %}">
     {% csrf_token %}
     <input type="hidden" name="person_id" value="{{ c.id }}"/>
-    <input type="hidden" name="mapit_area_id" value="{{ mapit_area_id }}"/>
-    <label for="id_source">Before we save that, can you show us <em>where</em> you heard it? {{ settings.SOURCE_HINTS }}</label>
+    <input type="hidden" name="post_id" value="{{ post_data.id }}"/>
+    <label for="id_source">{% trans "Before we save that, can you show us <em>where</em> you heard it?" %} {{ settings.SOURCE_HINTS }}</label>
     <div class="row">
       <div class="small-12 medium-8 large-9 columns">
         <input type="text" name="source" id="id_source" maxlength="512" required="required"/>
       </div>
       <div class="small-6 medium-4 large-3 columns">
-        <input type="submit" class="button expand" value="Save changes" />
+        <input type="submit" class="button expand" value="{% trans "Save changes" %}" />
       </div>
     </div>
   </form>

@@ -1,15 +1,15 @@
 {
-    "result": {
-        "classification": "Candidate List",
-        "contact_details": [],
-        "founding_date": "2010-05-07",
-        "html_url": "http://yournextmp.popit.mysociety.org/organizations/candidates-2015-dulwich-and-west-norwood",
-        "id": "candidates-2015-dulwich-and-west-norwood",
-        "identifiers": [],
-        "links": [],
-        "name": "Candidates for Dulwich and West Norwood in 2015",
-        "other_names": [],
-        "posts": [],
-        "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/candidates-2015-dulwich-and-west-norwood"
-    }
+  "result": {
+    "classification": "Candidate List",
+    "contact_details": [],
+    "founding_date": "2010-05-07",
+    "html_url": "http://yournextmp.popit.mysociety.org/organizations/candidates-2015-dulwich-and-west-norwood",
+    "id": "candidates-2015-dulwich-and-west-norwood",
+    "identifiers": [],
+    "links": [],
+    "name": "Candidates for Dulwich and West Norwood in 2015",
+    "other_names": [],
+    "posts": [],
+    "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/candidates-2015-dulwich-and-west-norwood"
+  }
 }

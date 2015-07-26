@@ -1,25 +1,25 @@
 {
   "result": {
-    "id": "party:63",
+    "classification": "Party",
+    "contact_details": [],
     "dissolution_date": "9999-12-31",
     "founding_date": "1999-02-25",
-    "name": "Green Party",
-    "classification": "Party",
-    "register": "Great Britain",
-    "slug": "green-party",
-    "posts": [],
-    "memberships": [],
-    "links": [],
-    "contact_details": [],
+    "html_url": "http://yournextmp.popit.mysociety.org/organizations/party:63",
+    "id": "party:63",
     "identifiers": [
       {
         "id": "545e2b12aa34dd707c37d1a9",
-        "scheme": "electoral-commission",
-        "identifier": "PP 63"
+        "identifier": "PP 63",
+        "scheme": "electoral-commission"
       }
     ],
+    "links": [],
+    "memberships": [],
+    "name": "Green Party",
     "other_names": [],
-    "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/party:63",
-    "html_url": "http://yournextmp.popit.mysociety.org/organizations/party:63"
+    "posts": [],
+    "register": "Great Britain",
+    "slug": "green-party",
+    "url": "http://yournextmp.popit.mysociety.org/api/v0.1/organizations/party:63"
   }
 }

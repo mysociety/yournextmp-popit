@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load metadescription %}
+
+{% block extra_head %}
+    <!-- Open Graph data -->
+    <meta property="og:title" content="YoQuieroSaber Investigación" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+    <meta property="og:image:height" content="80" />
+    <meta property="og:image:width" content="80" />
+    <meta property="og:site_name" content="YoQuieroSaber Investigación" />
+    <meta property="og:description" content="YoQuieroSaber Investigación es una iniciativa colaborativa para saber más sobre los candidatos a las elecciones PASO del 9 de Agosto.">
+    <meta property="og:locale" content="{{ LOCALE }}" />
+
+    <!-- Twitter card data -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@YQS_Argentina" />
+    <meta name="twitter:title" content="YoQuieroSaber Investigación" />
+    <meta property="twitter:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+    <meta property="twitter:image:height" content="120" />
+    <meta property="twitter:image:width" content="120" />
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}" />
+    <meta name="twitter:description" content="YoQuieroSaber Investigación es una iniciativa colaborativa para saber más sobre los candidatos a las elecciones PASO del 9 de Agosto."  />
+{% endblock %}
+
+{% block body_class %}finder{% endblock %}
+
+{% block hero_outer %}{% endblock %}
+
+{% block content %}
+
+    <div class="finder__intro">
+        <h1>Investigación electoral colectiva</h1>
+        <p>YoQuieroSaber Investigación es una iniciativa colaborativa para saber más sobre los candidatos a las elecciones PASO del 9 de Agosto.</p>
+        <p>Ayudános aportando información de los candidatos de tu provincia.</p>
+    </div>
+
+    <div class="finder__forms">
+        <form id="form-address" action="{% url 'lookup-address' %}" method="post">
+            <h2>Empezá por tu provincia</h2>
+            {{ form.as_p }}
+            <input type="submit" class="button" value="{% trans "Show candidates" %}">
+        </form>
+        <p><a href="{% url 'areas-of-type-view' mapit_type='PRV' ignored_slug='provincia' %}">Ver todas las provincias</a></p>
+    </div>
+
+</div><!-- close .container -->
+
+<div class="finder__getting-started">
+    <div class="container">
+
+        <div class="finder__getting-started__demo">
+            <h2>Instrucciones para colaborar</h2>
+            <div class="iframe-4-by-3">
+                <iframe src="https://docs.google.com/presentation/d/1lc8AllCgljerYa5gdwvTwhGSRlnQG-af-MPdD6FgiHo/embed?start=false&loop=false&delayms=60000" framegborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+        </div>
+
+        <div class="finder__getting-started__help">
+            <h2>¡Podés comenzar ya mismo!</h2>
+            <p>Si querés aportar información sobre los candidatos, registrate en el sitio, revisá que no exista la información que querés aportar y agregala ¡Es así de simple!</p>
+            <p>Ah, no te olvides de citar la fuente donde te enteraste ;)</p>
+
+            <h2>¿Conocés los candidatos en estas elecciones?</h2>
+            <ul class="finder__getting-started__priorities">
+              {% for cc in needing_attention %}
+                <li><a href="{% url 'constituency' election=cc.election post_id=cc.object_id ignored_slug=cc.name|slugify %}">{{ cc.name }}</a></li>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

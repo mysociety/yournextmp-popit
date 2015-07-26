@@ -14,8 +14,8 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
     <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}"/>
 
-    {% load compressed %}
-    {% compressed_css 'all' %}
+    {% load pipeline %}
+    {% stylesheet 'all' %}
     {% block extra_css %}
     {% endblock %}
 
@@ -25,26 +25,25 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
     <![endif]-->
 
-    {% compressed_js 'all' %}
+    {% javascript 'all' %}
     {% block extra_js %}
     {% endblock %}
 
-    <title>{% block title %}YourNextMP - 2015 UK general election candidates{% endblock %}</title>
+    <title>{% block title %}{% trans "YourNextMP - 2015 UK general election candidates" %}{% endblock %}</title>
 
-    {% if settings.GOOGLE_ANALYTICS_ACCOUNT %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    {% block analytics %}
+      {% if settings.GOOGLE_ANALYTICS_ACCOUNT %}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', '{{ settings.GOOGLE_ANALYTICS_ACCOUNT }}', 'auto', {'allowLinker': true});
-        ga('require', 'linker');
-        ga('linker:autoLink', ['yournextmp.com'] );
-        ga('send', 'pageview');
+          ga('create', '{{ settings.GOOGLE_ANALYTICS_ACCOUNT }}', 'auto');
 
-      </script>
-    {% endif %}
+        </script>
+      {% endif %}
+    {% endblock %}
 
 </head>
 
@@ -52,21 +51,21 @@
   <div class="header">
     <div class="container">
       <div class="header__nav">
-        <a href="/" class="header__nav__logo">{% trans 'YourNextMP' %}</a>
-        <a href="{% url 'help-about' %}" class="header__nav__logo">{% trans 'About' %}</a>
-        <a href="{% url 'constituencies' %}" class="header__nav__logo">Constituencies</a>
-        <a href="{% url 'reports_home' %}" class="header__nav__logo">Numbers</a>
+        <a href="/" class="header__nav__logo">{% trans "YourNextMP" %}</a>
+        <a href="{% url 'help-about' %}" class="header__nav__logo">{% trans "About" %}</a>
+        <a href="{% url 'posts' %}" class="header__nav__logo">{% trans "Posts" %}</a>
+        <a href="{% url 'reports_home' %}" class="header__nav__logo">{% trans "Numbers" %}</a>
         {% if user_can_review_photos and photos_for_review > 0 %}
           <a href="{% url 'photo-review-list' %}" class="header__nav__logo header__nav__notification">{{ photos_for_review }}</a>
         {% endif %}
         {% if user.is_authenticated %}
           <span class="header__nav__logout">
-            Signed in as <strong>{{ user.username }}</strong>
-            <a href="{% url 'account_logout' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}">Sign out</a>
+            {% blocktrans with username=user.username %}Signed in as <strong>{{ username }}</strong>{% endblocktrans %}
+            <a href="{% url 'account_logout' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}">{% trans "Sign out" %}</a>
           </span>
         {% else %}
           <a href="{% url 'account_login' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}"
-             class="header__nav__login">Sign in to edit</a>
+             class="header__nav__login">{% trans "Sign in to edit" %}</a>
         {% endif %}
       </div>
       <div class="header__hero">
@@ -81,7 +80,7 @@
       {% if messages %}
         <div class="messages">
           {% for message in messages %}
-            {% if 'photo-review' in message.tags %}
+            {% if 'photo-review' in message.tags or 'do-something-else' in message.tags %}
               <p class="message {% if message.tags %}{{ message.tags }}{% endif %}">
                 {% if 'safe' in message.tags %}
                   {{ message|safe }}
@@ -101,12 +100,22 @@
   <div class="footer">
     <div class="container">
       <div class="footer__links">
-        <p><a href="{% url 'help-api' %}">Open data API</a> &middot; <a href="{% url 'help-about' %}">About</a> &middot; <a href="https://github.com/mysociety/yournextmp-popit/issues">Issue tracker</a> &middot; <a href="{% url 'help-privacy' %}">Privacy policy</a></p>
+        <p><a href="{% url 'help-api' %}">{% trans "Open data API" %}</a>
+            &middot; <a href="{% url 'help-about' %}">{% trans "About" %}</a>
+            &middot; <a href="https://github.com/mysociety/yournextrepresentative/issues">{% trans "Issue tracker" %}</a>
+            &middot; <a href="{% url 'help-privacy' %}">{% trans "Privacy policy" %}</a></p>
       </div>
       <div class="footer__bylines">
-        <p>Supported by <a href="https://fullfact.org">Full Fact</a>, <a href="http://unlockdemocracy.org.uk">Unlock Democracy</a>, and <a href="https://mysociety.org">mySociety</a>.</p>
-        <p>Built by <a href="https://democracyclub.org.uk/">
-          <img src="{% static "img/logo-with-text.png" %}" %} alt="Democracy Club" class="dc-logo"></a>
+        <p>{% blocktrans trimmed %}
+          Supported by <a href="https://fullfact.org">Full Fact</a>,
+          <a href="http://unlockdemocracy.org.uk">Unlock Democracy</a>, and
+          <a href="https://mysociety.org">mySociety</a>.
+          {% endblocktrans %}</p>
+        {% static "img/logo-with-text.png" as logo_url %}
+        <p>{% blocktrans trimmed %}
+          Built by <a href="https://democracyclub.org.uk/">
+          <img src="{{ logo_url }}" %} alt="Democracy Club" class="dc-logo"></a>
+          {% endblocktrans %}
         </p>
       </div>
     </div>

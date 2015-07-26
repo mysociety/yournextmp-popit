@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}Update Disallowed{% endblock %}
+{% block title %}{% trans "Update Disallowed" %}{% endblock %}
 
 {% block hero %}
-  <h1>Update Disallowed</h1>
+  <h1>{% trans "Update Disallowed" %}</h1>
 {% endblock %}
 
 {% block content %}
 
-<h2>Update Disallowed</h2>
+<h2>{% trans "Update Disallowed" %}</h2>
 
-<p>As a precaution, this update hasn't been allowed, but details
+<p>{% blocktrans trimmed with email=settings.support_EMAIL %}
+As a precaution, this update hasn't been allowed, but details
 have been emailed to the team of YourNextMP volunteers; they
 will apply the change after checking it. If you have any
 questions about this, please email
-<a href="{{ settings.SUPPORT_EMAIL }}">{{ settings.SUPPORT_EMAIL }}</a>.
+<a href="{{ email }}">{{ email }}</a>.
+{% endblocktrans %}
 </p>
 
 {% endblock %}

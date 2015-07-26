@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% blocktrans trimmed with election_name=election_data.name %}
+    Number of known {{ election_name }} candidates per party
+    {% endblocktrans %}</h2>
+    <table class="counts_table">
+        <thead>
+            <th>{% trans "Party Name" %}</th>
+            <th>{% trans "Number of Candidates" %}</th>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+            <tr {% if object.count == 0 %}class="no_known"{% endif%}>
+              <td>{{ object.name }}</td>
+              <td>{{ object.count}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

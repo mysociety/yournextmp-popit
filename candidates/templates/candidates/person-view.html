@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
 {% load staticfiles %}
 {% load imagefixes %}
 {% load standing %}
 {% load metadescription %}
 
 {% block extra_head %}
-  <link rel="canonical" href="{{ canonical_url }}" />
-
-  {% with last_cons=person.last_cons %}
+    <link rel="canonical" href="{{ canonical_url }}" />
     <!-- Open Graph data -->
-    <meta property="og:title" content="{{ person.name }}{% if last_cons %} - Candidate (PPC) for {{ last_cons.1.name }} in {{ last_cons.0 }}{% endif %}" />
+    <meta property="og:title" content="{{ person.name }}{% if last_election %} - {% blocktrans with post=constituency election=contested_election %}Candidate for {{ post }} in {{ election }}{% endblocktrans %}{% endif %}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ canonical_url }}" />
     {% if person.image %}
@@ -22,14 +21,14 @@
     {% endif %}
     <meta property="og:image:height" content="80" />
     <meta property="og:image:width" content="80" />
-    <meta property="og:site_name" content="YourNextMP" />
-    <meta property="og:description" content="{% metadescription person last_cons DATE_TODAY DATE_ELECTION %}">
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="{% trans "YourNextMP" %}" />
+    <meta property="og:description" content="{% metadescription person person.last_cons DATE_TODAY %}">
+    <meta property="og:locale" content="{{ LOCALE }}" />
 
     <!-- Twitter card data -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@yournextmp" />
-    <meta name="twitter:title" content="{{ person.name }}{% if last_cons %} - Candidate (PPC) for {{ last_cons.1.name }} in {{ last_cons.0 }}{% endif %}" />
+    <meta name="twitter:site" content="{% trans "@yournextmp" %}" />
+    <meta name="twitter:title" content="{{ person.name }}{% if last_election %} - {% blocktrans with post=constituency election=contested_election %}Candidate for {{ post }} in {{ election }}{% endblocktrans %}{% endif %}" />
     {% if person.image %}
       <meta property="twitter:image" content="{{ person.image }}" />
     {% elif person.gender|lower == 'female' %}
@@ -40,33 +39,39 @@
     <meta property="twitter:image:width" content="160" />
     <meta property="twitter:image:height" content="160" />
     <meta name="twitter:url" content="{{ canonical_url }}" />
-    <meta name="twitter:description" content="{% metadescription person last_cons DATE_TODAY DATE_ELECTION %}" />
-  {% endwith %}
+    <meta name="twitter:description" content="{% metadescription person person.last_cons DATE_TODAY %}" />
 {% endblock %}
 
 {% block body_class %}person{% endblock %}
 
 {% block title %}{{ person.name }}
   {% if person.last_cons %}
-    - Candidate (PPC) for {{ person.last_cons.1.name }} in {{ person.last_cons.0 }}
+    - {% blocktrans trimmed with post=person.last_cons.1.name election=person.last_cons.0 %}
+        Candidate for {{ post }} in {{ election }}
+      {% endblocktrans %}
   {% endif %}
 {% endblock %}
 
 {% block hero %}
 <div class="person__hero">
-  {% if person.image %}
-    <img class="person-avatar" src="{{ person.proxy_image|fixproxyurl }}/0/80"/>
-  {% elif person.gender|lower == 'female' %}
-    <img class="person-avatar" src="{% static 'candidates/img/blank-woman.png' %}"/>
-  {% else %}
-    <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
-  {% endif %}
+  <div class="person__photo">
+    {% if person.image %}
+      <img class="person-avatar" src="{{ person.proxy_image|fixproxyurl }}/0/80"/>
+    {% elif person.gender|lower == 'female' %}
+      <img class="person-avatar" src="{% static 'candidates/img/blank-woman.png' %}"/>
+    {% else %}
+      <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
+    {% endif %}
+  </div>
   <h1>{{ person.name }}</h1>
     {% if person.last_cons %}
-      <p>Candidate for
-        <a href="{% url 'constituency' person.last_cons.1.post_id person.last_cons.1.name|slugify %}">{{ person.last_cons.1.name }}</a>
-        in {{ person.last_cons.0 }}
-      </p>
+      {% with last_cons=person.last_cons %}
+        {% url 'constituency' election=last_cons.0 post_id=last_cons.1.post_id ignored_slug=last_cons.1.name|slugify as url %}
+        <p>{% blocktrans trimmed with post=last_cons.1.name election=last_cons.2 %}
+          Candidate for <a href="{{ url }}">{{ post }}</a> in {{ election }}
+          {% endblocktrans %}
+        </p>
+      {% endwith %}
     {% endif %}
 </div>
 {% endblock %}
@@ -76,9 +81,9 @@
 {% if person|election_decision_known:"2015" %}
   <div class="person__details__result">
   {% if person|was_elected:"2015" %}
-    <h3>{{ person.name }} was elected</h3>
+    <h3>{% blocktrans with name=person.name %}{{ name }} was elected{% endblocktrans %}</h3>
   {% else %}
-    <h3>{{ person.name }} was not elected</h3>
+    <h3>{% blocktrans with name=person.name %}{{ name }} was not elected{% endblocktrans %}</h3>
   {% endif %}
   </div>
 {% endif %}
@@ -86,81 +91,91 @@
 <div class="person__details">
     {% if not person.email %}
     <div class="missing_field">
-        <h4>We don't have an email address for {{ person.name }}, <a href="{% url 'person-update' person_id=person.id %}">help out by adding one</a>!</h4>
+        {% url 'person-update' person_id=person.id as url %}
+        <h4>{% blocktrans trimmed with name=person.name %}
+            We don’t have an email address for {{ name }},
+            <a href="{{ url }}">help out by adding one</a>!
+            {% endblocktrans %}</h4>
     </div>
     {% endif %}
-  <h2>Personal details:</h2>
+  <h2>{% trans "Personal details:" %}</h2>
 
   <dl>
-    <dt>Name</dt>
+    <dt>{% trans "Name" %}</dt>
     <dd>{{ person.name_with_honorifics }}</dd>
     {% if person.other_names %}
-      <dt>Also known as</dt>
+      <dt>{% trans "Also known as" %}</dt>
     {% endif %}
     {% for other_name in person.other_names %}
       <dd>{{ other_name.name }}{% if other_name.note %} ({{ other_name.note }}){% endif %}</dd>
     {% endfor %}
-    <dt>Email</dt>
+    <dt>{% trans "Email" %}</dt>
     <dd>{% if person.email %}<a href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif %}</dd>
-    <dt>Party</dt>
+    <dt>{% trans "Party" %}</dt>
     <dd>{{ person.last_party.name }}</dd>
   </dl>
 
-  <h2>Constituencies:</h2>
+  <h2>{% trans "Constituencies:" %}</h2>
 
   <dl>
-    <dt>{% if DATE_TODAY > DATE_ELECTION %}Contested{% else %}Contesting{% endif %} in 2015</dt>
-    <dd>{{ person|constituency_in_year:"2015" }}</dd>
-    <dt>Contested in 2010</dt>
-    <dd>{{ person|constituency_in_year:"2010" }}</dd>
+    {% for election, election_data in settings.ELECTIONS_BY_DATE reversed %}
+      <dt>{% if DATE_TODAY > election_data.election_date %}
+           {% blocktrans with election_name=election_data.name %}Contested in the {{ election_name }}{% endblocktrans %}
+        {% else %}
+           {% blocktrans with election_name=election_data.name %}Contesting in the {{ election_name }}{% endblocktrans %}
+        {% endif %}</dt>
+      <dd>{{ person|constituency_in_year:election }}</dd>
+    {% endfor %}
   </dl>
 
-  <h2>Links and social media:</h2>
+  <h2>{% trans "Links and social media:" %}</h2>
 
   <dl>
     <dt>Twitter</dt>
     <dd>{% if person.twitter_username %}<a rel="nofollow" href="https://twitter.com/{{ person.twitter_username }}">@{{ person.twitter_username }}</a>{% endif %}</dd>
     <dt>Facebook</dt>
     {% if person.facebook_personal_url %}
-      <dd><a rel="nofollow" href="{{ person.facebook_personal_url }}">{{ person.facebook_personal_url }}</a> <small>(personal profile)</small></dd>
+      <dd><a rel="nofollow" href="{{ person.facebook_personal_url }}">{{ person.facebook_personal_url }}</a> <small>{% trans "(personal profile)" %}</small></dd>
     {% endif %}
     {% if person.facebook_page_url %}
-      <dd><a rel="nofollow" href="{{ person.facebook_page_url }}">{{ person.facebook_page_url }}</a> <small>(campaign page)</small></dd>
+      <dd><a rel="nofollow" href="{{ person.facebook_page_url }}">{{ person.facebook_page_url }}</a> <small>{% trans "(campaign page)" %}</small></dd>
     {% endif %}
     {% if not person.facebook_personal_url and not person.facebook_page_url %}
       <dd></dd>
     {% endif %}
-    <dt>Homepage</dt>
+    <dt>{% trans "Homepage" %}</dt>
     <dd>{% if person.homepage_url %}<a rel="nofollow" href="{{ person.homepage_url }}">{{ person.homepage_url }}</a>{% endif %}</dd>
-    <dt>Wikipedia page</dt>
+    <dt>{% trans "Wikipedia page" %}</dt>
     <dd>{% if person.wikipedia_url %}<a rel="nofollow" href="{{ person.wikipedia_url }}">{{ person.wikipedia_url }}</a>{% endif %}</dd>
-    <dt>LinkedIn page</dt>
+    <dt>{% trans "LinkedIn page" %}</dt>
     <dd>{% if person.linkedin_url %}<a rel="nofollow" href="{{ person.linkedin_url }}">{{ person.linkedin_url }}</a>{% endif %}</dd>
-    <dt>Party PPC page</dt>
+    <dt>{% trans "Party candidate page" %}</dt>
     <dd>{% if person.party_ppc_page_url %}<a rel="nofollow" href="{{ person.party_ppc_page_url }}">{{ person.party_ppc_page_url }}</a>{% endif %}</dd>
   </dl>
 
-  <h2>Demographics:</h2>
+  <h2>{% trans "Demographics:" %}</h2>
 
   <dl>
-    <dt>Gender</dt>
-    <dd>{% if person.gender %}{{ person.gender|title }}{% else %}Unknown{% endif %}</dd>
-    <dt>Age</dt>
+    <dt>{% trans "Gender" %}</dt>
+    <dd>{% if person.gender %}{{ person.gender|title }}{% else %}{% trans "Unknown" %}{% endif %}</dd>
+    <dt>{% trans "Age" %}</dt>
     {% with dob=person.birth_date %}
       {% if dob %}
         {% if dob|length_is:"4" %}
-          <dd>{{ person.age }}<small class="dob">(Year of birth: {{ dob }})</small>
+          <dd>{{ person.age }}
+            <small class="dob">({% blocktrans %}Year of birth: {{ dob }}{% endblocktrans %})</small>
         {% else %}
-          <dd>{{ person.age }}<small class="dob">(Date of birth: {{ person.dob_as_date|date:"jS F Y" }})</small>
+          <dd>{{ person.age }}
+            <small class="dob">({% blocktrans with dob=person.dob_as_date|date:"jS F Y" %}Date of birth: {{ dob }}{% endblocktrans %})</small>
         {% endif %}
       {% else %}
-        <dd>Unknown
+        <dd>{% trans "Unknown" %}
       {% endif %}</dd>
     {% endwith %}
   </dl>
 
   {% if person.image %}
-  <h2>Photo Credit:</h2>
+  <h2>{% trans "Photo Credit:" %}</h2>
   <p class="person__photo-credit">
     {% include 'candidates/_photo-credit.html' with image=person.images.0 %}
   </p>
@@ -177,14 +192,16 @@
   {% endif %}
 
   <div class="person__actions__action person__actions__edit">
-    <h2>Improve this data!</h2>
+    <h2>{% trans "Improve this data!" %}</h2>
     {% if user_can_edit %}
-      <p>Our database is built by people like you.</p>
-      <p>Please do add extra details about this candidate – it only takes a moment.</p>
+      <p>{% trans "Our database is built by people like you." %}</p>
+      <p>{% trans "Please do add extra details about this candidate – it only takes a moment." %}</p>
       {% if user.is_authenticated %}
-        <a href="{% url 'person-update' person_id=person.id %}" class="button">Edit candidate</a>
+        <div>
+          <a href="{% url 'person-update' person_id=person.id %}" class="button">{% trans "Edit candidate" %}</a>
+        </div>
       {% else %}
-        <a href="{% url 'account_login' %}?next={{ redirect_after_login }}" class="button">Log in to edit</a>
+        <a href="{% url 'account_login' %}?next={{ redirect_after_login }}" class="button">{% trans "Log in to edit" %}</a>
       {% endif %}
     {% else %}
       {% include 'candidates/_edits_disallowed_message.html' %}
@@ -192,26 +209,32 @@
   </div>
 
   <div class="person__actions__action person__actions__data">
-    <h2>Use this data!</h2>
-    <p>Open data JSON API:</p>
+    <h2>{% trans "Use this data!" %}</h2>
+    <p>{% trans "Open data JSON API:" %}</p>
     <p><input type="text" value="{{ popit_api_url }}persons/{{ person.id }}" onclick="this.select();"></p>
     {% comment %}
-      <p>Want a CSV download? <a href="https://github.com/mysociety/yournextmp-popit/issues/96">Tell us!</a></p>
+      <p>Want a CSV download? <a href="https://github.com/mysociety/yournextrepresentative/issues/96">Tell us!</a></p>
     {% endcomment %}
-    <p>More details about getting <a href="{% url 'help-api' %}">the data</a>
-      and <a href="{% url 'help-about' %}">its license.</a></p>
+    {% url 'help-api' as api_url %}
+    {% url 'help-about' as about_url %}
+    <p>{% blocktrans trimmed %}
+      More details about getting <a href="{{ api_url }}">the data</a>
+      and <a href="{{ about_url }}">its license</a>.
+      {% endblocktrans %}</p>
   </div>
 
   {% if user.is_staff %}
     <div class="person__actions__action person__actions__edit">
-      <h2>Invalidate Cache</h2>
-      <p>As a staff user, you can invalidate any cached data for this
+      <h2>{% trans "Invalidate Cache" %}</h2>
+      <p>{% blocktrans trimmed %}
+        As a staff user, you can invalidate any cached data for this
         user. This may <em>occasionally</em> be necessary if the page is
-        showing stale information for more than 10 seconds.</p>
+        showing stale information for more than 10 seconds.
+        {% endblocktrans %}</p>
         <form method="post" action="{% url 'person-cache-invalidate' %}">
           {% csrf_token %}
           <input type="hidden" name="person_id", value="{{ person_id }}">
-          <input type="submit" class="button" value="Invalidate">
+          <input type="submit" class="button" value="{% trans "Invalidate Cache" %}">
         </form>
     </div>
   {% endif %}

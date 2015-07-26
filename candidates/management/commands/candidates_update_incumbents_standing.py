@@ -1,12 +1,9 @@
 from candidates.popit import PopItApiMixin, popit_unwrap_pagination
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from ...views import CandidacyMixin
-from ...models import (
-    PopItPerson,
-    election_date_2015, membership_covers_date
-)
+from ...models import PopItPerson, membership_covers_date
 
 from candidates.views.version_data import get_change_metadata
 
@@ -25,14 +22,18 @@ def get_parlparse_id(person_data):
         return None
 
 
-class Command(CandidacyMixin, PopItApiMixin, BaseCommand):
+class Command(PopItApiMixin, BaseCommand):
 
     def existing_candidate_same_party(self, cons_id, party_id):
         cons = self.api.posts(cons_id).get(embed='membership.person')['result']
         for cons_membership in cons['memberships']:
-            if cons_membership['role'] != 'Candidate':
+            candidate_role = settings.ELECTIONS['2015']
+            if cons_membership['role'] != candidate_role:
                 continue
-            if not membership_covers_date(cons_membership, election_date_2015):
+            if not membership_covers_date(
+                    cons_membership,
+                    settings.ELECTIONS['2015']['election_date'],
+            ):
                 continue
             person_party_membership = cons_membership['person_id']['party_memberships']
             party_id_2015 = person_party_membership.get('2015', {}).get('id')

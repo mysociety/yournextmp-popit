@@ -1,44 +1,23 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}Confirm that {{ person.name }} won in {{ constituency_name }}{% endblock %}
+{% block title %}{% blocktrans with name=person.name %}Confirm that {{ name }} won in {{ constituency_name }}{% endblocktrans %}{% endblock %}
 
 {% block hero %}
-  <h1>Confirm that {{ person.name }} won</h1>
+  <h1>{% blocktrans with name=person.name %}Confirm that {{ name }} won{% endblocktrans %}</h1>
 {% endblock %}
 
 {% block content %}
 
-<form method="post" action="{% url 'record-winner' mapit_area_id=mapit_area_id %}">
+<form method="post" action="{% url 'record-winner' election=election post_id=post_id %}">
 
 {% csrf_token %}
 
 {{ form.non_field_errors }}
 
 {{ form.person_id }}
-
-{% if parlparse_id %}
-  <p>
-    We've already identified {{ person.name }} with
-    <a href="http://www.theyworkforyou.com/mp/{{ parlparse_id }}">this
-    TheyWorkForYou profile</a>. However, if that's wrong, you can correct
-    it:
-  </p>
-{% else %}
-  <p>
-    It's possible that {{ person.name }} already has a profile on
-    <a href="http://www.theyworkforyou.com/">TheyWorkForYou</a> that we
-    haven't spotted. If you can find one, please enter
-    {{ person.possessive_pronounce }} ID on TheyWorkForYou here:
-  </p>
-{% endif %}
-
-<div>
-{{ form.parlparse_id.errors }}
-{{ form.parlparse_id.label_tag }}
-{{ form.parlparse_id }}
-</div>
 
 <div>
 {{ form.source.errors }}
@@ -49,10 +28,11 @@
 <input
     type="submit"
     class="button"
-    value="Yes, {{ person.name }} ({{ person.last_party.name }}) won in {{ constituency_name }}"/>
+    value="{% blocktrans trimmed with name=person.name party=person.last_party.name %}
+Yes, {{ name }} ({{ party }}) won in {{ constituency_name }}{% endblocktrans %}"/>
 
 <p>
-<a href="{% url 'constituency' mapit_area_id=mapit_area_id ignored_slug=constituency_name|slugify %}" class="button">Cancel</a>
+<a href="{% url 'constituency' election=election post_id=post_id ignored_slug=constituency_name|slugify %}" class="button">{% trans "Cancel" %}</a>
 </p>
 
 </form>

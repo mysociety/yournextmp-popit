@@ -34,7 +34,7 @@ def fake_requests_for_mapit(url):
         'status_code': status_code
     })
 
-@patch('candidates.mapit.requests')
+@patch('elections.uk_general_election_2015.mapit.requests')
 class TestConstituencyPostcodeFinderView(WebTest):
 
     def test_front_page(self, mock_requests):
@@ -53,7 +53,7 @@ class TestConstituencyPostcodeFinderView(WebTest):
         split_location = urlsplit(response.location)
         self.assertEqual(
             split_location.path,
-            '/constituency/65759/cities-of-london-and-westminster'
+            '/election/2015/post/65759/cities-of-london-and-westminster'
         )
 
     def test_unknown_postcode_returns_to_finder_with_error(self, mock_requests):
@@ -65,7 +65,7 @@ class TestConstituencyPostcodeFinderView(WebTest):
         form['postcode'] = 'CB2 8RQ'
         response = form.submit()
         self.assertEqual(response.status_code, 200)
-        self.assertIn('The postcode &quot;CB2 8RQ&quot; couldn&#39;t be found', response)
+        self.assertIn('The postcode “CB2 8RQ” couldn’t be found', response)
 
     def test_nonsense_postcode_returns_to_finder_with_error(self, mock_requests):
         mock_requests.get.side_effect = fake_requests_for_mapit
@@ -103,7 +103,7 @@ class TestConstituencyNameFinderView(WebTest):
         split_location = urlsplit(response.location)
         self.assertEqual(
             split_location.path,
-            '/constituency/66044/epping-forest'
+            '/election/2015/post/66044/epping-forest'
         )
 
     def test_post_no_constituency_selected(self):

@@ -10,6 +10,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.http import HttpResponseForbidden
 from django.shortcuts import render
 from django.utils.http import urlquote
+from django.utils.translation import ugettext as _
 
 from candidates.models.auth import (
     NameChangeDisallowedException,
@@ -38,14 +39,14 @@ class DisallowedUpdateMiddleware(object):
     def process_exception(self, request, exc):
         if isinstance(exc, NameChangeDisallowedException):
             # Then email the support address about the name change...
-            message = u'''As a precaution, an update was blocked:
+            message = _(u'''As a precaution, an update was blocked:
 
   {0}
 
 If this update is appropriate, someone should apply it manually.
-'''.format(unicode(exc))
+''').format(unicode(exc))
             send_mail(
-                'Disallowed YourNextMP update for checking',
+                _('Disallowed YourNextMP update for checking'),
                 message,
                 settings.DEFAULT_FROM_EMAIL,
                 [settings.SUPPORT_EMAIL],

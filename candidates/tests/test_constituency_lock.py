@@ -11,13 +11,14 @@ from candidates.tests.fake_popit import (
 class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
 
     def test_constituency_lock_unauthorized(self, mock_popit):
+        mock_popit.return_value.posts = FakePostCollection
         self.app.get(
-            '/constituency/65808/dulwich-and-west-norwood',
+            '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user,
         )
         csrftoken = self.app.cookies['csrftoken']
         response = self.app.post(
-            '/constituency/lock',
+            '/election/2015/post/lock',
             {
                 'lock': 'True',
                 'post_id': '65808',
@@ -32,12 +33,12 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
     def test_constituency_lock(self, mocked_put, mock_popit):
         mock_popit.return_value.posts = FakePostCollection
         self.app.get(
-            '/constituency/65808/dulwich-and-west-norwood',
+            '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user_who_can_lock,
         )
         csrftoken = self.app.cookies['csrftoken']
         response = self.app.post(
-            '/constituency/lock',
+            '/election/2015/post/lock',
             {
                 'lock': 'True',
                 'post_id': '65808',
@@ -72,19 +73,19 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(
             response.location,
-            "http://localhost:80/constituency/65808/dulwich-and-west-norwood"
+            "http://localhost:80/election/2015/post/65808/dulwich-and-west-norwood"
         )
 
     @patch.object(FakePostCollection, 'put')
     def test_constituency_unlock(self, mocked_put, mock_popit):
         mock_popit.return_value.posts = FakePostCollection
         self.app.get(
-            '/constituency/65808/dulwich-and-west-norwood',
+            '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user_who_can_lock,
         )
         csrftoken = self.app.cookies['csrftoken']
         response = self.app.post(
-            '/constituency/lock',
+            '/election/2015/post/lock',
             {
                 'lock': 'False',
                 'post_id': '65808',
@@ -119,13 +120,13 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(
             response.location,
-            "http://localhost:80/constituency/65808/dulwich-and-west-norwood"
+            "http://localhost:80/election/2015/post/65808/dulwich-and-west-norwood"
         )
 
     def test_constituencies_unlocked_list(self, mock_popit):
         mock_popit.return_value.posts = FakePostCollection
         response = self.app.get(
-            '/constituencies/unlocked',
+            '/election/2015/constituencies/unlocked',
         )
         self.assertEqual(response.status_code, 200)
         self.assertIn('Dulwich', unicode(response))
@@ -143,18 +144,19 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         # Just get that page for the csrftoken cookie; the form won't
         # appear on the page, since the constituency is locked:
         response = self.app.get(
-            '/constituency/65913/camberwell-and-peckham',
+            '/election/2015/post/65913/camberwell-and-peckham',
             user=self.user
         )
         csrftoken = self.app.cookies['csrftoken']
         mocked_post.return_value = {'result': {'id': '1234'}}
         response = self.app.post(
-            '/person/create/',
+            '/election/2015/person/create/',
             {
                 'csrfmiddlewaretoken': csrftoken,
                 'name': 'Imaginary Candidate',
-                'party_gb': 'party:63',
-                'constituency': '65913',
+                'party_gb_2015': 'party:63',
+                'constituency_2015': '65913',
+                'standing_2015': 'standing',
                 'source': 'Testing adding a new candidate to a locked constituency',
             },
             expect_errors=True,
@@ -170,12 +172,12 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         mock_popit.return_value.posts = FakePostCollection
         mocked_post.return_value = {'result': {'id': '1234'}}
         response = self.app.get(
-            '/constituency/65913/camberwell-and-peckham',
+            '/election/2015/post/65913/camberwell-and-peckham',
             user=self.user_who_can_lock
         )
         form = response.forms['new-candidate-form']
         form['name'] = "Imaginary Candidate"
-        form['party_gb'] = 'party:63'
+        form['party_gb_2015'] = 'party:63'
         form['source'] = 'Testing adding a new candidate to a locked constituency'
         submission_response = form.submit()
         self.assertEqual(mocked_post.call_count, 1)
@@ -197,7 +199,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         )
         form = response.forms['person-details']
         form['source'] = 'Testing a switch to a locked constituency'
-        form['constituency'] = '65913'
+        form['constituency_2015'] = '65913'
         submission_response = form.submit(expect_errors=True)
         self.assertFalse(mocked_put.called)
         self.assertEqual(submission_response.status_code, 403)
@@ -214,7 +216,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         )
         form = response.forms['person-details']
         form['source'] = 'Testing a switch to a locked constituency'
-        form['constituency'] = '65913'
+        form['constituency_2015'] = '65913'
         submission_response = form.submit()
         self.assertEqual(mocked_put.call_count, 2)
         self.assertEqual(submission_response.status_code, 302)
@@ -235,7 +237,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         )
         form = response.forms['person-details']
         form['source'] = 'Testing a switch to a unlocked constituency'
-        form['constituency'] = '65808'
+        form['constituency_2015'] = '65808'
         submission_response = form.submit(expect_errors=True)
         self.assertFalse(mocked_put.called)
         self.assertEqual(submission_response.status_code, 403)
@@ -252,7 +254,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         )
         form = response.forms['person-details']
         form['source'] = 'Testing a switch to a unlocked constituency'
-        form['constituency'] = '65808'
+        form['constituency_2015'] = '65808'
         submission_response = form.submit()
         self.assertEqual(mocked_put.call_count, 2)
         self.assertEqual(submission_response.status_code, 302)
@@ -276,7 +278,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         )
         form = response.forms['person-details']
         form['source'] = 'Testing a party change in a locked constituency'
-        form['party_gb'] = 'party:66'
+        form['party_gb_2015'] = 'party:66'
         submission_response = form.submit(expect_errors=True)
         self.assertFalse(mocked_put.called)
         self.assertEqual(submission_response.status_code, 403)
@@ -293,7 +295,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         )
         form = response.forms['person-details']
         form['source'] = 'Testing a party change in a locked constituency'
-        form['party_gb'] = 'party:66'
+        form['party_gb_2015'] = 'party:66'
         submission_response = form.submit()
         self.assertEqual(mocked_put.call_count, 2)
         self.assertEqual(submission_response.status_code, 302)
@@ -314,7 +316,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         )
         form = response.forms['person-details']
         form['source'] = 'Testing a party change in an unlocked constituency'
-        form['party_gb'] = 'party:66'
+        form['party_gb_2015'] = 'party:66'
         submission_response = form.submit()
         self.assertEqual(mocked_put.call_count, 2)
         self.assertEqual(submission_response.status_code, 302)

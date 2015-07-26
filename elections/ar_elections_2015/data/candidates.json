@@ -1,0 +1,3382 @@
+[
+{
+  "fields": {
+    "family_name": "",
+    "name": "Adolfo Aguirre",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-01T03:06:04.172Z",
+    "death_date": "",
+    "updated_at": "2015-07-08T02:11:03.970Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "adolfo-aguirre"
+},
+{
+  "fields": {
+    "family_name": "Rodr\u00edguez S\u00e1a",
+    "name": "Adolfo Rodr\u00edguez S\u00e1a",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-06-30T23:35:33.030Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:20:19.521Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Senador de la Naci\u00f3n por San Luis",
+    "given_name": "Adolfo",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/saa.png",
+    "birth_date": "25/07/1947",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en la ciudad de San Luis. En 1971 obtuvo el t\u00edtulo de abogado en la Facultad de Derecho y Ciencias Sociales de la Universidad Nacional de Buenos Aires. En 1973 es electo Diputado Provincial y Presidente del Bloque Justicialista. Cre\u00f3 en 1999 la Fundaci\u00f3n de Investigaci\u00f3n Social Argentino Latinoamericana (FISAL). Desde el retorno de la democracia fue Gobernador de la Provincia de San Luis por cinco per\u00edodos consecutivos (1983-2001), Presidente de la Naci\u00f3n Argentina (2001), Diputado Nacional (2003-2005). Es adem\u00e1s Presidente del Grupo de Parlamentarios Argentinos de Amistad con la Rep\u00fablica Oriental del Uruguay (desde 2006), con Turqu\u00eda (desde 2008), del Mercosur (desde 2006) y Miembro de la Delegaci\u00f3n Externa del Parlamento del Mercosur ante el EUROLAT (desde 2008). Desde 2005 es Senador Nacional, cargo que desempe\u00f1a actualmente. "
+  },
+  "model": "popolo.person",
+  "pk": "adolfo-rodriguez-saa"
+},
+{
+  "fields": {
+    "family_name": "Fuertes",
+    "name": "Adri\u00e1n Fuertes",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-12T21:00:20.995Z",
+    "death_date": "",
+    "updated_at": "2015-07-12T21:37:43.280Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Adri\u00e1n",
+    "image": "http://adrianfuertes.com.ar/wp-content/uploads/2014/05/10364562_462528727226036_2046530942_n.jpg",
+    "birth_date": "29/09/1970",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en Villaguay el 29 de septiembre de 1970. Curs\u00f3 Abogac\u00eda en la Universidad Nacional del Litoral. Est\u00e1 casado con la diputada provincial Mar\u00eda Claudia Monjo con quien tiene cuatro hijos: Valentina, Malena, Ignacio y Candela. \r\nEs productor agropecuario y empresario en el sector inmobiliario. \r\nFue concejal de Villaguay (1999-2003), diputado provincial (2003-2007) y en 2007 result\u00f3 electo Intendente de Villaguay, siendo reelegido en 2011. \r\n"
+  },
+  "model": "popolo.person",
+  "pk": "adrian-fuertes-29091970"
+},
+{
+  "fields": {
+    "family_name": "Alberto",
+    "name": "Alberto Ag\u00fcero",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:46:33.806Z",
+    "death_date": "",
+    "updated_at": "2015-07-09T02:46:33.882Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Ag\u00fcero",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "alberto-aguero"
+},
+{
+  "fields": {
+    "family_name": "Bodart",
+    "name": "Alejandro Bodart",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-11T20:35:01.303Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:22:09.918Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Legislador de la Ciudad Aut\u00f3noma de Buenos Aires",
+    "given_name": "Alejandro",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/bodart.png",
+    "birth_date": "02/12/1963",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en C\u00f3rdoba, donde inici\u00f3 su militancia socialista en los a\u00f1os 80. Vive en la Ciudad de Buenos Aires desde hace veinte a\u00f1os. Tiene 2 hijos. Es secretario general del MST y congresal nacional de la CTA (l\u00ednea Michelli). Es parte de la redacci\u00f3n del peri\u00f3dico Alternativa Socialista.\r\nEl primer proyecto que present\u00f3 es una ley de \u00e9tica p\u00fablica para que todos los funcionarios pol\u00edticos est\u00e9n obligados a educar a sus hijos en escuelas p\u00fablicas y a atenderse en hospitales p\u00fablicos, sin privilegios. Es un activo promotor de la defensa de los derechos de los trabajadores y actualmente se desempe\u00f1a como Legislador porte\u00f1o en la Ciudad Aut\u00f3noma de Buenos Aires."
+  },
+  "model": "popolo.person",
+  "pk": "alejandro-bodart-2121963"
+},
+{
+  "fields": {
+    "family_name": "Alfredo",
+    "name": "Alfredo Avel\u00edn Nollens",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:45:47.040Z",
+    "death_date": "",
+    "updated_at": "2015-07-13T23:01:22.847Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Avel\u00edn Nollens",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "alfredo-avelin-nollens"
+},
+{
+  "fields": {
+    "family_name": "De \u00c1ngeli",
+    "name": "Alfredo De \u00c1ngeli",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:01:25.703Z",
+    "death_date": "",
+    "updated_at": "2015-07-12T21:38:04.244Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "alfredo.deangeli@senado.gov.ar",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Alfredo",
+    "image": "http://cdn01.ib.infobae.com/adjuntos/162/imagenes/010/138/0010138870.jpg",
+    "birth_date": "16/02/1957",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Productor agropecuario, naci\u00f3 el 16 de febrero de 1957 en Mar\u00eda Grande, Entre R\u00edos. Padre de Luigi, Marcos y Delfina. Sexto de 10 hermanos. Fan\u00e1tico del folklore y la historia argentina. UNo de los l\u00edderes de las protestas del campo en 2008. Miembro de Federaci\u00f3n Agraria Argentina. Senador Nacional electo en 2013. "
+  },
+  "model": "popolo.person",
+  "pk": "alfredo-de-angeli"
+},
+{
+  "fields": {
+    "family_name": "Fern\u00e1ndez",
+    "name": "An\u00edbal Fern\u00e1ndez",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:04:34.647Z",
+    "death_date": "",
+    "updated_at": "2015-07-11T20:36:44.148Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Jefe de Gabinete de Ministros de la Naci\u00f3n",
+    "given_name": "An\u00edbal",
+    "image": "http://www.nacionalrock.com/wp-content/uploads/2015/03/99aa73052d706a02f9d9b70b55012b78.jpg",
+    "birth_date": "09/01/1957",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "anibal-fernandez"
+},
+{
+  "fields": {
+    "family_name": "Benjam\u00edn",
+    "name": "Benjam\u00edn Kuchen",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:46:11.004Z",
+    "death_date": "",
+    "updated_at": "2015-07-11T15:06:13.348Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Kuchen",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "benjamin-kuchen"
+},
+{
+  "fields": {
+    "family_name": "",
+    "name": "Christian Castillo",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-01T03:06:27.812Z",
+    "death_date": "",
+    "updated_at": "2015-07-08T02:58:29.965Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "christian-castillo"
+},
+{
+  "fields": {
+    "family_name": "",
+    "name": "Daniel Blanco",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-01T03:07:46.700Z",
+    "death_date": "",
+    "updated_at": "2015-07-01T03:07:46.765Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "daniel-blanco"
+},
+{
+  "fields": {
+    "family_name": "Scioli",
+    "name": "Daniel Scioli",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "Osvaldo",
+    "gender": "Masculino",
+    "created_at": "2015-06-30T22:59:16.728Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:24:41.296Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Gobernador de Buenos Aires",
+    "given_name": "Daniel",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/scioli.png",
+    "birth_date": "13/01/1957",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en Buenos Aires el 13 de enero de 1957. Estudi\u00f3 Marketing en la U.A.D.E., de Buenos Aires. En 1991 se cas\u00f3 con Karina Rabolini. Fue deportista profesional. En su paso por la Moton\u00e1utica, sufri\u00f3 un accidente por el que le amputaron un brazo. Fue diputado nacional, y Secretario de deportes y turismo de la Naci\u00f3n durante el gobierno de Carlos Menem. Fue electo Vicepresidente de la Naci\u00f3n en 2003 en la f\u00f3rmula que encbezaba N\u00e9stor Kirchner. Es el actual Gobernador de la Provincia de Buenos Aires, cargo para el que fue reelecto en 2011. Su primer mandato como Gobernador se inici\u00f3 en 2007. "
+  },
+  "model": "popolo.person",
+  "pk": "daniel-scioli-2"
+},
+{
+  "fields": {
+    "family_name": "",
+    "name": "Eduardo D'onofrio",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-01T03:06:17.537Z",
+    "death_date": "",
+    "updated_at": "2015-07-01T03:06:17.626Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "eduardo-donofrio"
+},
+{
+  "fields": {
+    "family_name": "Carri\u00f3",
+    "name": "Elisa Carri\u00f3",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Femenino",
+    "created_at": "2015-06-30T23:36:37.425Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:25:17.975Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Diputada de la Naci\u00f3n por la Ciudad Aut\u00f3noma de Buenos Aires",
+    "given_name": "Elisa",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/elisa-carrio.png",
+    "birth_date": "16/12/1956",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en Resistencia, Chaco. Se recibi\u00f3 de Abogada en la Universidad Nacional del Nordeste en el a\u00f1o 1978 e hizo estudios de Doctorado en Derecho P\u00fablico en la Universidad Nacional del Litoral. Tuvo a su cargo varias c\u00e1tedras en Universidad Nacional del Nordeste (UNNE). Se alej\u00f3 del Radicalismo en 2001, en ocasi\u00f3n de tratarse en el Congreso Nacional la entrega de Poderes especiales para el Poder Ejecutivo, que Carri\u00f3 rechaz\u00f3. En el 2004 fund\u00f3 el Instituto de formaci\u00f3n cultural y pol\u00edtica Hannah Arendt del que es su Coordinadora General. Fue Convencional Constituyente y Diputada Nacional por la provincia del Chaco entre 1995 y 2003. En el 2005 fue electa Diputada Nacional por la Ciudad de Buenos Aires por el ARI. Desde diciembre del 2009 es diputada nacional de la Coalici\u00f3n C\u00edvica por la Ciudad de Buenos Aires. "
+  },
+  "model": "popolo.person",
+  "pk": "elisa-carrio"
+},
+{
+  "fields": {
+    "family_name": "Sanz",
+    "name": "Ernesto Sanz",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-06-30T23:07:53.193Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:26:18.278Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Senador de la Naci\u00f3n por Mendoza",
+    "given_name": "Ernesto",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/sanz.png",
+    "birth_date": "09/12/1956",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en San Rafael, Mendoza. Est\u00e1 casado con Cristina Bessone y tiene dos hijos. Su actividad pol\u00edtica comenz\u00f3 en 1982 con el advenimiento de la democracia, cuando fue electo presidente de la Juventud Radical en San Rafael. Desde entonces ocup\u00f3 diversos cargos partidarios. En 2009 fue elegido Presidente del Comit\u00e9 Nacional de la UCR. Fue miembro del Consejo de la Magistratura como representante del Senado. Actualmente se desempe\u00f1a como Senador Nacional y preside el Comit\u00e9 Nacional de la Uni\u00f3n C\u00edvica Radical."
+  },
+  "model": "popolo.person",
+  "pk": "ernesto-sanz"
+},
+{
+  "fields": {
+    "family_name": "Sol\u00e1",
+    "name": "Felipe Sol\u00e1",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-01T03:05:42.968Z",
+    "death_date": "",
+    "updated_at": "2015-07-01T03:05:43.041Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "felipe-sola"
+},
+{
+  "fields": {
+    "family_name": "Geist",
+    "name": "Gabriel Geist",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:02:05.020Z",
+    "death_date": "",
+    "updated_at": "2015-07-12T21:38:24.799Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "gabrielgeist@yahoo.com",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Gabriel",
+    "image": "http://www.entrerios.gov.ar/elecciones2013/imagenes/fotos/geist_portada.png",
+    "birth_date": "01/08/70 ",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Es profesor de Historia en la escuela secundaria, preceptor y trabaja en la biblioteca popular de Crespo. Se desempe\u00f1\u00f3 en cargo gremiales en el sindicato docente de Agmer, actualmente es congresal.\r\n"
+  },
+  "model": "popolo.person",
+  "pk": "gabriel-geist"
+},
+{
+  "fields": {
+    "family_name": "Parajon",
+    "name": "Gumersindo Paraj\u00f3n",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:07:22.759Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T15:26:42.982Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Gumersindo",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en Villa Alem, donde sigue viviendo desde hace 73 a\u00f1os. Milit\u00f3 desde joven y se desempe\u00f1\u00f3 como empleado judicial, actividad con la que se jubil\u00f3. Tambi\u00e9n fue delegado por el gremio de los judiciales a la CGT de los Argentinos. En su juventud jug\u00f3 al f\u00fatbol en Tucum\u00e1n Central. Se ufana de no saber manejar ni tener auto. Ocup\u00f3 diversos roles partidarios dentro de las filas de l Uni\u00f3n C\u00edvica Radical. \r\n"
+  },
+  "model": "popolo.person",
+  "pk": "gumersindo"
+},
+{
+  "fields": {
+    "family_name": "Bordet",
+    "name": "Gustavo Bordet",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:01:08.000Z",
+    "death_date": "",
+    "updated_at": "2015-07-15T21:29:47.799Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "gustavobordet@hotmail.com",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Gustavo",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/bordet.jpg",
+    "birth_date": "22/02/1963",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Es oriundo de la ciudad de Concordia, tiene 52 a\u00f1os. Fue contador del Instituto de Ayuda Financiera a la Acci\u00f3n Social (Iafas), ex concejal de su ciudad y fue Coordinador de Administraci\u00f3n de la sub sede de la Universidad Aut\u00f3noma de Entre R\u00edos (Uader) en Concordia. En 2005 asumi\u00f3 como ministro de Salud y Acci\u00f3n Social de Entre R\u00edos. En 2007 fue electo Intendente de Concordia y fue reelecto en 2011. Preside el Consejo Departamental del Partido Justicialista de Concordia y la Liga de Intendentes del PJ Entre R\u00edos. "
+  },
+  "model": "popolo.person",
+  "pk": "gustavo-bordet"
+},
+{
+  "fields": {
+    "family_name": "Linares",
+    "name": "Jaime Linares",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:05:05.586Z",
+    "death_date": "",
+    "updated_at": "2015-07-11T20:40:27.570Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Senador de la Naci\u00f3n por la provincia de Buenos Aires",
+    "given_name": "Jaime",
+    "image": "http://www.lasfloresdigital.com.ar/sitio/wp-content/uploads/2015/04/jaime.jpg",
+    "birth_date": "03/03/1951",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "jaime-linares"
+},
+{
+  "fields": {
+    "family_name": "Altamira",
+    "name": "Jorge Altamira",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-06-30T23:43:21.470Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:27:05.384Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: no ocupa cargos p\u00f9blicos",
+    "given_name": "Jorge",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/altamira.png",
+    "birth_date": "14/04/1942",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Su verdadero nombre es Jos\u00e9 Sa\u00fal Wermus, pero se lo conoce como Jorge Altamira. Naci\u00f3 en Buenos Aires en 1942. Particip\u00f3 en huelgas obreras desde muy joven. Estudi\u00f3 Econom\u00eda pol\u00edtica. En 1964 fund\u00f3 la revista Pol\u00edtica Obrera, que m\u00e1s tarde dar\u00eda nombre al Partido Obrero del que fue fundador. \r\nFue Legislador de la Ciudad de Buenos Aires (2000-2004). Es pol\u00edglota: habla franc\u00e9s, ingl\u00e9s, italiano y portugu\u00e9s, adem\u00e1s de castellano. Domina tambi\u00e9n el \u00eddish y el hebreo. Es hermano del periodista y analista econ\u00f3mico Natalio Wermus (m\u00e1s conocido como Ismael Berm\u00fadez) y del influyente asesor pol\u00edtico Felipe Wermus (que utiliza el seud\u00f3nimo Luis Favre). Ha sido varias veces candidato a Presidente de la Naci\u00f3n y a diputado nacional. "
+  },
+  "model": "popolo.person",
+  "pk": "jorge-altamira"
+},
+{
+  "fields": {
+    "family_name": "",
+    "name": "Jorge Ceballos",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:05:54.344Z",
+    "death_date": "",
+    "updated_at": "2015-07-13T22:53:58.265Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "",
+    "image": "http://periodicocompromiso.com.ar/web/images/stories/066_ceballos.jpg",
+    "birth_date": "22/08/1960",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "jorge-ceballos"
+},
+{
+  "fields": {
+    "family_name": "Cano",
+    "name": "Jos\u00e9 Cano",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "Manuel",
+    "gender": "Masculino",
+    "created_at": "2015-07-15T23:05:39.785Z",
+    "death_date": "",
+    "updated_at": "2015-07-15T23:05:39.865Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Diputado Nacional por Tucum\u00e1n",
+    "given_name": "Jos\u00e9",
+    "image": "",
+    "birth_date": "15/07/1965",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en San Miguel de Tucum\u00e1n. Desarroll\u00f3 su militancia desde joven. Presidi\u00f3 el Centro de Estudiantes de la Facultad de Odontolog\u00eda de la Universidad Nacional de Tucum\u00e1n, Consejero Directivo y luego Consejero Superior. Se gradu\u00f3 como Odont\u00f3logo, trabaj\u00f3 en su consultorio y ocup\u00f3 diversos cargos en el \u00e1mbito Universitario donde fue Secretario de Extensi\u00f3n y Secretario Administrativo de la Facultad de Odontolog\u00eda y m\u00e1s tarde Secretario de Asuntos Estudiantiles y Secretario de Extensi\u00f3n de la Universidad Nacional de Tucum\u00e1n. En 2003 fue electo legislador provincial. Tambi\u00e9n ocup\u00f3 cargos partidarios de relevancia en la UCR, donde alcanz\u00f3 en 2007 la Vicepresidencia del Comit\u00e9 Nacional. El 10 de diciembre del 2009 asumi\u00f3 como Senador de la Naci\u00f3n, presidiendo el bloque de Senadores de la UCR desde 2012. En diciembre de 2013 renunci\u00f3 a su banca en el Senado para asumir como Diputado, cargo que actualmente ocupa."
+  },
+  "model": "popolo.person",
+  "pk": "jose-cano-15071965"
+},
+{
+  "fields": {
+    "family_name": "de la Sota",
+    "name": "Jos\u00e9 Manuel de la Sota",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-06-30T23:09:00.720Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:27:50.665Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Gobernador de la provincia de C\u00f3rdoba",
+    "given_name": "Jos\u00e9 Manuel",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/de-la-sota.png",
+    "birth_date": "28/11/1949",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en R\u00edo Cuarto, C\u00f3rdoba. Es abogado. Curs\u00f3 sus estudios superiores en la Facultad de Derecho y Ciencias Sociales de la Universidad Nacional de C\u00f3rdoba. All\u00ed se desempe\u00f1\u00f3 como docente. Tiene dos hijas y actualmente est\u00e1 en pareja con su ex ministra de la Producci\u00f3n, Adriana Nazari. Fue uno de los promotores del movimiento conocido como \"Renovaci\u00f3n peronista\" en la d\u00e9cada de 1980. Fue Diputado Nacional por C\u00f3rdoba, Embajador en Brasil, Senador Nacional y tres veces Gobernador de C\u00f3rdoba, cargo que desempe\u00f1a actualmente."
+  },
+  "model": "popolo.person",
+  "pk": "jose-manuel-de-la-sota"
+},
+{
+  "fields": {
+    "family_name": "Manzur",
+    "name": "Juan Manzur",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "Luis",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:06:53.490Z",
+    "death_date": "",
+    "updated_at": "2015-07-15T22:28:45.417Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: ",
+    "given_name": "Juan",
+    "image": "",
+    "birth_date": "08/01/1969",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en San Miguel de Tucum\u00e1n. Es de origen liban\u00e9s, y se recibi\u00f3 de m\u00e9dico cirujano, sanitarista y m\u00e9dico-legista. Curs\u00f3 la carrera de Medicina en la Universidad Nacional de Tucum\u00e1n. Entre otros t\u00edtulos profesionales tambi\u00e9n tiene un m\u00e1ster en Administraci\u00f3n de Servicios y Sistemas de Salud realizado en la Escuela de Salud P\u00fablica de la UBA. Se desempe\u00f1\u00f3 como ministro de Salud en el Partido de La Matanza (Buenos Aires), y luego como viceministro de salud en la provincia de San Luis. En el a\u00f1o 2003 asumi\u00f3 como ministro de salud de la provincia de Tucum\u00e1n, integrando el gabinete del Gobernador Jos\u00e9 Alperovich. En el a\u00f1o 2007 fue electo vicegobernador de Tucum\u00e1n, compartiendo la f\u00f3rmula electoral con el Gobernador Jos\u00e9 Alperovich. En 2009 asumi\u00f3 el cargo de Ministro de Salud de la Naci\u00f3n, integrando el gabinete de la Presidenta Cristina Fern\u00e1ndez de Kirchner. "
+  },
+  "model": "popolo.person",
+  "pk": "juan-manzur"
+},
+{
+  "fields": {
+    "family_name": "Dominguez",
+    "name": "Juli\u00e1n Dom\u00ednguez",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Mas",
+    "created_at": "2015-07-01T03:04:03.195Z",
+    "death_date": "",
+    "updated_at": "2015-07-11T20:37:53.948Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Diputado de la Naci\u00f3n por la provincia de Buenos Aires",
+    "given_name": "Juli\u00e1n",
+    "image": "http://www.telam.com.ar/advf/imagenes/2013/11/5274312b196f0_800x593.jpg",
+    "birth_date": "24/11/1963",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "julian-dominguez"
+},
+{
+  "fields": {
+    "family_name": "Viale",
+    "name": "Lisandro Viale",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:03:44.610Z",
+    "death_date": "",
+    "updated_at": "2015-07-12T21:38:45.773Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "diplisandroviale@hcder.gov.ar",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Lisandro",
+    "image": "http://www.hcder.gov.ar/admin/diputados/diputados_imagen/62_Diputados%20Viale.jpg",
+    "birth_date": "16/01/1966",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 el 16 de enero de 1966 en Rosario. Sonia Solari es su esposa y tiene dos hijos: Malena (1998) y Mart\u00edn (2001). Es Ingeniero Agr\u00f3nomo recibido en la Facultad de Ciencias Agrarias de Rosario. Es Productor agropecuario. Diputado Nacional (MC 2007-2011). Actual Diputado Provincial de Entre R\u00edos. Miembro de la Mesa Directiva Nacional del Partido Socialista.\r\n"
+  },
+  "model": "popolo.person",
+  "pk": "lisandro-viale"
+},
+{
+  "fields": {
+    "family_name": "",
+    "name": "Manuel Jos\u00e9 Cano",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-01T03:06:42.817Z",
+    "death_date": "",
+    "updated_at": "2015-07-01T03:06:42.888Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "manuel-jose-cano"
+},
+{
+  "fields": {
+    "family_name": "Stolbizer",
+    "name": "Margarita Stolbizer",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Femenino",
+    "created_at": "2015-05-29T20:17:08.303Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:36:36.745Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Diputada de la Naci\u00f3n por la provincia de Buenos Aires",
+    "given_name": "Margarita",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/stolbizer.png",
+    "birth_date": "17/03/1955",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en Mor\u00f3n, Buenos Aires. Estudi\u00f3 Derecho en la Universidad de Mor\u00f3n. Ha sido diputada nacional por la Uni\u00f3n C\u00edvica Radical, partido que abandon\u00f3 en 2007. Desde ese a\u00f1o es la m\u00e1xima referente y l\u00edder del Partido GEN.  Fue Presidenta del Consejo Internacional de Parlamentarian for Global Action y del Grupo de Mujeres del Foro Interparlamentario de las Am\u00e9ricas. Tambi\u00e9n particip\u00f3 activamente en la Comisi\u00f3n de Derechos Humanos del Parlamento Latinoamericano y del Foro de Parlamentarios contra la Corrupci\u00f3n. En 2013 fue electa Dipuitada Nacional, cargo que ocupa actualmente."
+  },
+  "model": "popolo.person",
+  "pk": "margarita-stolbizer"
+},
+{
+  "fields": {
+    "family_name": "Vidal",
+    "name": "Mar\u00eda Eugenia Vidal",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Femenino",
+    "created_at": "2015-07-01T03:04:49.046Z",
+    "death_date": "",
+    "updated_at": "2015-07-11T20:39:01.306Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Vicejefa de la Ciudad Aut\u00f3noma de Buenos Aires",
+    "given_name": "Mar\u00eda Eugenia",
+    "image": "http://www.baraderoteinforma.com.ar/wp-content/uploads/2014/05/Vidalweb.jpg",
+    "birth_date": "8/9/1973",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "maria-eugenia-vidal"
+},
+{
+  "fields": {
+    "family_name": "Casta\u00f1eira",
+    "name": "Manuela Casta\u00f1eira",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Femenino",
+    "created_at": "2015-07-11T20:45:19.245Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:29:01.047Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: no ocupa cargos p\u00fablicos",
+    "given_name": "Manuela",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/manuela-castaneira.png",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en Paran\u00e1, Entre R\u00edos y vive en la Ciudad Aut\u00f3noma de Buenos Aires desde hace 10 a\u00f1os. Es Licenciada en Sociolog\u00eda, egresada de la Facultad de Ciencias Sociales de la UBA. Es militante de la Agrupaci\u00f3n de mujeres Las Rojas y del Nuevo MAS (Movimiento al Socialismo).\r\nSe define a s\u00ed misma como \u201cActivista por los derechos de las mujeres y de los trabajadores\u201d y es una impulsora de la lucha por el aborto legal en la Argentina. Junto a Las Rojas organiz\u00f3 la movilizaci\u00f3n del 1\u00b0 de Noviembre de 2012, una de las marchas m\u00e1s importantes por el derecho al aborto legal, seguro y gratuito. Tiene 30 a\u00f1os. Es la candidata presidencial m\u00e1s joven de la historia argentina. "
+  },
+  "model": "popolo.person",
+  "pk": "mariana-castaneda"
+},
+{
+  "fields": {
+    "family_name": "Koltan",
+    "name": "Mario Koltan",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-01T03:07:05.813Z",
+    "death_date": "",
+    "updated_at": "2015-07-15T23:08:20.380Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: no ocupa cargos p\u00fablicos",
+    "given_name": "Mario",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en San Miguel de Tucum\u00e1n. Tiene 50 a\u00f1os de edad, 5 hijos y 3 nietos. Se gradu\u00f3 como Contador P\u00fablico Nacional de la Universidad Nacional de Tucum\u00e1n. Ocup\u00f3 diversos cargos relacionados con el \u00e1rea de salud, entre ellos fue Interventor del Subsidio de Salud entre 2003 y 2008. Tambi\u00e9n se desempe\u00f1\u00f3 como Interventor de la Caja Popular de Ahorros de Tucum\u00e1n (2008/9) y particip\u00f3 de cargos dependientes del Gobierno Nacional durante el mandato de Cristina Fern\u00e1ndez de Kirchner, donde fue designado en la Administraci\u00f3n de Programas Especiales de la Seguridad Social y como Funcionario del Ministerio de Salud en el cargo de Subsecretario de Gesti\u00f3n Asistencial. Actualmente desarrolla actividades empresariales relacionadas al sector de la salud y forma parte del Frente que lidera Sergio Massa."
+  },
+  "model": "popolo.person",
+  "pk": "mario-koltan"
+},
+{
+  "fields": {
+    "family_name": "Mart\u00edn",
+    "name": "Mart\u00edn Tucurm\u00e1n",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:44:06.684Z",
+    "death_date": "",
+    "updated_at": "2015-07-10T21:54:24.541Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Tucurm\u00e1n",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "martin-tucurman"
+},
+{
+  "fields": {
+    "family_name": "Mary",
+    "name": "Mary Garrido",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:45:21.034Z",
+    "death_date": "",
+    "updated_at": "2015-07-09T02:45:21.109Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Garrido",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "mary-garrido"
+},
+{
+  "fields": {
+    "family_name": "Macri",
+    "name": "Mauricio Macri",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-05-29T20:15:17.646Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:31:30.665Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Jefe de Gobierno de la Ciudad Aut\u00f3noma de Buenos Aires",
+    "given_name": "Mauricio",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/mauricio-macri.png",
+    "birth_date": "08/02/1959",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en Tandil el 8 de febrero de 1959. Es ingeniero civil, padre de cuatro hijos y est\u00e1 casado desde 2010 con la empresaria Juliana Awada.  Trabaj\u00f3 en varias empresas del pa\u00eds como Citibank y el propio Grupo Macri. Fue presidente del Club Atl\u00e9tico Boca Juniors entre 1995 y 2008. Fue elegido como Diputado Nacional por Capital Federal en 2005 y en 2007 fue electo Jefe de Gobierno Porte\u00f1o. Fue reelegido en el cargo en 2011."
+  },
+  "model": "popolo.person",
+  "pk": "mauricio-macri"
+},
+{
+  "fields": {
+    "family_name": "Pitrola",
+    "name": "N\u00e9stor Pitrola",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-01T03:05:26.494Z",
+    "death_date": "",
+    "updated_at": "2015-07-08T03:01:53.772Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "N\u00e9stor",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "nestor-pitrola"
+},
+{
+  "fields": {
+    "family_name": "Del Ca\u00f1o",
+    "name": "Nicolas Del Ca\u00f1o",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-06-30T23:06:16.668Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:32:55.441Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Diputado de la Naci\u00f3n por la provincia de Mendoza",
+    "given_name": "Nicol\u00e1s",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/nicolas-del-cano.png",
+    "birth_date": "06/02/1980",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Nacido en C\u00f3rdoba. En la Universidad Nacional de C\u00f3rdoba integr\u00f3 el centro de estudiantes de la Facultad de Filosof\u00eda y Humanidades. En 2006 se traslad\u00f3 a Mendoza para construir el Partido de los Trabajadores Socialistas (PTS) en esa provincia. Ingres\u00f3 a la Universidad Nacional de Cuyo, donde estudi\u00f3 Sociolog\u00eda.\r\nEn las elecciones nacionales de 2013, fue elegido Diputado nacional. Propuso que el salario de los diputados se igualara al de los docentes, donando la mayor parte de su dieta de legislador y destin\u00e1ndola mayormente a fondos de huelga. En 2015 compiti\u00f3 por la intendencia de Mendoza, obteniendo el segundo lugar. Actualmente es Diputado Nacional por Mendoza."
+  },
+  "model": "popolo.person",
+  "pk": "nicolas-del-cano"
+},
+{
+  "fields": {
+    "family_name": "Bussi",
+    "name": "Ricardo Bussi",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "Argentino",
+    "gender": "Masculino",
+    "created_at": "2015-07-16T15:39:23.193Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T15:39:23.290Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Diputado provincial de Tucum\u00e1n",
+    "given_name": "Ricardo",
+    "image": "",
+    "birth_date": "24/04/1964",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en EEUU, en la localidad de Kansas City. Es hijo del militar y ex-gobernador de Tucum\u00e1n Antonio Domingo Bussi, condenado por delitos de lesa humanidad. Ricardo Bussi se recibi\u00f3 de abogado en la Universidad de Belgrano de la ciudad de Buenos Aires y ejerci\u00f3 hasta 1997. Es divorciado, tiene 3 hermanos y es padre de 3 hijos. En 1997 Ricardo Bussi obtiene una banca como Diputado Nacional, que renueva en el 2001. En 2003 fue electo Senador Nacional por la provincia de Tucum\u00e1n, pero renunci\u00f3 al poco tiempo cuando su padre fue detenido: Desde entonces se radic\u00f3 en Tucum\u00e1n para recorrer la provincia. En 2007 fue elegido Legislador Provincial y reelecto en 2011, cargo que desempe\u00f1a actualmente."
+  },
+  "model": "popolo.person",
+  "pk": "ricardo-bussi-24041964"
+},
+{
+  "fields": {
+    "family_name": "Roberto",
+    "name": "Roberto Basualdo",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:44:25.173Z",
+    "death_date": "",
+    "updated_at": "2015-07-09T02:44:25.254Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Basualdo",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "roberto-basualdo"
+},
+{
+  "fields": {
+    "family_name": "Ruperto",
+    "name": "Ruperto Godoy",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:44:42.630Z",
+    "death_date": "",
+    "updated_at": "2015-07-09T02:44:42.736Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "Godoy",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "ruperto-godoy"
+},
+{
+  "fields": {
+    "family_name": "Massa",
+    "name": "Sergio Massa",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-06-30T23:03:28.494Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:35:25.167Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "Cargo actual: Diputado de la Naci\u00f3n por la provincia de Buenos Aires",
+    "given_name": "Sergio",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/sergio-massa.png",
+    "birth_date": "28/04/1972",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 en San Mart\u00edn, Buenos Aires. Es Abogado. Est\u00e1 casado y tiene dos hijos con Malena Galmarini,\r\nEn la funci\u00f3n p\u00fablica ocup\u00f3 cargos como Diputado de la Provincia de Buenos Aires, Jefe de Gabinete de Ministros de la Naci\u00f3n y director ejecutivo de la ANSES. Fue elegido intendente de Tigre en 2007 y reelegido en 2011. En 2013 fue electo Diputado Nacional por la Provincia de Buenos Aires."
+  },
+  "model": "popolo.person",
+  "pk": "sergio-massa-2"
+},
+{
+  "fields": {
+    "family_name": "Sergio",
+    "name": "Sergio U\u00f1ac",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "",
+    "created_at": "2015-07-09T02:45:03.349Z",
+    "death_date": "",
+    "updated_at": "2015-07-09T02:45:03.430Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "U\u00f1ac",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "sergio-unac"
+},
+{
+  "fields": {
+    "family_name": "De Gennaro",
+    "name": "V\u00edctor De Gennaro",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Masculino",
+    "created_at": "2015-07-11T20:44:53.304Z",
+    "death_date": "",
+    "updated_at": "2015-07-16T20:37:27.467Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "V\u00edctor ",
+    "image": "http://elecciones2015.yoquierosaber.org/static/img/candidatos/de-gennaro.png",
+    "birth_date": "29/09/1948",
+    "sort_name": "",
+    "start_date": "",
+    "biography": "Naci\u00f3 y vive en la localidad de Lan\u00fas, provincia de Buenos Aires. Termin\u00f3 sus estudios de Maestro Normal en 1965. Fue uno de los fundadores de ANUSATE, la organizaci\u00f3n que recuper\u00f3 la conducci\u00f3n de la Asociaci\u00f3n de Trabajadores del Estado durante la dictadura. Tambi\u00e9n fue uno de los pilares de la creaci\u00f3n de la Central de Trabajadores Argentinos (CTA) en la que comparte la conducci\u00f3n del ala oficialista. Particip\u00f3 activamente de la fundaci\u00f3n del Frente Nacional contra la Pobreza (FRENAPO). Actualmente es Consejero Superior de Universidad Nacional de Lan\u00fas (UNLa). En 2011 fue electo diputado nacional por el Partido Unidad Popular, cargo que ocupa actualmente."
+  },
+  "model": "popolo.person",
+  "pk": "victor-de-gennaro"
+},
+{
+  "fields": {
+    "family_name": "Ripoll",
+    "name": "Vilma Ripoll",
+    "end_date": "",
+    "honorific_suffix": "",
+    "additional_name": "",
+    "gender": "Femenino",
+    "created_at": "2015-07-13T23:04:53.501Z",
+    "death_date": "",
+    "updated_at": "2015-07-13T23:16:51.332Z",
+    "patronymic_name": "",
+    "honorific_prefix": "",
+    "email": "",
+    "national_identity": "",
+    "summary": "",
+    "given_name": "VIlma",
+    "image": "",
+    "birth_date": "",
+    "sort_name": "",
+    "start_date": "",
+    "biography": ""
+  },
+  "model": "popolo.person",
+  "pk": "vilma-ripoll"
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-04T15:35:20.083Z",
+    "updated_at": "2015-07-04T15:35:20.137Z",
+    "object_id": "daniel-scioli-2",
+    "label": "Facebook oficial",
+    "note": "",
+    "value": "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10152374_10152581245773787_1079208260254897631_n.png?oh=b10a2c586c149dcc27d4257ad91c9939&oe=56031DE5&__gda__=1443168499_42404d4ac549022ae6fe5cd8cfbc333a",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 1
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:04:54.214Z",
+    "updated_at": "2015-07-11T20:04:54.403Z",
+    "object_id": "daniel-scioli-2",
+    "label": "P\u00e1gina web oficial",
+    "note": "",
+    "value": "http://www.danielscioli.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 2
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:04:54.216Z",
+    "updated_at": "2015-07-13T21:57:24.980Z",
+    "object_id": "daniel-scioli-2",
+    "label": "danielscioli",
+    "note": "",
+    "value": "https://twitter.com/danielscioli?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 3
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:08:01.363Z",
+    "updated_at": "2015-07-11T20:08:01.525Z",
+    "object_id": "adolfo-rodriguez-saa",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/adolforsaa",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 4
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:08:01.365Z",
+    "updated_at": "2015-07-16T20:20:19.526Z",
+    "object_id": "adolfo-rodriguez-saa",
+    "label": "adolfors2015",
+    "note": "",
+    "value": "https://twitter.com/adolfors2015",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 5
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:08:01.368Z",
+    "updated_at": "2015-07-11T20:08:01.526Z",
+    "object_id": "adolfo-rodriguez-saa",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://www.adolforodriguezsaa.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 6
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:10:27.323Z",
+    "updated_at": "2015-07-11T20:10:27.485Z",
+    "object_id": "elisa-carrio",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/Elisa.Lilita.Carrio",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 7
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:10:27.325Z",
+    "updated_at": "2015-07-15T21:17:13.791Z",
+    "object_id": "elisa-carrio",
+    "label": "elisacarrio",
+    "note": "",
+    "value": "https://twitter.com/elisacarrio?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 8
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:10:27.328Z",
+    "updated_at": "2015-07-14T14:30:12.738Z",
+    "object_id": "elisa-carrio",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://www.elisacarrio.com.ar",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 9
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:15:20.473Z",
+    "updated_at": "2015-07-11T20:15:20.634Z",
+    "object_id": "jose-manuel-de-la-sota",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/DelaSotaOk",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 10
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:15:20.476Z",
+    "updated_at": "2015-07-13T21:26:24.427Z",
+    "object_id": "jose-manuel-de-la-sota",
+    "label": "delasotaok",
+    "note": "",
+    "value": "https://www.twitter.com/delasotaok",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 11
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:15:20.479Z",
+    "updated_at": "2015-07-14T14:11:03.198Z",
+    "object_id": "jose-manuel-de-la-sota",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "http://www.elhombre.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 12
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:17:28.765Z",
+    "updated_at": "2015-07-11T20:17:28.959Z",
+    "object_id": "margarita-stolbizer",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/Stolbizer",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 13
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:17:28.768Z",
+    "updated_at": "2015-07-13T22:03:19.664Z",
+    "object_id": "margarita-stolbizer",
+    "label": "Stolbizer",
+    "note": "",
+    "value": "https://twitter.com/Stolbizer?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 14
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:17:28.771Z",
+    "updated_at": "2015-07-11T20:17:28.960Z",
+    "object_id": "margarita-stolbizer",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://margaritastolbizer.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 15
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:20:38.719Z",
+    "updated_at": "2015-07-11T20:20:38.906Z",
+    "object_id": "nicolas-del-cano",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/NicolasDelCano.PTS",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 16
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:20:38.722Z",
+    "updated_at": "2015-07-16T20:32:55.445Z",
+    "object_id": "nicolas-del-cano",
+    "label": "NicolasdelCano",
+    "note": "",
+    "value": "https://twitter.com/NicolasdelCano?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 17
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:20:38.726Z",
+    "updated_at": "2015-07-11T20:20:38.908Z",
+    "object_id": "nicolas-del-cano",
+    "label": "P\u00e1gina web del partido",
+    "note": "",
+    "value": "http://www.pts.org.ar/Nicolas-del-Cano",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 18
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:25:45.416Z",
+    "updated_at": "2015-07-11T20:25:45.587Z",
+    "object_id": "mauricio-macri",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/mauriciomacri",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 19
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:25:45.419Z",
+    "updated_at": "2015-07-13T21:52:07.407Z",
+    "object_id": "mauricio-macri",
+    "label": "mauriciomacri",
+    "note": "",
+    "value": "https://twitter.com/mauriciomacri?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 20
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:25:45.422Z",
+    "updated_at": "2015-07-11T20:25:45.588Z",
+    "object_id": "mauricio-macri",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://mauriciomacri.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 21
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:27:22.495Z",
+    "updated_at": "2015-07-11T20:27:22.651Z",
+    "object_id": "sergio-massa-2",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/SergioMassaOK",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 22
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:27:22.497Z",
+    "updated_at": "2015-07-13T22:02:44.461Z",
+    "object_id": "sergio-massa-2",
+    "label": "SergioMassa",
+    "note": "",
+    "value": "https://twitter.com/SergioMassa?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 23
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:27:22.500Z",
+    "updated_at": "2015-07-11T20:27:22.652Z",
+    "object_id": "sergio-massa-2",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://sergio-massa.org/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 24
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:31:39.712Z",
+    "updated_at": "2015-07-11T20:31:39.956Z",
+    "object_id": "jorge-altamira",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/jorge.altamira.ok",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 25
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:31:39.715Z",
+    "updated_at": "2015-07-13T21:25:13.772Z",
+    "object_id": "jorge-altamira",
+    "label": "altamirajorge",
+    "note": "",
+    "value": "https://twitter.com/altamirajorge?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 26
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:31:39.718Z",
+    "updated_at": "2015-07-11T20:31:39.957Z",
+    "object_id": "jorge-altamira",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://www.altamiraresponde.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 27
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:32:38.388Z",
+    "updated_at": "2015-07-11T20:32:38.586Z",
+    "object_id": "ernesto-sanz",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/ernestoricardosanz",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 28
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:32:38.391Z",
+    "updated_at": "2015-07-16T20:26:18.283Z",
+    "object_id": "ernesto-sanz",
+    "label": "SanzErnesto",
+    "note": "",
+    "value": "https://twitter.com/SanzErnesto?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 29
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:32:38.394Z",
+    "updated_at": "2015-07-14T14:14:17.902Z",
+    "object_id": "ernesto-sanz",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "http://ernestosanz.org.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 30
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:35:01.339Z",
+    "updated_at": "2015-07-11T20:35:01.457Z",
+    "object_id": "alejandro-bodart-2121963",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/alejandro.bodart?fref=ts",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 31
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:35:01.343Z",
+    "updated_at": "2015-07-15T14:45:26.131Z",
+    "object_id": "alejandro-bodart-2121963",
+    "label": "Ale_Bodart",
+    "note": "",
+    "value": "https://twitter.com/Ale_Bodart?lang=es",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 32
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:35:01.346Z",
+    "updated_at": "2015-07-11T20:35:01.458Z",
+    "object_id": "alejandro-bodart-2121963",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://alejandrobodart.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 33
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:36:43.955Z",
+    "updated_at": "2015-07-11T20:36:44.152Z",
+    "object_id": "anibal-fernandez",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/anibalfernandezpaginaoficial",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 34
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:36:43.958Z",
+    "updated_at": "2015-07-11T20:36:44.153Z",
+    "object_id": "anibal-fernandez",
+    "label": "Twitter personal",
+    "note": "",
+    "value": "https://twitter.com/FernandezAnibal",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 35
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:36:43.961Z",
+    "updated_at": "2015-07-11T20:36:44.153Z",
+    "object_id": "anibal-fernandez",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://www.anibalfernandez.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 36
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:37:53.711Z",
+    "updated_at": "2015-07-11T20:37:53.952Z",
+    "object_id": "julian-dominguez",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/dominguezjul",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 37
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:37:53.714Z",
+    "updated_at": "2015-07-11T20:37:53.952Z",
+    "object_id": "julian-dominguez",
+    "label": "Twitter personal",
+    "note": "",
+    "value": "https://twitter.com/DominguezJul",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 38
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:37:53.716Z",
+    "updated_at": "2015-07-11T20:37:53.953Z",
+    "object_id": "julian-dominguez",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://juliandominguez.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 39
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:39:01.017Z",
+    "updated_at": "2015-07-11T20:39:01.314Z",
+    "object_id": "maria-eugenia-vidal",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/meugeniavidal",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 40
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:39:01.020Z",
+    "updated_at": "2015-07-11T20:39:01.315Z",
+    "object_id": "maria-eugenia-vidal",
+    "label": "Twitter personal",
+    "note": "",
+    "value": "https://twitter.com/mariuvidal",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 41
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:39:01.023Z",
+    "updated_at": "2015-07-11T20:39:01.316Z",
+    "object_id": "maria-eugenia-vidal",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://www.mariaeugeniavidal.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 42
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-11T20:40:27.398Z",
+    "updated_at": "2015-07-11T20:40:27.574Z",
+    "object_id": "jaime-linares",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/jaime.linares.56",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 43
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-11T20:40:27.400Z",
+    "updated_at": "2015-07-11T20:40:27.575Z",
+    "object_id": "jaime-linares",
+    "label": "Twitter personal",
+    "note": "",
+    "value": "https://twitter.com/LinaresJaime",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 44
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-11T20:40:27.403Z",
+    "updated_at": "2015-07-11T20:40:27.575Z",
+    "object_id": "jaime-linares",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://www.jaimelinares.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 45
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-12T19:30:24.433Z",
+    "updated_at": "2015-07-12T19:30:24.741Z",
+    "object_id": "alfredo-de-angeli",
+    "label": "Facebook oficial",
+    "note": "",
+    "value": "https://es-la.facebook.com/alfredodeangeli",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 46
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-12T19:30:24.435Z",
+    "updated_at": "2015-07-12T19:30:24.742Z",
+    "object_id": "alfredo-de-angeli",
+    "label": "Twitter oficial",
+    "note": "",
+    "value": "https://twitter.com/alfredodeangeli",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 47
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "EMAIL",
+    "created_at": "2015-07-12T19:30:24.438Z",
+    "updated_at": "2015-07-12T19:30:24.742Z",
+    "object_id": "alfredo-de-angeli",
+    "label": "E-Mail Senado",
+    "note": "",
+    "value": "alfredo.deangeli@senado.gov.ar",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 48
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-12T19:30:24.441Z",
+    "updated_at": "2015-07-12T19:30:24.743Z",
+    "object_id": "alfredo-de-angeli",
+    "label": "Sitio Web",
+    "note": "",
+    "value": "http://senadordeangeli.com/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 49
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-12T20:23:01.619Z",
+    "updated_at": "2015-07-12T20:23:01.810Z",
+    "object_id": "gustavo-bordet",
+    "label": "Facebook oficial",
+    "note": "",
+    "value": "https://es-es.facebook.com/gustavoebordet",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 50
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-12T20:23:01.622Z",
+    "updated_at": "2015-07-14T20:44:25.345Z",
+    "object_id": "gustavo-bordet",
+    "label": "bordet",
+    "note": "",
+    "value": "https://twitter.com/bordet",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 51
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-12T20:23:01.624Z",
+    "updated_at": "2015-07-12T20:23:01.811Z",
+    "object_id": "gustavo-bordet",
+    "label": "Web Oficial",
+    "note": "",
+    "value": "http://gustavobordet.com",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 52
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-12T20:28:50.101Z",
+    "updated_at": "2015-07-12T20:28:50.322Z",
+    "object_id": "lisandro-viale",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/viale.lisandro",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 53
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-12T20:28:50.104Z",
+    "updated_at": "2015-07-12T20:28:50.323Z",
+    "object_id": "lisandro-viale",
+    "label": "Web personal",
+    "note": "",
+    "value": "http://lisandroviale.blogspot.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 54
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "EMAIL",
+    "created_at": "2015-07-12T20:28:50.106Z",
+    "updated_at": "2015-07-12T20:28:50.324Z",
+    "object_id": "lisandro-viale",
+    "label": "E-Mail oficial",
+    "note": "",
+    "value": "diplisandroviale@hcder.gov.ar",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 55
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-12T20:45:40.189Z",
+    "updated_at": "2015-07-12T20:45:40.413Z",
+    "object_id": "gabriel-geist",
+    "label": "Facebook oficial",
+    "note": "",
+    "value": "https://www.facebook.com/mst.entrerios",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 56
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-12T20:45:40.192Z",
+    "updated_at": "2015-07-12T20:45:40.413Z",
+    "object_id": "gabriel-geist",
+    "label": "Sitio oficial Nacional",
+    "note": "",
+    "value": "http://mst.org.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 57
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "EMAIL",
+    "created_at": "2015-07-12T20:45:40.194Z",
+    "updated_at": "2015-07-12T20:45:40.414Z",
+    "object_id": "gabriel-geist",
+    "label": "E-mail personal",
+    "note": "",
+    "value": "gabrielgeist@yahoo.com",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 58
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-12T21:00:21.036Z",
+    "updated_at": "2015-07-12T21:00:21.230Z",
+    "object_id": "adrian-fuertes-29091970",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/adrianfederico.fuertes.9",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 59
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-12T21:00:21.040Z",
+    "updated_at": "2015-07-12T21:00:21.230Z",
+    "object_id": "adrian-fuertes-29091970",
+    "label": "Twitter personal",
+    "note": "",
+    "value": "https://twitter.com/AdrianFuertes1",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 60
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-12T21:00:21.044Z",
+    "updated_at": "2015-07-12T21:00:21.231Z",
+    "object_id": "adrian-fuertes-29091970",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "http://adrianfuertes.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 61
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-13T22:53:58.017Z",
+    "updated_at": "2015-07-13T22:53:58.272Z",
+    "object_id": "jorge-ceballos",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/pages/Jorge-Ceballos/96434474407?fref=ts",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 62
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-13T22:53:58.020Z",
+    "updated_at": "2015-07-13T22:53:58.273Z",
+    "object_id": "jorge-ceballos",
+    "label": "Twitter personal",
+    "note": "",
+    "value": "https://twitter.com/JRCeballos",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 63
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-13T22:53:58.023Z",
+    "updated_at": "2015-07-13T22:53:58.274Z",
+    "object_id": "jorge-ceballos",
+    "label": "P\u00e1gina web personal",
+    "note": "",
+    "value": "http://jorgeceballos.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 64
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-14T14:09:28.501Z",
+    "updated_at": "2015-07-14T14:09:28.667Z",
+    "object_id": "victor-de-gennaro",
+    "label": "Facebook oficial",
+    "note": "",
+    "value": "https://www.facebook.com/victordegennaropresidente",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 65
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-14T14:09:28.504Z",
+    "updated_at": "2015-07-16T20:37:27.471Z",
+    "object_id": "victor-de-gennaro",
+    "label": "victordegennaro",
+    "note": "",
+    "value": "https://twitter.com/victordegennaro",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 66
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-14T14:09:28.507Z",
+    "updated_at": "2015-07-14T14:09:28.669Z",
+    "object_id": "victor-de-gennaro",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "http://victordegennaro.org.ar",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 67
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-14T15:00:30.857Z",
+    "updated_at": "2015-07-14T15:00:31.031Z",
+    "object_id": "mariana-castaneda",
+    "label": "Facebook oficial",
+    "note": "",
+    "value": "https://www.facebook.com/ManuAlaLegislaturaCABA",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 68
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-14T15:00:30.860Z",
+    "updated_at": "2015-07-15T14:56:15.099Z",
+    "object_id": "mariana-castaneda",
+    "label": "ManuelaC22",
+    "note": "",
+    "value": "https://twitter.com/ManuelaC22",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 69
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-14T15:00:30.863Z",
+    "updated_at": "2015-07-14T15:00:31.032Z",
+    "object_id": "mariana-castaneda",
+    "label": "Facebook personal",
+    "note": "",
+    "value": "https://www.facebook.com/manuela.castaneira?fref=ts",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 70
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-15T22:28:45.247Z",
+    "updated_at": "2015-07-15T22:28:45.421Z",
+    "object_id": "juan-manzur",
+    "label": "P\u00e1gina oficial de Facebook",
+    "note": "",
+    "value": "https://www.facebook.com/JuanManzurOficial",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 71
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-15T22:28:45.249Z",
+    "updated_at": "2015-07-15T22:28:45.422Z",
+    "object_id": "juan-manzur",
+    "label": "juanmanzurok",
+    "note": "",
+    "value": "https://twitter.com/juanmanzurok",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 72
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-15T22:28:45.252Z",
+    "updated_at": "2015-07-15T22:28:45.423Z",
+    "object_id": "juan-manzur",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "http://www.juanmanzur.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 73
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-15T22:49:07.913Z",
+    "updated_at": "2015-07-15T22:49:08.191Z",
+    "object_id": "mario-koltan",
+    "label": "Sitio oficial de Facebook",
+    "note": "",
+    "value": "https://www.facebook.com/mariokoltanoficial",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 74
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-15T22:49:07.916Z",
+    "updated_at": "2015-07-15T22:49:08.191Z",
+    "object_id": "mario-koltan",
+    "label": "KoltanMario",
+    "note": "",
+    "value": "http://twitter.com/KoltanMario",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 75
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-15T22:49:07.919Z",
+    "updated_at": "2015-07-15T22:49:08.192Z",
+    "object_id": "mario-koltan",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "mariokoltan.com.ar/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 76
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-15T23:05:39.806Z",
+    "updated_at": "2015-07-15T23:05:39.934Z",
+    "object_id": "jose-cano-15071965",
+    "label": "Sitio oficial de Facebook",
+    "note": "",
+    "value": "https://www.facebook.com/JoseCanoPaginaOficial",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 77
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-15T23:05:39.809Z",
+    "updated_at": "2015-07-15T23:05:39.934Z",
+    "object_id": "jose-cano-15071965",
+    "label": "JCanoOk",
+    "note": "",
+    "value": "https://twitter.com/JCanoOk",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 78
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-15T23:05:39.812Z",
+    "updated_at": "2015-07-15T23:05:39.935Z",
+    "object_id": "jose-cano-15071965",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "http://www.josecanogobernador.com/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 79
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-16T15:26:42.777Z",
+    "updated_at": "2015-07-16T15:26:42.986Z",
+    "object_id": "gumersindo",
+    "label": "Sitio personal de Facebook",
+    "note": "",
+    "value": "https://www.facebook.com/gumersindo.parajon",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 80
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-16T15:26:42.780Z",
+    "updated_at": "2015-07-16T15:26:42.987Z",
+    "object_id": "gumersindo",
+    "label": "menchoparajon",
+    "note": "",
+    "value": "https://twitter.com/menchoparajon",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 81
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-16T15:26:42.783Z",
+    "updated_at": "2015-07-16T15:26:42.988Z",
+    "object_id": "gumersindo",
+    "label": "",
+    "note": "",
+    "value": "www.facebook.com/gumersindo.parajon",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 82
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "FACEBOOK",
+    "created_at": "2015-07-16T15:39:23.231Z",
+    "updated_at": "2015-07-16T15:39:23.362Z",
+    "object_id": "ricardo-bussi-24041964",
+    "label": "Sitio personal de Facebook",
+    "note": "",
+    "value": "https://www.facebook.com/ricardo.bussi.1 ",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 83
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "TWITTER",
+    "created_at": "2015-07-16T15:39:23.236Z",
+    "updated_at": "2015-07-16T15:39:23.362Z",
+    "object_id": "ricardo-bussi-24041964",
+    "label": "ricardobussi",
+    "note": "",
+    "value": "https://twitter.com/ricardobussi",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 84
+},
+{
+  "fields": {
+    "end_date": null,
+    "contact_type": "URL",
+    "created_at": "2015-07-16T15:39:23.241Z",
+    "updated_at": "2015-07-16T15:39:23.363Z",
+    "object_id": "ricardo-bussi-24041964",
+    "label": "Sitio web oficial",
+    "note": "",
+    "value": "http://www.fuerzarepublicana.com/",
+    "content_type": 14,
+    "start_date": null
+  },
+  "model": "popolo.contactdetail",
+  "pk": 85
+},
+{
+  "fields": {
+    "parent": null,
+    "classification": "Country",
+    "name": "Argentina",
+    "end_date": "",
+    "inhabitants": null,
+    "created_at": "2015-05-29T19:41:41.465Z",
+    "updated_at": "2015-05-29T19:42:07.898Z",
+    "object_id": "",
+    "geom": "",
+    "content_type": null,
+    "identifier": "",
+    "start_date": ""
+  },
+  "model": "popolo.area",
+  "pk": "argentina"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "adolfo-aguirre"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjMDAwMGZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "adolfo-rodriguez-saa"
+},
+{
+  "fields": {
+    "election": 4,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "adrian-fuertes-29091970"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgLAAAAcmliYm9uIHRleHRxBVUOcG9ydHJhaXRfcGhvdG9xBlg6AAAAaHR0cDovL3ZvdGFpbnRlbGlnZW50ZS5jbC9zdGF0aWMvaW1nL2NhbmRpZGF0ZS1kZWZhdWx0LmpwZ3EHdS4="
+  },
+  "model": "elections.candidate",
+  "pk": "alberto-aguero"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZjBmMGYwcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "alejandro-bodart-2121963"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjMDBmZjAwcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "alfredo-avelin-nollens"
+},
+{
+  "fields": {
+    "election": 4,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "alfredo-de-angeli"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "anibal-fernandez"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgLAAAAcmliYm9uIHRleHRxBVUOcG9ydHJhaXRfcGhvdG9xBlg6AAAAaHR0cDovL3ZvdGFpbnRlbGlnZW50ZS5jbC9zdGF0aWMvaW1nL2NhbmRpZGF0ZS1kZWZhdWx0LmpwZ3EHdS4="
+  },
+  "model": "elections.candidate",
+  "pk": "benjamin-kuchen"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "christian-castillo"
+},
+{
+  "fields": {
+    "election": 3,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "daniel-blanco"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjNmQ5ZWVicQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "daniel-scioli-2"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "eduardo-donofrio"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZWE5OTk5cQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "elisa-carrio"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmYyNTFhcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "ernesto-sanz"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "felipe-sola"
+},
+{
+  "fields": {
+    "election": 4,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "gabriel-geist"
+},
+{
+  "fields": {
+    "election": 3,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "gumersindo"
+},
+{
+  "fields": {
+    "election": 4,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "gustavo-bordet"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "jaime-linares"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjY2MwMDAwcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "jorge-altamira"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmYyNTFhcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "jorge-ceballos"
+},
+{
+  "fields": {
+    "election": 3,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWEgAAABodHRwOi8vZWxlY2Npb25lczIwMTUueW9xdWllcm9zYWJlci5vcmcvc3RhdGljL2ltZy9jYW5kaWRhdGUtZGVmYXVsdC5qcGdxBnUu"
+  },
+  "model": "elections.candidate",
+  "pk": "jose-cano-15071965"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjOTkwMGZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "jose-manuel-de-la-sota"
+},
+{
+  "fields": {
+    "election": 3,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "juan-manzur"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "julian-dominguez"
+},
+{
+  "fields": {
+    "election": 4,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "lisandro-viale"
+},
+{
+  "fields": {
+    "election": 3,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "manuel-jose-cano"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjOTNjNDdkcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "margarita-stolbizer"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "maria-eugenia-vidal"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmYyNTFhcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "mariana-castaneda"
+},
+{
+  "fields": {
+    "election": 3,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "mario-koltan"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgLAAAAcmliYm9uIHRleHRxBVUOcG9ydHJhaXRfcGhvdG9xBlg6AAAAaHR0cDovL3ZvdGFpbnRlbGlnZW50ZS5jbC9zdGF0aWMvaW1nL2NhbmRpZGF0ZS1kZWZhdWx0LmpwZ3EHdS4="
+  },
+  "model": "elections.candidate",
+  "pk": "martin-tucurman"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "mary-garrido"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmZmZjAwcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "mauricio-macri"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "nestor-pitrola"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmYyNTFhcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "nicolas-del-cano"
+},
+{
+  "fields": {
+    "election": 3,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWEgAAABodHRwOi8vZWxlY2Npb25lczIwMTUueW9xdWllcm9zYWJlci5vcmcvc3RhdGljL2ltZy9jYW5kaWRhdGUtZGVmYXVsdC5qcGdxBnUu"
+  },
+  "model": "elections.candidate",
+  "pk": "ricardo-bussi-24041964"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgLAAAAcmliYm9uIHRleHRxBVUOcG9ydHJhaXRfcGhvdG9xBlg6AAAAaHR0cDovL3ZvdGFpbnRlbGlnZW50ZS5jbC9zdGF0aWMvaW1nL2NhbmRpZGF0ZS1kZWZhdWx0LmpwZ3EHdS4="
+  },
+  "model": "elections.candidate",
+  "pk": "roberto-basualdo"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgLAAAAcmliYm9uIHRleHRxBVUOcG9ydHJhaXRfcGhvdG9xBlg6AAAAaHR0cDovL3ZvdGFpbnRlbGlnZW50ZS5jbC9zdGF0aWMvaW1nL2NhbmRpZGF0ZS1kZWZhdWx0LmpwZ3EHdS4="
+  },
+  "model": "elections.candidate",
+  "pk": "ruperto-godoy"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjYjdiN2I3cQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWDoAAABodHRwOi8vdm90YWludGVsaWdlbnRlLmNsL3N0YXRpYy9pbWcvY2FuZGlkYXRlLWRlZmF1bHQuanBncQZ1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "sergio-massa-2"
+},
+{
+  "fields": {
+    "election": 5,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECVQcjZmZmZmZmcQNVDWN1c3RvbV9yaWJib25xBFgLAAAAcmliYm9uIHRleHRxBVUOcG9ydHJhaXRfcGhvdG9xBlg6AAAAaHR0cDovL3ZvdGFpbnRlbGlnZW50ZS5jbC9zdGF0aWMvaW1nL2NhbmRpZGF0ZS1kZWZhdWx0LmpwZ3EHdS4="
+  },
+  "model": "elections.candidate",
+  "pk": "sergio-unac"
+},
+{
+  "fields": {
+    "election": 1,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjMDBmZjAwcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "victor-de-gennaro"
+},
+{
+  "fields": {
+    "election": 2,
+    "extra_info": "gAJ9cQEoVQVjb2xvcnECWAcAAAAjZmYyNTFhcQNVDWN1c3RvbV9yaWJib25xBFgAAAAAVQ5wb3J0cmFpdF9waG90b3EFWAAAAAB1Lg=="
+  },
+  "model": "elections.candidate",
+  "pk": "vilma-ripoll"
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 3
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 4
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 5
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 6
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 7
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 8
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 9
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 10
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 11
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 12
+},
+{
+  "fields": {
+    "election": 1
+  },
+  "model": "elections.questioncategory",
+  "pk": 13
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 14
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 15
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 16
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 17
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 18
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 20
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 21
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 22
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 23
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 24
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 25
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 26
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 27
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 28
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 29
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 30
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 31
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 32
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 33
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 34
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 35
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 36
+},
+{
+  "fields": {
+    "election": 3
+  },
+  "model": "elections.questioncategory",
+  "pk": 37
+},
+{
+  "fields": {
+    "election": 2
+  },
+  "model": "elections.questioncategory",
+  "pk": 38
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 39
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 40
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 41
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 43
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 44
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 45
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 46
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 47
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 48
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 49
+},
+{
+  "fields": {
+    "election": 4
+  },
+  "model": "elections.questioncategory",
+  "pk": 50
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 51
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 52
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 53
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 54
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 55
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 56
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 57
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 58
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 59
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 60
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 61
+},
+{
+  "fields": {
+    "election": 5
+  },
+  "model": "elections.questioncategory",
+  "pk": 62
+},
+{
+  "fields": {
+    "description": "",
+    "searchable": true,
+    "area": "argentina",
+    "uses_questionary": true,
+    "uses_face_to_face": true,
+    "highlighted": true,
+    "extra_info_title": "",
+    "uses_preguntales": true,
+    "uses_ranking": true,
+    "extra_info": "gAJ9cQEoVQVjYXJnb3ECWAoAAABQcmVzaWRlbnRlcQNVBWV4dHJhcQRYEQAAAEV4dHJhIGV4dHJhIGV4dHJhcQVVBW5pdmVscQZYCAAAAE5hY2lvbmFscQd1Lg==",
+    "uses_soul_mate": true,
+    "slug": "pre-candidato-a-presidente",
+    "extra_info_content": "",
+    "name": "Pre-candidatos a Presidente"
+  },
+  "model": "elections.election",
+  "pk": 1
+},
+{
+  "fields": {
+    "description": "",
+    "searchable": true,
+    "area": "argentina",
+    "uses_questionary": true,
+    "uses_face_to_face": true,
+    "highlighted": false,
+    "extra_info_title": "",
+    "uses_preguntales": true,
+    "uses_ranking": true,
+    "extra_info": "gAJ9cQEoVQVjYXJnb3ECWAoAAABHb2Jlcm5hZG9ycQNVBWV4dHJhcQRYEQAAAEV4dHJhIGV4dHJhIGV4dHJhcQVVBW5pdmVscQZYCgAAAFByb3ZpbmNpYWxxB3Uu",
+    "uses_soul_mate": true,
+    "slug": "pre-candidato-a-gobernador-de-buenos-aires",
+    "extra_info_content": "",
+    "name": "Pre-candidatos a Gobernador de Buenos Aires"
+  },
+  "model": "elections.election",
+  "pk": 2
+},
+{
+  "fields": {
+    "description": "",
+    "searchable": true,
+    "area": "argentina",
+    "uses_questionary": true,
+    "uses_face_to_face": true,
+    "highlighted": false,
+    "extra_info_title": "",
+    "uses_preguntales": true,
+    "uses_ranking": true,
+    "extra_info": "gAJ9cQEoVQVjYXJnb3ECWAoAAABHb2Jlcm5hZG9ycQNVBWV4dHJhcQRYEQAAAEV4dHJhIGV4dHJhIGV4dHJhcQVVBW5pdmVscQZYCgAAAFByb3ZpbmNpYWxxB3Uu",
+    "uses_soul_mate": true,
+    "slug": "pre-candidato-a-gobernador-de-tucuman",
+    "extra_info_content": "",
+    "name": "Pre-candidatos a Gobernador de Tucum\u00e1n"
+  },
+  "model": "elections.election",
+  "pk": 3
+},
+{
+  "fields": {
+    "description": "",
+    "searchable": true,
+    "area": "argentina",
+    "uses_questionary": true,
+    "uses_face_to_face": true,
+    "highlighted": false,
+    "extra_info_title": "",
+    "uses_preguntales": true,
+    "uses_ranking": true,
+    "extra_info": "gAJ9cQEoVQVjYXJnb3ECWAoAAABHb2Jlcm5hZG9ycQNVBWV4dHJhcQRYEQAAAEV4dHJhIGV4dHJhIGV4dHJhcQVVBW5pdmVscQZYCgAAAFByb3ZpbmNpYWxxB3Uu",
+    "uses_soul_mate": true,
+    "slug": "pre-candidato-a-gobernador-de-entre-rios",
+    "extra_info_content": "",
+    "name": "Pre-candidatos a Gobernador de Entre R\u00edos"
+  },
+  "model": "elections.election",
+  "pk": 4
+},
+{
+  "fields": {
+    "description": "",
+    "searchable": true,
+    "area": "argentina",
+    "uses_questionary": true,
+    "uses_face_to_face": true,
+    "highlighted": false,
+    "extra_info_title": "",
+    "uses_preguntales": true,
+    "uses_ranking": true,
+    "extra_info": "gAJ9cQEoVQVjYXJnb3ECWAoAAABHb2Jlcm5hZG9ycQNVBWV4dHJhcQRYEQAAAEV4dHJhIGV4dHJhIGV4dHJhcQVVBW5pdmVscQZYCgAAAFByb3ZpbmNpYWxxB3Uu",
+    "uses_soul_mate": true,
+    "slug": "pre-candidato-a-gobernador-de-san-juan",
+    "extra_info_content": "",
+    "name": "Pre-Candidatos a Gobernador de San Juan"
+  },
+  "model": "elections.election",
+  "pk": 5
+}
+]

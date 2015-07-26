@@ -173,7 +173,7 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'add',
                         'path': 'standing_in/2015',
-                        'value': 'is known to be standing in Edinburgh North and Leith in 2015',
+                        'value': 'is known to be standing in Edinburgh North and Leith in the 2015 General Election',
                     }
                 ]
             },
@@ -192,7 +192,7 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'add',
                         'path': 'standing_in',
-                        'value': 'was known to be standing in South Cambridgeshire in 2010',
+                        'value': 'was known to be standing in South Cambridgeshire in the 2010 General Election',
                     }
                 ]
             },
@@ -248,7 +248,7 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'add',
                         'path': 'standing_in/2015',
-                        'value': 'is known not to be standing in 2015',
+                        'value': 'is known not to be standing in the 2015 General Election',
                     }
                 ]
             },
@@ -267,7 +267,7 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'add',
                         'path': 'standing_in',
-                        'value': 'was known to be standing in South Cambridgeshire in 2010',
+                        'value': 'was known to be standing in South Cambridgeshire in the 2010 General Election',
                     }
                 ]
             },
@@ -330,14 +330,14 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'replace',
                         'path': 'party_memberships/2015/id',
-                        'previous_value': 'is known to be standing for the party with ID party:58 in 2015',
-                        'value': 'is known to be standing for the party with ID ynmp-party:2 in 2015',
+                        'previous_value': 'is known to be standing for the party with ID party:58 in the 2015 General Election',
+                        'value': 'is known to be standing for the party with ID ynmp-party:2 in the 2015 General Election',
                     },
                     {
                         'op': 'replace',
                         'path': 'party_memberships/2015/name',
-                        'previous_value': 'is known to be standing for the party \'Mebyon Kernow - The Party for Cornwall\' in 2015',
-                        'value': 'is known to be standing for the party \'Independent\' in 2015',
+                        'previous_value': 'is known to be standing for the party \'Mebyon Kernow - The Party for Cornwall\' in the 2015 General Election',
+                        'value': 'is known to be standing for the party \'Independent\' in the 2015 General Election',
                     },
                 ]
             },
@@ -359,7 +359,7 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'add',
                         'path': 'party_memberships',
-                        'value': 'is known to be standing for the party "Mebyon Kernow - The Party for Cornwall" in 2015 and was known to be standing for the party "Mebyon Kernow - The Party for Cornwall" in 2010',
+                        'value': 'is known to be standing for the party "Mebyon Kernow - The Party for Cornwall" in the 2015 General Election and was known to be standing for the party "Mebyon Kernow - The Party for Cornwall" in the 2010 General Election',
                     }
                 ]
             },
@@ -409,20 +409,20 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'replace',
                         'path': 'standing_in/2015/mapit_url',
-                        'previous_value': 'is known to be standing in the constituency with MapIt URL http://mapit.mysociety.org/area/65808 in 2015',
-                        'value': 'is known to be standing in the constituency with MapIt URL http://mapit.mysociety.org/area/65659 in 2015',
+                        'previous_value': 'is known to be standing in the constituency with MapIt URL http://mapit.mysociety.org/area/65808 in the 2015 General Election',
+                        'value': 'is known to be standing in the constituency with MapIt URL http://mapit.mysociety.org/area/65659 in the 2015 General Election',
                     },
                     {
                         'op': 'replace',
                         'path': 'standing_in/2015/name',
-                        'previous_value': 'is known to be standing in Dulwich and West Norwood in 2015',
-                        'value': 'is known to be standing in Truro and Falmouth in 2015',
+                        'previous_value': 'is known to be standing in Dulwich and West Norwood in the 2015 General Election',
+                        'value': 'is known to be standing in Truro and Falmouth in the 2015 General Election',
                     },
                     {
                         'op': 'replace',
                         'path': 'standing_in/2015/post_id',
-                        'previous_value': 'is known to be standing for the post with ID 65808 in 2015',
-                        'value': 'is known to be standing for the post with ID 65659 in 2015',
+                        'previous_value': 'is known to be standing for the post with ID 65808 in the 2015 General Election',
+                        'value': 'is known to be standing for the post with ID 65659 in the 2015 General Election',
                     },
                 ]
             },
@@ -441,7 +441,7 @@ class TestVersionDiffs(TestCase):
                     {
                         'op': 'add',
                         'path': 'standing_in',
-                        'value': 'is known to be standing in Dulwich and West Norwood in 2015',
+                        'value': 'is known to be standing in Dulwich and West Norwood in the 2015 General Election',
                     }
                 ]
             },

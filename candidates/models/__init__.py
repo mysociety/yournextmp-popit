@@ -1,18 +1,12 @@
 from auth import get_constituency_lock
 from auth import get_constituency_lock_from_person_data
+from auth import get_edits_allowed
 
-from popit import get_area_from_post_id
-from popit import get_constituency_name_from_mapit_id
+from popit import get_post_label_from_post_id
 from popit import get_identifier
 from popit import get_mapit_id_from_mapit_url
 from popit import membership_covers_date
 from popit import PopItPerson
-
-from popit import election_date_2005
-from popit import election_date_2010
-from popit import election_date_2015
-
-from popit import election_to_election_date
 
 from popit import CSV_ROW_FIELDS
 

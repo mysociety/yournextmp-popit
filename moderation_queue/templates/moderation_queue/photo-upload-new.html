@@ -1,17 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body_class %}{% endblock %}
 
-{% block title %}Upload a candidate photo{% endblock %}
+{% block title %}{% trans "Upload a candidate photo" %}{% endblock %}
 
-{% load compressed %}
-
-{% block extra_css %}
-{% compressed_css 'image-review' %}
-{% endblock %}
+{% load pipeline %}
 
 {% block hero %}
-  <h1>Upload a photo of {{ person.name }}</h1>
+  <h1>{% blocktrans with name=person.name %}Upload a photo of {{ name }}{% endblocktrans %}</h1>
 {% endblock %}
 
 {% block content %}

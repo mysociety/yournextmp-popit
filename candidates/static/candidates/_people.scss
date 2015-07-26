@@ -1,11 +1,11 @@
 %candidate-party {
-  color: darken($color-cream, 20%);
+  color: $muted-text-color;
   margin-left: 0.2em;
 
   &:before {
     display: inline;
     content: "–";
-    color: darken($color-cream, 5%);
+    color: mix($muted-text-color, #fff, 50%);
     margin-right: 0.4em;
   }
 }
@@ -55,12 +55,10 @@
 }
 
 .missing_field {
-  border: 1px solid lighten($color-gold, 30%);
-  border-radius: 3px;
-  padding: 0.8em;
   margin-bottom: 1.6em;
+
   h4 + li {
-      margin-top: 1.5em;
+    margin-top: 1.5em;
   }
 }
 
@@ -74,7 +72,7 @@
     width: auto;
     height: 4em;
     margin-right: 1.5em;
-    background-color: #ddd;
+    background-color: $avatar-background-color;
   }
 
   .person-name-and-party {
@@ -98,15 +96,8 @@
 
 }
 
-.candidates-list__actions__winner-mistake {
-  background-color: $color-red;
-  &:hover, &:focus {
-    background-color: scale-color($color-red, $lightness: $button-function-factor);
-  }
-}
-
 .candidates-list__person__winner {
-  background-color: lighten($color-gold, 30%);
+  background-color: $highlight-background-color;
   padding-top: 1em;
   padding-bottom: 0.75em;
   padding-left: 1em;
@@ -151,10 +142,10 @@
   li > p > .button:first-child,
   li > p > .button:nth-child(2),
   .source-confirmation .button {
-    background-color: $color-orange;
+    background-color: $unknown-candidate-status-color;
 
     &:hover, &:focus {
-      background-color: scale-color($color-orange, $lightness: $button-function-factor);
+      background-color: scale-color($unknown-candidate-status-color, $lightness: $button-function-factor);
     }
   }
 }
@@ -166,17 +157,17 @@
 
   li > p > .button:first-child,
   .source-confirmation .button {
-    background-color: $color-red;
+    background-color: $not-standing-candidate-status-color;
 
     &:hover, &:focus {
-      background-color: scale-color($color-red, $lightness: $button-function-factor);
+      background-color: scale-color($not-standing-candidate-status-color, $lightness: $button-function-factor);
     }
   }
 }
 
 .no-candidates {
-  background: #FDF2D5; // lighter version of $color-gold
-  border: 1px solid lighten($color-gold, 30%);
+  background: $message-background-color;
+  border: 1px solid $message-border-color;
   border-radius: 3px;
 
   padding-top: 0.8em;
@@ -206,8 +197,8 @@
 }
 
 .encourage-login {
-  background: #FDF2D5; // lighter version of $color-gold
-  border: 1px solid lighten($color-gold, 30%);
+  background: $message-background-color;
+  border: 1px solid $message-border-color;
   border-radius: 3px;
 
   padding: 0.8em;
@@ -216,16 +207,48 @@
 }
 
 .person__hero {
-  .person-avatar {
-    float: left;
-    width: auto;
+  .person__photo {
+    position: relative;
     height: 4em;
     margin-right: 1em;
-    background-color: #ddd;
+    width: auto;
+    float: left;
 
     @media #{$medium-up} {
       height: 5em;
       margin-right: 1.5em;
+    }
+
+    .person-avatar {
+      float: left;
+      width: auto;
+      height: 4em;
+      background-color: $avatar-background-color;
+
+      @media #{$medium-up} {
+        height: 5em;
+      }
+
+    }
+
+    .upload-photo {
+      display: block;
+      position: absolute;
+      padding-top: 0.5em;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(66, 139, 202, 0.5);
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      text-shadow: 0 1px 1px rgb(66,139,202);
+      cursor: pointer;
+
+      @media #{$medium-up} {
+        padding-top: 1em;
+      }
     }
   }
 
@@ -234,7 +257,7 @@
   }
 
   h1 + p {
-    color: mix(#fff, $color-teal, 70%);
+    color: mix(#fff, $header-background-color, 70%);
   }
 }
 
@@ -250,7 +273,7 @@
 
   dd small {
     font-size: inherit;
-    color: darken($color-cream, 20%);
+    color: $muted-text-color;
     margin-left: 0.2em;
   }
 
@@ -280,7 +303,7 @@
   .form-error-summary {
     h2 {
       margin-bottom: 0.5em;
-      border-bottom-color: mix($color-red, #fff, 30%);
+      border-bottom-color: $error-border-color;
     }
   }
 
@@ -297,7 +320,7 @@
     }
 
     &:before {
-      @include css-triangle(20px, $color-yellow, top);
+      @include css-triangle(20px, $confirmation-background-color, top);
       top: auto;
       bottom: -30px;
       left: 10px;
@@ -305,15 +328,15 @@
   }
 
   .source-confirmation--errors {
-    color: darken($color-red, 10%);
-    background-color: mix($color-red, #fff, 15%);
+    color: $error-text-color;
+    background-color: $error-background-color;
 
     &:before {
-      @include css-triangle(20px, mix($color-red, #fff, 15%), top);
+      @include css-triangle(20px, $error-background-color, top);
     }
 
     input {
-      border-color: mix($color-red, #fff, 50%);
+      border-color: mix($error-input-border-color, #fff, 50%);
     }
   }
 }
@@ -335,7 +358,7 @@
 .person__actions__action {
   display: block;
   border-radius: 3px;
-  background-color: mix($color-offwhite, #fff, 60%);
+  background-color: $body-background-color;
   padding: 1.5em;
   margin-bottom: 2em;
 
@@ -365,15 +388,15 @@
 
 .person__actions__edit,
 .person__actions__sourcing {
-  background-color: $color-yellow;
+  background-color: $highlight-background-color;
 }
 
 .person__actions__data {
-  background-color: mix($color-cyan, #fff, 15%);
+  background-color: $information-background-color;
 }
 
 .person__actions__merge {
-  background-color: mix($color-red, #fff, 15%);
+  background-color: $danger-background-color;
 
   label {
     margin-bottom: 0.5em;

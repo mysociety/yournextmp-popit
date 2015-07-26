@@ -95,6 +95,7 @@ class TestMergePeople(TestCase):
                     'name': 'Edinburgh North and Leith',
                     'post_id': '14420',
                     'mapit_url': 'http://mapit.mysociety.org/area/14420',
+                    'elected': True,
                 },
             }
         }
@@ -126,6 +127,7 @@ class TestMergePeople(TestCase):
                         'name': 'Edinburgh North and Leith',
                         'post_id': '14420',
                         'mapit_url': 'http://mapit.mysociety.org/area/14420',
+                        'elected': True,
                     },
                 }
             }
@@ -153,6 +155,7 @@ class TestMergePeople(TestCase):
                     'name': 'Aberdeen North',
                     'post_id': '14398',
                     'mapit_url': 'http://mapit.mysociety.org/area/14398',
+                    'elected': False,
                 },
             },
         }
@@ -170,6 +173,7 @@ class TestMergePeople(TestCase):
                         'name': 'Aberdeen North',
                         'post_id': '14398',
                         'mapit_url': 'http://mapit.mysociety.org/area/14398',
+                        'elected': False,
                     },
                 }
             }

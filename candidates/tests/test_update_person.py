@@ -219,6 +219,7 @@ class TestUpdatePerson(TestCase):
             posted_memberships,
             [
                 {
+                    "election": "2015",
                     "end_date": "9999-12-31",
                     "person_id": "2009",
                     "post_id": "65808",
@@ -226,6 +227,7 @@ class TestUpdatePerson(TestCase):
                     "start_date": "2010-05-07"
                 },
                 {
+                    "election": "2010",
                     "end_date": "2010-05-06",
                     "person_id": "2009",
                     "post_id": "65808",

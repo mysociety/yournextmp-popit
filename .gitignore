@@ -1,7 +1,9 @@
 *.pyc
+*.mo
 /db.sqlite3
 /static
 /candidates/static/candidates/style.css
+/elections/*/static/candidates/style.css
 .sass-cache
 /htmlcov
 /.coverage
@@ -10,3 +12,4 @@
 /conf/general.yml.deployed
 /conf/httpd.conf
 /conf/httpd.conf.deployed
+/mysite/local_settings.py

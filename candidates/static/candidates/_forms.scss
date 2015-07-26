@@ -4,7 +4,7 @@
   position: absolute;
   top: -30px;
   left: 115px;
-  @include css-triangle(20px, $color-yellow, bottom);
+  @include css-triangle(20px, $confirmation-background-color, bottom);
 }
 
 .source-confirmation + .source-confirmation:before {
@@ -13,13 +13,13 @@
   position: absolute;
   top: -30px;
   left: 234px;
-  @include css-triangle(20px, $color-yellow, bottom);
+  @include css-triangle(20px, $confirmation-background-color, bottom);
 }
 
 .source-confirmation {
   position: relative;
   border-radius: 3px;
-  background: $color-yellow;
+  background: $confirmation-background-color;
   padding: 20px;
   margin-bottom: rem-calc(16);
 
@@ -77,17 +77,17 @@ form.signup {
 }
 
 .form-item--errors {
-  color: darken($color-red, 10%);
+  color: $error-text-color;
 
   input {
-    border-color: mix($color-red, #fff, 40%);
+    border-color: $error-input-border-color;
   }
 }
 
 .errorlist {
   margin: 0;
   padding: 0.5em 1em 0.5em 2em;
-  background-color: mix($color-red, #fff, 15%);
+  background-color: $error-background-color;
 
   li {
     font-size: $form-label-font-size;
@@ -96,7 +96,7 @@ form.signup {
 
 .form-error-summary {
   margin-bottom: 3em;
-  color: darken($color-red, 10%);
+  color: $error-text-color;
 
   h2 {
     color: inherit;

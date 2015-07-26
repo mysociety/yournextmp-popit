@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% load metadescription %}
+{% load standing %}
+{% load exists %}
+
+{% block body_class %}areas-of-type{% endblock %}
+
+{% block title %}{% blocktrans %}{{ area_type_name }}{% endblocktrans %}{% endblock %}
+
+{% block hero %}
+  <h1>{% blocktrans %}{{ area_type_name }}{% endblocktrans %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <ul>
+    {% for area_url, area_name in areas %}
+      <li><a href="{{ area_url }}">{{ area_name }}</a></li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

@@ -11,14 +11,22 @@ $(function() {
   $('.source-confirmation-not-standing').hide();
   $('.candidates__new').hide();
 
+  function getNewCandidateDiv(element) {
+    var target = $(element),
+      allCandidates = target.closest('.candidates-for-post');
+    return allCandidates.find('.candidates__new');
+  }
+
   /* Set up the hide / reveal for the add new candidate form */
-  $('.show-new-candidate-form').on('click', function(){
-    $('.candidates__new').slideDown(function(){
-      $('.candidates__new input:text').eq(0).focus();
+  $('.show-new-candidate-form').on('click', function(e){
+    var newCandidate = getNewCandidateDiv(e.target);
+    newCandidate.slideDown(function(){
+      newCandidate.find('input:text').eq(0).focus();
     });
   });
-  $('.hide-new-candidate-form').on('click', function(){
-    $('.candidates__new').slideUp();
+  $('.hide-new-candidate-form').on('click', function(e){
+    var newCandidate = getNewCandidateDiv(e.target);
+    newCandidate.slideUp();
   });
 
   /* Handle showing/hiding the source confirmation box */

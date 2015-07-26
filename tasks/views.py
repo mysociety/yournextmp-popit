@@ -3,7 +3,7 @@ import requests
 
 from django.views.generic import TemplateView
 
-from candidates.popit import PopItApiMixin
+from candidates.popit import PopItApiMixin, get_search_url
 from cached_counts.models import CachedCount
 
 class TaskHomeView(TemplateView):
@@ -21,7 +21,7 @@ class IncompleteFieldView(PopItApiMixin, TemplateView):
 
     def _objects_from_popit_search(self):
         self.page = int(self.request.GET.get(self.page_kwarg) or 1)
-        url = self.get_search_url(
+        url = get_search_url(
             'persons',
             "_missing_:%s AND _exists_:standing_in.2015.post_id" %
                 self.get_field(),

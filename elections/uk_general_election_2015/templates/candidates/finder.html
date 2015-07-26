@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load metadescription %}
 
 {% block extra_head %}
     <!-- Open Graph data -->
-    <meta property="og:title" content="YourNextMP" />
+    <meta property="og:title" content="{% trans "YourNextMP" %}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
     <meta property="og:image:height" content="80" />
     <meta property="og:image:width" content="80" />
-    <meta property="og:site_name" content="YourNextMP" />
-    <meta property="og:description" content="YourNextMP - The high quality source of free candidate data for the 2015 General Election">
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="{% trans "YourNextMP" %}" />
+    <meta property="og:description" content="{% blocktrans with election_name=election_data.name %}YourNextMP - {{ election_name }} candidates{% endblocktrans %}">
+    <meta property="og:locale" content="{{ LOCALE }}" />
 
     <!-- Twitter card data -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@yournextmp" />
-    <meta name="twitter:title" content="YourNextMP" />
+    <meta name="twitter:site" content="{% trans "@yournextmp" %}" />
+    <meta name="twitter:title" content="{% trans "YourNextMP" %}" />
     <meta property="twitter:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
     <meta property="twitter:image:height" content="120" />
     <meta property="twitter:image:width" content="120" />
     <meta name="twitter:url" content="{{ request.build_absolute_uri }}" />
-    <meta name="twitter:description" content="YourNextMP - The high quality source of free candidate data for the 2015 General Election"  />
+    <meta name="twitter:description" content="{% blocktrans with election_name=election_data.name %}YourNextMP - {{ election_name }} candidates{% endblocktrans %}" />
 {% endblock %}
 
 {% block body_class %}finder{% endblock %}
