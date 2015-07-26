@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: YourNextMP\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-23 20:47+0100\n"
-"PO-Revision-Date: 2015-07-23 22:54+0000\n"
+"PO-Revision-Date: 2015-07-26 02:10+0000\n"
 "Last-Translator: Martín Szyszlican <martinsz@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/yournextmp/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -357,7 +357,7 @@ msgstr "El usuario de twitter sólo debe contener caracteres alfanuméricos o gu
 msgid ""
 "If you mark the candidate as standing in the {election}, you must select a "
 "post"
-msgstr "Si indicás que el candidato se presenta a {elecion}, debes seleccionar un cargo"
+msgstr "Si indicás que el candidato se presenta a {election}, debes seleccionar un cargo"
 
 #: candidates/forms.py:171
 #, python-brace-format
@@ -1739,7 +1739,7 @@ msgstr "Fué candidato en %(election_name)s"
 #: candidates/templates/candidates/person-view.html:125
 #, python-format
 msgid "Contesting in the %(election_name)s"
-msgstr "Candidato actualmente en %(election_name)s"
+msgstr "Candidato a %(election_name)s"
 
 #: candidates/templates/candidates/person-view.html:138
 msgid "(personal profile)"
@@ -2183,7 +2183,7 @@ msgstr "Desarrollado por "
 
 #: elections/ar_elections_2015/templates/base.html:149
 msgid "Show all the collaborators and volunteers"
-msgstr "Mostrar todos los colaboradores y voluntarios"
+msgstr "Todos los colaboradores y voluntarios"
 
 #: elections/ar_elections_2015/templates/official_documents/_post.html:6
 msgid "Official documents for this post"
