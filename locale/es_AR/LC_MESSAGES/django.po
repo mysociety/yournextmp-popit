@@ -1119,7 +1119,7 @@ msgstr "Gracias por participar de este proyecto colaborativo. La licencia del co
 msgid ""
 "I assign the copyright of my contributions to YourNextMP (apart from photo "
 "uploads) to Democracy Club Limited."
-msgstr "No voy a poner en este sitio información que no se pueda difundir por sus restricciones de propiedad intelectual."
+msgstr "No voy a poner en este sitio información que no se pueda difundir por sus restricciones de propiedad intelectual y/o cuya difusión se encuentre prohibida, ni realizaré expresiones discriminatorias y/u ofensivas para persona alguna. Mediante la presente acepto que soy enteramente responsable por el contenido de la información  publicada."
 
 #: candidates/templates/candidates/ask-for-copyright-assignment.html:38
 msgid "Continue"
