@@ -51,7 +51,9 @@ def get_post_data(api, origin_post,origin_district):
     return ynr_election_data, post_data
 
 def get_party_id(party_name):
-    return next((id for id, name in PARTY_DATA.party_choices.items() if name == party_name), UNKNOWN_PARTY_ID)
+    for p in PARTY_DATA.all_party_data:
+       if (p.get("name").lower() == party_name.lower()): 
+         return p.get("id");
 
 def enqueue_image(person, user, image_url):
     r = requests.get(
