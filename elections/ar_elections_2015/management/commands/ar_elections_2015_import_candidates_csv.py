@@ -9,6 +9,7 @@ import re
 
 import requests
 from slumber.exceptions import HttpClientError
+from slumber.exceptions import HttpServerError
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -31,11 +32,18 @@ USER_AGENT = (
 )
 
 def get_post_data(api, origin_post,origin_district):
+    if (origin_post.find("SUPLENTE") > -1):
+        return False, False;
+
     ynr_election_id = {
         u'DIPUTADO NACIONAL TITULAR':
         'diputados-argentina-paso-2015',
         u'SENADOR NACIONAL TITULAR':
         'senadores-argentina-paso-2015',
+        u'PARLAMENTARIO MERCOSUR DISTRITO REGIONAL TITULAR':
+        'parlamentarios-mercosur-regional-paso-2015',
+
+
     }[origin_post]
     ynr_election_data = settings.ELECTIONS[ynr_election_id]
     ynr_election_data['id'] = ynr_election_id
@@ -54,6 +62,7 @@ def get_party_id(party_name):
     for p in PARTY_DATA.all_party_data:
        if (p.get("name").lower() == party_name.lower()): 
          return p.get("id");
+    return UNKNOWN_PARTY_ID;
 
 def enqueue_image(person, user, image_url):
     r = requests.get(
@@ -95,6 +104,7 @@ def get_existing_popit_person(vi_person_id):
         embed='membership.organization'
     )
     results = requests.get(search_url).json()
+
     total = results['total']
     if total > 1:
         message = "Multiple matches for CI ID {0}"
@@ -121,11 +131,15 @@ class Command(BaseCommand):
             all_data = csv.DictReader(f)
 
             for candidate in all_data:
-                vi_person_id = candidate['Distrito']+candidate['Numero Lista']+candidate['Posicion']
+                vi_person_id = candidate['Distrito']+candidate['Numero Lista']+candidate['Posicion']+candidate['Cargo']
 
                 election_data, post_data = get_post_data(
                     api, candidate['Cargo'], candidate['Distrito']
                 )
+                if (election_data == False):
+                    print "Skipping: "+ candidate['Cargo'] +", " + candidate['Distrito']+", " + candidate['Nombre']
+                    continue;
+
                 name = candidate['Nombre']
                 birth_date = None
                 gender = None
@@ -139,7 +153,7 @@ class Command(BaseCommand):
                     person = PopItPerson()
 
                 # Now update fields from the imported data:
-                person.name = name
+                person.name = name.split(",")[1] + " "  + name.split(",")[0]
                 person.gender = gender
                 if birth_date:
                     person.birth_date = str(birth_date)
@@ -177,4 +191,7 @@ class Command(BaseCommand):
                     person.save_to_popit(api)
                 except HttpClientError as hce:
                     print "Got an HttpClientError:", hce.content
+                    raise
+                except HttpServerError as hse:
+                    print "The server error content was:", hse.content
                     raise
