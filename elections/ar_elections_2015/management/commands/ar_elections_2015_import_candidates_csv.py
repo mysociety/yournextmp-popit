@@ -110,16 +110,7 @@ class Command(BaseCommand):
     args = 'USERNAME-FOR-UPLOAD'
     help = "Import inital candidate data"
 
-    def handle(self, username=None, **options):
-
-        if username is None:
-            message = "You must supply the name of a user to be associated with the image uploads."
-            raise CommandError(message)
-        try:
-            user = User.objects.get(username=username)
-        except User.DoesNotExist:
-            message = "No user with the username '{0}' could be found"
-            raise CommandError(message.format(username))
+    def handle(self, **options):
 
         api = create_popit_api_object()
 
@@ -130,7 +121,6 @@ class Command(BaseCommand):
             all_data = csv.DictReader(f)
 
             for candidate in all_data:
-                print ",".join(candidate)
                 vi_person_id = candidate['Distrito']+candidate['Numero Lista']+candidate['Posicion']
 
                 election_data, post_data = get_post_data(
@@ -185,8 +175,6 @@ class Command(BaseCommand):
                 person.record_version(change_metadata)
                 try:
                     person.save_to_popit(api)
-                    if image_url:
-                        enqueue_image(person, user, image_url)
                 except HttpClientError as hce:
                     print "Got an HttpClientError:", hce.content
                     raise
