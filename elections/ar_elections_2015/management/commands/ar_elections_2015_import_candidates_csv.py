@@ -42,6 +42,8 @@ def get_post_data(api, origin_post,origin_district):
         'senadores-argentina-paso-2015',
         u'PARLAMENTARIO MERCOSUR DISTRITO REGIONAL TITULAR':
         'parlamentarios-mercosur-regional-paso-2015',
+        u'PARLAMENTARIO MERCOSUR DISTRITO NACIONAL TITULAR':
+        'parlamentarios-mercosur-unico-paso-2015'
 
 
     }[origin_post]
