@@ -131,7 +131,7 @@ class Command(BaseCommand):
             all_data = csv.DictReader(f)
 
             for candidate in all_data:
-                vi_person_id = candidate['Distrito']+candidate['Numero Lista']+candidate['Posicion']+candidate['Cargo']
+                vi_person_id = candidate['Distrito']+candidate['Numero Lista']+candidate['Posicion']+candidate['Cargo']+candidate['Nombre Lista']
 
                 election_data, post_data = get_post_data(
                     api, candidate['Cargo'], candidate['Distrito']
@@ -168,6 +168,7 @@ class Command(BaseCommand):
                 }
                 if 'area' in post_data:
                     standing_in_election['mapit_url'] = post_data['area']['identifier']
+
                 person.standing_in = {
                     election_data['id']: standing_in_election
                 }
