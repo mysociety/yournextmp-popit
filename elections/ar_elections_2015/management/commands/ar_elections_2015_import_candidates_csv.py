@@ -51,11 +51,15 @@ def get_post_data(api, origin_post,origin_district):
     ynr_election_data['id'] = ynr_election_id
     province = None
 
-    mapit_areas_by_name = MAPIT_DATA.areas_by_name[('PRV', 1)]
-    mapit_area = mapit_areas_by_name[origin_district]
-    post_id = AREA_POST_DATA.get_post_id(
-        ynr_election_id, mapit_area['type'], mapit_area['id']
-    )
+    if origin_district == "PARLAMENTARIO MERCOSUR DISTRITO NACIONAL(1)":
+        post_id = 'pmeu'
+
+    else:
+        mapit_areas_by_name = MAPIT_DATA.areas_by_name[('PRV', 1)]
+        mapit_area = mapit_areas_by_name[origin_district]
+        post_id = AREA_POST_DATA.get_post_id(
+            ynr_election_id, mapit_area['type'], mapit_area['id']
+        )
 
     post_data = get_post_cached(api, post_id)['result']
     return ynr_election_data, post_data
