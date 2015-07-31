@@ -32,7 +32,7 @@ USER_AGENT = (
 )
 
 def get_post_data(api, origin_post,origin_district):
-    if (origin_post.find("SUPLENTE") > -1):
+    if ("SUPLENTE" in origin_post):
         return False, False;
 
     ynr_election_id = {
