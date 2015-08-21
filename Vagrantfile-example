@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
     # http://askubuntu.com/questions/238040/how-do-i-fix-name-service-for-vagrant-client
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    #v.ui = true #Uncomment this line for interactive debugging purposes
   end
 
   config.vm.provision :shell,

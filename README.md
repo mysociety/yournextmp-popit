@@ -18,6 +18,14 @@ These are prioritized in Waffle:
 
 ## Getting a development version running:
 
+First make sure you have a running virtualbox environment. This requires having the current kernel's header package, and the hardware virtualization turned on at the BIOS level.
+
+    sudo apt-get install virtualbox
+
+Then install vagrant, preferably from the .deb package from the official website. 
+
+   Follow the install instructions here: https://docs.vagrantup.com/v2/installation/
+
 Make a new directory called `yournextmp`, change into that directory and clone the repository with:
 
     git clone --recursive <REPOSITORY-URL>
@@ -36,6 +44,8 @@ the PopIt instance you're using.
 Start that vagrant box with:
 
     vagrant up
+
+It may take several minutes to run all of the scripts for the first time. If you run into problems at this stage, you can debug your virtual machine interactively by uncommmenting the #v.ui = true in the Vagrantfile.
 
 Log in to the box with:
 

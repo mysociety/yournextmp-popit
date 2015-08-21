@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('allauth.urls')),
     url(r'^upload_document/', include('official_documents.urls')),
     url(r'^results/', include('results.urls')),
+    (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
 if settings.DEBUG:
