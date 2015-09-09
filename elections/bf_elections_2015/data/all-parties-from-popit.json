@@ -1,0 +1,1166 @@
+[
+    {
+        "classification": "Party", 
+        "id": "pp:1", 
+        "name": "Parti des Patriotes Panafricanistes", 
+        "other_names": [
+            {
+                "name": "3P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:2", 
+        "name": "Alliance pour la D\u00e9mocratie et la F\u00e9d\u00e9ration / Rassemblement D\u00e9mocratique Africain", 
+        "other_names": [
+            {
+                "name": "A.D.F/R.D.A", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:3", 
+        "name": "Alliance pour la D\u00e9mocratie du Faso", 
+        "other_names": [
+            {
+                "name": "A.DE.FA", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:4", 
+        "name": "Alliance des Forces Progressistes", 
+        "other_names": [
+            {
+                "name": "A.F.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:5", 
+        "name": "Alliance des Jeunes pour l\u2019Ind\u00e9pendance et R\u00e9publique", 
+        "other_names": [
+            {
+                "name": "A.J.I.R", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:6", 
+        "name": "Alliance pour la Renaissance, la D\u00e9mocratie et l\u2019Int\u00e9gration", 
+        "other_names": [
+            {
+                "name": "A.R.D.I", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:7", 
+        "name": "Burkina Yirwa", 
+        "other_names": [
+            {
+                "name": "Burkina Yirwa", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:8", 
+        "name": "Congr\u00e8s pour la D\u00e9mocratie et le Progr\u00e8s", 
+        "other_names": [
+            {
+                "name": "C.D.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:9", 
+        "name": "Conseil National pour le Changement", 
+        "other_names": [
+            {
+                "name": "C.N.C", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:10", 
+        "name": "Convention pour l\u2019Alternance, la D\u00e9mocratie et l\u2019Egalit\u00e9 au Faso", 
+        "other_names": [
+            {
+                "name": "CADEauF", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:11", 
+        "name": "Convergence pour l\u2019Emergence et le D\u00e9veloppement", 
+        "other_names": [
+            {
+                "name": "CED", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:12", 
+        "name": "Conseil du Peuple pour l\u2019Action", 
+        "other_names": [
+            {
+                "name": "CO.P.AC", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:13", 
+        "name": "Coalition pour la R\u00e9publique-Parti Progressiste", 
+        "other_names": [
+            {
+                "name": "CO.R.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:14", 
+        "name": "Convergence Patriotique pour la Renaissance/Mouvement Progressiste", 
+        "other_names": [
+            {
+                "name": "CPR/MP", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:15", 
+        "name": "Front des Forces Sociales", 
+        "other_names": [
+            {
+                "name": "F.F.S.", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:16", 
+        "name": "Front Progressiste", 
+        "other_names": [
+            {
+                "name": "FP", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:17", 
+        "name": "L\u2019Autre Burkina / Parti pour le Socialisme et la Refondation", 
+        "other_names": [
+            {
+                "name": "L\u2019Autre Burkina/P.S.R", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:18", 
+        "name": "Le Faso Autrement", 
+        "other_names": [
+            {
+                "name": "Le Faso Autrement", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:19", 
+        "name": "Mouvement d\u2019Action Culturelle pour l\u2019Ennoblissement de la Politique", 
+        "other_names": [
+            {
+                "name": "M.A.C.EN.POL", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:20", 
+        "name": "Mouvement Africain des Peuples", 
+        "other_names": [
+            {
+                "name": "M.A.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:21", 
+        "name": "Mouvement pour la D\u00e9mocratie en Afrique", 
+        "other_names": [
+            {
+                "name": "M.D.A", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:22", 
+        "name": "Mouvement pour la D\u00e9mocratie et le D\u00e9veloppement", 
+        "other_names": [
+            {
+                "name": "M.D.D", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:23", 
+        "name": "Mouvement pour la D\u00e9mocratie et la Renaissance", 
+        "other_names": [
+            {
+                "name": "M.D.R", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:24", 
+        "name": "Mouvement Patriotique du Burkina", 
+        "other_names": [
+            {
+                "name": "M.P.B", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:25", 
+        "name": "Mouvement pour le Progr\u00e8s et le Changement", 
+        "other_names": [
+            {
+                "name": "M.P.C", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:26", 
+        "name": "Mouvement du Peuple pour la D\u00e9mocratie", 
+        "other_names": [
+            {
+                "name": "M.P.D", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:27", 
+        "name": "Mouvement Panafricain du Faso", 
+        "other_names": [
+            {
+                "name": "M.P.F", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:28", 
+        "name": "Mouvement du Peuple pour le Progr\u00e8s", 
+        "other_names": [
+            {
+                "name": "M.P.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:29", 
+        "name": "Mouvement Patriotique pour le Renouveau du Burkina", 
+        "other_names": [
+            {
+                "name": "MPR/B", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:30", 
+        "name": "Nouvelle D\u00e9mocratie Sociale", 
+        "other_names": [
+            {
+                "name": "N.D.S", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:31", 
+        "name": "Nouvelle Initiative D\u00e9mocratique", 
+        "other_names": [
+            {
+                "name": "N.I.D", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:32", 
+        "name": "Nouvelle Alliance du Faso", 
+        "other_names": [
+            {
+                "name": "NAFA", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:33", 
+        "name": "Nouveau Temps pour la D\u00e9mocratie", 
+        "other_names": [
+            {
+                "name": "NTD", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:34", 
+        "name": "Organisation pour la D\u00e9mocratie et le Travail", 
+        "other_names": [
+            {
+                "name": "O.D.T", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:35", 
+        "name": "Organisation pour la D\u00e9mocratie et le Travail", 
+        "other_names": [
+            {
+                "name": "ODP", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:36", 
+        "name": "Parti Centriste pour la D\u00e9mocratie et le Progr\u00e8s", 
+        "other_names": [
+            {
+                "name": "P.C.D.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:37", 
+        "name": "Parti pour le D\u00e9veloppement et le Changement", 
+        "other_names": [
+            {
+                "name": "P.D.C", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:38", 
+        "name": "Parti pour la D\u00e9mocratie et le Progr\u00e8s/Parti Socialiste", 
+        "other_names": [
+            {
+                "name": "P.D.P/P.S", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:39", 
+        "name": "Parti pour la D\u00e9mocratie et le Socialisme/Parti des B\u00e2tisseurs", 
+        "other_names": [
+            {
+                "name": "P.D.S/METBA", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:40", 
+        "name": "Parti Ecologiste pour un D\u00e9veloppement Nouveau", 
+        "other_names": [
+            {
+                "name": "P.E.D.N", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:41", 
+        "name": "Parti Fasocrate", 
+        "other_names": [
+            {
+                "name": "P.F", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:42", 
+        "name": "Parti National pour le D\u00e9veloppement et la Paix", 
+        "other_names": [
+            {
+                "name": "P.N.D.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:43", 
+        "name": "Parti National des D\u00e9mocrates Sociaux", 
+        "other_names": [
+            {
+                "name": "P.N.D.S", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:44", 
+        "name": "Parti Patriotique pour le D\u00e9veloppement", 
+        "other_names": [
+            {
+                "name": "P.P.D", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:45", 
+        "name": "Parti pour la Protection de l\u2019Environnement/Conservation de la Nature", 
+        "other_names": [
+            {
+                "name": "P.P.E/C.N", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:46", 
+        "name": "Parti pour le Progr\u00e8s et la Libert\u00e9 du Burkina", 
+        "other_names": [
+            {
+                "name": "P.P.L.B", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:47", 
+        "name": "Parti des Patriotes Progressistes", 
+        "other_names": [
+            {
+                "name": "P.P.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:48", 
+        "name": "Parti du Progr\u00e8s pour le Renouveau National", 
+        "other_names": [
+            {
+                "name": "P.P.R.N", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:49", 
+        "name": "Parti pour la Renaissance de la D\u00e9mocratie au Faso", 
+        "other_names": [
+            {
+                "name": "P.R.D.F", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:50", 
+        "name": "Parti R\u00e9publicain pour l\u2019Ind\u00e9pendance Totale", 
+        "other_names": [
+            {
+                "name": "P.R.I.T-LANNAYA", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:51", 
+        "name": "Parti Socialiste Unifi\u00e9", 
+        "other_names": [
+            {
+                "name": "P.S.U", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:52", 
+        "name": "Parti pour l\u2019Unit\u00e9 Nationale et le D\u00e9veloppement", 
+        "other_names": [
+            {
+                "name": "P.U.N.D", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:53", 
+        "name": "Parti R\u00e9publicain pour l\u2019Int\u00e9gration et la Solidarit\u00e9", 
+        "other_names": [
+            {
+                "name": "PA.R.I.S", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:54", 
+        "name": "Parti de la Renaissance Nationale", 
+        "other_names": [
+            {
+                "name": "PA.RE.N", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:55", 
+        "name": "Parti Burkina Laafia", 
+        "other_names": [
+            {
+                "name": "PBL", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:56", 
+        "name": "Parti pour la Coh\u00e9sion Nationale", 
+        "other_names": [
+            {
+                "name": "PCN", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:57", 
+        "name": "Parti pour la D\u00e9mocratie et la Justice", 
+        "other_names": [
+            {
+                "name": "PDJ", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:58", 
+        "name": "Parti des Militants du Peuple", 
+        "other_names": [
+            {
+                "name": "PMP", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:59", 
+        "name": "F Rassemblement des Ecologistes du Burkina Faso", 
+        "other_names": [
+            {
+                "name": "R.D.E.B.", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:60", 
+        "name": "Rassemblement des D\u00e9mocrates pour le Faso", 
+        "other_names": [
+            {
+                "name": "R.D.F", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:61", 
+        "name": "Renaissance D\u00e9mocratique et Patriotique au Faso", 
+        "other_names": [
+            {
+                "name": "R.D.P.F", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:62", 
+        "name": "Rassemblement Des R\u00e9publicains", 
+        "other_names": [
+            {
+                "name": "R.D.R", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:63", 
+        "name": "Rassemblement pour la D\u00e9mocratie et le Socialisme", 
+        "other_names": [
+            {
+                "name": "R.D.S", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:64", 
+        "name": "Rassemblement des Forces Ind\u00e9pendantes/Parti des Jeunes du Burkina", 
+        "other_names": [
+            {
+                "name": "R.F.I/P.J.B", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:65", 
+        "name": "Rassemblement pour un Sursaut R\u00e9publicain", 
+        "other_names": [
+            {
+                "name": "R.S.R", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:66", 
+        "name": "Renouveau Citoyen", 
+        "other_names": [
+            {
+                "name": "RECIT", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:67", 
+        "name": "Rassemblement des Patriotes pour le Renouveau", 
+        "other_names": [
+            {
+                "name": "RPR", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:68", 
+        "name": "Union des Forces D\u00e9mocratiques du Burkina", 
+        "other_names": [
+            {
+                "name": "U.F.D.B.", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:69", 
+        "name": "Union pour le Mouvement du Peuple", 
+        "other_names": [
+            {
+                "name": "U.M.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:70", 
+        "name": "Union Nationale pour la D\u00e9mocratie et le D\u00e9veloppement", 
+        "other_names": [
+            {
+                "name": "U.N.D.D", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:71", 
+        "name": "Union Nationale pour la D\u00e9mocratie et le Progr\u00e8s", 
+        "other_names": [
+            {
+                "name": "U.N.D.P", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:72", 
+        "name": "Union pour le Progr\u00e8s et le Changement", 
+        "other_names": [
+            {
+                "name": "U.P.C", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:73", 
+        "name": "Union Pour la R\u00e9publique", 
+        "other_names": [
+            {
+                "name": "U.P.R", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:74", 
+        "name": "Union pour la Renaissance D\u00e9mocratique du Burkina", 
+        "other_names": [
+            {
+                "name": "U.R.D.B", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:75", 
+        "name": "Union pour un Burkina Nouveau", 
+        "other_names": [
+            {
+                "name": "UBN", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:76", 
+        "name": "Union D\u00e9mocratique Burkinab\u00e8 pour la Renaissance", 
+        "other_names": [
+            {
+                "name": "UDB/R", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:77", 
+        "name": "Union des Forces Progressistes", 
+        "other_names": [
+            {
+                "name": "UFP", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:78", 
+        "name": "Union Nationale des Ind\u00e9pendants pour le Changement", 
+        "other_names": [
+            {
+                "name": "UNIC", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "pp:79", 
+        "name": "Union pour la Renaissance/Parti Sankariste", 
+        "other_names": [
+            {
+                "name": "UNIR/PS", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "PARTI POLITIQUE"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:1", 
+        "name": "Regroupement Ind\u00e9pendant BEOGO-NEERE", 
+        "other_names": [
+            {
+                "name": "BEOGO-NEERE", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:2", 
+        "name": "BINIDJO", 
+        "other_names": [
+            {
+                "name": "BINIDJO", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:3", 
+        "name": "Convergence des Masses Populaires", 
+        "other_names": [
+            {
+                "name": "CMP", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:4", 
+        "name": "D\u00e9veloppement pour Tous", 
+        "other_names": [
+            {
+                "name": "DT", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:5", 
+        "name": "ECOCULTURE", 
+        "other_names": [
+            {
+                "name": "ECOCULTURE", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:6", 
+        "name": "Les Ind\u00e9pendants pour le D\u00e9veloppement Neerwaya", 
+        "other_names": [
+            {
+                "name": "ID-NEERWAYA", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:7", 
+        "name": "Jeunesse Consciente du Burkina", 
+        "other_names": [
+            {
+                "name": "JCB", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:8", 
+        "name": "Regroupement d'Independant LAFRATERNITE", 
+        "other_names": [
+            {
+                "name": "LA FRATERNITE", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:9", 
+        "name": "LE CHANGEMENT POSITIF", 
+        "other_names": [
+            {
+                "name": "LE CHANGEMENT POSITIF", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:10", 
+        "name": "Les Afranchis", 
+        "other_names": [
+            {
+                "name": "LES AFRANCHIS", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:11", 
+        "name": "Ligue des Jeunes pour l'Emploi et la Formation", 
+        "other_names": [
+            {
+                "name": "LIJEF", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:12", 
+        "name": "Mouvement de Liberation Nationale", 
+        "other_names": [
+            {
+                "name": "MLN-BF", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:13", 
+        "name": "Le Rassemblement des Lib\u00e9raux", 
+        "other_names": [
+            {
+                "name": "R.D.L", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:14", 
+        "name": "Rassemblement des Ind\u00e9pendants du Houet", 
+        "other_names": [
+            {
+                "name": "R.I.H", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:15", 
+        "name": "Regroupememnt des Ind\u00e9pendants pour la D\u00e9mocratie", 
+        "other_names": [
+            {
+                "name": "RID", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:16", 
+        "name": "Regroupement des Ind\u00e9pendants Pour l'Int\u00e9gration et la Tol\u00e9rance", 
+        "other_names": [
+            {
+                "name": "RIPIT", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:17", 
+        "name": "Regroupement d'Ind\u00e9pendants pour la Paix et le D\u00e9veloppement", 
+        "other_names": [
+            {
+                "name": "SOLEIL D'AFRIQUE", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }, 
+    {
+        "classification": "Party", 
+        "id": "ri:18", 
+        "name": "Union pour le Developpement du Sanmatenga", 
+        "other_names": [
+            {
+                "name": "UDS", 
+                "note": "sigle"
+            }
+        ], 
+        "type": "REGROUPEMENT INDEPENDANT"
+    }
+]
