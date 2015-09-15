@@ -398,6 +398,11 @@ EDITS_ALLOWED = conf.get('EDITS_ALLOWED', True)
 ELECTION_SETTINGS_MODULE = ELECTION_APP_FULLY_QUALIFIED + '.settings'
 elections_module = importlib.import_module(ELECTION_SETTINGS_MODULE)
 
+try:
+    AREAS_TO_ALWAYS_RETURN = elections_module.AREAS_TO_ALWAYS_RETURN
+except AttributeError:
+    AREAS_TO_ALWAYS_RETURN = []
+
 ELECTIONS = elections_module.ELECTIONS
 
 ELECTIONS_BY_DATE = sorted(
