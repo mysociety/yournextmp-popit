@@ -1,0 +1,104 @@
+@import "../foundation/scss/foundation/functions";
+
+// From the Burkina Faso flag
+$color-green: #009e49;
+$color-red: #ef2b2d;
+$color-gold: #fcd116;
+
+$color-darkgreen: darken($color-green, 20%);
+$color-lightgreen: lighten($color-green, 10%);
+$color-palegreen: mix($color-green, #fff, 50%);
+
+$color-offwhite: #f3f3f3;
+$color-cream: #e4dfdb;
+$color-yellow: #fdf2d5;
+$color-cyan: #029db9;
+
+$header-background-color: $color-green;
+$body-background-color: mix($color-offwhite, #fff, 60%);
+$footer-text-color: mix($color-offwhite, #000, 60%);
+$content-background-color: #fff;
+
+$muted-text-color: darken($color-cream, 20%);
+
+$message-background-color: mix(#fff, $color-gold, 70%);
+$message-border-color: lighten($color-gold, 30%);
+
+$highlight-background-color: $color-yellow;
+$information-background-color: mix($color-cyan, #fff, 15%);
+$danger-background-color: mix($color-red, #fff, 15%);
+
+$confirmation-background-color: $color-yellow;
+$error-background-color: mix($color-red, #fff, 15%);
+$error-text-color: darken($color-red, 10%);
+$error-border-color: mix($color-red, #fff, 30%);
+$error-input-border-color: mix($color-red, #fff, 40%);
+
+$avatar-background-color: #ddd;
+
+$unknown-candidate-status-color: $color-gold;
+$not-standing-candidate-status-color: $color-red;
+
+$homepage-description-background-color: $body-background-color;
+$homepage-description-text-color: #887; // dark desaturated browny-grey
+$homepage-activity-color: $color-green;
+$homepage-leaderboard-color: darken($color-gold, 20%);
+
+// Override Foundation variables here
+$primary-color: $color-green;
+$secondary-color: $color-cream;
+$button-tny: rem-calc(6);
+$button-sml: rem-calc(8);
+$button-med: rem-calc(10);
+$button-lrg: rem-calc(14);
+$button-radius: 3px;
+$code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
+
+$high_dpi_screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi';
+
+@import "../foundation/scss/normalize";
+@import "../foundation/scss/foundation";
+
+@import "../candidates/header";
+@import "../candidates/content";
+@import "../candidates/footer";
+@import "../candidates/forms";
+
+@import "../candidates/finder";
+@import "../candidates/people";
+@import "../candidates/versions";
+@import "../candidates/parties";
+@import "../candidates/person_edit";
+@import "../candidates/copyright-assignment";
+@import "../candidates/leaderboards";
+
+a {
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+.header {
+    a {
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+.button {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.finder__forms {
+  background-color: $color-gold;
+
+  label {
+    color: #333;
+  }
+}
