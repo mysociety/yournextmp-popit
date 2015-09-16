@@ -9,6 +9,7 @@ from .models.address import check_address
 
 from django import forms
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -392,9 +393,9 @@ class UserTermsAgreementForm(forms.Form):
         assigned_to_dc = self.cleaned_data['assigned_to_dc']
         if not assigned_to_dc:
             message = _(
-                "You can only edit data on YourNextMP if you agree to "
+                "You can only edit data on {site_name} if you agree to "
                 "this copyright assignment."
-            )
+            ).format(site_name=Site.objects.get_current().name)
             raise ValidationError(message)
         return assigned_to_dc
 

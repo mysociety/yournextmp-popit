@@ -32,7 +32,13 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>{% block title %}{% trans "YourNextMP - 2015 UK general election candidates" %}{% endblock %}</title>
+    <title>
+      {% block title %}
+        {% blocktrans with site_name=site.name %}
+           {{ site_name }}
+        {% endblocktrans %}
+      {% endblock %}
+    </title>
 
     {% block analytics %}
       {% if settings.GOOGLE_ANALYTICS_ACCOUNT %}
@@ -64,7 +70,7 @@
   <div class="header">
     <div class="container">
       <div class="header__nav">
-        <a href="/" class="header__nav__logo">{% trans "YourNextMP" %}</a>
+        <a href="/" class="header__nav__logo">{{ site.name }}</a>
         <a href="{% url 'help-about' %}" class="header__nav__logo">{% trans "About" %}</a>
         <a href="{% url 'posts' %}" class="header__nav__logo">{% trans "Posts" %}</a>
         <a href="{% url 'reports_home' %}" class="header__nav__logo">{% trans "Numbers" %}</a>

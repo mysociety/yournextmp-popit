@@ -4,6 +4,7 @@ from requests.adapters import ConnectionError
 from slumber.exceptions import HttpServerError, HttpClientError
 
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponseRedirect
@@ -46,7 +47,9 @@ class DisallowedUpdateMiddleware(object):
 If this update is appropriate, someone should apply it manually.
 ''').format(unicode(exc))
             send_mail(
-                _('Disallowed YourNextMP update for checking'),
+                _('Disallowed {site_name} update for checking').format(
+                    site_name=Site.objects.get_current().name
+                ),
                 message,
                 settings.DEFAULT_FROM_EMAIL,
                 [settings.SUPPORT_EMAIL],

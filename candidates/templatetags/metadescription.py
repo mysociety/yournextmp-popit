@@ -2,6 +2,7 @@ import re
 
 from django import template
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.utils.translation import ugettext as _
 from django.utils.translation import get_language
@@ -31,7 +32,9 @@ def metadescription(person, last_cons, today):
     else:
         output = person.name
 
-    output += " - " + _("find out more on YourNextMP")
+    output += " - " + _("find out more on {site_name}").format(
+        site_name=Site.objects.get_current().name
+    )
     return output
 
 def is_post_election(election, today):

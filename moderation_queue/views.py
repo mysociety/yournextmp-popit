@@ -6,6 +6,7 @@ from tempfile import NamedTemporaryFile
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib.sites.models import Site
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
@@ -310,7 +311,9 @@ class PhotoReview(GroupRequiredMixin, PopItApiMixin, TemplateView):
                 source=update_message,
             )
             self.send_mail(
-                _('YourNextMP image upload approved'),
+                _('{site_name} image upload approved').format(
+                    site_name=Site.objects.get_current().name
+                ),
                 render_to_string(
                     'moderation_queue/photo_approved_email.txt',
                     {'candidate_page_url':
@@ -343,7 +346,9 @@ class PhotoReview(GroupRequiredMixin, PopItApiMixin, TemplateView):
                 )
             )
             self.send_mail(
-                _('YourNextMP image moderation results'),
+                _('{site_name} image moderation results').format(
+                    site_name=Site.objects.get_current().name
+                ),
                 render_to_string(
                     'moderation_queue/photo_rejected_email.txt',
                     {'reason': form.cleaned_data['rejection_reason'],

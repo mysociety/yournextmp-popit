@@ -35,8 +35,8 @@ Of {{ num_candidates_2015 }} candidates in total ({{ percent_empty }}% blank)
     (<a href="{% url "person-update" person.id %}">{% trans "edit" %}</a>)
     ({{ person.party_memberships.2015.name }}, {{ person.standing_in.2015.name }})
     {% if person.versions.0.data.twitter_username %}
-        &mdash; <a href="https://twitter.com/intent/tweet?text={% blocktrans trimmed with username=person.versions.0.data.twitter_username id=person.id %}
-        Hi @{{ username }} could you add your {{ field }} to your YourNextMP.com page please? https://yournextmp.com/person/{{ id }}/
+        &mdash; <a href="https://twitter.com/intent/tweet?text={% blocktrans trimmed with username=person.versions.0.data.twitter_username id=person.id site_name=site.name %}
+        Hi @{{ username }} could you add your {{ field }} to your {{ site_name }} page please? https://yournextmp.com/person/{{ id }}/
         {% endblocktrans %}">
             {% trans "Tweet them" %}</a>{% endif %}
     &mdash; <a href="https://duckduckgo.com/?q=%22{{ person.name }}%22+%22{{ person.standing_in.2015.name }}%22+{{ field }}">{% trans "Search" %}</a>

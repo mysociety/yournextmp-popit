@@ -1,5 +1,6 @@
 from datetime import date
 from django.conf import settings
+from django.contrib.sites.models import Site
 from auth_helpers.views import user_in_group
 from candidates.models import (
     TRUSTED_TO_MERGE_GROUP_NAME,
@@ -73,3 +74,8 @@ def add_group_permissions(request):
     }
     result['user_can_edit'] = settings.EDITS_ALLOWED or request.user.is_staff
     return result
+
+def add_site(request):
+    """Make sure the current site is available in all contexts"""
+
+    return {'site': Site.objects.get_current()}

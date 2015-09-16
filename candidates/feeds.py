@@ -1,5 +1,6 @@
 import re
 
+from django.contrib.sites.models import Site
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from django.utils.feedgenerator import Atom1Feed
@@ -11,8 +12,9 @@ from .models import LoggedAction
 lock_re = re.compile(r'^(?:Unl|L)ocked\s*constituency (.*) \((\d+)\)$')
 
 class RecentChangesFeed(Feed):
-    title = _("YourNextMP recent changes")
-    description = _("Changes to YNMP candidates")
+    site_name = Site.objects.get_current().name
+    title = _("{site_name} recent changes").format(site_name=site_name)
+    description = _("Changes to {site_name} candidates").format(site_name=site_name)
     link = "/feeds/changes.xml"
     feed_type = Atom1Feed
 
