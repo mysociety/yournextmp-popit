@@ -1,7 +1,6 @@
 import datetime
 
 from django.contrib.auth.models import User
-from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -34,8 +33,8 @@ class QueuedImage(models.Model):
          _("This photograph is free of any copyright restrictions")),
         (COPYRIGHT_ASSIGNED,
          _("I own copyright of this photo and I assign the copyright "
-         "to Democracy Club Limited in return for it being displayed "
-           "on {site_name}").format(site_name=Site.objects.get_current().name)),
+           "to Democracy Club Limited in return for it being displayed "
+           "on this site")),
         (PROFILE_PHOTO,
          _("This is the candidate's public profile photo from social "
          "media (e.g. Twitter, Facebook) or their official campaign "
