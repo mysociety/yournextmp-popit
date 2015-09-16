@@ -1,5 +1,5 @@
 {% load i18n %}{% autoescape off %}{% blocktrans %}Thank-you for uploading a photo of {{ candidate_name }}
-to YourNextMP, but unfortunately we can't use that image because:{% endblocktrans %}
+to {{ site_name }}, but unfortunately we can't use that image because:{% endblocktrans %}
 
   {{ reason }}
 
@@ -10,7 +10,7 @@ or justification for its use using this link:{% endblocktrans %}
   {{ retry_upload_link }}
 
 {% blocktrans %}Many thanks,
-The YourNextMP volunteers{% endblocktrans %}
+The {{ site_name }} volunteers{% endblocktrans %}
 
 -- 
 {% blocktrans trimmed %}For administrators' use: {{ photo_review_url }}{% endblocktrans %}{% endautoescape %}

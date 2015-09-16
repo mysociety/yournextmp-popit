@@ -12,8 +12,8 @@
     <meta property="og:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
     <meta property="og:image:height" content="80" />
     <meta property="og:image:width" content="80" />
-    <meta property="og:site_name" content="{% trans "YourNextMP" %}" />
-    <meta property="og:description" content="{% blocktrans with election=election_data.name post=constituency_name %}List of Candidates for {{ post_label_shorter }} in the {{ election }}{% endblocktrans %} - {% trans "find out more on YourNextMP" %}">
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:description" content="{% blocktrans with election=election_data.name post=constituency_name %}List of Candidates for {{ post_label_shorter }} in the {{ election }}{% endblocktrans %} - {% blocktrans with site_name=site.name %}find out more on {{ site_name }}{% endblocktrans %}">
     <meta property="og:locale" content="{{ LOCALE }}" />
 
     <!-- Twitter card data -->
@@ -24,7 +24,7 @@
     <meta property="twitter:image:height" content="120" />
     <meta property="twitter:image:width" content="120" />
     <meta name="twitter:url" content="{{ request.build_absolute_uri }}" />
-    <meta name="twitter:description" content="{% blocktrans with election=election_data.name %}List of Candidates for {{ post_label_shorter }} in the {{ election }}{% endblocktrans %} - {% trans "find out more on YourNextMP" %}"  />
+    <meta name="twitter:description" content="{% blocktrans with election=election_data.name %}List of Candidates for {{ post_label_shorter }} in the {{ election }}{% endblocktrans %} - {% blocktrans with site_name=site.name %}find out more on {{ site_name }}{% endblocktrans %}"  />
 {% endblock %}
 
 {% block body_class %}constituency{% endblock %}

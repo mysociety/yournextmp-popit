@@ -33,8 +33,8 @@ class QueuedImage(models.Model):
          _("This photograph is free of any copyright restrictions")),
         (COPYRIGHT_ASSIGNED,
          _("I own copyright of this photo and I assign the copyright "
-         "to Democracy Club Limited in return for it being displayed "
-         "on YourNextMP")),
+           "to Democracy Club Limited in return for it being displayed "
+           "on this site")),
         (PROFILE_PHOTO,
          _("This is the candidate's public profile photo from social "
          "media (e.g. Twitter, Facebook) or their official campaign "

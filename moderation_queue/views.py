@@ -6,6 +6,7 @@ from tempfile import NamedTemporaryFile
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib.sites.models import Site
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
@@ -309,12 +310,17 @@ class PhotoReview(GroupRequiredMixin, PopItApiMixin, TemplateView):
                 popit_person_id=self.queued_image.popit_person_id,
                 source=update_message,
             )
+            candidate_full_url = person.get_absolute_url(self.request)
             self.send_mail(
-                _('YourNextMP image upload approved'),
+                _('{site_name} image upload approved').format(
+                    site_name=Site.objects.get_current().name
+                ),
                 render_to_string(
                     'moderation_queue/photo_approved_email.txt',
-                    {'candidate_page_url':
-                     person.get_absolute_url(self.request)}
+                    {
+                        'site_name': Site.objects.get_current().name,
+                        'candidate_page_url': candidate_full_url
+                    }
                 ),
             )
             flash(
@@ -343,13 +349,18 @@ class PhotoReview(GroupRequiredMixin, PopItApiMixin, TemplateView):
                 )
             )
             self.send_mail(
-                _('YourNextMP image moderation results'),
+                _('{site_name} image moderation results').format(
+                    site_name=Site.objects.get_current().name
+                ),
                 render_to_string(
                     'moderation_queue/photo_rejected_email.txt',
-                    {'reason': form.cleaned_data['rejection_reason'],
-                     'candidate_name': candidate_name,
-                     'retry_upload_link': retry_upload_link,
-                     'photo_review_url': photo_review_url},
+                    {
+                        'site_name': Site.objects.get_current().name,
+                        'reason': form.cleaned_data['rejection_reason'],
+                        'candidate_name': candidate_name,
+                        'retry_upload_link': retry_upload_link,
+                        'photo_review_url': photo_review_url
+                    },
                 ),
                 email_support_too=True,
             )

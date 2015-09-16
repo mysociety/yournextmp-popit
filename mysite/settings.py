@@ -88,6 +88,7 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     "mysite.context_processors.add_group_permissions",
     "mysite.context_processors.add_notification_data",
     "mysite.context_processors.locale",
+    "mysite.context_processors.add_site",
 )
 
 ELECTION_APP = conf['ELECTION_APP']
