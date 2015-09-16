@@ -28,7 +28,8 @@ class Command(BaseCommand):
         person.invalidate_cache_entries()
 
         # FIXME: this should create a new version in the versions
-        # array too, otherwise you manually have to edit on YourNextMP
-        # too to create a new version with a change message.
+        # array too, otherwise you manually have to edit on the
+        # YourNextRepresentative site too to create a new version with
+        # a change message.
 
         print "Successfully updated {0}".format(person_id)
