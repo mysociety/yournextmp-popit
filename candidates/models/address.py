@@ -52,7 +52,6 @@ def check_address(address_string, country=None):
     ]
     if settings.AREAS_TO_ALWAYS_RETURN:
         types_and_areas += settings.AREAS_TO_ALWAYS_RETURN
-    print "types_and_areas:", types_and_areas
     types_and_areas_joined = ','.join(
         '{area_type_code}-{area_id}'.format(**ta) for ta in types_and_areas
     )
