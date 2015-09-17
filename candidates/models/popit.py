@@ -1195,6 +1195,9 @@ class PopItPerson(object):
             form_complex_fields_locations.keys()
         for field in settable_fields:
             setattr(self, field, form_data[field])
+        # And extra fields that might be present for this person:
+        for field in form.extra_fields:
+            self.popit_data[field] = form_data[field]
 
     def set_elected(self, was_elected, election):
         standing_in = self.standing_in

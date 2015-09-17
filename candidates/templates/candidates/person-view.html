@@ -174,6 +174,23 @@
     {% endwith %}
   </dl>
 
+  {% if person.popit_data.cv or person.popit_data.program %}
+    <h2>{% trans "Additional information:" %}</h2>
+    <dl>
+      {% if person.popit_data.cv %}
+        <dt>{% trans "CV or Résumé" %}</dt>
+        <dd>{{ person.popit_data.cv|linebreaks }}
+        </dd>
+      {% endif %}
+      {% if person.popit_data.program %}
+        <dt>{% trans "Program" %}</dt>
+        <dd>{{ person.popit_data.program|linebreaks }}
+        </dd>
+      {% endif %}
+    </dl>
+  {% endif %}
+
+
   {% if person.image %}
   <h2>{% trans "Photo Credit:" %}</h2>
   <p class="person__photo-credit">
