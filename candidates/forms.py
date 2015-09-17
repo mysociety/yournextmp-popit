@@ -319,6 +319,9 @@ class UpdatePersonForm(BasePersonForm):
         # going on at the same time. (FIXME: this might be better done
         # with formsets?)
 
+        self.extra_fields = []
+        extra_fields_seen = set()
+
         for election, election_data in self.elections_with_fields:
             role = election_data['for_post_role']
             self.fields['standing_' + election] = \
@@ -359,6 +362,31 @@ class UpdatePersonForm(BasePersonForm):
                             }
                         ),
                     )
+            # Particular elections may have extra fields that are needed:
+            for extra_field in election_data.get('extra_fields', []):
+                if extra_field in extra_fields_seen:
+                    continue
+                self.extra_fields.append(extra_field)
+                extra_fields_seen.add(extra_field)
+
+        for extra_field in self.extra_fields:
+            if extra_field == 'cv':
+                field = forms.CharField(
+                    required=False,
+                    label=_(u"CV or Résumé"),
+                    widget=forms.Textarea
+                )
+            elif extra_field == 'program':
+                field = forms.CharField(
+                    required=False,
+                    label=_(u"Program"),
+                    widget=forms.Textarea
+                )
+            else:
+                raise Exception("Unknown extra field '{0}' requested".format(
+                    extra_field
+                ))
+            self.fields[extra_field] = field
 
     source = forms.CharField(
         label=_(u"Source of information for this change ({0})").format(

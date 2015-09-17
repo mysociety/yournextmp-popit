@@ -272,6 +272,10 @@ class UpdatePersonView(LoginRequiredMixin, PopItApiMixin, FormView):
                 }
             )
 
+        context['extra_fields'] = [
+            context['form'][fname] for fname in context['form'].extra_fields
+        ]
+
         return context
 
     def form_valid(self, form):

@@ -18,6 +18,7 @@ ELECTIONS = {
         'mapit_types': ['NATIONAL'],
         'mapit_generation': 2,
         'post_id_format': 'president',
+        'extra_fields': ['cv', 'program'],
     },
     'nat-2015': {
         'current': True,

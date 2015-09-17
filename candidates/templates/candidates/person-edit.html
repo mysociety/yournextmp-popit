@@ -207,6 +207,18 @@
         {{ form.birth_date.errors }}
       </div>
 
+      <h2>{% trans "Additional information:" %}</h2>
+
+      {% for field in extra_fields %}
+        <div class="form-item {% if field.errors %}form-item--errors{% endif %}">
+          <p>
+            {{ field.label_tag }}
+            {{ field }}
+          </p>
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+
       <div class="source-confirmation {% if form.source.errors %}source-confirmation--errors{% endif %}">
         <p>
           <label for="{{ form.source.id_for_label }}">
