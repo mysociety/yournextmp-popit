@@ -82,6 +82,11 @@ def get_descriptive_value(election, attribute, value, leaf):
                         return _("was elected in the {election}").format(election=election_name)
                     else:
                         return _("was not elected in the {election}").format(election=election_name)
+                elif leaf == 'party_list_position':
+                    if value:
+                        return _("is at position {list_position} in their party list in the {election}").format(list_position=value, election=election_name)
+                    else:
+                        return _("has no position in their party list in the {election}").format(election=election_name)
                 else:
                     message = _(u"Unexpected leaf {0} (attribute: {1}, election: {2}")
                     raise Exception, message.format(

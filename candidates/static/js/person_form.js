@@ -63,27 +63,40 @@ function updateSelectsForElection(show, election) {
   /* Whether we should show the party and post selects is
      determined by the boolean 'show'. */
   var partySelectToShowID,
-      postID = $('#id_constituency_' + election).val();
+      partyPositionToShowID,
+      postID = $('#id_constituency_' + election).val(),
+      partySet;
+  if (postID) {
+    partySet = postIDToPartySet[postID];
+  }
   if (show) {
     if (postID) {
-      partySet = postIDToPartySet[postID];
       partySelectToShowID = 'id_party_' + partySet + '_' + election;
+      partyPositionToShowID = 'id_party_list_position_' + partySet + '_' + election;
       $('.party-select-' + election).each(function(i) {
         setSelect2Visibility(
           $(this),
           $(this).attr('id') == partySelectToShowID
         );
       });
+      $('.party-position-' + election).each(function(i) {
+        $(this).toggle($(this).attr('id') == partyPositionToShowID);
+      });
     } else {
       /* Then just show the first party select and hide the others: */
       $('.party-select-' + election).each(function(i) {
         setSelect2Visibility($(this), i == 0);
+      });
+      $('.party-position-' + election).each(function(i) {
+        $(this).toggle(i == 0);
       });
     }
   } else {
     $('.party-select-' + election).each(function(i) {
       setSelect2Visibility($(this), false);
     });
+    $('.party-position-' + election).hide();
+
   }
   setSelect2Visibility($('#id_constituency_' + election), show);
 }

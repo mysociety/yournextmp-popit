@@ -362,6 +362,21 @@ class UpdatePersonForm(BasePersonForm):
                             }
                         ),
                     )
+                if election_data.get('party_lists_in_use'):
+                    # Then add a field to enter the position on the party list
+                    # as an integer:
+                    field_name = 'party_list_position_' + party_set['slug'] + \
+                        '_' + election
+                    self.fields[field_name] = forms.IntegerField(
+                        label=_("Position in party list ('1' for first, '2' for second, etc.)"),
+                        min_value=1,
+                        required=False,
+                        widget=forms.NumberInput(
+                            attrs={
+                                'class': 'party-position party-position-' + election
+                            }
+                        )
+                    )
             # Particular elections may have extra fields that are needed:
             for extra_field in election_data.get('extra_fields', []):
                 if extra_field in extra_fields_seen:
