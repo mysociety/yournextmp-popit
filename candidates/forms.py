@@ -372,11 +372,13 @@ class UpdatePersonForm(BasePersonForm):
         for extra_field in self.extra_fields:
             if extra_field == 'cv':
                 field = forms.CharField(
+                    required=False,
                     label=_(u"CV or Résumé"),
                     widget=forms.Textarea
                 )
             elif extra_field == 'program':
                 field = forms.CharField(
+                    required=False,
                     label=_(u"Program"),
                     widget=forms.Textarea
                 )
