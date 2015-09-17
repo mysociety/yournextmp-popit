@@ -37,7 +37,7 @@ def get_party_people_for_election_from_memberships(
         person = PopItPerson.create_from_dict(membership['person_id'])
         if person.party_memberships[election]['id'] != party_id:
             continue
-        position_in_list = membership.get('position_in_party_list')
+        position_in_list = membership.get('party_list_position')
         if position_in_list:
             position_in_list = int(position_in_list)
         else:
