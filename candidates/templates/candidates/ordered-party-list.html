@@ -51,8 +51,6 @@
       {% endif %}
 
         <li class="candidates-list__person{% if c|was_elected:election %} candidates-list__person__winner{% endif %}">
-          <h2>{{ position_in_list|default_if_none:"" }}</h2>
-
           {% if c|was_elected:election %}
             <h4 class="candidates-list__person__elected-text">{% trans "Winner" %}</h4>
           {% endif %}
