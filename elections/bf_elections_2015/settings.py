@@ -19,6 +19,7 @@ ELECTIONS = {
         'mapit_generation': 2,
         'post_id_format': 'president',
         'extra_fields': ['cv', 'program'],
+        'show_official_documents': False,
     },
     'nat-2015': {
         'current': True,
@@ -36,7 +37,8 @@ ELECTIONS = {
         'name': u'Elections Législative de 2015',
         'mapit_types': ['NATIONAL'],
         'mapit_generation': 2,
-        'post_id_format': 'nat-{area_id}'
+        'post_id_format': 'nat-{area_id}',
+        'show_official_documents': False,
     },
     'prv-2015': {
         'current': True,
@@ -54,7 +56,8 @@ ELECTIONS = {
         'name': u'Elections Législative de 2015',
         'mapit_types': ['PROVINCE'],
         'mapit_generation': 2,
-        'post_id_format': 'prv-{area_id}'
+        'post_id_format': 'prv-{area_id}',
+        'show_official_documents': False,
     },
 }
 

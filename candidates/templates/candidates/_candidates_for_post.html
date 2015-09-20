@@ -52,7 +52,9 @@
 
 {% endcomment %}
 
-{% include 'official_documents/_post.html' %}
+{% if election_data.show_official_documents %}
+  {% include 'official_documents/_post.html' %}
+{% endif %}
 
 <div id="candidates-for-post-{{ post_data.id }}" class="candidates-for-post">
 

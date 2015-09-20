@@ -16,6 +16,7 @@ ELECTIONS = {
         'mapit_types': ['WMC'],
         'mapit_generation': 22,
         'post_id_format': '{area_id}',
+        'show_official_documents': False,
     },
     '2015': {
         'for_post_role': 'Member of Parliament',
@@ -31,6 +32,7 @@ ELECTIONS = {
         'mapit_types': ['WMC'],
         'mapit_generation': 22,
         'post_id_format': '{area_id}',
+        'show_official_documents': True,
     }
 }
 
