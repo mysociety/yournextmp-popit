@@ -19,8 +19,7 @@
   border-bottom: 1px solid #ccc;
 }
 
-%responsive-definition-list {
-  // use this to @extend a dl element
+.key-value-list {
   line-height: 1.4em;
 
   @media #{$large-up} {
@@ -284,7 +283,6 @@
   }
 
   dl {
-    @extend %responsive-definition-list;
     margin-bottom: 2em;
   }
 
@@ -428,7 +426,6 @@
   }
 
   dl {
-    @extend %responsive-definition-list;
     margin-bottom: 0;
   }
 }
