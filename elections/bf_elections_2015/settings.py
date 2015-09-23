@@ -14,6 +14,7 @@ ELECTIONS = {
         'organization_name': 'Présidence',
         'party_membership_start_date': date(2010, 11, 22),
         'party_membership_end_date': date(9999, 12, 31),
+        'party_lists_in_use': False,
         'name': u'Elections Présidentielles de 2015',
         'mapit_types': ['NATIONAL'],
         'mapit_generation': 2,

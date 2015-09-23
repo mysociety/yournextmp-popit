@@ -72,7 +72,7 @@ def get_people_from_memberships(election_data, memberships):
 
     return current_candidates, past_candidates
 
-def group_people_by_party(election, people, party_list=True):
+def group_people_by_party(election, people, party_list=True, max_people=None):
     """Take a list of candidates and return them grouped by party
 
     This returns a tuple of the party_list boolean and a list of
@@ -92,20 +92,41 @@ def group_people_by_party(election, people, party_list=True):
     party."""
 
     party_id_to_people = defaultdict(list)
+    party_truncated = dict()
+    election_data = settings.ELECTIONS[election]
     for person in people:
         if election in person.party_memberships:
             party_data = person.party_memberships[election]
         else:
             party_data = person.last_party
+        position = None
+        if election_data['party_lists_in_use']:
+            position = person.standing_in[election].get('party_list_position')
         party_id = party_data['id']
-        party_id_to_people[party_id].append(person)
-    for people_list in party_id_to_people.values():
-        people_list.sort(key=lambda p: p.last_name)
+        party_id_to_people[party_id].append((position, person))
+    for party_id, people_list in party_id_to_people.items():
+        if election_data['party_lists_in_use']:
+            # sort by party list position
+            people_list.sort(key=lambda p: ( p[0] is None, p[0] ))
+            """ only return the configured maximum number of people
+-           for a party list """
+            if max_people and len(people_list) > max_people:
+                party_truncated[party_id] = len(people_list)
+                del people_list[max_people:]
+        else:
+            people_list.sort(key=lambda p: p[1].last_name)
     try:
         result = [
             (
-                {'id': k, 'name': PARTY_DATA.party_id_to_name[k]},
-                v
+                {
+                    'id': k,
+                    'name': PARTY_DATA.party_id_to_name[k],
+                    'max_count': max_people,
+                    'total_count': party_truncated.get(k)
+                },
+                # throw away the party list position data we
+                # were only using for sorting
+                [p[1] for p in v]
             )
             for k, v in party_id_to_people.items()
         ]

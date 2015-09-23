@@ -107,20 +107,23 @@ class ConstituencyDetailView(ElectionMixin, PopItApiMixin, TemplateView):
             group_people_by_party(
                 self.election,
                 set(p for p in other_candidates if p.not_standing_in_election(self.election)),
-                party_list=self.election_data.get('party_lists_in_use')
+                party_list=self.election_data.get('party_lists_in_use'),
+                max_people=self.election_data.get('default_party_list_members_to_show')
             )
 
         context['candidates_might_stand_again'] = \
             group_people_by_party(
                 self.election,
                 set(p for p in other_candidates if not p.known_status_in_election(self.election)),
-                party_list=self.election_data.get('party_lists_in_use')
+                party_list=self.election_data.get('party_lists_in_use'),
+                max_people=self.election_data.get('default_party_list_members_to_show')
             )
 
         context['candidates'] = group_people_by_party(
             self.election,
             current_candidates,
-            party_list=self.election_data.get('party_lists_in_use')
+            party_list=self.election_data.get('party_lists_in_use'),
+            max_people=self.election_data.get('default_party_list_members_to_show')
         )
 
         just_people = sum((t[1] for t in context['candidates'][1]), [])
