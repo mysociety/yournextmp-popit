@@ -93,19 +93,27 @@ def group_people_by_party(election, people, party_list=True, max_people=None):
 
     party_id_to_people = defaultdict(list)
     party_truncated = defaultdict(list)
+    election_data = settings.ELECTIONS[election]
     for person in people:
         if election in person.party_memberships:
             party_data = person.party_memberships[election]
         else:
             party_data = person.last_party
+        position = None
+        if election_data['party_lists_in_use']:
+            position = person.standing_in[election].get('party_list_position')
         party_id = party_data['id']
-        party_id_to_people[party_id].append(person)
+        party_id_to_people[party_id].append((position, person))
     for party_id, people_list in party_id_to_people.items():
-        people_list.sort(key=lambda p: p.last_name)
+        if election_data['party_lists_in_use']:
+            people_list.sort(key=lambda p: ( p[0] is None, p[0] ))
+        else:
+            people_list.sort(key=lambda p: p[1].last_name)
+        # TODO: should this only be if party_lists_in_use?
         if max_people and len(people_list) > max_people:
             party_truncated[party_id] = len(people_list)
             end = max_people - 1
-            del people_list[:end]
+            del people_list[max_people:]
     try:
         result = [
             (
@@ -115,7 +123,9 @@ def group_people_by_party(election, people, party_list=True, max_people=None):
                     'max_count': max_people,
                     'total_count': party_truncated[k]
                 },
-                v
+                # throw away the party list position data we
+                # were only using for sorting
+                [p[1] for p in v]
             )
             for k, v in party_id_to_people.items()
         ]
