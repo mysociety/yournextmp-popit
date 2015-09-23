@@ -72,7 +72,7 @@ def get_people_from_memberships(election_data, memberships):
 
     return current_candidates, past_candidates
 
-def group_people_by_party(election, people, party_list=True):
+def group_people_by_party(election, people, party_list=True, max_people=None):
     """Take a list of candidates and return them grouped by party
 
     This returns a tuple of the party_list boolean and a list of
@@ -92,6 +92,7 @@ def group_people_by_party(election, people, party_list=True):
     party."""
 
     party_id_to_people = defaultdict(list)
+    party_truncated = defaultdict(list)
     for person in people:
         if election in person.party_memberships:
             party_data = person.party_memberships[election]
@@ -99,12 +100,21 @@ def group_people_by_party(election, people, party_list=True):
             party_data = person.last_party
         party_id = party_data['id']
         party_id_to_people[party_id].append(person)
-    for people_list in party_id_to_people.values():
+    for party_id, people_list in party_id_to_people.items():
         people_list.sort(key=lambda p: p.last_name)
+        if max_people and len(people_list) > max_people:
+            party_truncated[party_id] = len(people_list)
+            end = max_people - 1
+            del people_list[:end]
     try:
         result = [
             (
-                {'id': k, 'name': PARTY_DATA.party_id_to_name[k]},
+                {
+                    'id': k,
+                    'name': PARTY_DATA.party_id_to_name[k],
+                    'max_count': max_people,
+                    'total_count': party_truncated[k]
+                },
                 v
             )
             for k, v in party_id_to_people.items()
