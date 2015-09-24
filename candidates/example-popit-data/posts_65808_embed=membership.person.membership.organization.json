@@ -751,8 +751,8 @@
               "organization_id": {
                 "classification": "Party",
                 "contact_details": [],
-                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/544e3d5b81b7fa64bfccccd4",
-                "id": "544e3d5b81b7fa64bfccccd4",
+                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:90",
+                "id": "party:90",
                 "identifiers": [],
                 "links": [],
                 "memberships": [],
@@ -760,7 +760,7 @@
                 "other_names": [],
                 "posts": [],
                 "slug": "liberal-democrats",
-                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/544e3d5b81b7fa64bfccccd4"
+                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:90"
               },
               "person_id": "3879",
               "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544e3e7f81b7fa64bfcce627"
@@ -821,16 +821,15 @@
               "organization_id": {
                 "classification": "Party",
                 "contact_details": [],
-                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/544e3d6481b7fa64bfcccda6",
-                "id": "544e3d6481b7fa64bfcccda6",
+                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:63",
+                "id": "party:63",
                 "identifiers": [],
                 "links": [],
                 "memberships": [],
                 "name": "Green Party",
                 "other_names": [],
                 "posts": [],
-                "slug": "party:63",
-                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/544e3d6481b7fa64bfcccda6"
+                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:63"
               },
               "person_id": "2007",
               "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544e3e7f81b7fa64bfcce625"
@@ -966,16 +965,15 @@
               "organization_id": {
                 "classification": "Party",
                 "contact_details": [],
-                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/544e3d6181b7fa64bfcccd5e",
-                "id": "544e3d6181b7fa64bfcccd5e",
+                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:52",
+                "id": "party:52",
                 "identifiers": [],
                 "links": [],
                 "memberships": [],
                 "name": "Conservative Party",
                 "other_names": [],
                 "posts": [],
-                "slug": "party:52",
-                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/544e3d6181b7fa64bfcccd5e"
+                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:52"
               },
               "person_id": "3267",
               "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544e3eca81b7fa64bfccecad"
@@ -1022,16 +1020,15 @@
               "organization_id": {
                 "classification": "Party",
                 "contact_details": [],
-                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/544e3d5b81b7fa64bfcccccb",
-                "id": "544e3d5b81b7fa64bfcccccb",
+                "html_url": "http://candidates.127.0.0.1.xip.io:3000/organizations/party:85",
+                "id": "party:85",
                 "identifiers": [],
                 "links": [],
                 "memberships": [],
                 "name": "UK Independence Party - UKIP",
                 "other_names": [],
                 "posts": [],
-                "slug": "party:85",
-                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/544e3d5b81b7fa64bfcccccb"
+                "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/organizations/party:85"
               },
               "person_id": "52",
               "url": "http://candidates.127.0.0.1.xip.io:3000/api/v0.1/memberships/544e3e2181b7fa64bfccde19"

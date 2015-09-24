@@ -1,6 +1,9 @@
 {% load staticfiles %}
 {% load imagefixes %}
 
+{% if position_in_list %}
+  <span class="person-position">{{ position_in_list }}</span>
+{% endif %}
 {% if c.image %}
   <a href="{% url 'person-view' c.id c.name|slugify %}">
     <img class="person-avatar" src="{{ c.popit_data.proxy_image|fixproxyurl }}/0/64"/>

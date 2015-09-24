@@ -9,6 +9,7 @@ from .models.address import check_address
 
 from django import forms
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -318,6 +319,9 @@ class UpdatePersonForm(BasePersonForm):
         # going on at the same time. (FIXME: this might be better done
         # with formsets?)
 
+        self.extra_fields = []
+        extra_fields_seen = set()
+
         for election, election_data in self.elections_with_fields:
             role = election_data['for_post_role']
             self.fields['standing_' + election] = \
@@ -358,6 +362,46 @@ class UpdatePersonForm(BasePersonForm):
                             }
                         ),
                     )
+                if election_data.get('party_lists_in_use'):
+                    # Then add a field to enter the position on the party list
+                    # as an integer:
+                    field_name = 'party_list_position_' + party_set['slug'] + \
+                        '_' + election
+                    self.fields[field_name] = forms.IntegerField(
+                        label=_("Position in party list ('1' for first, '2' for second, etc.)"),
+                        min_value=1,
+                        required=False,
+                        widget=forms.NumberInput(
+                            attrs={
+                                'class': 'party-position party-position-' + election
+                            }
+                        )
+                    )
+            # Particular elections may have extra fields that are needed:
+            for extra_field in election_data.get('extra_fields', []):
+                if extra_field in extra_fields_seen:
+                    continue
+                self.extra_fields.append(extra_field)
+                extra_fields_seen.add(extra_field)
+
+        for extra_field in self.extra_fields:
+            if extra_field == 'cv':
+                field = forms.CharField(
+                    required=False,
+                    label=_(u"CV or Résumé"),
+                    widget=forms.Textarea
+                )
+            elif extra_field == 'program':
+                field = forms.CharField(
+                    required=False,
+                    label=_(u"Program"),
+                    widget=forms.Textarea
+                )
+            else:
+                raise Exception("Unknown extra field '{0}' requested".format(
+                    extra_field
+                ))
+            self.fields[extra_field] = field
 
     source = forms.CharField(
         label=_(u"Source of information for this change ({0})").format(
@@ -392,9 +436,9 @@ class UserTermsAgreementForm(forms.Form):
         assigned_to_dc = self.cleaned_data['assigned_to_dc']
         if not assigned_to_dc:
             message = _(
-                "You can only edit data on YourNextMP if you agree to "
+                "You can only edit data on {site_name} if you agree to "
                 "this copyright assignment."
-            )
+            ).format(site_name=Site.objects.get_current().name)
             raise ValidationError(message)
         return assigned_to_dc
 

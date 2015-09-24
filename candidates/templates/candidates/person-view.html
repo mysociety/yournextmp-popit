@@ -21,7 +21,7 @@
     {% endif %}
     <meta property="og:image:height" content="80" />
     <meta property="og:image:width" content="80" />
-    <meta property="og:site_name" content="{% trans "YourNextMP" %}" />
+    <meta property="og:site_name" content="{{ site.name }}" />
     <meta property="og:description" content="{% metadescription person person.last_cons DATE_TODAY %}">
     <meta property="og:locale" content="{{ LOCALE }}" />
 
@@ -173,6 +173,23 @@
       {% endif %}</dd>
     {% endwith %}
   </dl>
+
+  {% if person.popit_data.cv or person.popit_data.program %}
+    <h2>{% trans "Additional information:" %}</h2>
+    <dl>
+      {% if person.popit_data.cv %}
+        <dt>{% trans "CV or Résumé" %}</dt>
+        <dd>{{ person.popit_data.cv|linebreaks }}
+        </dd>
+      {% endif %}
+      {% if person.popit_data.program %}
+        <dt>{% trans "Program" %}</dt>
+        <dd>{{ person.popit_data.program|linebreaks }}
+        </dd>
+      {% endif %}
+    </dl>
+  {% endif %}
+
 
   {% if person.image %}
   <h2>{% trans "Photo Credit:" %}</h2>

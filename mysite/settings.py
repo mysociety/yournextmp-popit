@@ -88,6 +88,7 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     "mysite.context_processors.add_group_permissions",
     "mysite.context_processors.add_notification_data",
     "mysite.context_processors.locale",
+    "mysite.context_processors.add_site",
 )
 
 ELECTION_APP = conf['ELECTION_APP']
@@ -396,6 +397,11 @@ EDITS_ALLOWED = conf.get('EDITS_ALLOWED', True)
 # Import any settings from the election application's settings module:
 ELECTION_SETTINGS_MODULE = ELECTION_APP_FULLY_QUALIFIED + '.settings'
 elections_module = importlib.import_module(ELECTION_SETTINGS_MODULE)
+
+try:
+    AREAS_TO_ALWAYS_RETURN = elections_module.AREAS_TO_ALWAYS_RETURN
+except AttributeError:
+    AREAS_TO_ALWAYS_RETURN = []
 
 ELECTIONS = elections_module.ELECTIONS
 

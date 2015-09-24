@@ -110,7 +110,7 @@
             {{ constituency_fields.constituency.errors }}
           </div>
 
-          {% for party_field in constituency_fields.party_fields %}
+          {% for party_field, party_list_position_field in constituency_fields.party_fields %}
 
             <div class="form-item {% if party_field.errors %}form-item--errors{% endif %}">
               <p>
@@ -119,6 +119,16 @@
               </p>
               {{ party_field.errors }}
             </div>
+
+            {% if party_list_position_field %}
+              <div class="form-item {% if party_list_position_field.errors %}form-item--errors{% endif %}">
+                <p>
+                  {{ party_list_position_field.label_tag }}
+                  {{ party_list_position_field }}
+                </p>
+                {{ party_list_position_field.errors }}
+              </div>
+            {% endif %}
 
           {% endfor %}
 
@@ -206,6 +216,18 @@
         </p>
         {{ form.birth_date.errors }}
       </div>
+
+      <h2>{% trans "Additional information:" %}</h2>
+
+      {% for field in extra_fields %}
+        <div class="form-item {% if field.errors %}form-item--errors{% endif %}">
+          <p>
+            {{ field.label_tag }}
+            {{ field }}
+          </p>
+          {{ field.errors }}
+        </div>
+      {% endfor %}
 
       <div class="source-confirmation {% if form.source.errors %}source-confirmation--errors{% endif %}">
         <p>

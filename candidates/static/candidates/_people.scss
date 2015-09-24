@@ -61,10 +61,27 @@
   }
 }
 
+.party-list-header {
+  margin-bottom: 0.2em;
+}
+
 .candidates-list__person {
   list-style-type: none;
   margin-bottom: 1em;
   @include clearfix;
+
+  .person-position {
+    display: block;
+    float: left;
+    font-size: 1em * 2;
+    line-height: (4em / 2);
+    width: (4em / 2);
+    margin-right: (1.5em / 2);
+    text-align: center;
+    font-weight: bold;
+    background-color: $candidate-order-background-color;
+    color: $candidate-order-color;
+  }
 
   .person-avatar {
     float: left;

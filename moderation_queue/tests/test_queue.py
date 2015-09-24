@@ -5,6 +5,7 @@ import re
 from urlparse import urlsplit
 
 from django.contrib.auth.models import User, Group
+from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
 
@@ -31,6 +32,7 @@ class PhotoReviewTests(WebTest):
 
     @override_settings(MEDIA_ROOT=TEST_MEDIA_ROOT)
     def setUp(self):
+        self.site = Site.objects.create(domain='example.com', name='YNR')
         self.test_upload_user = User.objects.create_user(
             'john',
             'john@example.com',
@@ -79,6 +81,7 @@ class PhotoReviewTests(WebTest):
         self.q3.delete()
         self.test_upload_user.delete()
         self.test_reviewer.delete()
+        self.site.delete()
 
     @override_settings(MEDIA_ROOT=TEST_MEDIA_ROOT)
     def test_photo_review_queue_view_not_logged_in(self):
@@ -160,72 +163,73 @@ class PhotoReviewTests(WebTest):
             mock_requests_post,
             mock_send_mail
     ):
-        mock_popit.return_value.persons = FakePersonCollection
-        review_url = reverse(
-            'photo-review',
-            kwargs={'queued_image_id': self.q1.id}
-        )
-        review_page_response = self.app.get(
-            review_url,
-            user=self.test_reviewer
-        )
-        form = review_page_response.forms['photo-review-form']
-        form['decision'] = 'approved'
-        form['moderator_why_allowed'] = 'profile-photo'
-        response = form.submit(user=self.test_reviewer)
-        # FIXME: check that mocked_person_put got the right calls
-        self.assertEqual(response.status_code, 302)
-        split_location = urlsplit(response.location)
-        self.assertEqual('/moderation/photo/review', split_location.path)
+        with self.settings(SITE_ID=self.site.id):
+            mock_popit.return_value.persons = FakePersonCollection
+            review_url = reverse(
+                'photo-review',
+                kwargs={'queued_image_id': self.q1.id}
+            )
+            review_page_response = self.app.get(
+                review_url,
+                user=self.test_reviewer
+            )
+            form = review_page_response.forms['photo-review-form']
+            form['decision'] = 'approved'
+            form['moderator_why_allowed'] = 'profile-photo'
+            response = form.submit(user=self.test_reviewer)
+            # FIXME: check that mocked_person_put got the right calls
+            self.assertEqual(response.status_code, 302)
+            split_location = urlsplit(response.location)
+            self.assertEqual('/moderation/photo/review', split_location.path)
 
-        mock_send_mail.assert_called_once_with(
-            'YourNextMP image upload approved',
-            u"Thank-you for submitting a photo to YourNextMP; that's been\nuploaded now for the candidate page here:\n\n  http://localhost:80/person/2009/tessa-jowell\n\nMany thanks,\nThe YourNextMP volunteers\n",
-            'admins@example.com',
-            [u'john@example.com'],
-            fail_silently=False
-        )
+            mock_send_mail.assert_called_once_with(
+                'YNR image upload approved',
+                u"Thank-you for submitting a photo to YNR; that's been\nuploaded now for the candidate page here:\n\n  http://localhost:80/person/2009/tessa-jowell\n\nMany thanks,\nThe YNR volunteers\n",
+                'admins@example.com',
+                [u'john@example.com'],
+                fail_silently=False
+            )
 
-        self.assertEqual(mock_requests_post.call_count, 1)
-        post_call_args, post_call_kwargs = mock_requests_post.call_args_list[0]
-        self.assertEqual(1, len(post_call_args))
-        self.assertTrue(
-            re.search(r'/persons/2009/image$', post_call_args[0])
-        )
-        self.assertEqual(
-            set(post_call_kwargs.keys()),
-            set(['files', 'headers', 'data']),
-        )
-        self.assertIn('APIKey', post_call_kwargs['headers'])
-        posted_image_data = post_call_kwargs['files']['image']
-        self.assertEqual(
-            get_image_type_and_dimensions(posted_image_data),
-            {'format': 'PNG', 'width': 427, 'height': 639},
-        )
-        del post_call_kwargs['data']['md5sum']
-        self.assertEqual(
-            post_call_kwargs['data'],
-            {'user_justification_for_use':
-             u"It's their Twitter avatar",
-             'notes': 'Approved from photo moderation queue',
-             'user_why_allowed': u'public-domain',
-             'moderator_why_allowed': u'profile-photo',
-             'uploaded_by_user': u'john',
-             'index': 'first',
-             'mime_type': 'image/png',
-             'created': None}
-        )
-        las = LoggedAction.objects.all()
-        self.assertEqual(1, len(las))
-        la = las[0]
-        self.assertEqual(la.user.username, 'jane')
-        self.assertEqual(la.action_type, 'photo-approve')
-        self.assertEqual(la.popit_person_id, '2009')
+            self.assertEqual(mock_requests_post.call_count, 1)
+            post_call_args, post_call_kwargs = mock_requests_post.call_args_list[0]
+            self.assertEqual(1, len(post_call_args))
+            self.assertTrue(
+                re.search(r'/persons/2009/image$', post_call_args[0])
+            )
+            self.assertEqual(
+                set(post_call_kwargs.keys()),
+                set(['files', 'headers', 'data']),
+            )
+            self.assertIn('APIKey', post_call_kwargs['headers'])
+            posted_image_data = post_call_kwargs['files']['image']
+            self.assertEqual(
+                get_image_type_and_dimensions(posted_image_data),
+                {'format': 'PNG', 'width': 427, 'height': 639},
+            )
+            del post_call_kwargs['data']['md5sum']
+            self.assertEqual(
+                post_call_kwargs['data'],
+                {'user_justification_for_use':
+                 u"It's their Twitter avatar",
+                 'notes': 'Approved from photo moderation queue',
+                 'user_why_allowed': u'public-domain',
+                 'moderator_why_allowed': u'profile-photo',
+                 'uploaded_by_user': u'john',
+                 'index': 'first',
+                 'mime_type': 'image/png',
+                 'created': None}
+            )
+            las = LoggedAction.objects.all()
+            self.assertEqual(1, len(las))
+            la = las[0]
+            self.assertEqual(la.user.username, 'jane')
+            self.assertEqual(la.action_type, 'photo-approve')
+            self.assertEqual(la.popit_person_id, '2009')
 
-        mock_invalidate_person.assert_called_with('2009')
-        mock_invalidate_posts.assert_called_with(set(['65808']))
+            mock_invalidate_person.assert_called_with('2009')
+            mock_invalidate_posts.assert_called_with(set(['65808']))
 
-        self.assertEqual(QueuedImage.objects.get(pk=self.q1.id).decision, 'approved')
+            self.assertEqual(QueuedImage.objects.get(pk=self.q1.id).decision, 'approved')
 
     @patch('moderation_queue.views.send_mail')
     @patch('moderation_queue.views.requests.post')
@@ -239,42 +243,43 @@ class PhotoReviewTests(WebTest):
             mock_requests_post,
             mock_send_mail
     ):
-        mock_popit.return_value.persons = FakePersonCollection
-        review_url = reverse(
-            'photo-review',
-            kwargs={'queued_image_id': self.q1.id}
-        )
-        review_page_response = self.app.get(
-            review_url,
-            user=self.test_reviewer
-        )
-        form = review_page_response.forms['photo-review-form']
-        form['decision'] = 'rejected'
-        form['rejection_reason'] = u'There\'s no clear source or copyright statement'
-        response = form.submit(user=self.test_reviewer)
-        self.assertEqual(response.status_code, 302)
-        split_location = urlsplit(response.location)
-        self.assertEqual('/moderation/photo/review', split_location.path)
+        with self.settings(SITE_ID=self.site.id):
+            mock_popit.return_value.persons = FakePersonCollection
+            review_url = reverse(
+                'photo-review',
+                kwargs={'queued_image_id': self.q1.id}
+            )
+            review_page_response = self.app.get(
+                review_url,
+                user=self.test_reviewer
+            )
+            form = review_page_response.forms['photo-review-form']
+            form['decision'] = 'rejected'
+            form['rejection_reason'] = u'There\'s no clear source or copyright statement'
+            response = form.submit(user=self.test_reviewer)
+            self.assertEqual(response.status_code, 302)
+            split_location = urlsplit(response.location)
+            self.assertEqual('/moderation/photo/review', split_location.path)
 
-        las = LoggedAction.objects.all()
-        self.assertEqual(1, len(las))
-        la = las[0]
-        self.assertEqual(la.user.username, 'jane')
-        self.assertEqual(la.action_type, 'photo-reject')
-        self.assertEqual(la.popit_person_id, '2009')
-        self.assertEqual(la.source, 'Rejected a photo upload from john')
+            las = LoggedAction.objects.all()
+            self.assertEqual(1, len(las))
+            la = las[0]
+            self.assertEqual(la.user.username, 'jane')
+            self.assertEqual(la.action_type, 'photo-reject')
+            self.assertEqual(la.popit_person_id, '2009')
+            self.assertEqual(la.source, 'Rejected a photo upload from john')
 
-        mock_send_mail.assert_called_once_with(
-            'YourNextMP image moderation results',
-            u"Thank-you for uploading a photo of Tessa Jowell\nto YourNextMP, but unfortunately we can't use that image because:\n\n  There\'s no clear source or copyright statement\n\nYou can just reply to this email if you want to discuss that\nfurther, or you can try uploading a photo with a different reason\nor justification for its use using this link:\n\n  http://localhost:80/moderation/photo/upload/2009\n\nMany thanks,\nThe YourNextMP volunteers\n\n-- \nFor administrators' use: http://localhost:80/moderation/photo/review/1\n",
-            'admins@example.com',
-            [u'john@example.com', 'support@example.com'],
-            fail_silently=False
-        )
+            mock_send_mail.assert_called_once_with(
+                'YNR image moderation results',
+                u"Thank-you for uploading a photo of Tessa Jowell\nto YNR, but unfortunately we can't use that image because:\n\n  There\'s no clear source or copyright statement\n\nYou can just reply to this email if you want to discuss that\nfurther, or you can try uploading a photo with a different reason\nor justification for its use using this link:\n\n  http://localhost:80/moderation/photo/upload/2009\n\nMany thanks,\nThe YNR volunteers\n\n-- \nFor administrators' use: http://localhost:80/moderation/photo/review/1\n",
+                'admins@example.com',
+                [u'john@example.com', 'support@example.com'],
+                fail_silently=False
+            )
 
-        self.assertEqual(mock_requests_post.call_count, 0)
+            self.assertEqual(mock_requests_post.call_count, 0)
 
-        self.assertEqual(QueuedImage.objects.get(pk=self.q1.id).decision, 'rejected')
+            self.assertEqual(QueuedImage.objects.get(pk=self.q1.id).decision, 'rejected')
 
     @patch('moderation_queue.views.send_mail')
     @patch('moderation_queue.views.requests.post')

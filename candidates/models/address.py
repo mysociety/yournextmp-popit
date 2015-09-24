@@ -43,13 +43,21 @@ def check_address(address_string, country=None):
     if not sorted_mapit_results:
         message = _(u"The address '{0}' appears to be outside the area this site knows about")
         raise ValidationError(message.format(tidied_address_before_country))
-    types_and_areas = ','.join(
-        '{0}-{1}'.format(a[1]['type'],a[0]) for a in
-        sorted_mapit_results
+    types_and_areas = [
+        {
+            'area_type_code': a[1]['type'],
+            'area_id': a[0],
+        }
+        for a in sorted_mapit_results
+    ]
+    if settings.AREAS_TO_ALWAYS_RETURN:
+        types_and_areas += settings.AREAS_TO_ALWAYS_RETURN
+    types_and_areas_joined = ','.join(
+        '{area_type_code}-{area_id}'.format(**ta) for ta in types_and_areas
     )
     area_slugs = [slugify(a[1]['name']) for a in sorted_mapit_results]
     ignored_slug = '-'.join(area_slugs)
     return {
-        'type_and_area_ids': types_and_areas,
+        'type_and_area_ids': types_and_areas_joined,
         'ignored_slug': ignored_slug,
     }

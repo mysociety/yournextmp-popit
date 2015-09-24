@@ -260,17 +260,28 @@ class UpdatePersonView(LoginRequiredMixin, PopItApiMixin, FormView):
         for election, election_data in settings.ELECTIONS_BY_DATE:
             if not election_data.get('current'):
                 continue
-            context['constituencies_form_fields'].append(
-                {
-                    'election_name': election_data['name'],
-                    'standing': kwargs['form']['standing_' + election],
-                    'constituency': kwargs['form']['constituency_' + election],
-                    'party_fields': [
-                        kwargs['form']['party_' + p['slug'] + '_' + election]
-                        for p in PARTY_DATA.ALL_PARTY_SETS
-                    ]
-                }
-            )
+            cons_form_fields = {
+                'election_name': election_data['name'],
+                'standing': kwargs['form']['standing_' + election],
+                'constituency': kwargs['form']['constituency_' + election],
+            }
+            party_fields = []
+            for ps in PARTY_DATA.ALL_PARTY_SETS:
+                key_suffix = ps['slug'] + '_' + election
+                position_field = None
+                if election_data.get('party_lists_in_use'):
+                    position_field = kwargs['form']['party_list_position_' + key_suffix]
+                party_position_tuple = (
+                    kwargs['form']['party_' + key_suffix],
+                    position_field
+                )
+                party_fields.append(party_position_tuple)
+            cons_form_fields['party_fields'] = party_fields
+            context['constituencies_form_fields'].append(cons_form_fields)
+
+        context['extra_fields'] = [
+            context['form'][fname] for fname in context['form'].extra_fields
+        ]
 
         return context
 

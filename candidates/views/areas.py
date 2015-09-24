@@ -15,7 +15,7 @@ from candidates.popit import PopItApiMixin
 
 from ..election_specific import AREA_POST_DATA, MAPIT_DATA
 from ..forms import NewPersonForm
-from .helpers import get_people_from_memberships
+from .helpers import get_people_from_memberships, group_people_by_party
 
 class AreasView(PopItApiMixin, TemplateView):
     template_name = 'candidates/areas.html'
@@ -52,7 +52,12 @@ class AreasView(PopItApiMixin, TemplateView):
                     locked = post_data.get('candidates_locked', False)
                     current_candidates, _ = get_people_from_memberships(
                         election_data,
-                        post_data['memberships'],
+                        post_data['memberships']
+                    )
+                    current_candidates = group_people_by_party(
+                        election,
+                        current_candidates,
+                        party_list=election_data.get('party_lists_in_use')
                     )
                     context['posts'].append({
                         'election': election,

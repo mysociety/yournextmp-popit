@@ -3,16 +3,24 @@
 
 {% block body_class %}{% endblock %}
 
-{% block title %}{% trans "YourNextMP user agreement" %}{% endblock %}
+{% block title %}
+  {% blocktrans with site_name=site.name %}
+    {{ site_name }} user agreement
+  {% endblocktrans %}
+{% endblock %}
 
 {% block hero %}
-  <h1>{% trans "YourNextMP user agreement" %}</h1>
+  <h1>
+      {% blocktrans with site_name=site.name %}
+        {{ site_name }} user agreement
+      {% endblocktrans %}
+  </h1>
 {% endblock %}
 
 {% block content %}
 
-<p>{% blocktrans trimmed %}
-Before you carry on to edit data in YourNextMP, we need you to
+<p>{% blocktrans with site_name=site.name trimmed %}
+Before you carry on to edit data in {{ site_name }}, we need you to
 agree that your contributions to this site (with the exception of
 photo uploads) are owned by Democracy Club Limited. In return, we
 agree to make the complete database available under an open licence
@@ -30,9 +38,12 @@ or remove copyright restrictions by releasing into the public domain
   {{ form.assigned_to_dc.errors }}
   {{ form.assigned_to_dc }}
     <label for="{{ form.assigned_to_dc.id_for_label }}">
-      <strong>{% blocktrans trimmed %}I assign the copyright of my
-      contributions to YourNextMP (apart from photo uploads) to Democracy Club
-      Limited.{% endblocktrans %}</strong>
+      <strong>
+        {% blocktrans with site_name=site.name trimmed %}
+          I assign the copyright of my contributions to {{ site_name }}
+          (apart from photo uploads) to Democracy Club Limited.
+        {% endblocktrans %}
+      </strong>
     </label>
   </p>
   <input type="submit" class="button" value="{% trans "Continue" %}">
@@ -49,8 +60,8 @@ or remove copyright restrictions by releasing into the public domain
 
   <h4>{% trans "Why are we asking you to agree to this?" %}</h4>
 
-  <p>{% blocktrans trimmed %}
-    When we originally set up YourNextMP for the 2015 general
+  <p>{% blocktrans with site_name=site.name trimmed %}
+    When we originally set up {{ site_name }} for the 2015 UK general
     election we didn't get legal advice about the best way to deal
     with copyright and licensing. It turns out that the way that the
     user agreement that was worded on the 'About' page had a few
@@ -59,7 +70,7 @@ or remove copyright restrictions by releasing into the public domain
     who we thought would make good use of the data but who needed
     slightly different licensing. The simplest way to ensure that we
     can make the data as widely available as possible while preventing
-    the hard work of contributors to YourNextMP being co-opted by
+    the hard work of contributors to {{ site_name }} being co-opted by
     companies building closed candidate databases is to ask you to
     assign the copyright of your contributions to Democracy Club.
     {% endblocktrans %}
