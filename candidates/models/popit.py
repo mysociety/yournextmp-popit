@@ -684,6 +684,7 @@ class PopItPerson(object):
     @party_memberships.setter
     def party_memberships(self, v):
         # Find all memberships that aren't party memberships:
+
         memberships = [
             m for m in
             self.popit_data['memberships']

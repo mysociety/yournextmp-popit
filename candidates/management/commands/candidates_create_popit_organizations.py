@@ -22,6 +22,7 @@ class Command(PopItApiMixin, BaseCommand):
         # associated with:
 
         for election, election_data in settings.ELECTIONS.items():
+
             create_or_update(
                 self.api.organizations,
                 {
