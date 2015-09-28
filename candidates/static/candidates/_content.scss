@@ -11,9 +11,9 @@
   padding-right: $column-gutter / 2;
 }
 
-//.button, input[type="submit"].button {
-//  @extend .radius;
-//}
+.button, input[type="submit"].button {
+  @extend .radius;
+}
 
 .code-sample {
   margin: 1em;
