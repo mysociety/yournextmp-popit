@@ -22,6 +22,8 @@ ELECTIONS = {
         'organization_name': 'Cámara de Diputados',
         'post_id_format': 'dip-{area_id}',
         'show_official_documents': False,
+        'party_lists_in_use': False,
+        'default_party_list_members_to_show': 3,
     },
     # Party primaries for governors of provinces
     'gobernadores-argentina-paso-2015': {
@@ -41,6 +43,8 @@ ELECTIONS = {
         'organization_name': 'Gobernador',
         'post_id_format': 'gob-{area_id}',
         'show_official_documents': False,
+        'party_lists_in_use': False,
+        'default_party_list_members_to_show': 3,
     },
     # Party primaries for national senators
     'senadores-argentina-paso-2015': {
@@ -60,6 +64,8 @@ ELECTIONS = {
         'organization_name': 'Senado de la Nación',
         'post_id_format': 'sen-{area_id}',
         'show_official_documents': False,
+        'party_lists_in_use': False,
+        'default_party_list_members_to_show': 3,
     },
     # Presidential candidates
     'presidentes-argentina-paso-2015': {
@@ -80,6 +86,8 @@ ELECTIONS = {
         # There's only one such post:
         'post_id_format': 'presidente',
         'show_official_documents': False,
+        'party_lists_in_use': False,
+        'default_party_list_members_to_show': 3,
     },
 
     # Party primaries for national senators
@@ -98,6 +106,8 @@ ELECTIONS = {
         'organization_id': 'parlmercosur',
         'organization_name': 'Parlamento del Mercosur',
         'post_id_format': 'pmer-{area_id}',
+        'party_lists_in_use': False,
+        'default_party_list_members_to_show': 3,
     },
 
     'parlamentarios-mercosur-unico-paso-2015': {
@@ -116,6 +126,8 @@ ELECTIONS = {
         'organization_name': 'Parlamento del Mercosur',
         # There's only one such post:
         'post_id_format': 'pmeu',
+        'party_lists_in_use': False,
+        'default_party_list_members_to_show': 3,
     },    
 }
 
