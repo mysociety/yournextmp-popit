@@ -9,6 +9,7 @@ from .models.address import check_address
 
 from django import forms
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -20,13 +21,13 @@ class AddressForm(forms.Form):
         max_length=2048,
     )
 
+    def __init__(self, country, *args, **kwargs):
+        super(AddressForm, self).__init__(*args, **kwargs)
+        self.country = country
+
     def clean_address(self):
         address = self.cleaned_data['address']
-        check_address(address)
-        return address
-
-    def tidy_address(self, address):
-        '''This is here so you can override it to add, say, ", Argentina"'''
+        check_address(address, self.country)
         return address
 
 
@@ -127,6 +128,20 @@ class BasePersonForm(PopItApiMixin, forms.Form):
         max_length=256,
         required=False,
     )
+
+    if 'cv' in settings.EXTRA_SIMPLE_FIELDS:
+        cv = forms.CharField(
+            required=False,
+            label=_(u"CV or Résumé"),
+            widget=forms.Textarea
+        )
+
+    if 'program' in settings.EXTRA_SIMPLE_FIELDS:
+        program = forms.CharField(
+            required=False,
+            label=_(u"Program"),
+            widget=forms.Textarea
+        )
 
     def clean_twitter_username(self):
         # Remove any URL bits around it:
@@ -358,6 +373,21 @@ class UpdatePersonForm(BasePersonForm):
                             }
                         ),
                     )
+                if election_data.get('party_lists_in_use'):
+                    # Then add a field to enter the position on the party list
+                    # as an integer:
+                    field_name = 'party_list_position_' + party_set['slug'] + \
+                        '_' + election
+                    self.fields[field_name] = forms.IntegerField(
+                        label=_("Position in party list ('1' for first, '2' for second, etc.)"),
+                        min_value=1,
+                        required=False,
+                        widget=forms.NumberInput(
+                            attrs={
+                                'class': 'party-position party-position-' + election
+                            }
+                        )
+                    )
 
     source = forms.CharField(
         label=_(u"Source of information for this change ({0})").format(
@@ -392,9 +422,9 @@ class UserTermsAgreementForm(forms.Form):
         assigned_to_dc = self.cleaned_data['assigned_to_dc']
         if not assigned_to_dc:
             message = _(
-                "You can only edit data on YourNextMP if you agree to "
+                "You can only edit data on {site_name} if you agree to "
                 "this copyright assignment."
-            )
+            ).format(site_name=Site.objects.get_current().name)
             raise ValidationError(message)
         return assigned_to_dc
 

@@ -7,7 +7,7 @@ from django.conf import settings
 from django.test.utils import override_settings
 from django_webtest import WebTest
 
-from .fake_popit import get_example_popit_json
+from .fake_popit import get_example_popit_json, FakePostCollection
 
 fake_elections = {
     '2010': {
@@ -63,11 +63,13 @@ def fake_post_search_results(url, **kwargs):
     return mock_requests_response
 
 
+@patch('candidates.popit.PopIt')
 class TestPostsView(WebTest):
 
     @patch('candidates.popit.requests')
-    def test_single_election_posts_page(self, mock_requests):
+    def test_single_election_posts_page(self, mock_requests, mock_popit):
         mock_requests.get.side_effect = fake_post_search_results
+        mock_popit.return_value.posts = FakePostCollection
 
         response = self.app.get('/posts')
 
@@ -86,8 +88,9 @@ class TestPostsView(WebTest):
 
     @override_settings(ELECTIONS_CURRENT=current_fake_elections)
     @patch('candidates.popit.requests')
-    def test_two_elections_posts_page(self, mock_requests):
+    def test_two_elections_posts_page(self, mock_requests, mock_popit):
         mock_requests.get.side_effect = fake_post_search_results
+        mock_popit.return_value.posts = FakePostCollection
 
         response = self.app.get('/posts')
 

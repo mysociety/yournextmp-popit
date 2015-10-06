@@ -4,7 +4,9 @@ from django_webtest import WebTest
 from mock import patch, MagicMock
 
 from .auth import TestUserMixin
-from .fake_popit import FakePersonCollection, FakePostCollection
+from .fake_popit import (
+    FakePersonCollection, FakePostCollection, fake_mp_post_search_results
+)
 from .helpers import equal_call_args
 from ..popit import PopItApiMixin
 from ..models import PopItPerson
@@ -147,8 +149,9 @@ NEW_PERSON_DATA = {
     "birth_date": "1988-01-01",
 }
 
+@patch('candidates.popit.requests')
 @patch.object(FakePersonCollection, 'post')
-def mock_create_person(mocked_post):
+def mock_create_person(mocked_post, mock_requests):
     mocked_post.return_value = {
         'result': {
             'id': '1'
@@ -157,6 +160,7 @@ def mock_create_person(mocked_post):
 
     mock_api = MagicMock()
     mock_api.persons = FakePersonCollection
+    mock_requests.get.side_effect = fake_mp_post_search_results
 
     person = PopItPerson.create_from_reduced_json(NEW_PERSON_DATA)
     person.record_version(
@@ -172,10 +176,12 @@ def mock_create_person(mocked_post):
     return mock_api, mocked_post, person
 
 
+@patch('candidates.popit.requests')
 class TestCreatePerson(TestUserMixin, WebTest):
 
-    def test_create_jane_doe(self):
+    def test_create_jane_doe(self, mock_requests):
 
+        mock_requests.get.side_effect = fake_mp_post_search_results
         mock_api, mocked_post, person = mock_create_person()
         # Then we expect one post, with the right data:
         self.assertEqual(1, len(mocked_post.call_args_list))
@@ -196,12 +202,14 @@ class TestCreatePerson(TestUserMixin, WebTest):
             self,
             mocked_invalidate_posts,
             mocked_post,
-            mock_popit
+            mock_popit,
+            mock_requests
     ):
         '''This is to check that posts are invalidated on creation'''
 
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         mocked_post.return_value = {'result': {'id': '789'}}
         response = self.app.get(
             '/election/2015/post/65808/dulwich-and-west-norwood',

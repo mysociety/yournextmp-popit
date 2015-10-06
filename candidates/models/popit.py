@@ -3,7 +3,6 @@ from datetime import date, timedelta
 import json
 import re
 import sys
-from collections import defaultdict
 
 from slugify import slugify
 
@@ -43,6 +42,7 @@ form_simple_fields = {
     'birth_date': None,
     'gender': '',
 }
+form_simple_fields.update(settings.EXTRA_SIMPLE_FIELDS)
 preserve_fields = ('identifiers', 'other_names', 'phone', 'death_date')
 
 other_fields_to_proxy = [
@@ -240,7 +240,9 @@ def membership_covers_date(membership, date):
 def is_party_membership(membership):
     """This predicate works whether the organization is embedded or not"""
 
-    role = membership.get('role', 'Member').lower()
+    role = membership.get('role')
+    role = role or 'Member'
+    role = role.lower()
     if role != 'member':
         return False
     organization_id = membership['organization_id']
@@ -660,6 +662,8 @@ class PopItPerson(object):
                 membership['post_id'] = constituency['post_id']
                 candidate_role = settings.ELECTIONS[election]['candidate_membership_role']
                 membership['role'] = candidate_role
+                if constituency.get('party_list_position'):
+                    membership['party_list_position'] = constituency['party_list_position']
                 memberships.append(membership)
                 if constituency.get('elected'):
                     day_after = settings.ELECTIONS[election]['election_date'] + \
@@ -684,6 +688,7 @@ class PopItPerson(object):
     @party_memberships.setter
     def party_memberships(self, v):
         # Find all memberships that aren't party memberships:
+
         memberships = [
             m for m in
             self.popit_data['memberships']
@@ -719,15 +724,13 @@ class PopItPerson(object):
         self.posts_to_invalidate.update(self.get_associated_posts())
 
     def known_status_in_election(self, election):
-        standing_in = self.popit_data.get('standing_in', {}) or {}
-        return election in standing_in
+        return election in self.standing_in
 
     def not_standing_in_election(self, election):
         # If there's a standing_in element present, and the value for
         # election is set to None, then someone has marked that person as
         # not standing...
-        standing_in = self.popit_data.get('standing_in', {}) or {}
-        return (election in standing_in) and standing_in[election] == None
+        return (election in self.standing_in) and self.standing_in[election] == None
 
     def delete_memberships(self, api):
         person_from_popit = api.persons(self.id).get(embed='membership')
@@ -1019,6 +1022,10 @@ class PopItPerson(object):
                     party_id = party_data.get('id', '')
                     party_key = 'party_' + party_set + '_' + election
                     initial_data[party_key] = party_id
+                    position = standing_in_election.get('party_list_position')
+                    position_key = 'party_list_position_' + party_set + '_' + election
+                    if position:
+                        initial_data[position_key] = position
                 else:
                     initial_data[standing_key] = 'not-standing'
                     initial_data[constituency_key] = ''
@@ -1050,7 +1057,7 @@ class PopItPerson(object):
     def last_cons(self):
         result = None
         for election, election_data in settings.ELECTIONS_BY_DATE:
-            cons = self.popit_data['standing_in'].get(election)
+            cons = self.standing_in.get(election)
             if cons:
                 result = (election, cons, election_data['name'])
         return result
@@ -1148,17 +1155,22 @@ class PopItPerson(object):
             if post_id:
                 party_set = AREA_POST_DATA.post_id_to_party_set(post_id)
                 party_key = 'party_' + party_set + '_' + election
+                position_key = 'party_list_position_' + party_set + '_' + election
                 form_data['party_' + election] = form_data[party_key]
+                form_data['party_list_position_' + election] = form_data.get(position_key)
             else:
                 form_data['party_' + election] = None
+                form_data['party_list_position_' + election] = None
             # Delete all the party set specific party information:
             for party_set in PARTY_DATA.ALL_PARTY_SETS:
-                form_data.pop('party_' + party_set['slug']  + '_' + election)
+                form_data.pop('party_' + party_set['slug'] + '_' + election)
+                form_data.pop('party_list_position_' + party_set['slug'] + '_' + election, None)
 
             # Extract some fields that we will deal with separately:
             standing = form_data.pop('standing_' + election, 'standing')
             post_id = form_data.pop('constituency_' + election)
             party = form_data.pop('party_' + election)
+            party_list_position = form_data.pop('party_list_position_' + election)
 
             if standing == 'standing':
                 post_data = get_post_cached(api, post_id)['result']
@@ -1168,6 +1180,9 @@ class PopItPerson(object):
                     'name': AREA_POST_DATA.shorten_post_label(election, post_label),
                     'mapit_url': post_data['area']['identifier'],
                 }
+                if party_list_position:
+                    new_standing_in[election]['party_list_position'] = \
+                        party_list_position
                 # FIXME: stupid hack to preserve elected status after the election:
                 old_standing_in = self.standing_in.get(election, {})
                 if (old_standing_in is not None) and ('elected' in old_standing_in):
@@ -1212,10 +1227,9 @@ class PopItPerson(object):
         self.standing_in = standing_in
 
     def get_elected(self, election):
-        standing_in = self.popit_data.get('standing_in') or {}
-        if election not in standing_in:
+        if election not in self.standing_in:
             return None
-        standing_in_election_data = standing_in.get(election, {})
+        standing_in_election_data = self.standing_in.get(election, {})
         if not standing_in_election_data:
             return None
         return standing_in_election_data.get('elected')

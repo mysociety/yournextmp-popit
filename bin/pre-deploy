@@ -51,10 +51,17 @@ find . -name '*.pyc' -delete
 mkdir -p "../gems"
 export GEM_HOME="$(cd ../gems && pwd -P)"
 export PATH="$GEM_HOME/bin:$PATH"
-gem install --no-ri --no-rdoc chunky_png -v 1.2.9
-gem install --no-ri --no-rdoc fssm -v 0.2.10
-gem install --no-ri --no-rdoc sass -v 3.2.19
-gem install --no-ri --no-rdoc compass -v 0.12.7
+if (sass --version | grep '3\.2\.19') > /dev/null
+then
+    echo sass is already installed at the correct version
+else
+    echo Installing sass...
+    gem install --no-ri --no-rdoc sass -v 3.2.19
+    echo done.
+fi
+
+# Generate the files of translated strings for Javascript to use
+./manage.py compilejsi18n
 
 # gather all the static files in one place
 ./manage.py collectstatic --noinput

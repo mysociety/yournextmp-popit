@@ -13,11 +13,11 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS, LANGUAGES
 from django.utils.translation import to_locale, ugettext_lazy as _
 from collections import defaultdict
 import importlib
-import os
+from os.path import dirname, exists, join, realpath
 import re
 import sys
 import yaml
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = realpath(dirname(dirname(__file__)))
 
 from .helpers import mkdir_p
 
@@ -27,7 +27,7 @@ configuration_file_basename = 'general.yml'
 if 'test' in sys.argv:
     configuration_file_basename = 'general.yml-example'
 
-configuration_file = os.path.join(
+configuration_file = join(
     BASE_DIR, 'conf', configuration_file_basename
 )
 
@@ -46,6 +46,7 @@ POPIT_PASSWORD = conf.get('POPIT_PASSWORD', '')
 POPIT_API_KEY = conf.get('POPIT_API_KEY', '')
 
 GOOGLE_ANALYTICS_ACCOUNT = conf.get('GOOGLE_ANALYTICS_ACCOUNT')
+USE_UNIVERSAL_ANALYTICS = conf.get('USE_UNIVERSAL_ANALYTICS', True)
 
 # The email address which is made public on the site for sending
 # support email to:
@@ -72,7 +73,7 @@ DEBUG = bool(int(conf.get('STAGING')))
 TEMPLATE_DEBUG = True
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'mysite', 'templates'),
+    join(BASE_DIR, 'mysite', 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
@@ -87,6 +88,7 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     "mysite.context_processors.add_group_permissions",
     "mysite.context_processors.add_notification_data",
     "mysite.context_processors.locale",
+    "mysite.context_processors.add_site",
 )
 
 ELECTION_APP = conf['ELECTION_APP']
@@ -105,6 +107,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django_nose',
     'pipeline',
+    'statici18n',
     ELECTION_APP_FULLY_QUALIFIED,
     'candidates',
     'tasks',
@@ -203,7 +206,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME': join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
@@ -211,7 +214,7 @@ else:
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale')
+    join(BASE_DIR, 'locale')
 ]
 
 # The code below sets LANGUAGES to only those we have translations
@@ -227,7 +230,8 @@ LOCALE_PATHS = [
 # Accept-Language is 'es' then it will use the 'es-ar' translation.  We think
 # this is generally desirable (e.g. so someone can see YourNextMP in Spanish
 # if their browser asks for Spanish).
-LANGUAGES = [l for l in LANGUAGES if os.path.exists(os.path.join(LOCALE_PATHS[0], to_locale(l[0])))]
+LANGUAGES = [l for l in LANGUAGES if exists(join(LOCALE_PATHS[0], to_locale(l[0])))]
+LANGUAGES.append(('cy-gb', 'Welsh'))
 
 LANGUAGE_CODE = conf.get('LANGUAGE_CODE', 'en-gb')
 
@@ -241,10 +245,10 @@ USE_TZ = True
 
 MEDIA_ROOT = conf.get('MEDIA_ROOT')
 if not MEDIA_ROOT:
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_ROOT = join(BASE_DIR, 'media')
 # Make sure that the MEDIA_ROOT and subdirectory for archived CSV
 # files exist:
-mkdir_p(os.path.join(MEDIA_ROOT, 'csv-archives'))
+mkdir_p(join(MEDIA_ROOT, 'csv-archives'))
 
 MEDIA_URL = '/media/'
 
@@ -253,13 +257,14 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = join(BASE_DIR, 'static')
+STATICI18N_ROOT = join(BASE_DIR, 'mysite', 'static')
 
 if 'test' not in sys.argv:
     STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'mysite/static'),
+    join(BASE_DIR, 'mysite', 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -394,6 +399,16 @@ EDITS_ALLOWED = conf.get('EDITS_ALLOWED', True)
 ELECTION_SETTINGS_MODULE = ELECTION_APP_FULLY_QUALIFIED + '.settings'
 elections_module = importlib.import_module(ELECTION_SETTINGS_MODULE)
 
+try:
+    AREAS_TO_ALWAYS_RETURN = elections_module.AREAS_TO_ALWAYS_RETURN
+except AttributeError:
+    AREAS_TO_ALWAYS_RETURN = []
+
+try:
+    EXTRA_SIMPLE_FIELDS = elections_module.EXTRA_SIMPLE_FIELDS
+except AttributeError:
+    EXTRA_SIMPLE_FIELDS = {}
+
 ELECTIONS = elections_module.ELECTIONS
 
 ELECTIONS_BY_DATE = sorted(
@@ -436,7 +451,7 @@ for election_tuple in ELECTIONS_CURRENT:
 # both Python 2 and Python 3; this uses exec rather than import so
 # that the local settings can modify existing values rather than just
 # overwriting them.
-LOCAL_SETTINGS_FILE = os.path.join(BASE_DIR, 'mysite', 'local_settings.py')
+LOCAL_SETTINGS_FILE = join(BASE_DIR, 'mysite', 'local_settings.py')
 try:
     with open(LOCAL_SETTINGS_FILE) as f:
         exec(compile(f.read(), 'local_settings.py', 'exec'))

@@ -6,6 +6,8 @@ from urlparse import urlsplit
 
 from django_webtest import WebTest
 
+from .fake_popit import FakePostCollection
+
 def fake_requests_for_mapit(url):
     """Return reduced MapIt output for some known URLs"""
     if url == 'http://mapit.mysociety.org/postcode/sw1a1aa':
@@ -13,6 +15,13 @@ def fake_requests_for_mapit(url):
         json_result = {
             "shortcuts": {
                 "WMC": 65759,
+            },
+        }
+    elif url == 'http://mapit.mysociety.org/postcode/se240ag':
+        status_code = 200
+        json_result = {
+            "shortcuts": {
+                "WMC": "65808",
             },
         }
     elif url == 'http://mapit.mysociety.org/postcode/cb28rq':
@@ -34,29 +43,31 @@ def fake_requests_for_mapit(url):
         'status_code': status_code
     })
 
+@patch('candidates.popit.PopIt')
 @patch('elections.uk_general_election_2015.mapit.requests')
 class TestConstituencyPostcodeFinderView(WebTest):
 
-    def test_front_page(self, mock_requests):
+    def test_front_page(self, mock_requests, mock_popit):
         response = self.app.get('/')
         # Check that there is a form on that page
         response.forms['form-postcode']
         response.forms['form-name']
 
-    def test_valid_postcode_redirects_to_constituency(self, mock_requests):
+    def test_valid_postcode_redirects_to_constituency(self, mock_requests, mock_popit):
         mock_requests.get.side_effect = fake_requests_for_mapit
+        mock_popit.return_value.posts = FakePostCollection
         response = self.app.get('/')
         form = response.forms['form-postcode']
-        form['postcode'] = 'SW1A 1AA'
+        form['postcode'] = 'SE24 0AG'
         response = form.submit()
         self.assertEqual(response.status_code, 302)
         split_location = urlsplit(response.location)
         self.assertEqual(
             split_location.path,
-            '/election/2015/post/65759/cities-of-london-and-westminster'
+            '/election/2015/post/65808/dulwich-and-west-norwood',
         )
 
-    def test_unknown_postcode_returns_to_finder_with_error(self, mock_requests):
+    def test_unknown_postcode_returns_to_finder_with_error(self, mock_requests, mock_popit):
         mock_requests.get.side_effect = fake_requests_for_mapit
         response = self.app.get('/')
         form = response.forms['form-postcode']
@@ -67,7 +78,7 @@ class TestConstituencyPostcodeFinderView(WebTest):
         self.assertEqual(response.status_code, 200)
         self.assertIn('The postcode “CB2 8RQ” couldn’t be found', response)
 
-    def test_nonsense_postcode_returns_to_finder_with_error(self, mock_requests):
+    def test_nonsense_postcode_returns_to_finder_with_error(self, mock_requests, mock_popit):
         mock_requests.get.side_effect = fake_requests_for_mapit
         response = self.app.get('/')
         form = response.forms['form-postcode']
@@ -78,7 +89,7 @@ class TestConstituencyPostcodeFinderView(WebTest):
         self.assertEqual(response.status_code, 200)
         self.assertIn('Postcode &#39;FOOBAR&#39; is not valid.', response)
 
-    def test_nonascii_postcode(self, mock_requests):
+    def test_nonascii_postcode(self, mock_requests, mock_popit):
         mock_requests.get.side_effect = fake_requests_for_mapit
         response = self.app.get('/')
         form = response.forms['form-postcode']
@@ -92,21 +103,23 @@ class TestConstituencyPostcodeFinderView(WebTest):
         )
 
 
+@patch('candidates.popit.PopIt')
 class TestConstituencyNameFinderView(WebTest):
 
-    def test_pick_constituency_name(self):
+    def test_pick_constituency_name(self, mock_popit):
+        mock_popit.return_value.posts = FakePostCollection
         response = self.app.get('/')
         form = response.forms['form-name']
-        form['constituency'] = '66044'
+        form['constituency'] = '65808'
         response = form.submit()
         self.assertEqual(response.status_code, 302)
         split_location = urlsplit(response.location)
         self.assertEqual(
             split_location.path,
-            '/election/2015/post/66044/epping-forest'
+            '/election/2015/post/65808/dulwich-and-west-norwood'
         )
 
-    def test_post_no_constituency_selected(self):
+    def test_post_no_constituency_selected(self, mock_popit):
         response = self.app.get('/')
         form = response.forms['form-name']
         form['constituency'] = 'none'
@@ -114,7 +127,7 @@ class TestConstituencyNameFinderView(WebTest):
         self.assertEqual(response.status_code, 200)
         self.assertIn('You must select a constituency', response)
 
-    def test_post_invalid_constituency_id(self):
+    def test_post_invalid_constituency_id(self, mock_popit):
         response = self.app.post(
             '/lookup/name',
             {

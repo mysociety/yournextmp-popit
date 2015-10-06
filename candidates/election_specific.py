@@ -22,9 +22,10 @@ imports_and_defaults = (
 # [1] https://github.com/mysociety/mapit/blob/master/mapit/countries/__init__.py
 
 for name_to_import, default_value in imports_and_defaults:
+    value = default_value
     if settings.ELECTION_APP:
         try:
-            globals()[name_to_import] = \
+            value = \
                 getattr(
                     __import__(
                         settings.ELECTION_APP_FULLY_QUALIFIED + '.lib',
@@ -33,9 +34,8 @@ for name_to_import, default_value in imports_and_defaults:
                     name_to_import
                 )
         except (ImportError, AttributeError):
-            globals()[name_to_import] = default_value
-    else:
-        globals()[name_to_import] = default_value
+            pass
+    globals()[name_to_import] = value
 
 MAPIT_DATA = MapItData()
 PARTY_DATA = PartyData()

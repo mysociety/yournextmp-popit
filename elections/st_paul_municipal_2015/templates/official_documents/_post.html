@@ -1,0 +1,25 @@
+{% for doc_type, docs in official_documents %}
+  {% if doc_type.0 == 'Nomination paper' %}
+    <p>
+      {% if docs %}
+        {% for paper in docs %}
+          View the official Statement of Nominated Persons for this constituency:
+           <a href="{{ paper.get_absolute_url }}">{{ paper.document_type }}</a><br>
+        {% endfor %}
+        {% if user_can_upload_documents %}
+          <a href="{% url 'upload_document_view' election=election post_id=post_data.id %}">
+          Upload an updated Statement of Nominated Persons</a>.
+        {% endif %}
+      {% else %}
+        We don't have nomination papers for {{ post_data.label }} yet.
+        Can you help us by <a href="https://docs.google.com/spreadsheets/d/1jvWaQSENnASZfGne1IWRbDATMH2NT2xutyPEbZ5Is-8/edit#gid=0">
+          adding them to this google spreadsheet</a>?
+        {% if user_can_upload_documents %}
+          Or, as you have permission to upload documents, you can
+          <a href="{% url 'upload_document_view' election=election post_id=post_data.id %}">
+          upload it directly</a>.
+        {% endif %}
+      {% endif %}
+    </p>
+  {% endif %}
+{% endfor %}

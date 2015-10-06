@@ -4,14 +4,16 @@ from django_webtest import WebTest
 
 from .auth import TestUserMixin
 from candidates.tests.fake_popit import (
-    FakePostCollection, FakePersonCollection
+    FakePostCollection, FakePersonCollection, fake_mp_post_search_results
 )
 
 @patch('candidates.popit.PopIt')
+@patch('candidates.popit.requests')
 class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
 
-    def test_constituency_lock_unauthorized(self, mock_popit):
+    def test_constituency_lock_unauthorized(self, mock_requests, mock_popit):
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         self.app.get(
             '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user,
@@ -30,8 +32,9 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
         self.assertEqual(response.status_code, 403)
 
     @patch.object(FakePostCollection, 'put')
-    def test_constituency_lock(self, mocked_put, mock_popit):
+    def test_constituency_lock(self, mocked_put, mock_requests, mock_popit):
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         self.app.get(
             '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user_who_can_lock,
@@ -77,8 +80,9 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
         )
 
     @patch.object(FakePostCollection, 'put')
-    def test_constituency_unlock(self, mocked_put, mock_popit):
+    def test_constituency_unlock(self, mocked_put, mock_requests, mock_popit):
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         self.app.get(
             '/election/2015/post/65808/dulwich-and-west-norwood',
             user=self.user_who_can_lock,
@@ -123,8 +127,9 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
             "http://localhost:80/election/2015/post/65808/dulwich-and-west-norwood"
         )
 
-    def test_constituencies_unlocked_list(self, mock_popit):
+    def test_constituencies_unlocked_list(self, mock_requests, mock_popit):
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/election/2015/constituencies/unlocked',
         )
@@ -133,14 +138,16 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
         self.assertNotIn('Camberwell', unicode(response))
 
 @patch('candidates.popit.PopIt')
+@patch('candidates.popit.requests')
 class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'post')
     def test_add_when_locked_unprivileged_disallowed(
-            self, mocked_post, mock_popit
+            self, mocked_post, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         # Just get that page for the csrftoken cookie; the form won't
         # appear on the page, since the constituency is locked:
         response = self.app.get(
@@ -166,10 +173,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'post')
     def test_add_when_locked_privileged_allowed(
-            self, mocked_post, mock_popit
+            self, mocked_post, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         mocked_post.return_value = {'result': {'id': '1234'}}
         response = self.app.get(
             '/election/2015/post/65913/camberwell-and-peckham',
@@ -189,10 +197,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'put')
     def test_move_into_locked_unprivileged_disallowed(
-            self, mocked_put, mock_popit
+            self, mocked_put, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/4322/update',
             user=self.user
@@ -206,10 +215,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'put')
     def test_move_into_locked_privileged_allowed(
-            self, mocked_put, mock_popit
+            self, mocked_put, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/4322/update',
             user=self.user_who_can_lock
@@ -227,10 +237,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'put')
     def test_move_out_of_locked_unprivileged_disallowed(
-            self, mocked_put, mock_popit
+            self, mocked_put, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/4170/update',
             user=self.user
@@ -244,10 +255,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'put')
     def test_move_out_of_locked_privileged_allowed(
-            self, mocked_put, mock_popit
+            self, mocked_put, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/4170/update',
             user=self.user_who_can_lock
@@ -268,10 +280,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'put')
     def test_change_party_in_locked_unprivileged_disallowed(
-            self, mocked_put, mock_popit
+            self, mocked_put, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/4170/update',
             user=self.user
@@ -285,10 +298,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'put')
     def test_change_party_in_locked_privileged_allowed(
-            self, mocked_put, mock_popit
+            self, mocked_put, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/4170/update',
             user=self.user_who_can_lock
@@ -306,10 +320,11 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
 
     @patch.object(FakePersonCollection, 'put')
     def test_change_party_in_unlocked_unprivileged_allowed(
-            self, mocked_put, mock_popit
+            self, mocked_put, mock_requests, mock_popit
     ):
         mock_popit.return_value.persons = FakePersonCollection
         mock_popit.return_value.posts = FakePostCollection
+        mock_requests.get.side_effect = fake_mp_post_search_results
         response = self.app.get(
             '/person/4322/update',
             user=self.user

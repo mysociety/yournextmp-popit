@@ -15,11 +15,13 @@ ELECTIONS = {
         'use_for_candidate_suggestions': False,
         'party_membership_start_date': date(2015, 6, 22),
         'party_membership_end_date': date(9999, 12, 31),
+        'party_lists_in_use': False,
         'mapit_types': ['PRV'],
         'mapit_generation': 1,
         'organization_id': 'hcdn',
         'organization_name': 'Cámara de Diputados',
         'post_id_format': 'dip-{area_id}',
+        'show_official_documents': False,
     },
     # Party primaries for governors of provinces
     'gobernadores-argentina-paso-2015': {
@@ -32,11 +34,13 @@ ELECTIONS = {
         'current': True,
         'party_membership_start_date': date(2015, 6, 22),
         'party_membership_end_date': date(9999, 12, 31),
+        'party_lists_in_use': False,
         'mapit_types': ['PRV'],
         'mapit_generation': 1,
         'organization_id': 'gobernador',
         'organization_name': 'Gobernador',
         'post_id_format': 'gob-{area_id}',
+        'show_official_documents': False,
     },
     # Party primaries for national senators
     'senadores-argentina-paso-2015': {
@@ -49,11 +53,13 @@ ELECTIONS = {
         'current': True,
         'party_membership_start_date': date(2015, 6, 22),
         'party_membership_end_date': date(9999, 12, 31),
+        'party_lists_in_use': False,
         'mapit_types': ['PRV'],
         'mapit_generation': 1,
         'organization_id': 'hcsn',
         'organization_name': 'Senado de la Nación',
         'post_id_format': 'sen-{area_id}',
+        'show_official_documents': False,
     },
     # Presidential candidates
     'presidentes-argentina-paso-2015': {
@@ -68,10 +74,12 @@ ELECTIONS = {
         'current': True,
         'party_membership_start_date': date(2015, 6, 22),
         'party_membership_end_date': date(9999, 12, 31),
+        'party_lists_in_use': False,
         'mapit_types': ['NAT'], # The national level...
         'mapit_generation': 1,
         # There's only one such post:
-        'post_id_format': 'pres',
+        'post_id_format': 'presidente',
+        'show_official_documents': False,
     },
 
     # Party primaries for national senators

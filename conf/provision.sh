@@ -4,7 +4,7 @@ set -e
 
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-   build-essential git  \
+   build-essential git gettext \
    python-virtualenv curl yui-compressor python-dev \
    libpq-dev libxml2-dev libxslt-dev libffi-dev \
    libjpeg-dev screen \

@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.http import Http404
+from django.utils.translation import ugettext as _
 
 
 class ElectionMixin(object):

@@ -50,8 +50,8 @@ $(function() {
       constituencyName=$('#constituency-name').text(),
       partyName=enclosingDiv.find('.party').text(),
       message;
-    message = "Are you sure that " + candidateName + " (" + partyName + ") " +
-      "was the winner in " + constituencyName + "?";
+    message = interpolate(gettext("Are you sure that %s (%s) was the winner in %s?"),
+        [candidateName, partyName, constituencyName]);
     return confirm(message);
   });
 

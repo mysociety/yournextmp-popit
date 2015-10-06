@@ -154,24 +154,24 @@ msgstr "No hay datos electorales."
 #: candidates/diffs.py:32
 #, python-brace-format
 msgid "is known to be standing for the party '{party}' in the {election}"
-msgstr "Se sabe que apoya al partido '{party}' en las {election}"
+msgstr "Se sabe que se presenta por el partido '{party}' en las elecciones para {election}"
 
 #: candidates/diffs.py:34
 #, python-brace-format
 msgid "was known to be standing for the party '{party}' in the {election}"
-msgstr "Fue conocido por apoyar al partido '{party}' en las {election}"
+msgstr "supimos que se presentó por el partido '{party}' en las elecciones a {election}"
 
 #: candidates/diffs.py:38
 #, python-brace-format
 msgid ""
 "is known to be standing for the party with ID {party} in the {election}"
-msgstr "Se sabe que apoya al partido con identificación {party} en las {election}"
+msgstr "Se sabe que se presenta por el partido con identificación {party} en las elecicones para {election}"
 
 #: candidates/diffs.py:40
 #, python-brace-format
 msgid ""
 "was known to be standing for the party with ID {party} in the {election}"
-msgstr "Fue conocido por apoyar al partido con identificación {party} in las {election}"
+msgstr "supimos que se presentó por el partido con identificación {party} in las {election}"
 
 #: candidates/diffs.py:43 candidates/diffs.py:86
 #, python-brace-format
@@ -181,22 +181,22 @@ msgstr "Hoja inesperada {0} (atributo: {1}, elección: {2}"
 #: candidates/diffs.py:49
 #, python-brace-format
 msgid "is known to be standing for the party \"{party}\" in the {election}"
-msgstr "Se sabe que apoya al partido '{party}' en las {election}"
+msgstr "Se sabe que se presenta por el partido '{party}' en las elecciones a {election}"
 
 #: candidates/diffs.py:51
 #, python-brace-format
 msgid "was known to be standing for the party \"{party}\" in the {election}"
-msgstr "Fue conocido por apoyar al partido '{party}' en las {election}"
+msgstr "Supimos que se presentó por el partidoo '{party}' en las elecciones a {election}"
 
 #: candidates/diffs.py:56
 #, python-brace-format
 msgid "is known not to be standing in the {election}"
-msgstr "Se sabe que no apoya en las {election}"
+msgstr "Se sabe que no se presenta en las elecciones a {election}"
 
 #: candidates/diffs.py:58
 #, python-brace-format
 msgid "was known not to be standing in the {election}"
-msgstr "Fue conocido por no apoyar en las {election}"
+msgstr "Supimos que no se presentó en las elecciones a {election}"
 
 #: candidates/diffs.py:64
 #, python-brace-format
@@ -433,6 +433,12 @@ msgstr "{0} no era un ID de cargo conocido"
 msgid "Source of information that they won"
 msgstr "Fuente de información de que ganaron"
 
+#: candidates/management/commands/candidates_create_popit_posts.py:20
+#: candidates/management/commands/candidates_create_popit_posts.py:25
+#, python-brace-format
+msgid "{post_role} for {area_name}"
+msgstr ""
+
 #: candidates/middleware.py:42
 #, python-brace-format
 msgid ""
@@ -447,17 +453,17 @@ msgstr "Como precaución, esta actualización fue bloqueada:\n\n{0}\n\nSi esta a
 msgid "Disallowed YourNextMP update for checking"
 msgstr "Denegar actualización YourNextMP para revisar"
 
-#: candidates/models/address.py:20
+#: candidates/models/address.py:22
 #, python-brace-format
 msgid "Failed to find a location for '{0}'"
 msgstr "Disculpas, no se pudo encontrar la ubicación para '{0}'"
 
-#: candidates/models/address.py:35
+#: candidates/models/address.py:37
 #, python-brace-format
 msgid "The area lookup returned an error: '{error}'"
 msgstr "Disculpas, la búsqueda de ubicación dió un error: '{error}'"
 
-#: candidates/models/address.py:42
+#: candidates/models/address.py:44
 #, python-brace-format
 msgid "The address '{0}' appears to be outside the area this site knows about"
 msgstr "Disculpas, la dirección '{0}' parece estar fuera del área que este sitio conoce."
@@ -506,11 +512,11 @@ msgstr "Disculpas, ocurrió un error. 'PopItPerson' has no attribute '{0}'"
 msgid "There was no previous version of this person"
 msgstr "No hay versión anterior de la información de este candidato."
 
-#: candidates/models/popit.py:1204
+#: candidates/models/popit.py:1202
 msgid "Can't set_elected of a candidate with no standing_in"
 msgstr "Disculpas, ocurrió un error. Can't set_elected of a candidate with no standing_in"
 
-#: candidates/models/popit.py:1207
+#: candidates/models/popit.py:1205
 #, python-brace-format
 msgid "No standing_in information for {0}"
 msgstr "Disculpas, ocurrió un error.  No hay información de que se presente a cargos para {0}. No standing_in information for {0}"
@@ -1239,7 +1245,7 @@ msgstr "Candidatos para %(post_label_shorter)s en la %(election_name)s"
 #: elections/uk_general_election_2015/templates/candidates/finder.html:7
 #: elections/uk_general_election_2015/templates/candidates/finder.html:13
 #: elections/uk_general_election_2015/templates/candidates/finder.html:20
-#: mysite/templates/generic_base.html:54
+#: mysite/templates/generic_base.html:67
 msgid "YourNextMP"
 msgstr "YoQuieroSaber Investigación"
 
@@ -1864,8 +1870,8 @@ msgstr "Sigue uno de los enlaces abajo para ver los candidatos de ese cargo:"
 
 #: candidates/templates/candidates/privacy.html:6
 #: candidates/templates/candidates/privacy.html:9
-#: elections/ar_elections_2015/templates/base.html:119
-#: mysite/templates/generic_base.html:106
+#: elections/ar_elections_2015/templates/base.html:132
+#: mysite/templates/generic_base.html:119
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
@@ -2033,10 +2039,15 @@ msgstr "No se presentó"
 msgid "Not standing"
 msgstr "No se presenta"
 
-#: candidates/views/areas.py:28 candidates/views/areas.py:34
+#: candidates/views/areas.py:28
 #, python-brace-format
 msgid "Malformed type and area: '{0}'"
 msgstr "Disculpas, ocurrió un error. Malformed type and area {0}"
+
+#: candidates/views/areas.py:34
+#, python-brace-format
+msgid "Unknown post for types and areas: '{0}'"
+msgstr ""
 
 #: candidates/views/areas.py:91
 #, python-brace-format
@@ -2056,11 +2067,11 @@ msgstr "[No areas found]"
 msgid "Attempt to edit a candidacy in a locked constituency"
 msgstr "Esta actualización no está permitida porque el distrito ya está cerrado."
 
-#: candidates/views/constituencies.py:199
+#: candidates/views/constituencies.py:202
 msgid "Invalid data POSTed to ConstituencyLockView"
 msgstr "Disculpenos, a ocurrido un error. Invalid data POSTed to ConstituencyLockView"
 
-#: candidates/views/constituencies.py:342
+#: candidates/views/constituencies.py:345
 msgid "Result recorded in error, retracting"
 msgstr "Este resultado fue ingresado por error, retractándose"
 
@@ -2129,59 +2140,59 @@ msgstr "No se puede unificar al candidato ({0}) consigo mismo ({1})"
 msgid "After merging person {0}"
 msgstr "Después de unificar el candidato {0}"
 
-#: elections/ar_elections_2015/templates/base.html:32
+#: elections/ar_elections_2015/templates/base.html:35
 msgid "Yo Quiero Saber"
 msgstr "Yo Quiero Saber"
 
-#: elections/ar_elections_2015/templates/base.html:57
-#: elections/ar_elections_2015/templates/base.html:118
-#: mysite/templates/generic_base.html:55
-#: mysite/templates/generic_base.html:104
+#: elections/ar_elections_2015/templates/base.html:70
+#: elections/ar_elections_2015/templates/base.html:131
+#: mysite/templates/generic_base.html:68
+#: mysite/templates/generic_base.html:117
 msgid "About"
 msgstr "Acerca de Yo Quiero Saber"
 
-#: elections/ar_elections_2015/templates/base.html:58
+#: elections/ar_elections_2015/templates/base.html:71
 msgid "Provinces"
 msgstr "Candidatos por provincia"
 
-#: elections/ar_elections_2015/templates/base.html:68
-#: mysite/templates/generic_base.html:63
+#: elections/ar_elections_2015/templates/base.html:81
+#: mysite/templates/generic_base.html:76
 #, python-format
 msgid "Signed in as <strong>%(username)s</strong>"
 msgstr "Sesión iniciada como <strong>%(username)s</strong>"
 
-#: elections/ar_elections_2015/templates/base.html:70
-#: mysite/templates/generic_base.html:64
+#: elections/ar_elections_2015/templates/base.html:83
+#: mysite/templates/generic_base.html:77
 msgid "Sign out"
 msgstr "Cerrar sesión"
 
-#: elections/ar_elections_2015/templates/base.html:73
-#: mysite/templates/generic_base.html:68
+#: elections/ar_elections_2015/templates/base.html:86
+#: mysite/templates/generic_base.html:81
 msgid "Sign in to edit"
 msgstr "Iniciá sesión para editar"
 
-#: elections/ar_elections_2015/templates/base.html:117
-#: mysite/templates/generic_base.html:103
+#: elections/ar_elections_2015/templates/base.html:130
+#: mysite/templates/generic_base.html:116
 msgid "Open data API"
 msgstr "API de datos abiertos"
 
-#: elections/ar_elections_2015/templates/base.html:122
+#: elections/ar_elections_2015/templates/base.html:135
 msgid "Made by"
 msgstr "Hecho por"
 
-#: elections/ar_elections_2015/templates/base.html:129
+#: elections/ar_elections_2015/templates/base.html:142
 msgid "Partners"
 msgstr "Socios"
 
-#: elections/ar_elections_2015/templates/base.html:136
+#: elections/ar_elections_2015/templates/base.html:149
 msgid "Supported by"
 msgstr "Apoyado por "
 
-#: elections/ar_elections_2015/templates/base.html:142
+#: elections/ar_elections_2015/templates/base.html:155
 msgid "Developed by"
 msgstr "Desarrollado por "
 
-#: elections/ar_elections_2015/templates/base.html:149
+#: elections/ar_elections_2015/templates/base.html:162
 msgid "Show all the collaborators and volunteers"
 msgstr "Todos los colaboradores y voluntarios"
 
@@ -2525,58 +2536,58 @@ msgstr "Podés responder a este email si querés seguir conversándolo, o podés
 msgid "For administrators' use: %(photo_review_url)s"
 msgstr "Para uso de los administradores: %(photo_review_url)s"
 
-#: moderation_queue/views.py:230
+#: moderation_queue/views.py:232
 msgid "Approved from photo moderation queue"
 msgstr "Foto aprobada de la cola de moderación"
 
-#: moderation_queue/views.py:286
+#: moderation_queue/views.py:288
 #, python-brace-format
 msgid ""
 "Approved a photo upload from {uploading_user} who provided the message: "
 "\"{message}\""
 msgstr "Aprobada la foto subida de  {uploading_user} que ingresó el mensaje: \"{message}\""
 
-#: moderation_queue/views.py:311
+#: moderation_queue/views.py:313
 msgid "YourNextMP image upload approved"
 msgstr "Subida de imagen a YoQuieroSaber aprobada"
 
-#: moderation_queue/views.py:320
+#: moderation_queue/views.py:322
 #, python-format
 msgid "You approved a photo upload for %s"
 msgstr "Aprobaste una foto subida para %s"
 
-#: moderation_queue/views.py:325
+#: moderation_queue/views.py:327
 #, python-brace-format
 msgid "Rejected a photo upload from {uploading_user}"
 msgstr "Rechazada una foto subida por {uploading_user}"
 
-#: moderation_queue/views.py:344
+#: moderation_queue/views.py:346
 msgid "YourNextMP image moderation results"
 msgstr "Resultados de la moderación de imágenes de YoQuieroSaber"
 
-#: moderation_queue/views.py:356
+#: moderation_queue/views.py:358
 #, python-format
 msgid "You rejected a photo upload for %s"
 msgstr "Rechazaste una imágen subida por %s"
 
-#: moderation_queue/views.py:363
+#: moderation_queue/views.py:365
 #, python-brace-format
 msgid "You left a photo upload for {0} in the queue"
 msgstr "Dejaste una foto subida por {0} en la cola"
 
-#: moderation_queue/views.py:370
+#: moderation_queue/views.py:372
 #, python-brace-format
 msgid ""
 "Ignored a photo upload from {uploading_user} (This usually means it was a "
 "duplicate)"
 msgstr "Ignorada una foto subida por {uploading_user} (Esto usualmente significa que era duplicada)"
 
-#: moderation_queue/views.py:383
+#: moderation_queue/views.py:385
 #, python-brace-format
 msgid "You indicated a photo upload for {0} should be ignored"
 msgstr "Indicaste que una foto subida por {0} debe ser ignorada"
 
-#: mysite/settings.py:363
+#: mysite/settings.py:366
 msgid ""
 "Please don't quote third-party candidate sites —\n"
 "we prefer URLs of news stories or official candidate pages."
@@ -2635,30 +2646,30 @@ msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
 msgstr "¿Ya tenés una cuenta? Entonces por favor  <a href=\"%(login_url)s\">iniciá sesión</a>."
 
-#: mysite/templates/generic_base.html:32
+#: mysite/templates/generic_base.html:35
 msgid "YourNextMP - 2015 UK general election candidates"
 msgstr "YoQuieroSaber - Elecciones para las PASO 2015"
 
-#: mysite/templates/generic_base.html:56
+#: mysite/templates/generic_base.html:69
 msgid "Posts"
 msgstr "Cargos"
 
-#: mysite/templates/generic_base.html:57
+#: mysite/templates/generic_base.html:70
 msgid "Numbers"
 msgstr "Estadísticas"
 
-#: mysite/templates/generic_base.html:105
+#: mysite/templates/generic_base.html:118
 msgid "Issue tracker"
 msgstr "Reportes de errores"
 
-#: mysite/templates/generic_base.html:109
+#: mysite/templates/generic_base.html:122
 msgid ""
 "Supported by <a href=\"https://fullfact.org\">Full Fact</a>, <a "
 "href=\"http://unlockdemocracy.org.uk\">Unlock Democracy</a>, and <a "
 "href=\"https://mysociety.org\">mySociety</a>."
 msgstr "Apoyado por Congreso Interactivo, Open Knowledge Argentina, Datos Concepción, We Me, Fundación Directorio Legislativo, HacksLabs, Taringa, y otras organizaciones y muchos voluntarios como vos."
 
-#: mysite/templates/generic_base.html:115
+#: mysite/templates/generic_base.html:128
 #, python-format
 msgid ""
 "Built by <a href=\"https://democracyclub.org.uk/\"> <img "

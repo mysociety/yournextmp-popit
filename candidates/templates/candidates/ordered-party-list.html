@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load metadescription %}
+{% load standing %}
+{% load exists %}
+
+{% block extra_head %}
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{% blocktrans with election_name=election_data.name party_name=party.name %}Party list of {{ party_name }} for {{ post_label_shorter }} in the {{ election_name }}{% endblocktrans %}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+    <meta property="og:image:height" content="80" />
+    <meta property="og:image:width" content="80" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:description" content="{% blocktrans with election=election_data.name post=constituency_name party_name=party.name %}Party list of {{ party_name }} for {{ post_label_shorter }} in the {{ election }}{% endblocktrans %} - {% blocktrans with site_name=site.name %}find out more on {{ site_name }}{% endblocktrans %}">
+    <meta property="og:locale" content="{{ LOCALE }}" />
+
+    <!-- Twitter card data -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="{% trans "@yournextmp" %}" />
+    <meta name="twitter:title" content="{% blocktrans with election=election_data.name post=constituency_name party_name=party.name %}Party list of {{ party_name }} for {{ post_label_shorter }} in the {{ election }}{% endblocktrans %}" />
+    <meta property="twitter:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+    <meta property="twitter:image:height" content="120" />
+    <meta property="twitter:image:width" content="120" />
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}" />
+    <meta name="twitter:description" content="{% blocktrans with election=election_data.name %}Party list of {{ party_name }} for {{ post_label_shorter }} in the {{ election }}{% endblocktrans %} - {% blocktrans with site_name=site.name %}find out more on {{ site_name }}{% endblocktrans %}"  />
+{% endblock %}
+
+{% block body_class %}constituency{% endblock %}
+
+{% block title %}{% blocktrans with election_name=election_data.name party_name=party.name %}Party list of {{ party_name }} for {{ post_label_shorter }} in the {{ election_name }}{% endblocktrans %}{% endblock %}
+
+{% block hero %}
+  <h1>{% blocktrans with party_name=party.name %}Party list of {{ party_name }} for <span id="constituency-name">{{ post_label_shorter }}</span>{% endblocktrans %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<div id="candidates-for-post-{{ post_data.id }}" class="candidates-for-post">
+
+  <div class="candidates__known">
+
+    {% url 'constituency' election=election post_id=post_data.id ignored_slug=post_data.label|slugify as post_url %}
+    <h3>{% blocktrans with post_label=post_data.label party_name=party.name %}{{ party_name }} candidates for <a href="{{ post_url }}">{{ post_label }}</a>{% endblocktrans %}
+    </h3>
+
+    {% for position_in_list, c in positions_and_people %}
+      {% if forloop.first %}
+        <ul class="candidate-list">
+      {% endif %}
+
+        <li class="candidates-list__person{% if c|was_elected:election %} candidates-list__person__winner{% endif %}">
+          {% if c|was_elected:election %}
+            <h4 class="candidates-list__person__elected-text">{% trans "Winner" %}</h4>
+          {% endif %}
+
+          {% include 'candidates/_person_in_list.html' with election=election %}
+          {% if user.is_authenticated %}
+          <p>
+            {% if candidate_list_edits_allowed %}
+              <a class="button tiny js-toggle-source-confirmation not-standing">{% trans "Not actually standing?" %}</a>
+            {% endif %}
+            <a href="{% url 'person-update' person_id=c.id %}" class="button tiny secondary">{% trans "Edit" %}</a>
+          </p>
+          {% if candidate_list_edits_allowed %}
+            {% include 'candidates/_source_confirmation.html' with standing='not-standing' action='candidacy-delete' %}
+          {% endif %}
+          {% endif %}
+          {% if user_can_record_results and show_confirm_result %}
+            <form class="winner-confirm" action="{% url 'record-winner' election=election post_id=post_data.id %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="person_id" value="{{ c.id }}">
+              <input type="hidden" name="source" value="{% trans "[Quick update from the constituency page]" %}">
+              <input type="submit" class="button" value="{% trans "This candidate won!" %}">
+            </form>
+          {% endif %}
+        </li>
+
+      {% if forloop.last %}
+        </ul>
+      {% endif %}
+    {% empty %}
+      <div class="no-candidates row">
+        <p class="medium-8 columns">{% blocktrans trimmed with post_label=post_data.label election_name=election_data.name %}
+            <strong>Oh no!</strong> We don’t know of any candidates from {{ party.name }} for {{ post_label }}
+        for the {{ election_name }} yet.{% endblocktrans %}</p>
+        {% if candidate_list_edits_allowed %}
+          <p class="medium-4 columns"><a class="show-new-candidate-form button">{% trans "Add a new candidate" %}</a></p>
+        {% else %}
+          <p class="medium-4 columns"><a href="{% url 'account_login' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}" class="show-new-candidate-form button">{% trans "Sign in to add a new candidate" %}</a></p>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    {% if candidates and candidate_list_edits_allowed %}
+        <p><a class="show-new-candidate-form button">{% trans "Add a new candidate" %}</a></p>
+    {% endif %}
+
+  </div>
+
+  {% if positions_and_people and candidate_list_edits_allowed %}
+    <p><a class="show-new-candidate-form button">{% trans "Add a new candidate" %}</a></p>
+  {% endif %}
+
+  {% if candidate_list_edits_allowed %}
+    <div class="candidates__new" {% if add_candidate_form.errors %}style="display: block"{% endif %}>
+
+      <h4>{% trans "Add a new candidate" %}</h4>
+
+      <h1>foo</h1>
+
+      <form method="post" id="new-candidate-form" action="{% url 'person-create' election=election %}">
+        {% csrf_token %}
+          {% for field in add_candidate_form.visible_fields %}
+            <p>
+              {{ field.errors }}
+              {{ field.label_tag }} {{ field }}
+            </p>
+          {% endfor %}
+          {% for hidden_field in add_candidate_form.hidden_fields %}
+            {{ hidden_field }}
+          {% endfor %}
+        <input type="submit" class="button" value="{% trans "Add new candidate" %}">
+        <a class="hide-new-candidate-form button secondary">{% trans "Cancel" %}</a>
+      </form>
+
+    </div>
+  {% endif %}
+
+</div>
+
+{% block other_resources %}
+{% endblock %}
+
+{% endblock %}

@@ -15,7 +15,7 @@ from candidates.popit import PopItApiMixin
 
 from ..election_specific import AREA_POST_DATA, MAPIT_DATA
 from ..forms import NewPersonForm
-from .helpers import get_people_from_memberships
+from .helpers import get_people_from_memberships, group_people_by_party
 
 class AreasView(PopItApiMixin, TemplateView):
     template_name = 'candidates/areas.html'
@@ -23,7 +23,7 @@ class AreasView(PopItApiMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         self.types_and_areas = []
         for type_and_area in kwargs['type_and_area_ids'].split(','):
-            m = re.search(r'^([A-Z0-9]{3})-(\d+)$', type_and_area)
+            m = re.search(r'^([A-Z0-9]+)-(\d+)$', type_and_area)
             if not m:
                 message = _("Malformed type and area: '{0}'")
                 return HttpResponseBadRequest(message.format(type_and_area))
@@ -31,7 +31,7 @@ class AreasView(PopItApiMixin, TemplateView):
         try:
             view = super(AreasView, self).get(request, *args, **kwargs)
         except UnknownPostException:
-            message = _("Malformed type and area: '{0}'")
+            message = _("Unknown post for types and areas: '{0}'")
             return HttpResponseBadRequest(message.format(kwargs['type_and_area_ids']))
         return view
 
@@ -52,7 +52,12 @@ class AreasView(PopItApiMixin, TemplateView):
                     locked = post_data.get('candidates_locked', False)
                     current_candidates, _ = get_people_from_memberships(
                         election_data,
-                        post_data['memberships'],
+                        post_data['memberships']
+                    )
+                    current_candidates = group_people_by_party(
+                        election,
+                        current_candidates,
+                        party_list=election_data.get('party_lists_in_use')
                     )
                     context['posts'].append({
                         'election': election,

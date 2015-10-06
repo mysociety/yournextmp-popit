@@ -13,9 +13,11 @@ ELECTIONS = {
         'use_for_candidate_suggestions': True,
         'party_membership_start_date': date(2005, 5, 6),
         'party_membership_end_date': date(2010, 5, 6),
+        'party_lists_in_use': False,
         'mapit_types': ['WMC'],
         'mapit_generation': 22,
         'post_id_format': '{area_id}',
+        'show_official_documents': False,
     },
     '2015': {
         'for_post_role': 'Member of Parliament',
@@ -28,9 +30,11 @@ ELECTIONS = {
         'current': True,
         'party_membership_start_date': date(2010, 5, 7),
         'party_membership_end_date': date(9999, 12, 31),
+        'party_lists_in_use': False,
         'mapit_types': ['WMC'],
         'mapit_generation': 22,
         'post_id_format': '{area_id}',
+        'show_official_documents': True,
     }
 }
 

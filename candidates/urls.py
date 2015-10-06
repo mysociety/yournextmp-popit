@@ -64,6 +64,11 @@ patterns_to_format = [
         'name': 'constituency'
     },
     {
+        'pattern': r'^election/{election}/party-list/{post}/(?P<organization_id>[a-z-]+(:[-\d]+)?)$',
+        'view': views.OrderedPartyListView.as_view(),
+        'name': 'party-for-post'
+    },
+    {
         'pattern': r'^election/{election}/post/lock$',
         'view': views.ConstituencyLockView.as_view(),
         'name': 'constituency-lock'

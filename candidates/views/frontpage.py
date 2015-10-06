@@ -21,6 +21,11 @@ class AddressFinderView(ContributorsMixin, FormView):
     def dispatch(self, *args, **kwargs):
         return super(AddressFinderView, self).dispatch(*args, **kwargs)
 
+    def get_form(self, form_class=None):
+        if form_class is None:
+            form_class = self.get_form_class()
+        return form_class(self.country, **self.get_form_kwargs())
+
     def form_valid(self, form):
         form.cleaned_data['address']
         resolved_address = check_address(

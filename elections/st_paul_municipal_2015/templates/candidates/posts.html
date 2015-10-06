@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block body_class %}posts{% endblock %}
+
+{% block title %}{% trans "Candidates by constituency for the UK 2015 General Election" %}{% endblock %}
+
+{% block hero %}
+  <h1>{% trans "All Posts in Current Elections" %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <p>{% trans "Follow one of the links below to see the known candidates for that post:" %}</p>
+
+  {% for election, election_data_and_posts in all_posts.items %}
+
+    {% with election_data=election_data_and_posts.election_data %}
+      {% with posts=election_data_and_posts.posts %}
+        <h2>{{ election_data.name }}</h2>
+
+        <ul>
+          {% for p in posts %}
+            <li>
+             <a href="{% url 'constituency' election=election post_id=p.id ignored_slug=p.label|slugify %}">{{ p.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endwith %}
+    {% endwith %}
+
+  {% endfor %}
+
+{% endblock %}

@@ -7,10 +7,10 @@
 
 {% block content %}
 
-<h2>{% trans "You can help us make YourNextMP.com better!" %}</h2>
+<h2>{% blocktrans with site_name=site.name %}You can help us make {{ site_name }} better!{% endblocktrans %}</h2>
 
 <p>{% blocktrans trimmed %}
-YourNextMP.com is a volunteer-sourced database, and that means we constantly
+{{ site_name }} is a volunteer-sourced database, and that means we constantly
 need help in making it better.
 {% endblocktrans %}</p>
 

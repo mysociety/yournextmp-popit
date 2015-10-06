@@ -47,7 +47,7 @@ def get_constituency_lock(user, api, post_id):
 def check_creation_allowed(user, api, new_popit_data):
     for election in settings.ELECTIONS:
         standing_in = new_popit_data['standing_in']
-        if election not in standing_in:
+        if election not in standing_in or not standing_in[election]:
             continue
         dummy, edits_allowed = get_constituency_lock(
             user,

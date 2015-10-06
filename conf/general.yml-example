@@ -95,3 +95,7 @@ NEW_ACCOUNTS_ALLOWED: true
 
 # If this is set to false, then no edits of people are allowed.
 EDITS_ALLOWED: true
+
+# This should be set to true unless you're using the old version of
+# Google Analytics.
+USE_UNIVERSAL_ANALYTICS: true

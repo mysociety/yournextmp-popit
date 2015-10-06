@@ -30,6 +30,8 @@ $error-text-color: darken($color-red, 10%);
 $error-border-color: mix($color-red, #fff, 30%);
 $error-input-border-color: mix($color-red, #fff, 40%);
 
+$candidate-order-color: #fff;
+$candidate-order-background-color: $color-cyan;
 $avatar-background-color: #ddd;
 
 $unknown-candidate-status-color: $color-orange;

@@ -7,7 +7,9 @@ from django.core.management import call_command
 from django_webtest import WebTest
 
 from candidates.tests.test_create_person import mock_create_person
-from candidates.tests.fake_popit import fake_mp_post_search_results
+from candidates.tests.fake_popit import (
+    fake_mp_post_search_results, FakePostCollection
+)
 
 from .models import CachedCount
 
@@ -98,8 +100,10 @@ class CachedCountTestCase(WebTest):
 
 class TestCachedCountsCreateCommand(WebTest):
 
+    @patch('candidates.popit.PopIt')
     @patch('candidates.popit.requests')
-    def test_cached_counts_create_command(self, mock_requests):
+    def test_cached_counts_create_command(self, mock_requests, mock_popit):
+        mock_popit.return_value.posts = FakePostCollection
         mock_requests.get.side_effect = fake_mp_post_search_results
         call_command('cached_counts_create')
         non_zero_counts = CachedCount.objects.exclude(count=0). \
