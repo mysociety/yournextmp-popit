@@ -12,6 +12,8 @@ from candidates.tests.fake_popit import (
 )
 
 from .models import CachedCount
+from datetime import date
+
 
 
 def create_initial_counts(extra=()):
@@ -21,42 +23,48 @@ def create_initial_counts(extra=()):
             'count_type': 'post',
             'name': 'Dulwich and West Norwood',
             'count': 10,
-            'object_id': '65808'
+            'object_id': '65808',
+            'election_dateA': date(2015,8,10)
         },
         {
             'election': '2015',
             'count_type': 'post',
             'name': 'Camberwell and Peckham',
             'count': 3,
-            'object_id': '65913'
+            'object_id': '65913',
+            'election_dateA': date(2015,8,10)
         },
         {
             'election': '2015',
             'count_type': 'post',
             'name': u'Ynys Môn',
             'count': 0,
-            'object_id': '66115'
+            'object_id': '66115',
+            'election_dateA': date(2015, 8, 9)
         },
         {
             'election': '2015',
             'count_type': 'party',
             'name': 'Labour',
             'count': 0,
-            'object_id': 'party:53'
+            'object_id': 'party:53',
+            'election_dateA': date(2015, 8, 9)
         },
         {
             'election': '2015',
             'count_type': 'total',
             'name': 'total',
             'count': 1024,
-            'object_id': '2015'
+            'object_id': '2015',
+            'election_dateA': date(2015, 8, 9)
         },
         {
             'election': '2010',
             'count_type': 'total',
             'name': 'total',
             'count': 1500,
-            'object_id': '2010'
+            'object_id': '2010',
+            'election_dateA': date(2015, 8, 9)
         },
     )
     initial_counts = initial_counts + extra
@@ -111,18 +119,18 @@ class TestCachedCountsCreateCommand(WebTest):
             values_list()
         non_zero_counts = list(non_zero_counts)
         expected_counts = [
-            (514, u'constituency', u'Dulwich and West Norwood', 8, u'65808'),
-            (217, u'party', u"All People's Party", 1, u'party:2137'),
-            (288, u'party', u'Conservative Party', 1, u'party:52'),
-            (230, u'party', u'Green Party', 1, u'party:63'),
-            (390, u'party', u'Independent', 1, u'ynmp-party:2'),
-            (287, u'party', u'Labour Party', 1, u'party:53'),
-            (84, u'party', u'Liberal Democrats', 1, u'party:90'),
-            (179, u'party', u'Trade Unionist and Socialist Coalition', 1, u'party:804'),
-            (145, u'party', u'UK Independence Party (UKIP)', 1, u'party:85'),
-            (1155, u'total', u'new_candidates', 6, u'new_candidates'),
-            (1160, u'total', u'standing_again', 2, u'standing_again'),
-            (1159, u'total', u'standing_again_different_party', 2, u'standing_again_different_party'),
-            (1156, u'total', u'total_2010', 2, u'candidates_2010'),
-            (1157, u'total', u'total_2015', 8, u'candidates_2015'),
+            (514, u'constituency', u'Dulwich and West Norwood', 8, u'65808',   date(2015, 8, 9)),
+            (217, u'party', u"All People's Party", 1, u'party:2137',   date(2015, 8, 9)),
+            (288, u'party', u'Conservative Party', 1, u'party:52',   date(2015, 8, 9)),
+            (230, u'party', u'Green Party', 1, u'party:63',   date(2015, 8, 9)),
+            (390, u'party', u'Independent', 1, u'ynmp-party:2',   date(2015, 8, 9)),
+            (287, u'party', u'Labour Party', 1, u'party:53',   date(2015, 8, 9)),
+            (84, u'party', u'Liberal Democrats', 1, u'party:90',   date(2015, 8, 9)),
+            (179, u'party', u'Trade Unionist and Socialist Coalition', 1, u'party:804',   date(2015, 8, 9)),
+            (145, u'party', u'UK Independence Party (UKIP)', 1, u'party:85',   date(2015, 8, 9)),
+            (1155, u'total', u'new_candidates', 6, u'new_candidates',   date(2015, 8, 9)),
+            (1160, u'total', u'standing_again', 2, u'standing_again',   date(2015, 8, 9)),
+            (1159, u'total', u'standing_again_different_party', 2, u'standing_again_different_party',   date(2015, 8, 9)),
+            (1156, u'total', u'total_2010', 2, u'candidates_2010',   date(2015, 8, 9)),
+            (1157, u'total', u'total_2015', 8, u'candidates_2015',   date(2015, 8, 9)),
         ]

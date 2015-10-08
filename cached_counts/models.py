@@ -18,18 +18,20 @@ class CachedCount(models.Model):
     count = models.IntegerField(blank=False, null=False)
     object_id = models.CharField(blank=True, max_length=100)
     election = models.CharField(blank=True, null=True, max_length=512)
+    election_dateA = models.DateField(blank=True, null=True)
 
     class Meta:
-        ordering = ['-count', 'name']
+        ordering = ['-election_dateA', '-count', 'name']
 
     def __repr__(self):
-        fmt = '<CachedCount: election={e} count_type={ct}, name={n}, count={c}, object_id={o}>'
+        fmt = '<CachedCount: election={e} count_type={ct}, name={n}, count={c}, object_id={o}, election_dateA={ed}>'
         return fmt.format(
             e=repr(self.election),
             ct=repr(self.count_type),
             n=repr(self.name),
             c=repr(self.count),
             o=repr(self.object_id),
+            ed=repr(self.election_dateA),
         )
 
     def __unicode__(self):
@@ -56,7 +58,7 @@ class CachedCount(models.Model):
         return cls.objects.filter(
             count_type='post',
             election__in=current_election_slugs
-        ).order_by('count', '?')
+        ).order_by('-election_dateA','count', '?')
 
 
 @receiver(person_added, sender=PopItPerson)

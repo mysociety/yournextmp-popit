@@ -128,7 +128,13 @@ ELECTIONS = {
         'post_id_format': 'pmeu',
         'party_lists_in_use': False,
         'default_party_list_members_to_show': 3,
-    },    
+    },
+}
+
+
+ELECTIONS_Alternativ_date = {
+"dip-23":{'election_date_alternative': date(2015, 11, 9)},
+"dip-24":{'election_date_alternative': date(2015, 12, 9)}
 }
 
 MAPIT_BASE_URL = 'http://argentina.mapit.staging.mysociety.org/'
