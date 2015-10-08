@@ -5,6 +5,8 @@ from candidates.election_specific import PARTY_DATA
 from candidates.models.popit import create_or_update
 from candidates.popit import PopItApiMixin
 
+from slumber.exceptions import HttpClientError
+
 class Command(PopItApiMixin, BaseCommand):
     help = "Create required organizations (parties / chambers) in PopIt"
 

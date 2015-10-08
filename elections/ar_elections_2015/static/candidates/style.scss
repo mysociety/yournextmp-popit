@@ -195,6 +195,11 @@ a.header__logo,
             background-image: url(img/logo-twitter.png);
         }
 
+        &[href*="taringa"] {
+	    background-color: #23b;
+   	    background-image: url(../img/logo-taringa.png);
+        }
+
         &:hover,
         &:focus {
             height: 54px;
@@ -438,4 +443,8 @@ body.finder .content {
     .official-documents {
         background-image: url(img/icon-documents.png);
     }
+}
+
+p.agreement label {
+	display: inline;
 }

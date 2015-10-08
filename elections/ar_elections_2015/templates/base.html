@@ -42,11 +42,12 @@
       <a href="/" class="header__logo">Yo Quiero Saber</a>
       <div class="header__nav">
         <div class="header__nav__primary">
-          <a href="http://www.yoquierosaber.org/" class="header__nav__item">Inicio</a>
-          <a href="{% url 'help-about' %}" class="header__nav__item">{% trans "About" %}</a>
+          <a href="/" class="header__nav__item">Inicio</a>
           <a href="{% url 'areas-of-type-view' mapit_type='PRV' ignored_slug='provincia' %}" class="header__nav__item">{% trans "Provinces" %}</a>
           <a href="{% url 'attention_needed' %}" class="header__nav__item">Prioridades</a>
+         <a href="http://www.yoquierosaber.org/" class="header__nav__item">Juego</a>
           <a href="{% url 'help-reuse' %}#" class="header__nav__item">Reutilizá YQS</a>
+        <a href="{% url 'help-about' %}" class="header__nav__item">Quienes somos</a>
           {% if user_can_review_photos and photos_for_review > 0 %}
             <a href="{% url 'photo-review-list' %}" class="header__nav__item header__nav__notification">{{ photos_for_review }}</a>
           {% endif %}
@@ -65,6 +66,7 @@
         <div class="header__nav__social">
             <a href="https://www.facebook.com/YoQuieroSaber">Facebook</a>
             <a href="https://twitter.com/YoQuieroSaberAR">Twitter</a>
+	    <a href="http://taringa.net/YoQuieroSaber15">Taringa</a>
         </div>
       </div>
     </div>
@@ -117,17 +119,18 @@
         </p>
         <h4>{% trans 'Partners' %}</h4>
         <p>
-          <a href="http://www.taringa.com">Taringa</a> &middot;
+          <a href="http://www.taringa.net">Taringa</a> &middot;
           <a href="http://www.acij.org.ar">ACIJ</a> &middot;
           <a href="http://www.conciencia.org">Asociación Conciencia</a> &middot;
-          <a href="http://www.we-me.org">We-Me</a>
+          <a href="http://www.we-me.org">We-Me</a> &middot;
+          <a href="http://www.utdt.edu/ver_contenido.php?id_contenido=9095&amp;id_item_menu=17559">Acción Social DiTella</a>
         </p>
         <h4>{% trans 'Supported by' %}</h4>
-        <p>
-          <a href="http://hackslabs.org/">HacksLabs</a> &middot;
-          <a href="http://www.worldbank.org/">World Bank</a> &middot;
-          <a href="http://www.icfj.org/">ICFJ</a>
-        </p>
+        <div style="background: white; padding: 1em; padding-bottom: 0.5em; border-radius: 1em">
+              <a href="http://hackslabs.org/"><img src="{% static 'img/logo-hl.png' %}" alt="hackslabs"></a> 
+              <a href="http://www.worldbank.org/"><img src="{% static 'img/logo-wb.png' %}" alt="World Bank"></a> 
+              <a href="http://www.icfj.org/" style="zoom: 0.8;"><img src="{% static 'img/logo-icfj.png' %}" alt="ICFJ"></a>       
+        </div>
         <h4>{% trans 'Developed by' %}</h4>
         <p>
           <a href="https://mysociety.org">mySociety</a> &middot;

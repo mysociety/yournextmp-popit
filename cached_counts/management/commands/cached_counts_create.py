@@ -10,6 +10,9 @@ from django.core.management.base import BaseCommand
 
 from cached_counts.models import CachedCount
 
+from datetime import date
+
+
 class Command(PopItApiMixin, BaseCommand):
 
     option_list = BaseCommand.option_list + (
@@ -26,10 +29,14 @@ class Command(PopItApiMixin, BaseCommand):
             election=obj['election'],
             object_id=obj['object_id'],
             count_type=obj['count_type'],
+        #    election_date= obj['election_date'],
+        #    election_date= datetime.datetime.now(),
             defaults={
                 'count': obj['count'],
                 'name': obj['name'],
-            }
+                'election_dateA':obj['election_date']
+            },
+
         )
 
     def handle(self, **options):
@@ -91,7 +98,8 @@ class Command(PopItApiMixin, BaseCommand):
                     'count_type': 'post',
                     'name': data['post_label'],
                     'count': data['count'],
-                    'object_id': post_id
+                    'object_id': post_id,
+                    'election_date': election_data['election_date']
                 }
                 self.add_or_update(obj)
 
@@ -103,7 +111,8 @@ class Command(PopItApiMixin, BaseCommand):
                     'count_type': 'party',
                     'name': data['party_name'],
                     'count': data['count'],
-                    'object_id': party_id
+                    'object_id': party_id,
+                    'election_date': election_data['election_date']
 
                 }
                 self.add_or_update(obj)
@@ -115,6 +124,7 @@ class Command(PopItApiMixin, BaseCommand):
                 'name': 'total',
                 'count': counts['candidates'],
                 'object_id': election,
+                'election_date': election_data['election_date']
             })
 
         # Now we've been through all candidates for all elections, go
@@ -173,6 +183,7 @@ class Command(PopItApiMixin, BaseCommand):
                         # counts are relative to:
                         'object_id': election,
                         'count': d[election],
+                        'election_date': election_data['election_date']
                     })
 
         if options['delete_dissolved']:
