@@ -64,7 +64,7 @@ def check_address(address_string, country=None):
     except GeocoderError:
         message = _(u"Failed to find a location for '{0}'")
         raise ValidationError(message.format(tidied_address))
-    
+
     coords = ','.join([str(p) for p in location_results[0].coordinates])
 
     if cache.get(coords):
@@ -88,6 +88,6 @@ def check_address(address_string, country=None):
         return {
             'area_ids': ';'.join(areas),
         }
-    
+ 
     error = _(u"Unable to find constituency for '{0}'")
     raise ValidationError(error.format(tidied_address))
