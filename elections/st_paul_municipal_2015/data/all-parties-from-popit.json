@@ -64,14 +64,29 @@
         "contact_details": [],
         "dissolution_date": "9999-12-31",
         "founding_date": "1900-01-01",
-        "id": "party:401",
+        "id": "party:501",
         "identifiers": [],
         "links": [],
         "memberships": [],
-        "name": "Unknown",
+        "name": "Libertarian",
         "other_names": [],
         "posts": [],
-        "slug": "unknown",
+        "slug": "libertarian",
+        "territory": "Global"
+    },
+    {
+        "classification": "Party",
+        "contact_details": [],
+        "dissolution_date": "9999-12-31",
+        "founding_date": "1900-01-01",
+        "id": "party:601",
+        "identifiers": [],
+        "links": [],
+        "memberships": [],
+        "name": "Republican",
+        "other_names": [],
+        "posts": [],
+        "slug": "republican",
         "territory": "Global"
     }
 ]
