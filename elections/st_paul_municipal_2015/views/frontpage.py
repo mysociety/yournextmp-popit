@@ -49,9 +49,13 @@ def get_cached_boundary(division_id):
 
     boundary = requests.get('{0}/boundaries/'.format(OCD_BOUNDARIES_URL),
                             params={'external_id': division_id})
-    cache.set(division_id, boundary.json()['objects'][0], None)
+    
+    if boundary.status_code == 200:
 
-    return boundary.json()
+    area_blob = boundary.json()['objects'][0]
+    cache.set(division_id, area_blob, None)
+
+    return area_blob
 
 def check_address(address_string, country=None):
     tidied_address = address_string.strip()
