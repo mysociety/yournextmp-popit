@@ -49,7 +49,7 @@ def get_cached_boundary(division_id):
 
     boundary = requests.get('{0}/boundaries/'.format(OCD_BOUNDARIES_URL),
                             params={'external_id': division_id})
-    cache.set(division_id, boundary.json(), None)
+    cache.set(division_id, boundary.json()['objects'][0], None)
 
     return boundary.json()
 

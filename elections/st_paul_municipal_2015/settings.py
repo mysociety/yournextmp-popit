@@ -48,5 +48,5 @@ MAPIT_BASE_URL = ''
 # OCD_BOUNDARIES_URL = 'http://127.0.0.1:8001'
 OCD_BOUNDARIES_URL = 'http://ocd.datamade.us'
 
-SITE_OWNER = 'Burkina Open Data Initiative (BODI)'
-COPYRIGHT_HOLDER = 'Burkina Open Data Initiative (BODI)'
+SITE_OWNER = ''
+COPYRIGHT_HOLDER = ''

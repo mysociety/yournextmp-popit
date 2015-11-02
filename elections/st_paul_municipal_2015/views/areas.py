@@ -53,7 +53,7 @@ class StPaulAreasView(PopItApiMixin, TemplateView):
                     post_data = get_post_cached(self.api, area_id)['result']
                     boundary_data = get_cached_boundary(ocd_division)
 
-                    all_area_names.add(boundary_data['objects'][0]['name'])
+                    all_area_names.add(boundary_data['name'])
 
                     locked = post_data.get('candidates_locked', False)
 
