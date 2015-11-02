@@ -50,8 +50,6 @@ def get_cached_boundary(division_id):
     boundary = requests.get('{0}/boundaries/'.format(OCD_BOUNDARIES_URL),
                             params={'external_id': division_id})
     
-    if boundary.status_code == 200:
-
     area_blob = boundary.json()['objects'][0]
     cache.set(division_id, area_blob, None)
 
