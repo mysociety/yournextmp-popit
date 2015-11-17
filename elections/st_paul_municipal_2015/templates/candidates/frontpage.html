@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load metadescription %}
+
+{% block extra_head %}
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ site.name }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+    <meta property="og:image:height" content="80" />
+    <meta property="og:image:width" content="80" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:description" content="{{ site.name }} - {% blocktrans with election_name=election_data.name %}{{ election_name }} candidates{% endblocktrans %}">
+    <meta property="og:locale" content="{{ LOCALE }}" />
+
+    <!-- Twitter card data -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="{% trans "@yournextmp" %}" />
+    <meta name="twitter:title" content="{{ site.name }}" />
+    <meta property="twitter:image" content="{{ 'img/logo.png'|static_image_path:request }}" />
+    <meta property="twitter:image:height" content="120" />
+    <meta property="twitter:image:width" content="120" />
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}" />
+    <meta name="twitter:description" content="{{ site.name }} - {% blocktrans with election_name=election_data.name %}{{ election_name }} candidates{% endblocktrans %}"  />
+{% endblock %}
+
+{% block body_class %}finder{% endblock %}
+
+{% block hero %}
+
+  <h1>{% trans "Saint Paul's election was on Nov 3rd, 2015" %}</h1>
+
+  <p class="lead">{% trans "See all the candidates for City Council and School Board who ran and won." %}</p>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="finder__forms">
+
+  <form id="form-address" action="{% url 'lookup-address' %}" method="post">
+    {{ form.as_p }}
+    <input type="submit" class="button" value="{% trans "Show candidates" %}">
+  </form>
+
+</div>
+
+</div><!-- close .container so we can go full width with .finder__description -->
+
+<div class="finder__description">
+  <div class="container">
+    {% url 'posts' as posts_url %}
+    <p>{% blocktrans %}Your Next Rep is a crowd-sourced database of election candidates. <br /><a href="{{ posts_url }}">Browse the candidates ></a>{% endblocktrans %}
+    </p>
+    {% url 'help-api' as api_url %}
+    {% url "tasks_home" as tasks_url %}
+    <p>{% blocktrans trimmed %}The database is transparently sourced and
+      available as structured data, suitable for building other election
+      websites. <a href="{{ api_url }}">Get the data now</a>, or
+      <a href="{{ tasks_url }}">help by contributing new candidate details.</a>
+      {% endblocktrans %}
+    </p>
+  </div>
+</div>
+
+<div class="container"><!-- reopen new .container -->
+
+<div class="finder__activity">
+  <div class="finder__activity__changes">
+    <h2><a href="{% url 'recent-changes' %}">{% trans "Recent changes" %}</a></h2>
+    <ol>
+      {% for action in recent_actions %}
+        <li>{% with username=action.user.username when=action.created|timesince person_id=action.popit_person_id %}
+          {% url 'person-view' person_id=person_id as person_url %}
+          {% if action.action_type == 'person-create' %}
+            {% if person_id %}
+            {% blocktrans trimmed %}
+              User <strong>{{ username }}</strong>
+              created <a href="{{ person_url }}">a new candidate</a>
+              <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+            {% else %}
+            {% blocktrans trimmed %}
+              User <strong>{{ username }}</strong> is creating a new candidate
+              <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+            {% endif %}
+          {% elif action.action_type == 'person-merge' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            merged another candidate into <a href="{{ person_url }}">candidate #{{ person_id }}</a>
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'photo-upload' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            uploaded a photo of <a href="{{ person_url }}">candidate #{{ person_id }}</a> for moderation
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'photo-approve' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            approved an uploaded photo of <a href="{{ person_url }}">candidate #{{ person_id }}</a>
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'photo-reject' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            rejected an uploaded photo of <a href="{{ person_url }}">candidate #{{ person_id }}</a>
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'person-revert' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            reverted to an earlier version of <a href="{{ person_url }}">candidate #{{ person_id }}</a>
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'candidacy-create' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            confirmed candidacy for <a href="{{ person_url }}">candidate #{{ person_id }}</a>
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'candidacy-delete' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            removed candidacy for <a href="{{ person_url }}">candidate #{{ person_id }}</a>
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'constituency-lock' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong> locked a constituency <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'constituency-unlock' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong> unlocked a constituency <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% elif action.action_type == 'set-candidate-elected' %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            marked <a href="{{ person_url }}">candidate #{{ person_id }}</a> as the winner
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% else %}
+            {% blocktrans trimmed %}
+            User <strong>{{ username }}</strong>
+            updated <a href="{{ person_url }}">candidate #{{ person_id }}</a>
+            <span class="when">{{ when }} ago</span>
+            {% endblocktrans %}
+          {% endif %}
+        {% endwith %}</li>
+      {% endfor %}
+    </ol>
+    <p class="more"><a href="{% url 'recent-changes' %}">{% trans "Show more changes…" %}</a></p>
+  </div>
+  <div class="finder__activity__leaderboard">
+    <h2><a href="{% url 'leaderboard' %}">{% trans "Top users this week" %}</a></h2>
+    <ol>
+      {% for row in top_users %}
+        <li><strong>{{ row.username }}</strong>
+        <span class="edits">{% blocktrans trimmed count count=row.edit_count %}
+           {{ count }} edit{% plural %}{{ count }} edits
+          {% endblocktrans %}</span></li>
+      {% endfor %}
+    </ol>
+    <p class="more"><a href="{% url 'leaderboard' %}">{% trans "Show full leaderboard…" %}</a></p>
+  </div>
+</div>
+
+{% endblock %}
