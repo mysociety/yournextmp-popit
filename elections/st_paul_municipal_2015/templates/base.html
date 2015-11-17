@@ -4,10 +4,10 @@
 {% load staticfiles %}
 
 {% block footer_bylines %}
-  {% static "img/logo-with-text.png" as logo_url %}
-  <p>{% blocktrans with site_managers='Datamade' trimmed %}
+  {% static "img/datamade_logo_sm.png" as logo_url %}
+  <p>{% blocktrans with site_managers='DataMade' trimmed %}
     Run by
-    <img src="{{ logo_url }}" %} alt="{{ site_managers }}" class="dc-logo">
+    <a href='http://datamade.us'><img src="{{ logo_url }}" %} alt="{{ site_managers }}" style='margin-top: -10px;'></a>
     {% endblocktrans %}
   </p>
 {% endblock %}

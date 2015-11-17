@@ -3,10 +3,10 @@
 
 {% block body_class %}posts{% endblock %}
 
-{% block title %}{% trans "Candidates by constituency for the UK 2015 General Election" %}{% endblock %}
+{% block title %}{% trans "Candidates by constituency for the Saint Paul 2015 Municipal Election" %}{% endblock %}
 
 {% block hero %}
-  <h1>{% trans "All Posts in Current Elections" %}</h1>
+  <h1>{% trans "Saint Paul 2015 Municipal Election" %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
 
     {% with election_data=election_data_and_posts.election_data %}
       {% with posts=election_data_and_posts.posts %}
-        <h2>{{ election_data.name }}</h2>
+        <h3>{{ election_data.name }}</h3>
 
         <ul>
           {% for p in posts %}

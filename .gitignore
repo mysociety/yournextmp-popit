@@ -1,5 +1,6 @@
 *.pyc
 *.mo
+.DS_Store
 /db.sqlite3
 /static
 /candidates/static/candidates/style.css
