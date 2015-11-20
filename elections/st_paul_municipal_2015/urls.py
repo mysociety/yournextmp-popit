@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls import url
-from candidates.views.constituencies import ConstituencyDetailView
+from candidates.views.constituencies import ConstituencyDetailView, \
+    ConstituencyRecordWinnerView
 
 from . import views
 
@@ -21,6 +22,14 @@ urlpatterns = [
         r'^areas/(?P<type_and_area_ids>.*?)(?:/(?P<ignored_slug>.*))?$',
         views.StPaulAreasOfTypeView.as_view(),
         name='st-paul-areas-of-type-view'
+    ),
+    url(
+        r'^election/{election}/post/{post}/record-winner$'.format(
+            election=settings.ELECTION_RE,
+            post=r'(?P<post_id>.*)',
+        ),
+        ConstituencyRecordWinnerView.as_view(),
+        name='record-winner',
     ),
     url(
         r'^election/{election}/post/(?P<post_id>.*)/(?P<ignored_slug>{ignore_pattern})$'.format(
