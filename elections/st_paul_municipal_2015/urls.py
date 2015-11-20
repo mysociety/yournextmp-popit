@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls import url
 from candidates.views.constituencies import ConstituencyDetailView, \
-    ConstituencyRecordWinnerView
+    ConstituencyRecordWinnerView, ConstituencyRetractWinnerView
 
 from . import views
 
@@ -30,6 +30,14 @@ urlpatterns = [
         ),
         ConstituencyRecordWinnerView.as_view(),
         name='record-winner',
+    ),
+    url(
+        r'^election/{election}/post/{post}/retract-winner$'.format(
+            election=settings.ELECTION_RE,
+            post=r'(?P<post_id>.*)',
+        ),
+        ConstituencyRetractWinnerView.as_view(),
+        name='retract-winner',
     ),
     url(
         r'^election/{election}/post/(?P<post_id>.*)/(?P<ignored_slug>{ignore_pattern})$'.format(
