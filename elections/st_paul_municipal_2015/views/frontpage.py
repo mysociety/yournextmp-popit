@@ -2,6 +2,8 @@ from django.http import HttpResponseRedirect
 from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils.text import slugify
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext as _
 
 from candidates.views import AddressFinderView
 from candidates.forms import AddressForm
@@ -47,9 +49,11 @@ def get_cached_boundary(division_id):
 
     boundary = requests.get('{0}/boundaries/'.format(OCD_BOUNDARIES_URL),
                             params={'external_id': division_id})
-    cache.set(division_id, boundary.json(), None)
+    
+    area_blob = boundary.json()['objects'][0]
+    cache.set(division_id, area_blob, None)
 
-    return boundary.json()
+    return area_blob
 
 def check_address(address_string, country=None):
     tidied_address = address_string.strip()
@@ -71,16 +75,21 @@ def check_address(address_string, country=None):
     boundaries = requests.get('{0}/boundaries'.format(OCD_BOUNDARIES_URL),
                               params={'contains': coords})
 
-    areas = set()
+    if boundaries.json()['meta']['total_count'] > 0:
 
-    for area in boundaries.json()['objects']:
-        division_slug = area['external_id'].replace('/', ',')
-        if cache.get(area['external_id']):
-            areas.add(division_slug)
-        elif not 'precinct' in division_slug:
-            cache.set(area['external_id'], area, None)
-            areas.add(division_slug)
+        areas = set()
 
-    return {
-        'area_ids': ';'.join(areas),
-    }
+        for area in boundaries.json()['objects']:
+            division_slug = area['external_id'].replace('/', ',')
+            if cache.get(area['external_id']):
+                areas.add(division_slug)
+            elif not 'precinct' in division_slug:
+                cache.set(area['external_id'], area, None)
+                areas.add(division_slug)
+
+        return {
+            'area_ids': ';'.join(areas),
+        }
+ 
+    error = _(u"Unable to find constituency for '{0}'")
+    raise ValidationError(error.format(tidied_address))
