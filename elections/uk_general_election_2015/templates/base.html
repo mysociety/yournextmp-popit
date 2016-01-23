@@ -21,10 +21,9 @@
 {% endblock %}
 
 {% block menu_bar_links %}
-  <a href="/" class="header__nav__logo">{{ site.name }}</a>
-  <a href="{% url 'help-about' %}" class="header__nav__logo">{% trans "About" %}</a>
-  <a href="{% url 'posts' %}" class="header__nav__logo">{% trans "Elections" %}</a>
-  <a href="{% url 'reports_home' %}" class="header__nav__logo">{% trans "Numbers" %}</a>
+  <li class="nav-links__item"><a href="{% url 'help-about' %}">{% trans "About" %}</a></li>
+  <li class="nav-links__item"><a href="{% url 'posts' %}">{% trans "Elections" %}</a></li>
+  <li class="nav-links__item"><a href="{% url 'reports_home' %}">{% trans "Numbers" %}</a></li>
 {% endblock %}
 
 

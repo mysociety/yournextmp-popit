@@ -1,5 +1,5 @@
 .header {
-  background: $header-background-color;
+  background-color: $header-background-color;
   color: #fff;
 
   a, h1, h2, h3 {
@@ -21,41 +21,127 @@
   }
 }
 
-.header__nav__notification {
-  background-color: red;
-  color: black;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+
+// Header nav/actions are separated into a masthead that sits at the very
+// top of the page, and then a nav that merges into the rest of the header.
+// Then inside them, the logo, user links, nav links, and search form are
+// floated variously left and right to line up with the edges of the page.
+
+.header__masthead {
+  @include clearfix();
+  padding: 0.75em 0;
+  background-color: darken($header-background-color, 5%);
+
+  .header__masthead__logo {
+    float: left;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    float: right;
+  }
 }
 
 .header__nav {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  @include clearfix;
+  @include clearfix();
+  padding: 2em 0 1em 0;
+
+  .nav-links {
+    float: left;
+    font-weight: bold;
+  }
+
+  .header__nav__search {
+    float: right;
+  }
 }
 
-.header__nav__logo {
+
+// A nav list component we use twice in the header.
+// TODO: Make this fold away on mobile!
+
+.nav-links {
+  @include clearfix();
+  list-style: none;
+  margin: 0 -0.5em;
+}
+
+.nav-links__item {
   float: left;
+  padding: 0 0.5em;
+  display: block;
+  list-style: none;
+
+  a {
+    vertical-align: middle; // line up with text nodes in link-less items
+  }
+}
+
+
+.header__nav__search {
+  position: relative;
+  margin-top: -0.5em; // line up with the .nav-links to the left
+
+  input {
+    margin: 0;
+    width: 15em;
+    padding-left: 40px; // make room for the icon
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    transition: none;
+
+    background-color: darken($header-background-color, 5%);
+    background-repeat: no-repeat;
+    background-position: ((40px - 16px) / 2) 50%;
+    @include high-dpi-background-image('img/nav-search-icon', 16px, 16px);
+
+    @include placeholder-style() {
+      color: #fff;
+    }
+
+    &:focus {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom-color: rgba(255, 255, 255, 0.4);
+      box-shadow: $input-box-shadow;
+
+      background-color: darken($header-background-color, 7%);
+      background-repeat: no-repeat;
+      background-position: ((40px - 16px) / 2) 50%;
+      @include high-dpi-background-image('img/nav-search-icon', 16px, 16px);
+
+      @include placeholder-style() {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    top: -99em;
+  }
+}
+
+
+
+.header .notification {
+  font-size: 0.875em;
+  padding: 0.1em 0.4em;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 0.3em;
   font-weight: bold;
-  margin-right: 1em;
-}
-
-.header__nav__login, .header__nav__logout {
-  float: right;
-}
-
-.header__nav__logout strong {
-  margin-right: 1em;
+  margin-right: 0.1em;
 }
 
 .header__hero {
   padding-bottom: 1.5em;
 
-  :first-child {
+  .container > :first-child {
     margin-top: 0;
   }
 
-  :last-child {
+  .container > :last-child {
     margin-bottom: 0;
   }
 }

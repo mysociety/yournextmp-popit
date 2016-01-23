@@ -66,33 +66,49 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
+
   <div class="header">
-    <div class="container">
-      <div class="header__nav">
-        {% block menu_bar_links %}
-          <a href="/" class="header__nav__logo">{{ site.name }}</a>
-          <a href="{% url 'help-about' %}" class="header__nav__logo">{% trans "About" %}</a>
-          <a href="{% url 'posts' %}" class="header__nav__logo">{% trans "Posts" %}</a>
-          <a href="{% url 'reports_home' %}" class="header__nav__logo">{% trans "Numbers" %}</a>
-        {% endblock %}
-        {% if user_can_review_photos and photos_for_review > 0 %}
-          <a href="{% url 'photo-review-list' %}" class="header__nav__logo header__nav__notification">{{ photos_for_review }}</a>
-        {% endif %}
-        {% if user.is_authenticated %}
-          <span class="header__nav__logout">
-            {% blocktrans with username=user.username %}Signed in as <strong>{{ username }}</strong>{% endblocktrans %}
-            <a href="{% url 'account_logout' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}">{% trans "Sign out" %}</a>
-          </span>
-        {% else %}
-          <a href="{% url 'account_login' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}"
-             class="header__nav__login">{% trans "Sign in to edit" %}</a>
-        {% endif %}
+
+    <div class="header__masthead">
+      <div class="container">
+        <a href="/" class="header__masthead__logo">{{ site.name }}</a>
+        <ul class="nav-links">
+          {% if user.is_authenticated %}
+            <li class="nav-links__item">{% blocktrans with username=user.username %}Signed in as <strong>{{ username }}</strong>{% endblocktrans %}</li>
+            {% if user_can_review_photos and photos_for_review > 0 %}
+              <li class="nav-links__item"><a href="{% url 'photo-review-list' %}"><span class="notification">{{ photos_for_review }}</span> Photos for review</a></li>
+            {% endif %}
+            <li class="nav-links__item"><a href="{% url 'account_logout' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}">{% trans "Sign out" %}</a></li>
+          {% else %}
+            <li class="nav-links__item"><a href="{% url 'account_login' %}{% if redirect_after_login %}?next={{ redirect_after_login }}{% endif %}" class="header__nav__login">{% trans "Sign in to edit" %}</a></li>
+          {% endif %}
+        </ul>
       </div>
-      <div class="header__hero">
+    </div>
+
+    <div class="header__nav">
+      <div class="container">
+        <ul class="nav-links">
+          {% block menu_bar_links %}
+            <li class="nav-links__item"><a href="{% url 'help-about' %}">{% trans "About" %}</a></li>
+            <li class="nav-links__item"><a href="{% url 'posts' %}">{% trans "Posts" %}</a></li>
+            <li class="nav-links__item"><a href="{% url 'reports_home' %}">{% trans "Numbers" %}</a></li>
+          {% endblock %}
+        </ul>
+        <form class="header__nav__search">
+          <input type="text" placeholder="{% trans 'Find a candidate…' %}" name="q">
+          <button type="submit">{% trans 'Search' %}</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="header__hero">
+      <div class="container">
         {% block hero %}
         {% endblock %}
       </div>
     </div>
+
   </div>
   <div class="content">
     <div class="container">

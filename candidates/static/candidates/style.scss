@@ -55,6 +55,8 @@ $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
 @import "../foundation/scss/normalize";
 @import "../foundation/scss/foundation";
 
+@import "mixins";
+
 @import "header";
 @import "content";
 @import "footer";

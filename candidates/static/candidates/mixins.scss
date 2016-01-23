@@ -1,0 +1,34 @@
+$high_dpi_screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi';
+
+@mixin high-dpi-background-image($filename, $width, $height){
+  background-image: url(#{$filename}.png);
+
+  @media($high_dpi_screen) {
+    background-image: url(#{$filename}@2x.png);
+  }
+
+  background-image: url(#{$filename}.svg), none;
+  background-size: $width $height;
+}
+
+@mixin placeholder-style(){
+  &::-webkit-input-placeholder { // Safari, Chrome and Opera
+    @content;
+  }
+
+  &:-moz-placeholder { // Firefox 18-
+    @content;
+  }
+
+  &::-moz-placeholder { // Firefox 19+
+    @content;
+  }
+
+  &:-ms-input-placeholder { // IE 10+
+    @content;
+  }
+
+  &::-ms-input-placeholder { // Edge
+    @content;
+  }
+}

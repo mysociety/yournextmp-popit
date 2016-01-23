@@ -76,10 +76,10 @@ $button-lrg: rem-calc(14);
 $button-radius: 3px;
 $code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
 
-$high_dpi_screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi';
-
 @import "../foundation/scss/normalize";
 @import "../foundation/scss/foundation";
+
+@import "../candidates/mixins";
 
 @import "../candidates/header";
 @import "../candidates/content";
