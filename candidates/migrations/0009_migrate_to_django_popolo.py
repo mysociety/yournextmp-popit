@@ -9,10 +9,6 @@ from os.path import join, exists, dirname
 import re
 import requests
 import shutil
-try:
-    from urlparse import urlsplit
-except ImportError:
-    from urllib.parse import urlsplit
 
 from PIL import Image as PillowImage
 
@@ -21,6 +17,7 @@ from django.core.files.storage import FileSystemStorage
 from django.core.management.color import no_style
 from django.db import connection, migrations
 from django.db.models import Count
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from popolo.importers.popit import PopItImporter, show_data_on_error
 

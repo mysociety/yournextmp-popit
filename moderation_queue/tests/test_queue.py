@@ -4,15 +4,12 @@ from __future__ import unicode_literals
 
 from os.path import join, realpath, dirname
 import re
-try:
-    from urlparse import urlsplit
-except ImportError:
-    from urllib.parse import urlsplit
 
 from django.contrib.auth.models import User, Group
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from PIL import Image
 from io import BytesIO

@@ -3,12 +3,11 @@
 from __future__ import unicode_literals
 
 import re
-try:
-    from urlparse import urlsplit
-except ImportError:
-    from urllib.parse import urlsplit
+
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from django_webtest import WebTest
+
 from popolo.models import Person
 
 from candidates.models import ExtraField, PersonExtraFieldValue, PersonExtra

@@ -8,10 +8,6 @@ from os import makedirs
 from os.path import dirname, exists, join
 import re
 import shutil
-try:
-    from urlparse import urlsplit, urlunsplit
-except ImportError:
-    from urllib.parse import urlsplit, urlunsplit
 
 from PIL import Image as PillowImage
 
@@ -21,6 +17,7 @@ from django.core.files.storage import FileSystemStorage
 from django.core.management.base import BaseCommand, CommandError
 from django.core.management.color import no_style
 from django.db import connection, transaction
+from django.utils.six.moves.urllib_parse import urlsplit, urlunsplit
 
 import requests
 

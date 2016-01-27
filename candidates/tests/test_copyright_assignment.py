@@ -1,10 +1,9 @@
 from __future__ import unicode_literals
 
 import json
-try:
-    from urlparse import urlsplit
-except ImportError:
-    from urllib.parse import urlsplit
+
+from django.utils.six.moves.urllib_parse import urlsplit
+
 from django_webtest import WebTest
 
 from .auth import TestUserMixin

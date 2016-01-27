@@ -3,12 +3,10 @@ from __future__ import unicode_literals
 from django.views.generic import FormView
 from django.http import HttpResponseRedirect
 from django.utils.http import urlquote
-try:
-    from urlparse import urlparse
-except ImportError:
-    from urllib.parse import urlparse
+from django.utils.six.moves.urllib_parse import urlparse
 
 from ..forms import UserTermsAgreementForm
+
 
 class AskForCopyrightAssigment(FormView):
 

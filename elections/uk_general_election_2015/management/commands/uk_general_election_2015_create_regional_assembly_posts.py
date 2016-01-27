@@ -1,13 +1,10 @@
 from __future__ import print_function, unicode_literals
 
 from datetime import date
-try:
-    from urlparse import urljoin
-except ImportError:
-    from urllib.parse import urljoin
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.utils.six.moves.urllib_parse import urljoin
 
 import requests
 

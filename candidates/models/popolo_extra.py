@@ -4,11 +4,6 @@ from datetime import date
 import json
 from os.path import join
 import re
-try:
-    from urlparse import urljoin
-    from urllib import quote_plus
-except ImportError:
-    from urllib.parse import urljoin, quote_plus
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -18,6 +13,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.utils.translation import ugettext_lazy as _l
+from django.utils.six.moves.urllib_parse import urljoin, quote_plus
 
 from dateutil import parser
 from slugify import slugify

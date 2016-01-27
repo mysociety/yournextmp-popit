@@ -4,10 +4,7 @@ from __future__ import unicode_literals
 
 from mock import patch, Mock
 
-try:
-    from urlparse import urlsplit
-except ImportError:
-    from urllib.parse import urlsplit
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from nose.plugins.attrib import attr
 from django_webtest import WebTest
