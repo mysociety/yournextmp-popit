@@ -49,7 +49,7 @@ class Command(BaseCommand):
 
         try:
             election = Election.objects.get(slug=slug)
-        except election.DoesNotExist:
+        except Election.DoesNotExist:
             raise CommandError('No election with slug {0} found'.format(slug))
 
         mime_type_magic = magic.Magic(mime=True)
