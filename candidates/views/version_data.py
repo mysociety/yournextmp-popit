@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from datetime import datetime
 from random import randint
 import sys
@@ -12,7 +14,7 @@ def get_client_ip(request):
 
 def create_version_id():
     """Generate a random ID to use to identify a person version"""
-    return "{0:016x}".format(randint(0, sys.maxint))
+    return "{0:016x}".format(randint(0, sys.maxsize))
 
 def get_current_timestamp():
     return datetime.utcnow().isoformat()

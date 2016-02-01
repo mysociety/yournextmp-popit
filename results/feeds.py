@@ -1,7 +1,11 @@
+from __future__ import unicode_literals
+
 from django.contrib.sites.models import Site
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed
 from django.utils.translation import ugettext_lazy as _
+
+from compat import text_type
 
 from .models import ResultEvent
 
@@ -18,16 +22,16 @@ class BasicResultEventsFeed(Feed):
         return ResultEvent.objects.all()
 
     def item_title(self, item):
-        return _(u'{name} ({party}) won in {cons}').format(
+        return _('{name} ({party}) won in {cons}').format(
             name=item.winner_person_name,
             party=item.winner_party_name,
             cons=item.post_name,
         )
 
     def item_description(self, item):
-        message = _(u'A {site_name} volunteer recorded at {datetime} that '
-            u'{name} ({party}) won the ballot in {cons}, quoting the '
-            u"source '{source}').")
+        message = _('A {site_name} volunteer recorded at {datetime} that '
+            '{name} ({party}) won the ballot in {cons}, quoting the '
+            "source '{source}').")
         return message.format(
             name=item.winner_person_name,
             datetime=item.created.strftime("%Y-%m-%d %H:%M:%S"),
@@ -76,7 +80,7 @@ class ResultEventsAtomFeedGenerator(Atom1Feed):
             if item[k]:
                 keys.append(k)
         for k in keys:
-            handler.addQuickElement(k, unicode(item[k]))
+            handler.addQuickElement(k, text_type(item[k]))
 
 
 class ResultEventsFeed(BasicResultEventsFeed):

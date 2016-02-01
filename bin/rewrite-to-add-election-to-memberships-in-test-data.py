@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import unicode_literals
+
 import json
 import os
 import re
@@ -43,7 +45,7 @@ def update_memberships_list(memberships):
             elif start_date == '2010-05-07' and end_date == '9999-12-31':
                 m['election'] = '2015'
             else:
-                message = u"Error: Couldn't find election for {0}"
+                message = "Error: Couldn't find election for {0}"
                 raise Exception(message.format(
                     json.dumps(m, indent=4, sort_keys=True)
                 ))

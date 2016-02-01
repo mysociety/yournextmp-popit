@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 from os.path import join, realpath, dirname
 import re
-from urlparse import urlsplit
 
 from django.contrib.auth.models import User, Group
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from PIL import Image
-import StringIO
+from io import BytesIO
 from django_webtest import WebTest
 from webtest import Upload
 from mock import patch
@@ -30,7 +32,7 @@ TEST_MEDIA_ROOT = realpath(join(dirname(__file__), 'media'))
 
 
 def get_image_type_and_dimensions(image_data):
-    image = Image.open(StringIO.StringIO(image_data))
+    image = Image.open(BytesIO(image_data))
     return {
         'format': image.format,
         'width': image.size[0],
@@ -151,7 +153,7 @@ class PhotoReviewTests(WebTest):
             user=self.test_upload_user
         )
         form = form_page_response.forms['person-upload-photo']
-        with open(image_filename) as f:
+        with open(image_filename, 'rb') as f:
             form['image'] = Upload('pilot.jpg', f.read())
         form['why_allowed'] = 'copyright-assigned'
         form['justification_for_use'] = 'I took this photo'
@@ -251,9 +253,9 @@ class PhotoReviewTests(WebTest):
 
             mock_send_mail.assert_called_once_with(
                 'YNR image upload approved',
-                u"Thank-you for submitting a photo to YNR; that's been uploaded\nnow for the candidate page here:\n\n  http://localhost:80/person/2009/tessa-jowell\n\nMany thanks from the YNR volunteers\n",
+                "Thank-you for submitting a photo to YNR; that's been uploaded\nnow for the candidate page here:\n\n  http://localhost:80/person/2009/tessa-jowell\n\nMany thanks from the YNR volunteers\n",
                 'admins@example.com',
-                [u'john@example.com'],
+                ['john@example.com'],
                 fail_silently=False
             )
 
@@ -298,7 +300,7 @@ class PhotoReviewTests(WebTest):
             )
             form = review_page_response.forms['photo-review-form']
             form['decision'] = 'rejected'
-            form['rejection_reason'] = u'There\'s no clear source or copyright statement'
+            form['rejection_reason'] = 'There\'s no clear source or copyright statement'
             response = form.submit(user=self.test_reviewer)
             self.assertEqual(response.status_code, 302)
             split_location = urlsplit(response.location)
@@ -314,9 +316,9 @@ class PhotoReviewTests(WebTest):
 
             mock_send_mail.assert_called_once_with(
                 'YNR image moderation results',
-                u"Thank-you for uploading a photo of Tessa Jowell to YNR, but\nunfortunately we can't use that image because:\n\n  There\'s no clear source or copyright statement\n\nYou can just reply to this email if you want to discuss that\nfurther, or you can try uploading a photo with a different\nreason or justification for its use using this link:\n\n  http://localhost:80/moderation/photo/upload/2009\n\nMany thanks from the YNR volunteers\n\n-- \nFor administrators' use: http://localhost:80/moderation/photo/review/{0}\n".format(self.q1.id),
+                "Thank-you for uploading a photo of Tessa Jowell to YNR, but\nunfortunately we can't use that image because:\n\n  There\'s no clear source or copyright statement\n\nYou can just reply to this email if you want to discuss that\nfurther, or you can try uploading a photo with a different\nreason or justification for its use using this link:\n\n  http://localhost:80/moderation/photo/upload/2009\n\nMany thanks from the YNR volunteers\n\n-- \nFor administrators' use: http://localhost:80/moderation/photo/review/{0}\n".format(self.q1.id),
                 'admins@example.com',
-                [u'john@example.com', 'support@example.com'],
+                ['john@example.com', 'support@example.com'],
                 fail_silently=False
             )
 

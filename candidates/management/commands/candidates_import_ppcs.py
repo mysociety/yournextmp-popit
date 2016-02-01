@@ -10,6 +10,8 @@
 # this job from cron - if you get an email from cron, you'll need to
 # run the script manually to make those decisions.
 
+from __future__ import print_function, unicode_literals
+
 from optparse import make_option
 import os
 from os.path import join, exists
@@ -22,6 +24,8 @@ from django.conf import settings
 import requests
 
 from candidates.views.version_data import get_change_metadata
+
+from compat import input
 
 from ..images import get_file_md5sum
 
@@ -244,9 +248,9 @@ class Command(BaseCommand):
                         new_person_data_value,
                         previous_versions
                     ):
-                        warning_message = u"[{0}] it looks as if a previous "
-                        warning_message += u"version had {1}, so not "
-                        warning_message += u"overwriting the current value {2}"
+                        warning_message = "[{0}] it looks as if a previous "
+                        warning_message += "version had {1}, so not "
+                        warning_message += "overwriting the current value {2}"
                         warnings.append(warning_message.format(
                             key,
                             new_person_data_value,
@@ -254,14 +258,14 @@ class Command(BaseCommand):
                         ))
                         del new_person_data[key]
                     else:
-                        warnings.append(u"[{0}] replacing      {1}".format(key, person_data_value))
-                        warnings.append(u"[{0}] with new value {1}".format(key, new_person_data_value))
+                        warnings.append("[{0}] replacing      {1}".format(key, person_data_value))
+                        warnings.append("[{0}] with new value {1}".format(key, new_person_data_value))
         if warnings:
-            print u"Warnings for person/{0} {1}".format(
+            print("Warnings for person/{0} {1}".format(
                 popit_person_id, person_data['name']
-            ).encode('utf-8')
+            ).encode('utf-8'))
             for warning in warnings:
-                print "  ...", warning.encode('utf-8')
+                print("  ...", warning.encode('utf-8'))
         merged_person_data = merge_person_data(person_data, new_person_data)
         change_metadata = get_change_metadata(
             None,
@@ -272,9 +276,9 @@ class Command(BaseCommand):
         person_id = person.save_to_popit(self.api)
         if image_filename:
             if image_uploaded_already(self.api.persons, person_id, image_filename):
-                print "That image has already been uploaded!"
+                print("That image has already been uploaded!")
             else:
-                print "Uploading image..."
+                print("Uploading image...")
                 self.upload_person_image(person_id, image_filename, ppc_data['image_url'])
         person.invalidate_cache_entries()
         return person_id
@@ -332,31 +336,31 @@ class Command(BaseCommand):
     def decision_from_user(self, ppc_data, popit_result):
         # Ask whether the PPC is the same as this person from the
         # PopIt search results:
-        print "--------------------------------------------------------"
-        print "Is this PPC ..."
-        print "        Name:", ppc_data['name'].encode('utf-8')
+        print("--------------------------------------------------------")
+        print("Is this PPC ...")
+        print("        Name:", ppc_data['name'].encode('utf-8'))
         if 'email' in ppc_data:
-            print "        Email:", ppc_data['email']
-        print "        Party:", ppc_data['party_slug']
-        print "        Constituency:", ppc_data['constituency']
+            print("        Email:", ppc_data['email'])
+        print("        Party:", ppc_data['party_slug'])
+        print("        Constituency:", ppc_data['constituency'])
         if 'full_url' in ppc_data:
-            print "        PPC URL:", ppc_data['full_url']
-        print "... the same as this person from PopIt:"
-        print "        PopIt URL:", popit_result['html_url']
-        print "        Name:", popit_result['name'].encode('utf-8')
+            print("        PPC URL:", ppc_data['full_url'])
+        print("... the same as this person from PopIt:")
+        print("        PopIt URL:", popit_result['html_url'])
+        print("        Name:", popit_result['name'].encode('utf-8'))
         if 'email' in popit_result:
-            print "        Email:", popit_result['email']
+            print("        Email:", popit_result['email'])
         for year in popit_result['party_memberships']:
-            print "        Party in {0}: {1}".format(
+            print("        Party in {0}: {1}".format(
                 year, popit_result['party_memberships'][year]['name']
-            )
+            ))
         for year in popit_result['standing_in']:
-            print "        Constituency in {0}: {1}".format(
+            print("        Constituency in {0}: {1}".format(
                 year, popit_result['standing_in'][year]['name']
-            )
+            ))
         response = ''
         while response.lower() not in ('y', 'n'):
-            response = raw_input('Are they the same? (y/Y/n/N) ')
+            response = input('Are they the same? (y/Y/n/N) ')
             response = response.lower().strip()
             if response == 'y':
                 return True
@@ -365,7 +369,7 @@ class Command(BaseCommand):
 
     def handle_person(self, ppc_data, image_filename):
         from candidates.popit import get_search_url
-        print u"PPC ({party_slug}): {name}".format(**ppc_data).encode('utf-8')
+        print("PPC ({party_slug}): {name}".format(**ppc_data).encode('utf-8'))
         # Search PopIt for anyone with the same name. (FIXME: we
         # should make this a bit fuzzier when the PopIt API
         # supports that.)
@@ -390,19 +394,19 @@ class Command(BaseCommand):
             popit_person_id = result['id']
 
             message = "  Considering PopIt person search result {0}"
-            print message.format(popit_person_id)
+            print(message.format(popit_person_id))
 
             added_for_2015 = self.already_added_for_2015(ppc_data, result)
             if added_for_2015 is None:
                 add_new_person = False
-                print "    already_added_for_2015 returned None, so ignoring"
-                print "    !!! CHECK THIS MANUALLY !!!"
+                print("    already_added_for_2015 returned None, so ignoring")
+                print("    !!! CHECK THIS MANUALLY !!!")
                 break
             elif added_for_2015:
                 # Then just update that person with the possibly
                 # updated scraped data:
                 add_new_person = False
-                print "    matched a 2015 candidate, so updating that"
+                print("    matched a 2015 candidate, so updating that")
                 self.update_popit_person(popit_person_id, ppc_data, image_filename)
                 break
             else:
@@ -410,36 +414,36 @@ class Command(BaseCommand):
                 # the same as another from 2010?
                 decision = self.already_matched_to_a_person(ppc_data, popit_person_id)
                 if decision is None:
-                    print "    no previous decision found, so asking"
+                    print("    no previous decision found, so asking")
                     # We have to ask the user for a decision:
                     if self.decision_from_user(ppc_data, result):
-                        print "      updating, and recording the decision that they're a match"
+                        print("      updating, and recording the decision that they're a match")
                         add_new_person = False
                         self.update_popit_person(popit_person_id, ppc_data, image_filename)
                         record_human_decision(ppc_data, popit_person_id, True)
                         break
                     else:
-                        print "      recording the decision that they're not a match"
+                        print("      recording the decision that they're not a match")
                         record_human_decision(ppc_data, popit_person_id, False)
                 else:
                     # Otherwise we'd previously decided that they're
                     # the same person, so just update that person.
-                    print "    there was a previous decision found"
+                    print("    there was a previous decision found")
                     if decision:
-                        print "      the previous decision was that they're a match, so updating"
+                        print("      the previous decision was that they're a match, so updating")
                         add_new_person = False
                         self.update_popit_person(popit_person_id, ppc_data, image_filename)
                         break
         if add_new_person:
             new_person_id = self.add_popit_person(ppc_data, image_filename)
-            print "  Added them as a new person ({0})".format(new_person_id)
+            print("  Added them as a new person ({0})".format(new_person_id))
 
     def handle(self, **options):
         from candidates.election_specific import AREA_DATA
 
         constituency_lookup = {
             cons_key(k): v for k, v in
-            AREA_DATA.areas_by_name[(u'WMC', u'22')].items()
+            AREA_DATA.areas_by_name[('WMC', '22')].items()
         }
 
         for party_slug in sorted(os.listdir(ppc_data_directory)):
@@ -454,8 +458,8 @@ class Command(BaseCommand):
                 image = re.sub(r'\.json$', '-cropped.png', filename)
                 if not exists(image):
                     image = None
-                print '==============================================================='
-                print "filename:", filename
+                print('===============================================================')
+                print("filename:", filename)
                 with open(filename) as f:
                     ppc_data = json.load(f)
                 ppc_data['party_slug'] = party_slug

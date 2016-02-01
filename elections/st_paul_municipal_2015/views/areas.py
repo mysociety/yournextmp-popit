@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import re
 
 from django.core.urlresolvers import reverse
@@ -90,7 +92,7 @@ class StPaulAreasView(TemplateView):
                     ),
                 })
 
-        context['all_area_names'] = u' — '.join(all_area_names)
+        context['all_area_names'] = ' — '.join(all_area_names)
         context['suppress_official_documents'] = True
 
         return context

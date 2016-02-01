@@ -1,4 +1,5 @@
 # coding=utf-8
+from __future__ import unicode_literals
 
 import requests
 
@@ -62,13 +63,13 @@ def get_areas_from_postcode(postcode):
         raise BadPostcodeException(mapit_result['error'])
     elif r.status_code == 404:
         raise BadPostcodeException(
-            _(u'The postcode “{0}” couldn’t be found').format(
+            _('The postcode “{0}” couldn’t be found').format(
                 postcode
             )
         )
     else:
         raise UnknownMapitException(
-            _(u'Unknown MapIt error for postcode "{0}"').format(
+            _('Unknown MapIt error for postcode "{0}"').format(
                 postcode
             )
         )
@@ -94,13 +95,13 @@ def get_areas_from_coords(coords):
         raise BadCoordinatesException(mapit_result['error'])
     elif r.status_code == 404:
         raise BadCoordinatesException(
-            u'The coordinates "{0}" could not be found'.format(
+            'The coordinates "{0}" could not be found'.format(
                 coords
             )
         )
     else:
         raise UnknownMapitException(
-            u'Unknown MapIt error for coordinates "{0}"'.format(
+            'Unknown MapIt error for coordinates "{0}"'.format(
                 coords
             )
         )

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 from mock import patch, Mock
 
 from datetime import date, timedelta
@@ -15,6 +17,8 @@ from candidates.tests.factories import (
 from elections.models import Election
 from elections.uk_general_election_2015.tests.mapit_postcode_results \
     import se240ag_result, sw1a1aa_result
+
+from compat import text_type
 
 
 def fake_requests_for_mapit(url):
@@ -71,14 +75,14 @@ class TestUpcomingElectionsAPI(WebTest):
         response = self.app.get('/upcoming-elections/?postcode=SW1A+1AA')
 
         output = response.json
-        self.assertEquals(output, [])
+        self.assertEqual(output, [])
 
     def test_results_for_past_elections(self, mock_requests):
         mock_requests.get.side_effect = fake_requests_for_mapit
         response = self.app.get('/upcoming-elections/?postcode=SE24+0AG')
 
         output = response.json
-        self.assertEquals(output, [])
+        self.assertEqual(output, [])
 
     def test_results_for_upcoming_elections(self, mock_requests):
         one_day = timedelta(days=1)
@@ -131,32 +135,32 @@ class TestUpcomingElectionsAPI(WebTest):
         response = self.app.get('/upcoming-elections/?postcode=SE24+0AG')
 
         output = response.json
-        self.assertEquals(len(output), 2)
+        self.assertEqual(len(output), 2)
 
         self.maxDiff = None
         expected = [
             {
-                u'organization': u'London Assembly',
-                u'election_date': unicode(future_date.isoformat()),
-                u'election_name': u'2016 London Assembly Election (Constituencies)',
-                u'post_name': u'Assembly Member for Lambeth and Southwark',
-                u'area': {
-                    u'identifier': u'11822',
-                    u'type': u'LAC',
-                    u'name': u'Dulwich and West Norwood'
+                'organization': 'London Assembly',
+                'election_date': text_type(future_date.isoformat()),
+                'election_name': '2016 London Assembly Election (Constituencies)',
+                'post_name': 'Assembly Member for Lambeth and Southwark',
+                'area': {
+                    'identifier': '11822',
+                    'type': 'LAC',
+                    'name': 'Dulwich and West Norwood'
                 }
             },
             {
-                u'organization': u'London Assembly',
-                u'election_date': unicode(future_date.isoformat()),
-                u'election_name': u'2016 London Assembly Election (Additional)',
-                u'post_name': u'Assembly Member',
-                u'area': {
-                    u'identifier': u'2247',
-                    u'type': u'GLA',
-                    u'name': u'Greater London Authority'
+                'organization': 'London Assembly',
+                'election_date': text_type(future_date.isoformat()),
+                'election_name': '2016 London Assembly Election (Additional)',
+                'post_name': 'Assembly Member',
+                'area': {
+                    'identifier': '2247',
+                    'type': 'GLA',
+                    'name': 'Greater London Authority'
                 }
             },
         ]
 
-        self.assertEquals(expected, output)
+        self.assertEqual(expected, output)

@@ -1,5 +1,7 @@
 # coding=utf-8
 
+from __future__ import unicode_literals
+
 import re
 
 import requests
@@ -33,7 +35,7 @@ def get_areas_from_postcode(original_postcode):
     postcode = re.sub(r'(?ms)\s*', '', original_postcode.lower())
     if re.search(r'[^a-z0-9]', postcode):
         raise BadPostcodeException(
-            _(u'There were disallowed characters in "{0}"').format(original_postcode)
+            _('There were disallowed characters in "{0}"').format(original_postcode)
         )
     cache_key = 'mapit-postcode:' + postcode
     cached_result = cache.get(cache_key)
@@ -59,11 +61,11 @@ def get_areas_from_postcode(original_postcode):
         raise BadPostcodeException(mapit_result['error'])
     elif r.status_code == 404:
         raise BadPostcodeException(
-            _(u'The postcode “{0}” couldn’t be found').format(original_postcode)
+            _('The postcode “{0}” couldn’t be found').format(original_postcode)
         )
     else:
         raise UnknownMapitException(
-            _(u'Unknown MapIt error for postcode "{0}"').format(
+            _('Unknown MapIt error for postcode "{0}"').format(
                 original_postcode
             )
         )
@@ -74,7 +76,7 @@ def get_wmc_from_postcode(original_postcode):
     postcode = re.sub(r'(?ms)\s*', '', original_postcode.lower())
     if re.search(r'[^a-z0-9]', postcode):
         raise BadPostcodeException(
-            _(u'There were disallowed characters in "{0}"').format(original_postcode)
+            _('There were disallowed characters in "{0}"').format(original_postcode)
         )
     cached_result = cache.get(postcode)
     if cached_result:
@@ -86,7 +88,7 @@ def get_wmc_from_postcode(original_postcode):
         wmc = mapit_result.get('shortcuts', {}).get('WMC')
         if not wmc:
             raise NoConstituencyForPostcodeException(
-                _(u'No constituency found for the postcode "{0}"').format(
+                _('No constituency found for the postcode "{0}"').format(
                     original_postcode
                 )
             )
@@ -97,11 +99,11 @@ def get_wmc_from_postcode(original_postcode):
         raise BadPostcodeException(mapit_result['error'])
     elif r.status_code == 404:
         raise BadPostcodeException(
-            _(u'The postcode “{0}” couldn’t be found').format(original_postcode)
+            _('The postcode “{0}” couldn’t be found').format(original_postcode)
         )
     else:
         raise UnknownMapitException(
-            _(u'Unknown MapIt error for postcode "{0}"').format(
+            _('Unknown MapIt error for postcode "{0}"').format(
                 original_postcode
             )
         )

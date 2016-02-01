@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import json
 
 from django.core.management.base import BaseCommand
@@ -6,6 +8,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from candidates.models import PartySet, OrganizationExtra
 from popolo import models as popolo_models
 from popolo.importers.popit import PopItImporter
+
+from compat import input
+
 
 class Command(BaseCommand):
     help = 'Create or update parties from a Popolo JSON file'
@@ -75,19 +80,19 @@ class Command(BaseCommand):
             if PartySet.objects.exists():
                 self.stdout.write("You might have meant one of these:")
                 for other_party_set_slug in all_party_sets:
-                    self.stdout.write(u"  " + other_party_set_slug)
+                    self.stdout.write("  " + other_party_set_slug)
             self.stdout.write(
                 "Create the party set '{0}'? (y/n) ".format(
                     requested_party_set_slug
                 ),
                 ending=''
             )
-            response = raw_input()
+            response = input()
             if response.strip().lower() != 'y':
                 self.stderr.write("Exiting.")
                 return
             self.stdout.write('What is the full name of the party set? ')
-            response = raw_input()
+            response = input()
             return PartySet.objects.create(
                 slug=requested_party_set_slug, name=response
             )

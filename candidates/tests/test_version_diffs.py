@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.test import TestCase
 
 from candidates.diffs import get_version_diffs
@@ -65,12 +67,12 @@ class TestVersionDiffs(TestCase):
                 },
                 'diff': [
                     {
-                        'op': u'remove',
+                        'op': 'remove',
                         'path': 'd',
                         'previous_value': 'delta',
                     },
                     {
-                        'op': u'replace',
+                        'op': 'replace',
                         'path': 'b',
                         'previous_value': 'LATIN SMALL LETTER B',
                         'value': 'beta',

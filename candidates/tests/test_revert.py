@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import json
 from mock import patch
 from string import Template
@@ -10,6 +12,8 @@ from django_webtest import WebTest
 from popolo.models import Identifier
 
 from candidates.models import MembershipExtra, PersonExtra, ExtraField
+
+from compat import bytes_to_unicode
 
 from .auth import TestUserMixin
 from . import factories
@@ -172,12 +176,12 @@ class TestRevertPersonView(TestUserMixin, WebTest):
         ExtraField.objects.create(
             type='url',
             key='cv',
-            label=u'CV or Resumé',
+            label='CV or Resumé',
         )
         ExtraField.objects.create(
             type='longer-text',
             key='notes',
-            label=u'Notes',
+            label='Notes',
         )
 
     @patch('candidates.views.version_data.get_current_timestamp')
@@ -209,29 +213,29 @@ class TestRevertPersonView(TestUserMixin, WebTest):
             'data': {
                 'facebook_page_url': '',
                 'facebook_personal_url': '',
-                'name': u'Tessa Jowell',
+                'name': 'Tessa Jowell',
                 'honorific_suffix': '',
                 'party_ppc_page_url': '',
                 'gender': '',
                 'image': None,
                 'linkedin_url': '',
-                'id': u'2009',
+                'id': '2009',
                 'other_names': [],
                 'honorific_prefix': '',
                 'standing_in': {
-                    u'2010':
+                    '2010':
                     {
-                        u'post_id': u'65808',
-                        u'name': u'Dulwich and West Norwood',
+                        'post_id': '65808',
+                        'name': 'Dulwich and West Norwood',
                     }
                 },
                 'homepage_url': 'http://example.org/tessajowell',
                 'twitter_username': '',
                 'wikipedia_url': '',
                 'party_memberships': {
-                    u'2010': {
-                        u'id': unicode(self.party_slug),
-                        u'name': u'Labour Party'
+                    '2010': {
+                        'id': bytes_to_unicode(self.party_slug),
+                        'name': 'Labour Party'
                     }
                 },
                 'birth_date': '1947-09-17',
@@ -245,15 +249,15 @@ class TestRevertPersonView(TestUserMixin, WebTest):
                         'scheme': 'uk.org.publicwhip'
                     },
                 ],
-                'email': u'tessa.jowell@example.com',
+                'email': 'tessa.jowell@example.com',
                 'extra_fields': {
                     'cv': '',
                     'notes': 'Some original notes here'
                 }
             },
-            'information_source': u'Reverting to version 5469de7db0cbd155 for testing purposes',
+            'information_source': 'Reverting to version 5469de7db0cbd155 for testing purposes',
             'timestamp': '2014-09-29T10:11:59.216159',
-            'username': u'john',
+            'username': 'john',
             'version_id': '5aa6418325c1a0bb'
         }
 
@@ -269,12 +273,12 @@ class TestRevertPersonView(TestUserMixin, WebTest):
             extra_values,
             [
                 {
-                    'field__key': u'cv',
-                    'value': u''
+                    'field__key': 'cv',
+                    'value': ''
                 },
                 {
-                    'field__key': u'notes',
-                    'value': u'Some original notes here'
+                    'field__key': 'notes',
+                    'value': 'Some original notes here'
                 },
             ]
         )

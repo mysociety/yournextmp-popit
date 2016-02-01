@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function, unicode_literals
+
 from datetime import date
 import dateutil.parser
 import json
@@ -30,15 +32,15 @@ def get_post_data(api, json_election_id, json_election_id_to_name):
     from candidates.election_specific import AREA_DATA, AREA_POST_DATA
     json_election_name = json_election_id_to_name[json_election_id]
     ynr_election_id = {
-        u'Pre-candidatos a Presidente':
+        'Pre-candidatos a Presidente':
         'presidentes-argentina-paso-2015',
-        u'Pre-candidatos a Gobernador de Buenos Aires':
+        'Pre-candidatos a Gobernador de Buenos Aires':
         'gobernadores-argentina-paso-2015',
-        u'Pre-candidatos a Gobernador de Tucumán':
+        'Pre-candidatos a Gobernador de Tucumán':
         'gobernadores-argentina-paso-2015',
-        u'Pre-candidatos a Gobernador de Entre Ríos':
+        'Pre-candidatos a Gobernador de Entre Ríos':
         'gobernadores-argentina-paso-2015',
-        u'Pre-Candidatos a Gobernador de San Juan':
+        'Pre-Candidatos a Gobernador de San Juan':
         'gobernadores-argentina-paso-2015',
     }[json_election_name]
     ynr_election_data = Election.objects.get_by_slug(ynr_election_id)
@@ -46,7 +48,7 @@ def get_post_data(api, json_election_id, json_election_id_to_name):
     m = re.search(r'a Gobernador de (?P<province>.*)', json_election_name)
     if m:
         province = m.group('province')
-        areas_by_name = AREA_DATA.areas_by_name[(u'PRV', u'1')]
+        areas_by_name = AREA_DATA.areas_by_name[('PRV', '1')]
         area = areas_by_name[strip_accents(province).upper()]
         post_id = AREA_POST_DATA.get_post_id(
             ynr_election_id, area['type'], area['id']
@@ -68,7 +70,7 @@ def enqueue_image(person, user, image_url):
     )
     if not r.status_code == 200:
         message = "HTTP status code {0} when downloading {1}"
-        raise Exception, message.format(r.status_code, image_url)
+        raise Exception(message.format(r.status_code, image_url))
     storage = FileSystemStorage()
     suggested_filename = \
         'queued_image/{d.year}/{d.month:02x}/{d.day:02x}/ci-upload'.format(
@@ -172,9 +174,9 @@ class Command(BaseCommand):
 
             person = get_existing_popit_person(vi_person_id)
             if person:
-                print "Found an existing person:", person.get_absolute_url()
+                print("Found an existing person:", person.get_absolute_url())
             else:
-                print "No existing person, creating a new one:", name
+                print("No existing person, creating a new one:", name)
                 person = PopItPerson()
 
             # Now update fields from the imported data:
@@ -211,5 +213,5 @@ class Command(BaseCommand):
                 if image_url:
                     enqueue_image(person, user, image_url)
             except HttpClientError as hce:
-                print "Got an HttpClientError:", hce.content
+                print("Got an HttpClientError:", hce.content)
                 raise

@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 sw1a1aa_result = {
     "areas": {
         "105255": {

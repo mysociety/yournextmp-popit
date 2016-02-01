@@ -1,17 +1,18 @@
+from __future__ import print_function, unicode_literals
+
 from datetime import datetime
 import hashlib
 from os.path import join
 import re
 from shutil import move
 from tempfile import NamedTemporaryFile
-from urllib import urlencode
-from urlparse import urljoin
 
 from django.contrib.contenttypes.models import ContentType
 from django.core.files.storage import FileSystemStorage
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from django.db import transaction
+from django.utils.six.moves.urllib_parse import urlencode, urljoin
 
 from images.models import Image
 import magic
@@ -114,15 +115,15 @@ class Command(BaseCommand):
                     .select_related('base') \
                     .get(slug=party_id)
                 party = party_extra.base
-                print "Got the existing party:", party.name.encode('utf-8')
+                print("Got the existing party:", party.name.encode('utf-8'))
             except OrganizationExtra.DoesNotExist:
                 party = Organization.objects.create(name=party_name)
                 party_extra = OrganizationExtra.objects.create(
                     base=party, slug=party_id
                 )
-                print "Couldn't find {0}, creating a new party {1}".format(
+                print("Couldn't find {0}, creating a new party {1}".format(
                     party_id, party_name.encode('utf-8')
-                )
+                ))
 
             party.name = party_name
             party.classification = 'Party'
@@ -142,7 +143,7 @@ class Command(BaseCommand):
                 value = d['description']
                 translation = d['translation']
                 if translation:
-                    value = u"{0} | {1}".format(value, translation)
+                    value = "{0} | {1}".format(value, translation)
                 party.other_names.create(name=value, note='registered-description')
             self.upload_images(ec_party['PartyEmblems'], party_extra)
             party.save()

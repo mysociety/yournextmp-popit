@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.conf import settings
 from django.conf.urls import url
 from candidates.views.constituencies import ConstituencyDetailView

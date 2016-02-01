@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function, unicode_literals
+
 import dateutil.parser
 import csv
 from os.path import dirname, join
@@ -81,9 +83,9 @@ def get_party_data(party_name):
             name=party_name
         )
     )
-    print party_name
+    print(party_name)
     results = requests.get(search_url).json()
-    print results
+    print(results)
     total = results['total']
     if total > 1:
         message = "Multiple matches for party {0}"
@@ -102,7 +104,7 @@ def unicode_csv_reader(unicode_csv_data, dialect=csv.excel, **kwargs):
                             dialect=dialect, **kwargs)
     for row in csv_reader:
         # decode UTF-8 back to Unicode, cell by cell:
-        yield [unicode(cell, 'utf-8') for cell in row]
+        yield [cell.decode('utf-8') for cell in row]
 
 
 def utf_8_encoder(unicode_csv_data):
@@ -201,14 +203,14 @@ class Command(BaseCommand):
 
                     # debug
                     # tmp = '%s %s %s (%s) - %s (%s)' % ( id, first_name, last_name, party, region, post_data['label'] )
-                    # print tmp
+                    # print(tmp)
 
                     person = get_existing_popit_person(id)
                     if person:
-                        # print "Found an existing person:", person.get_absolute_url()
+                        # print("Found an existing person:", person.get_absolute_url())
                         pass
                     else:
-                        print "No existing person, creating a new one:", name
+                        print("No existing person, creating a new one:", name)
                         person = PopItPerson()
 
                     person.set_identifier('import-id', id)
@@ -263,10 +265,10 @@ class Command(BaseCommand):
                     try:
                         person.save_to_popit(api)
                     except HttpClientError as hce:
-                        print "Got an HttpClientError:", hce.content
+                        print("Got an HttpClientError:", hce.content)
                         raise
 
         if len(party_id_missing) > 0:
-            print "Unmatched party names:"
+            print("Unmatched party names:")
             for name in party_id_missing.keys():
-                print name
+                print(name)

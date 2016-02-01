@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from .fields import ExtraField
 from .field_mappings import form_simple_fields, form_complex_fields_locations
 

@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import json
-from urlparse import urlsplit
+
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from django_webtest import WebTest
 
@@ -38,7 +41,7 @@ class TestUpdatePersonView(TestUserMixin, WebTest):
         PartyExtraFactory.reset_sequence()
         PartyFactory.reset_sequence()
         self.parties = {}
-        for i in xrange(0, 4):
+        for i in range(0, 4):
             party_extra = PartyExtraFactory.create()
             gb_parties.parties.add(party_extra.base)
             self.parties[party_extra.slug] = party_extra
@@ -134,12 +137,12 @@ class TestUpdatePersonView(TestUserMixin, WebTest):
         ExtraField.objects.create(
             type='url',
             key='cv',
-            label=u'CV or Resumé',
+            label='CV or Resumé',
         )
         ExtraField.objects.create(
             type='longer-text',
             key='notes',
-            label=u'Notes',
+            label='Notes',
         )
         response = self.app.get(
             '/person/2009/update',

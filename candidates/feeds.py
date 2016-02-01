@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import re
 
 from django.contrib.sites.models import Site
@@ -24,19 +26,19 @@ class RecentChangesFeed(Feed):
     def item_title(self, item):
         m = lock_re.search(item.source)
         if m:
-            return u"{0} - {1}".format(
+            return "{0} - {1}".format(
                 m.group(1),
                 item.action_type
             )
         else:
-            return u"{0} - {1}".format(
+            return "{0} - {1}".format(
                 item.person_id,
                 item.action_type
             )
 
     def item_description(self, item):
-        updated = _(u"Updated at {0}").format(str(item.updated))
-        description = u"{0}\n\n{1}\n".format(item.source, updated)
+        updated = _("Updated at {0}").format(str(item.updated))
+        description = "{0}\n\n{1}\n".format(item.source, updated)
 
         return description
 

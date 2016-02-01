@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from datetime import timedelta
 
 from slugify import slugify
@@ -232,7 +234,7 @@ class ConstituencyLockView(ElectionMixin, GroupRequiredMixin, View):
                 else:
                     suffix = '-unlock'
                     pp = 'Unlocked'
-                message = pp + u' constituency {0} ({1})'.format(
+                message = pp + ' constituency {0} ({1})'.format(
                     post_name, post.id
                 )
 
@@ -282,7 +284,7 @@ class ConstituenciesUnlockedListView(ElectionMixin, TemplateView):
             context[k].sort(key=lambda c: c['name'])
         context['total_constituencies'] = total_constituencies
         context['total_left'] = total_constituencies - total_locked
-        context['percent_done'] = (100 * total_locked) / total_constituencies
+        context['percent_done'] = (100 * total_locked) // total_constituencies
         return context
 
 class ConstituencyRecordWinnerView(ElectionMixin, GroupRequiredMixin, FormView):
@@ -486,7 +488,7 @@ class ConstituenciesDeclaredListView(ElectionMixin, TemplateView):
         context['constituencies'] = constituencies
         context['total_constituencies'] = total_constituencies
         context['total_left'] = total_constituencies - total_declared
-        context['percent_done'] = (100 * total_declared) / total_constituencies
+        context['percent_done'] = (100 * total_declared) // total_constituencies
         return context
 
 

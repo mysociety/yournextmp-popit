@@ -1,5 +1,7 @@
 # Smoke tests for viewing a candidate's page
 
+from __future__ import unicode_literals
+
 from datetime import date, timedelta
 import re
 
@@ -58,7 +60,7 @@ class TestPersonView(WebTest):
   <p>Candidate\s+for\s+
   <a\s+href="/election/2015/post/65808/dulwich-and-west-norwood">Dulwich\s+
   and\s+West\s+Norwood</a>\s+in\ 2015\s+General\s+Election\s*</p>''',
-                unicode(response)
+                response.text
             )
         )
 

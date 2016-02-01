@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 
 import re
 from django_webtest import WebTest
@@ -131,19 +132,19 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertTrue(
             re.search(
                 r'''(?ms)<del><a[^>]*>Dulwich and West Norwood''',
-                unicode(response)
+                response.text
             )
         )
         self.assertTrue(
             re.search(
                 r'''(?ms)<a[^>]*>Camberwell and Peckham''',
-                unicode(response)
+                response.text
             )
         )
         self.assertFalse(
             re.search(
                 r'''(?ms)<del><a[^>]*>Camberwell and Peckham''',
-                unicode(response)
+                response.text
             )
         )
         response.mustcontain('1 still undeclared (50% done)')
@@ -165,13 +166,13 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertTrue(
             re.search(
                 r'''(?ms)<del><a[^>]*>Dulwich and West Norwood''',
-                unicode(response)
+                response.text
             )
         )
         self.assertTrue(
             re.search(
                 r'''(?ms)<del><a[^>]*>Camberwell and Peckham''',
-                unicode(response)
+                response.text
             )
         )
         response.mustcontain('0 still undeclared (100% done)')

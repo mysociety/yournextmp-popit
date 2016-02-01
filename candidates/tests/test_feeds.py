@@ -1,4 +1,7 @@
  # -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+
 from django_webtest import WebTest
 
 from .auth import TestUserMixin

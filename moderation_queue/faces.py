@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 # easy_thumbnails face cropping processor
 # Much of the below taken from http://stackoverflow.com/a/13243712/669631
 

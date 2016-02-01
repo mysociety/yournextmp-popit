@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from collections import defaultdict
 
 from django.core.urlresolvers import reverse
@@ -122,7 +124,7 @@ def group_candidates_by_party(election_data, candidacies, party_list=True, max_p
             for k, v in party_id_to_people.items()
         ]
     except KeyError as ke:
-        raise Exception(u"Unknown party: {0}".format(ke))
+        raise Exception("Unknown party: {0}".format(ke))
     if party_list:
         result.sort(key=lambda t: t[0]['name'])
     else:

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import re
 
 from django_webtest import WebTest
@@ -88,7 +90,7 @@ class TestAreasOfTypeView(TestUserMixin, WebTest):
                 r'''(?msx)
   <a\s+href="/areas/WMC-65808/dulwich-and-west-norwood">
   Dulwich\s+and\s+West\s+Norwood</a>''',
-                unicode(response)
+                response.text
             )
         )
 

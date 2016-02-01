@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 form_simple_fields = {
     'honorific_prefix': '',
     'name': '',

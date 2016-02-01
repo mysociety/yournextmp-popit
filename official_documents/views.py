@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.views.generic import CreateView, DetailView
 from django.shortcuts import get_object_or_404
 

@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from mock import patch, MagicMock
 import re
 
@@ -28,7 +30,7 @@ class TestPartyPages(WebTest):
         PartyExtraFactory.reset_sequence()
         PartyFactory.reset_sequence()
         parties = {}
-        for i in xrange(0, 4):
+        for i in range(0, 4):
             party_extra = PartyExtraFactory.create()
             parties[party_extra.slug] = party_extra
         constituencies = {}
@@ -96,31 +98,31 @@ class TestPartyPages(WebTest):
         response = self.app.get('/election/2015/party/party%3A53/labour-party')
         # There are no candidates in Scotland or Wales in our test data:
         self.assertIn(
-            u"We don't know of any Labour Party candidates in Scotland in the 2015 General Election so far.",
-            unicode(response)
+            "We don't know of any Labour Party candidates in Scotland in the 2015 General Election so far.",
+            response.text
         )
         self.assertIn(
-            u"We don't know of any Labour Party candidates in Wales in the 2015 General Election so far.",
-            unicode(response)
+            "We don't know of any Labour Party candidates in Wales in the 2015 General Election so far.",
+            response.text
         )
         # But this should only be showing results from the Great
         # Britain register, so there shouldn't be a similar message
         # for Northern Ireland:
         self.assertNotIn(
-            u"We don't know of any Labour Party candidates in Northern Ireland so far.",
-            unicode(response)
+            "We don't know of any Labour Party candidates in Northern Ireland so far.",
+            response.text
         )
         # Check there's no mention of David Miliband's constituency
         # (since he's not standing in 2015) and we've not added enough
         # example candidates to reach the threshold where all
         # constituencies should be shown:
         self.assertNotIn(
-            u'South Shields',
-            unicode(response)
+            'South Shields',
+            response.text
         )
         # But there is an Ed Miliband:
         self.assertTrue(re.search(
             r'(?ms)<a href="/person/3056">Ed Miliband</a>\s*is standing in\s*' +
             r'<a href="/election/2015/post/65672/doncaster-north">Doncaster North</a>\s*</li>',
-            unicode(response)
+            response.text
         ))

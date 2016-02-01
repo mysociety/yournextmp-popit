@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django_webtest import WebTest
 
 from .factories import (
@@ -131,70 +133,70 @@ class TestAPI(WebTest):
         response = self.app.get(
             '/api/v0.9/'
         )
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         json = response.json
 
-        self.assertEquals(
+        self.assertEqual(
             json['persons'],
             'http://localhost:80/api/v0.9/persons/'
         )
-        self.assertEquals(json['areas'], 'http://localhost:80/api/v0.9/areas/')
-        self.assertEquals(
+        self.assertEqual(json['areas'], 'http://localhost:80/api/v0.9/areas/')
+        self.assertEqual(
             json['organizations'],
             'http://localhost:80/api/v0.9/organizations/'
         )
-        self.assertEquals(
+        self.assertEqual(
             json['elections'],
             'http://localhost:80/api/v0.9/elections/'
         )
-        self.assertEquals(json['posts'], 'http://localhost:80/api/v0.9/posts/')
+        self.assertEqual(json['posts'], 'http://localhost:80/api/v0.9/posts/')
 
         persons_resp = self.app.get('/api/v0.9/persons/')
-        self.assertEquals(persons_resp.status_code, 200)
+        self.assertEqual(persons_resp.status_code, 200)
 
         areas_resp = self.app.get('/api/v0.9/areas/')
-        self.assertEquals(areas_resp.status_code, 200)
+        self.assertEqual(areas_resp.status_code, 200)
 
         organizations_resp = self.app.get('/api/v0.9/organizations/')
-        self.assertEquals(organizations_resp.status_code, 200)
+        self.assertEqual(organizations_resp.status_code, 200)
 
         elections_resp = self.app.get('/api/v0.9/elections/')
-        self.assertEquals(elections_resp.status_code, 200)
+        self.assertEqual(elections_resp.status_code, 200)
 
         posts_resp = self.app.get('/api/v0.9/posts/')
-        self.assertEquals(posts_resp.status_code, 200)
+        self.assertEqual(posts_resp.status_code, 200)
 
     def test_api_errors(self):
         response = self.app.get(
             '/api/',
             expect_errors=True
         )
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
         response = self.app.get(
             '/api/v0.8',
             expect_errors=True
         )
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
         response = self.app.get(
             '/api/v0.9/person/',
             expect_errors=True
         )
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
         response = self.app.get(
             '/api/v0.9/persons/4000/',
             expect_errors=True
         )
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
         response = self.app.post(
             '/api/v0.9/persons/',
             {},
             expect_errors=True
         )
-        self.assertEquals(response.status_code, 403)
+        self.assertEqual(response.status_code, 403)
 
     def test_api_persons(self):
         persons_resp = self.app.get('/api/v0.9/persons/')
@@ -240,12 +242,12 @@ class TestAPI(WebTest):
 
         area_url = '/api/v0.9/areas/{0}/'.format(area_id)
         area_resp = self.app.get(area_url)
-        self.assertEquals(area_resp.status_code, 200)
+        self.assertEqual(area_resp.status_code, 200)
 
         area = area_resp.json
-        self.assertEquals(area['identifier'], '65808')
-        self.assertEquals(area['name'], 'Dulwich and West Norwood')
-        self.assertEquals(area['type']['name'], 'WMC')
+        self.assertEqual(area['identifier'], '65808')
+        self.assertEqual(area['name'], 'Dulwich and West Norwood')
+        self.assertEqual(area['type']['name'], 'WMC')
 
     def test_api_organizations(self):
         organizations_resp = self.app.get('/api/v0.9/organizations/')
@@ -266,11 +268,11 @@ class TestAPI(WebTest):
                 break
 
         organization_resp = self.app.get(organization_url)
-        self.assertEquals(organization_resp.status_code, 200)
+        self.assertEqual(organization_resp.status_code, 200)
 
         organization = organization_resp.json
-        self.assertEquals(organization['id'], 'party:53')
-        self.assertEquals(organization['name'], 'Labour Party')
+        self.assertEqual(organization['id'], 'party:53')
+        self.assertEqual(organization['name'], 'Labour Party')
 
     def test_api_elections(self):
         elections_resp = self.app.get('/api/v0.9/elections/')
@@ -291,11 +293,11 @@ class TestAPI(WebTest):
                 break
 
         election_resp = self.app.get(election_url)
-        self.assertEquals(election_resp.status_code, 200)
+        self.assertEqual(election_resp.status_code, 200)
 
         election = election_resp.json
-        self.assertEquals(election['id'], '2015')
-        self.assertEquals(election['name'], '2015 General Election')
+        self.assertEqual(election['id'], '2015')
+        self.assertEqual(election['name'], '2015 General Election')
 
     def test_api_posts(self):
         posts_resp = self.app.get('/api/v0.9/posts/')

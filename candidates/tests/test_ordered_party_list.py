@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import re
 from django_webtest import WebTest
 
@@ -104,7 +106,7 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertTrue(
             re.search(
                 r'''(?ms)1</span>\s*<img[^>]*>\s*<div class="person-name-and-party">\s*<a[^>]*>Tessa Jowell''',
-                unicode(response)
+                response.text
             )
         )
 
@@ -129,7 +131,7 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertFalse(
             re.search(
                 r'''(?ms)1\s*<img[^>]*>\s*<div class="person-name-and-party">\s*<a[^>]*>Tessa Jowell''',
-                unicode(response)
+                response.text
             )
         )
 
@@ -154,9 +156,6 @@ class TestRecordWinner(TestUserMixin, WebTest):
         self.assertFalse(
             re.search(
                 r'''(?ms)1\s*<img[^>]*>\s*<div class="person-name-and-party">\s*<a[^>]*>Tessa Jowell''',
-                unicode(response)
+                response.text
             )
         )
-
-
-

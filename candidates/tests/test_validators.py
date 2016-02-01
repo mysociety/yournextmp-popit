@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.test import TestCase
 
 from ..forms import BasePersonForm, UpdatePersonForm
@@ -29,7 +31,7 @@ class TestValidators(TestCase):
         PartyExtraFactory.reset_sequence()
         PartyFactory.reset_sequence()
         self.parties = {}
-        for i in xrange(0, 4):
+        for i in range(0, 4):
             party_extra = PartyExtraFactory.create()
             gb_parties.parties.add(party_extra.base)
             self.parties[party_extra.slug] = party_extra
@@ -47,7 +49,7 @@ class TestValidators(TestCase):
             form.errors,
             {
                 'twitter_username':
-                [u'The Twitter username must only consist of alphanumeric characters or underscore']
+                ['The Twitter username must only consist of alphanumeric characters or underscore']
             }
         )
 
@@ -92,7 +94,7 @@ class TestValidators(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors, {
             '__all__':
-            [u'If you mark the candidate as standing in the 2015 General Election, you must select a post']
+            ['If you mark the candidate as standing in the 2015 General Election, you must select a post']
         })
 
     def test_update_person_form_standing_no_party_but_gb_constituency(self):
@@ -105,7 +107,7 @@ class TestValidators(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors, {
             '__all__':
-            [u'You must specify a party for the 2015 General Election']
+            ['You must specify a party for the 2015 General Election']
         })
 
     def test_update_person_form_standing_party_and_gb_constituency(self):

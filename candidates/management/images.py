@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import hashlib
 
 def get_file_md5sum(filename):

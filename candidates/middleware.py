@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import re
 
 from requests.adapters import ConnectionError
@@ -22,12 +24,12 @@ class DisallowedUpdateMiddleware(object):
 
     def process_exception(self, request, exc):
         if isinstance(exc, NameChangeDisallowedException):
-            intro = _(u'As a precaution, an update was blocked:')
-            outro = _(u'If this update is appropriate, someone should apply it manually.')
+            intro = _('As a precaution, an update was blocked:')
+            outro = _('If this update is appropriate, someone should apply it manually.')
             # Then email the support address about the name change...
-            message = u'{intro}\n\n  {message}\n\n{outro}'.format(
+            message = '{intro}\n\n  {message}\n\n{outro}'.format(
                 intro=intro,
-                message=unicode(exc),
+                message=exc,
                 outro=outro,
             )
             send_mail(

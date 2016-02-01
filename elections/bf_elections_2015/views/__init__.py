@@ -1,1 +1,1 @@
-from frontpage import *
+from .frontpage import *

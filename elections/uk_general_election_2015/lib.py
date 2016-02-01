@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import re
 
 from popolo.models import Identifier
@@ -32,7 +34,7 @@ def get_extra_csv_values(person, election):
         m = re.search(r'^uk.org.publicwhip/person/(\d+)$', parlparse_id)
         if not m:
             message = "Malformed parlparse ID found {0}"
-            raise Exception, message.format(parlparse_id)
+            raise Exception(message.format(parlparse_id))
         theyworkforyou_url = 'http://www.theyworkforyou.com/mp/{0}'.format(
             m.group(1)
         )

@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.contrib.auth.models import User
 
 from django_webtest import WebTest
@@ -69,14 +71,14 @@ class TestLeaderboardView(TestUserMixin, WebTest):
     def test_get_contributions_csv(self):
         response = self.app.get('/leaderboard/contributions.csv')
         self.assertEqual(
-            response.body,
-            'rank,username,contributions\r\n' +
-                '0,jane,2\r\n' +
-                '1,john,1\r\n' +
-                '2,alice,0\r\n' +
-                '3,charles,0\r\n' +
-                '4,delilah,0\r\n' +
-                '5,ermintrude,0\r\n' +
-                '6,frankie,0\r\n' +
-                '7,johnrefused,0\r\n'
+            response.body.decode(),
+            'rank,username,contributions\r\n'
+            '0,jane,2\r\n'
+            '1,john,1\r\n'
+            '2,alice,0\r\n'
+            '3,charles,0\r\n'
+            '4,delilah,0\r\n'
+            '5,ermintrude,0\r\n'
+            '6,frankie,0\r\n'
+            '7,johnrefused,0\r\n'
         )

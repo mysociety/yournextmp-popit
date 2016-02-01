@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import csv
 
 from django.contrib.auth.models import User
@@ -34,7 +36,7 @@ class LeaderboardView(ContributorsMixin, TemplateView):
 
 class UserContributions(View):
 
-    http_method_names = [u'get']
+    http_method_names = ['get']
 
     def get(self, request, *args, **kwargs):
         response = HttpResponse(content_type='text/csv')

@@ -1,3 +1,5 @@
+from __future__ import print_function, unicode_literals
+
 from collections import defaultdict
 from datetime import date
 import re
@@ -75,15 +77,15 @@ class Command(BaseCommand):
                 if len(sub_parties) < 2:
                     message = 'Ignoring "{joint_name}"' \
                         ' (only made up of one party: "{sub_party}")'
-                    print message.format(
+                    print(message.format(
                         joint_name=joint_name,
                         sub_party=sub_parties[0].name
-                    )
+                    ))
                     continue
                 message = 'Creating "{joint_name}", made up of: {sub_parties}'
-                print message.format(
+                print(message.format(
                     joint_name=joint_name,
                     sub_parties=sub_parties,
-                )
+                ))
 
                 create_or_update_party(joint_name, sub_parties)

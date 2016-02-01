@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.views.generic import FormView
 from django.utils.translation import ugettext as _
 from django.shortcuts import get_object_or_404

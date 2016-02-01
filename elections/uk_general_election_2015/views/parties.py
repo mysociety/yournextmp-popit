@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from candidates.views import PartyDetailView
 from popolo.models import Identifier
 

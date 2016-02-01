@@ -1,3 +1,5 @@
+from __future__ import print_function, unicode_literals
+
 from datetime import datetime
 from random import randint
 import sys
@@ -31,13 +33,13 @@ class Command(BaseCommand):
             source = 'New version recorded from the command-line'
         with transaction.atomic():
             for person_extra in PersonExtra.objects.filter(**kwargs):
-                print u"Recording the current version of {name} ({id})".format(
+                print("Recording the current version of {name} ({id})".format(
                     name=person_extra.base.name, id=person_extra.base.id
-                ).encode('utf-8')
+                ).encode('utf-8'))
                 person_extra.record_version(
                     {
                         'information_source': source,
-                        'version_id': "{0:016x}".format(randint(0, sys.maxint)),
+                        'version_id': "{0:016x}".format(randint(0, sys.maxsize)),
                         'timestamp': datetime.utcnow().isoformat(),
                     }
                 )

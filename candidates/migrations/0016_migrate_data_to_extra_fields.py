@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import print_function, unicode_literals
 
 from django.db import models, migrations
 from django.conf import settings
@@ -12,18 +12,18 @@ def from_person_extra_to_generic_fields(apps, schema_editor):
         p_field = ExtraField.objects.create(
             key='profession',
             type='line',
-            label=u'Profession',
+            label='Profession',
         )
     elif settings.ELECTION_APP == 'bf_elections_2015':
         c_field = ExtraField.objects.create(
             key='cv',
             type='longer-text',
-            label=u'CV or Résumé',
+            label='CV or Résumé',
         )
         p_field = ExtraField.objects.create(
             key='program',
             type='longer-text',
-            label=u'Program',
+            label='Program',
         )
         for pe in PersonExtra.objects.all():
             person = pe.base
@@ -51,7 +51,7 @@ def from_generic_fields_to_person_extra(apps, schema_editor):
                 pe.program = pefv.value
                 pe.save()
             else:
-                print "Ignoring field with unknown key:", pefv.field.key
+                print("Ignoring field with unknown key:", pefv.field.key)
     PersonExtraFieldValue.objects.all().delete()
     ExtraField.objects.all().delete()
 

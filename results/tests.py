@@ -1,5 +1,9 @@
- # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+
 from datetime import datetime
+from io import BytesIO
 
 from django_webtest import WebTest
 
@@ -14,8 +18,30 @@ from candidates.tests.auth import TestUserMixin
 from .models import ResultEvent
 
 
-
 class TestResultsFeed(TestUserMixin, WebTest):
+
+    maxDiff = None
+
+    def compare_xml(self, xml_a, xml_b):
+        """Compare two XML strings under XML canonicalization
+
+        This is insensitive to attribute order; if there is a
+        different, self.assertEqual is used to generate the usual
+        unequal test output, which has a helpful diff.
+
+        This approach was suggested in:
+
+            http://stackoverflow.com/a/12430650/223092
+        """
+        parser = etree.XMLParser(remove_blank_text=True)
+        tree_a = etree.fromstring(xml_a, parser)
+        tree_b = etree.fromstring(xml_b, parser)
+        c14n_a = BytesIO()
+        c14n_b = BytesIO()
+        tree_a.getroottree().write_c14n(c14n_a)
+        tree_b.getroottree().write_c14n(c14n_b)
+        if c14n_a.getvalue() != c14n_b.getvalue():
+            self.assertEqual(xml_a, xml_b)
 
     def setUp(self):
         wmc_area_type = factories.AreaTypeFactory.create()
@@ -48,7 +74,7 @@ class TestResultsFeed(TestUserMixin, WebTest):
     def test_all_feed_with_one_item(self):
         response = self.app.get('/results/all.atom')
         root = etree.XML(response.content)
-        xml_pretty = etree.tostring(root, pretty_print=True)
+        xml_pretty = etree.tounicode(root, pretty_print=True)
 
         result_event = ResultEvent.objects.first()
         expected = '''<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-gb">
@@ -84,12 +110,12 @@ class TestResultsFeed(TestUserMixin, WebTest):
     item_id=result_event.id,
     user_id=self.user.id,
 )
-        self.assertEqual(expected, xml_pretty)
-        
+        self.compare_xml(expected, xml_pretty)
+
     def test_all_basic_feed_with_one_item(self):
         response = self.app.get('/results/all-basic.atom')
         root = etree.XML(response.content)
-        xml_pretty = etree.tostring(root, pretty_print=True)
+        xml_pretty = etree.tounicode(root, pretty_print=True)
 
         result_event = ResultEvent.objects.first()
         expected = '''<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-gb">
@@ -115,4 +141,4 @@ class TestResultsFeed(TestUserMixin, WebTest):
     space_separated=result_event.created.strftime("%Y-%m-%d %H:%M:%S"),
     item_id=result_event.id,
 )
-        self.assertEqual(expected, xml_pretty)
+        self.compare_xml(expected, xml_pretty)

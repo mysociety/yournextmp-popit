@@ -1,9 +1,11 @@
-from __future__ import print_function
+from __future__ import print_function, unicode_literals
 
 import difflib
 import json
 
 import sys
+
+from compat import text_type
 
 def p(*args):
     """A helper for printing to stderr"""
@@ -11,24 +13,24 @@ def p(*args):
 
 def deep_cast_to_unicode(obj):
     """
-    >>> deep_cast_to_unicode("Foo")
-    u'Foo'
-    >>> deep_cast_to_unicode({'x': 'y'})
-    {u'x': u'y'}
-    >>> deep_cast_to_unicode(['a', 'b', u'c', {'x': 'y'}])
-    [u'a', u'b', u'c', {u'x': u'y'}]
-
+    >>> deep_cast_to_unicode(b'Foo') == u'Foo'
+    True
+    >>> deep_cast_to_unicode({b'x': b'y'}) == {u'x': u'y'}
+    True
+    >>> (deep_cast_to_unicode([b'a', b'b', u'c', {b'x': b'y'}]) ==
+         [u'a', u'b', u'c', {u'x': u'y'}])
+    True
     """
-    if isinstance(obj, (str, unicode)):
-        return unicode(obj)
-    if isinstance(obj, dict):
-        return {
-            deep_cast_to_unicode(k): deep_cast_to_unicode(v)
-                for k,v in obj.items()
-        }
-    if isinstance(obj, list):
+    if isinstance(obj, text_type):
+        return obj
+    elif isinstance(obj, bytes):
+        return obj.decode('utf-8')
+    elif isinstance(obj, dict):
+        return {deep_cast_to_unicode(k): deep_cast_to_unicode(v)
+                for k, v in obj.items()}
+    elif isinstance(obj, list):
         return [deep_cast_to_unicode(k) for k in obj]
-    if obj is None:
+    elif obj is None:
         return None
     return repr(obj)
 

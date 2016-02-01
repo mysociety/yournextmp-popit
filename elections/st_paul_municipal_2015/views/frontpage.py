@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.http import HttpResponseRedirect
 from django.core.cache import cache
 from django.core.exceptions import ValidationError
@@ -54,7 +56,7 @@ def check_address(address_string, country=None):
     try:
         location_results = Geocoder.geocode(tidied_address)
     except GeocoderError:
-        message = _(u"Failed to find a location for '{0}'")
+        message = _("Failed to find a location for '{0}'")
         raise ValidationError(message.format(tidied_address))
 
     coords = ','.join([str(p) for p in location_results[0].coordinates])
@@ -78,8 +80,8 @@ def check_address(address_string, country=None):
                 areas.add(division_slug)
 
         return {
-            'area_ids': ';'.join(areas),
+            'area_ids': ';'.join(sorted(areas)),
         }
 
-    error = _(u"Unable to find constituency for '{0}'")
+    error = _("Unable to find constituency for '{0}'")
     raise ValidationError(error.format(tidied_address))

@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import json
 from mock import patch, Mock
-from urlparse import urlsplit
+
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from django_webtest import WebTest
 from nose.plugins.attrib import attr
@@ -25,7 +28,7 @@ def fake_geocode(q, **kwargs):
         ]
     else:
         raise pygeocoder.GeocoderError(
-            u"Fake geocoder doesn't know about '{0}'".format(q)
+            "Fake geocoder doesn't know about '{0}'".format(q)
         )
 
 def approx_equal(a, b, places=5):
@@ -200,7 +203,7 @@ class StPaulTests(WebTest):
         split_location = urlsplit(response.location)
         self.assertEqual(
             split_location.path,
-            '/areas/ocd-division,country:us,state:mn,place:st_paul,ward:3;ocd-division,country:us,state:mn,place:st_paul',
+            '/areas/ocd-division,country:us,state:mn,place:st_paul;ocd-division,country:us,state:mn,place:st_paul,ward:3',
         )
 
     @patch.object(pygeocoder.Geocoder, 'geocode', side_effect=fake_geocode)
@@ -209,7 +212,7 @@ class StPaulTests(WebTest):
         patched_requests.get.side_effect = fake_represent_boundaries
         response = self.app.get('/')
         form = response.forms['form-address']
-        form['address'] = u'Mah Nà Mah Nà'
+        form['address'] = 'Mah Nà Mah Nà'
         response = form.submit()
         self.assertEqual(response.status_code, 200)
         self.assertIn(
@@ -223,7 +226,7 @@ class StPaulTests(WebTest):
         patched_requests.get.side_effect = fake_represent_boundaries
         response = self.app.get('/')
         form = response.forms['form-address']
-        form['address'] = u'Empire State Building, New York'
+        form['address'] = 'Empire State Building, New York'
         response = form.submit()
         # FIXME: I'm not sure this is what's really intended, since it
         # would be better to stay on the front page with a validation

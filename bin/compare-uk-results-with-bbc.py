@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function, unicode_literals
+
 import csv
 import re
 import requests
@@ -37,17 +39,17 @@ for row in reader:
     elected = row['elected']
     if elected == '':
         msg = "In {cons_name} {person_name} ({person_id}) had no elected status"
-        raise Exception, msg.format(
+        raise Exception(msg.format(
             cons_name=cons_name,
             person_name=row['name'],
             person_id=row['id'],
-        )
+        ))
     if not elected.lower() == 'true':
         continue
     if cons_name < 'South Thanet':
         continue
     party_from_ynmp = ynmp_to_bbc_party[row['party']]
-    print "got:", gss_code, cons_name, party_from_ynmp
+    print("got:", gss_code, cons_name, party_from_ynmp)
     # Now fetch the corresponding page from the BBC:
     bbc_url = 'http://www.bbc.co.uk/news/politics/constituencies/' + gss_code
     bbc_r = requests.get(bbc_url)
@@ -57,12 +59,12 @@ for row in reader:
     bracketed_party_abbr = party_names_short[0].text
     m = re.search(r'^\s*\(\s*(\w+)\s*\)\s*$', bracketed_party_abbr)
     if not m:
-        print "Couldn't find party abbreviation:", m.group(1)
+        print("Couldn't find party abbreviation:", m.group(1))
     bbc_winner_party_name = m.group(1)
     if bbc_winner_party_name != party_from_ynmp:
         msg = "In {cons_name} YNMP had {ynmp}, the BBC had {bbc}"
-        raise Exception, msg.format(
+        raise Exception(msg.format(
             cons_name=cons_name,
             ynmp=party_from_ynmp,
             bbc=bbc_winner_party_name,
-        )
+        ))

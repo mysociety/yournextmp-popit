@@ -10,7 +10,7 @@ def add_extra_field(apps, schema_editor):
          ExtraField.objects.create(
             key='important_roles',
             type='longer-text',
-            label=u'Important Roles',
+            label='Important Roles',
         )
 
 def remove_extra_field(apps, schema_editor):

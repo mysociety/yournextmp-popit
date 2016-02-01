@@ -1,6 +1,8 @@
 # The functions in this file are to help produce human readable diffs
 # between our JSON representation of candidates.
 
+from __future__ import unicode_literals
+
 import re
 
 from django.conf import settings
@@ -30,33 +32,33 @@ def get_descriptive_value(election, attribute, value, leaf):
             # dictionary that's changed:
             if leaf == 'name':
                 if current_election:
-                    message = _(u"is known to be standing for the party '{party}' in the {election}")
+                    message = _("is known to be standing for the party '{party}' in the {election}")
                 else:
-                    message = _(u"was known to be standing for the party '{party}' in the {election}")
+                    message = _("was known to be standing for the party '{party}' in the {election}")
                 return message.format(party=value, election=election_name)
             elif leaf == 'id':
                 if current_election:
-                    message = _(u'is known to be standing for the party with ID {party} in the {election}')
+                    message = _('is known to be standing for the party with ID {party} in the {election}')
                 else:
-                    message = _(u'was known to be standing for the party with ID {party} in the {election}')
+                    message = _('was known to be standing for the party with ID {party} in the {election}')
                 return message.format(party=value, election=election_name)
             else:
-                message = _(u"Unexpected leaf {0} (attribute: {1}, election: {2}")
-                raise Exception, message.format(
+                message = _("Unexpected leaf {0} (attribute: {1}, election: {2}")
+                raise Exception(message.format(
                     leaf, attribute, election
-                )
+                ))
         else:
             if current_election:
-                message = _(u'is known to be standing for the party "{party}" in the {election}')
+                message = _('is known to be standing for the party "{party}" in the {election}')
             else:
-                message = _(u'was known to be standing for the party "{party}" in the {election}')
+                message = _('was known to be standing for the party "{party}" in the {election}')
             return message.format(party=value['name'], election=election_name)
     elif attribute == 'standing_in':
         if value is None:
             if current_election:
-                message = _(u'is known not to be standing in the {election}')
+                message = _('is known not to be standing in the {election}')
             else:
-                message = _(u'was known not to be standing in the {election}')
+                message = _('was known not to be standing in the {election}')
             return message.format(election=election_name)
         else:
             if leaf:
@@ -89,15 +91,15 @@ def get_descriptive_value(election, attribute, value, leaf):
                     else:
                         return _("has no position in their party list in the {election}").format(election=election_name)
                 else:
-                    message = _(u"Unexpected leaf {0} (attribute: {1}, election: {2}")
-                    raise Exception, message.format(
+                    message = _("Unexpected leaf {0} (attribute: {1}, election: {2}")
+                    raise Exception(message.format(
                         leaf, attribute, election
-                    )
+                    ))
             else:
                 if current_election:
-                    message = _(u'is known to be standing in {party} in the {election}')
+                    message = _('is known to be standing in {party} in the {election}')
                 else:
-                    message = _(u'was known to be standing in {party} in the {election}')
+                    message = _('was known to be standing in {party} in the {election}')
                 return message.format(party=value['name'], election=election_name)
 
 def explain_standing_in_and_party_memberships(operation, attribute, election, leaf):
@@ -117,14 +119,15 @@ def explain_standing_in_and_party_memberships(operation, attribute, election, le
             )
         else:
             clauses = []
-            for election, value in (operation[key] or {}).items():
+            items = (operation[key] or {}).items()
+            for election, value in sorted(items, reverse=True):
                 clauses.append(get_descriptive_value(
                     election,
                     attribute,
                     value,
                     leaf,
                 ))
-            operation[key] = _(u' and ').join(clauses)
+            operation[key] = _(' and ').join(clauses)
 
 def get_version_diff(from_data, to_data):
     """Calculate the diff (a mangled JSON patch) between from_data and to_data"""

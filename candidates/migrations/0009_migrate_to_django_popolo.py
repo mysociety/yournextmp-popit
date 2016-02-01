@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import print_function, unicode_literals
 
 import errno
 import hashlib
@@ -9,7 +9,6 @@ from os.path import join, exists, dirname
 import re
 import requests
 import shutil
-from urlparse import urlsplit
 
 from PIL import Image as PillowImage
 
@@ -18,6 +17,7 @@ from django.core.files.storage import FileSystemStorage
 from django.core.management.color import no_style
 from django.db import connection, migrations
 from django.db.models import Count
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from popolo.importers.popit import PopItImporter, show_data_on_error
 
@@ -40,13 +40,13 @@ def get_url_cached(url):
     if exists(filename):
         return filename
     else:
-        print "\nDownloading {0} ...".format(url)
+        print("\nDownloading {0} ...".format(url))
         with open(filename, 'wb') as f:
             r = requests.get(url, stream=True)
             r.raise_for_status()
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
-        print "done"
+        print("done")
     return filename
 
 class YNRPopItImporter(PopItImporter):
@@ -82,10 +82,10 @@ class YNRPopItImporter(PopItImporter):
                     image_filename = get_url_cached(url)
                 except requests.exceptions.HTTPError as e:
                     msg = "Ignoring image URL {url}, with status code {status}"
-                    print msg.format(
+                    print(msg.format(
                         url=url,
                         status=e.response.status_code
-                    )
+                    ))
                     continue
                 with open(image_filename, 'rb') as f:
                     md5sum = hashlib.md5(f.read()).hexdigest()
@@ -93,10 +93,10 @@ class YNRPopItImporter(PopItImporter):
                     try:
                         pillow_image = PillowImage.open(f)
                     except IOError as e:
-                        if 'cannot identify image file' in unicode(e):
-                            print "Ignoring a non-image file {0}".format(
+                        if 'cannot identify image file' in e.args[0]:
+                            print("Ignoring a non-image file {0}".format(
                                 image_filename
-                            )
+                            ))
                             continue
                         raise
                     extension = PILLOW_FORMAT_EXTENSIONS[pillow_image.format]
@@ -316,7 +316,7 @@ class YNRPopItImporter(PopItImporter):
             if party_set_name:
                 post_extra.party_set = PartySet.objects.get(name=party_set_name)
             else:
-                print "Couldn't find party set from name {0}".format(area.name)
+                print("Couldn't find party set from name {0}".format(area.name))
                 post_extra.party_set = PartySet.objects.get(slug='nacional')
         post_extra.save()
 
@@ -441,31 +441,31 @@ PARTY_SETS_BY_ELECTION_APP = {
         {'slug': 'st-paul', 'name': 'Saint Paul, Minnesota'},
     ],
     'ar_elections_2015': [
-        {'slug': u'jujuy', 'name': u'Jujuy'},
-        {'slug': u'la-rioja', 'name': u'La Rioja'},
-        {'slug': u'catamarca', 'name': u'Catamarca'},
-        {'slug': u'salta', 'name': u'Salta'},
-        {'slug': u'nacional', 'name': u'Nacional'},
-        {'slug': u'chaco', 'name': u'Chaco'},
-        {'slug': u'mendoza', 'name': u'Mendoza'},
-        {'slug': u'chubut', 'name': u'Chubut'},
-        {'slug': u'capital-federal', 'name': u'Capital Federal'},
-        {'slug': u'neuquen', 'name': u'Neuqu\xe9n'},
-        {'slug': u'san-juan', 'name': u'San Juan'},
-        {'slug': u'corrientes', 'name': u'Corrientes'},
-        {'slug': u'la-pampa', 'name': u'La Pampa'},
-        {'slug': u'formosa', 'name': u'Formosa'},
-        {'slug': u'misiones', 'name': u'Misiones'},
-        {'slug': u'cordoba', 'name': u'C\xf3rdoba'},
-        {'slug': u'santiago-del-estero', 'name': u'Santiago Del Estero'},
-        {'slug': u'san-luis', 'name': u'San Luis'},
-        {'slug': u'buenos-aires', 'name': u'Buenos Aires'},
-        {'slug': u'santa-cruz', 'name': u'Santa Cruz'},
-        {'slug': u'rio-negro', 'name': u'R\xedo Negro'},
-        {'slug': u'santa-fe', 'name': u'Santa Fe'},
-        {'slug': u'tucuman', 'name': u'Tucum\xe1n'},
-        {'slug': u'tierra-del-fuego', 'name': u'Tierra del Fuego'},
-        {'slug': u'entre-rios', 'name': u'Entre R\xedos'}
+        {'slug': 'jujuy', 'name': 'Jujuy'},
+        {'slug': 'la-rioja', 'name': 'La Rioja'},
+        {'slug': 'catamarca', 'name': 'Catamarca'},
+        {'slug': 'salta', 'name': 'Salta'},
+        {'slug': 'nacional', 'name': 'Nacional'},
+        {'slug': 'chaco', 'name': 'Chaco'},
+        {'slug': 'mendoza', 'name': 'Mendoza'},
+        {'slug': 'chubut', 'name': 'Chubut'},
+        {'slug': 'capital-federal', 'name': 'Capital Federal'},
+        {'slug': 'neuquen', 'name': 'Neuqu\xe9n'},
+        {'slug': 'san-juan', 'name': 'San Juan'},
+        {'slug': 'corrientes', 'name': 'Corrientes'},
+        {'slug': 'la-pampa', 'name': 'La Pampa'},
+        {'slug': 'formosa', 'name': 'Formosa'},
+        {'slug': 'misiones', 'name': 'Misiones'},
+        {'slug': 'cordoba', 'name': 'C\xf3rdoba'},
+        {'slug': 'santiago-del-estero', 'name': 'Santiago Del Estero'},
+        {'slug': 'san-luis', 'name': 'San Luis'},
+        {'slug': 'buenos-aires', 'name': 'Buenos Aires'},
+        {'slug': 'santa-cruz', 'name': 'Santa Cruz'},
+        {'slug': 'rio-negro', 'name': 'R\xedo Negro'},
+        {'slug': 'santa-fe', 'name': 'Santa Fe'},
+        {'slug': 'tucuman', 'name': 'Tucum\xe1n'},
+        {'slug': 'tierra-del-fuego', 'name': 'Tierra del Fuego'},
+        {'slug': 'entre-rios', 'name': 'Entre R\xedos'}
     ],
     'bf_elections_2015': [
         {'slug': 'national', 'name': 'National'},
@@ -480,31 +480,31 @@ ELECTION_APPS_WITH_EXISTING_DATA = (
 )
 
 AR_AREA_NAME_TO_PARTY_SET_NAME = {
-    u"BUENOS AIRES": u"Buenos Aires",
-    u"CIUDAD AUTONOMA DE BUENOS AIRES": u"Capital Federal",
-    u"CATAMARCA": u"Catamarca",
-    u"CHACO": u"Chaco",
-    u"CHUBUT": u"Chubut",
-    u"CORDOBA": u"Córdoba",
-    u"CORRIENTES": u"Corrientes",
-    u"ENTRE RIOS": u"Entre Ríos",
-    u"FORMOSA": u"Formosa",
-    u"JUJUY": u"Jujuy",
-    u"LA PAMPA": u"La Pampa",
-    u"LA RIOJA": u"La Rioja",
-    u"MENDOZA": u"Mendoza",
-    u"MISIONES": u"Misiones",
-    u"Argentina": u"Nacional",
-    u"NEUQUEN": u"Neuquén",
-    u"RIO NEGRO": u"Río Negro",
-    u"SALTA": u"Salta",
-    u"SAN JUAN": u"San Juan",
-    u"SAN LUIS": u"San Luis",
-    u"SANTA CRUZ": u"Santa Cruz",
-    u"SANTA FE": u"Santa Fe",
-    u"SANTIAGO DEL ESTERO": u"Santiago Del Estero",
-    u"TIERRA DEL FUEGO, ANTARTIDA E ISLAS DEL ATLANTICO SUR": u"Tierra del Fuego",
-    u"TUCUMAN": u"Tucumán",
+    "BUENOS AIRES": "Buenos Aires",
+    "CIUDAD AUTONOMA DE BUENOS AIRES": "Capital Federal",
+    "CATAMARCA": "Catamarca",
+    "CHACO": "Chaco",
+    "CHUBUT": "Chubut",
+    "CORDOBA": "Córdoba",
+    "CORRIENTES": "Corrientes",
+    "ENTRE RIOS": "Entre Ríos",
+    "FORMOSA": "Formosa",
+    "JUJUY": "Jujuy",
+    "LA PAMPA": "La Pampa",
+    "LA RIOJA": "La Rioja",
+    "MENDOZA": "Mendoza",
+    "MISIONES": "Misiones",
+    "Argentina": "Nacional",
+    "NEUQUEN": "Neuquén",
+    "RIO NEGRO": "Río Negro",
+    "SALTA": "Salta",
+    "SAN JUAN": "San Juan",
+    "SAN LUIS": "San Luis",
+    "SANTA CRUZ": "Santa Cruz",
+    "SANTA FE": "Santa Fe",
+    "SANTIAGO DEL ESTERO": "Santiago Del Estero",
+    "TIERRA DEL FUEGO, ANTARTIDA E ISLAS DEL ATLANTICO SUR": "Tierra del Fuego",
+    "TUCUMAN": "Tucumán",
 }
 
 def import_from_popit(apps, schema_editor):

@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from slugify import slugify
 
 from django import template
@@ -22,7 +24,7 @@ def post_in_election(person, election):
         candidacy = None
 
     if candidacy:
-        link = u'<a href="{cons_url}">{cons_name}</a>'.format(
+        link = '<a href="{cons_url}">{cons_name}</a>'.format(
             cons_url=reverse(
                 'constituency',
                 kwargs={
@@ -33,23 +35,23 @@ def post_in_election(person, election):
             ),
             cons_name=candidacy.post.extra.short_label
         )
-        result = u'<span class="constituency-value-standing-link">{0}</span>'.format(
+        result = '<span class="constituency-value-standing-link">{0}</span>'.format(
             link
         )
-        result += u' <span class="party">{0}</span>'.format(
+        result += ' <span class="party">{0}</span>'.format(
             candidacy.on_behalf_of.name
         )
     else:
         if election in person.extra.not_standing.all():
             if election.current:
-                result = u'<span class="constituency-value-not-standing">%s</span>' % _('Not standing')
+                result = '<span class="constituency-value-not-standing">%s</span>' % _('Not standing')
             else:
-                result = u'<span class="constituency-value-not-standing">%s</span>' % _('Did not stand')
+                result = '<span class="constituency-value-not-standing">%s</span>' % _('Did not stand')
         else:
             if election.current:
-                result = u'<span class="constituency-value-unknown">%s</span>' % _('No information yet')
+                result = '<span class="constituency-value-unknown">%s</span>' % _('No information yet')
             else:
-                result = u'<span class="constituency-not-standing">%s</span>' % _('Did not stand')
+                result = '<span class="constituency-not-standing">%s</span>' % _('Did not stand')
     return mark_safe(result)
 
 @register.filter

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import re
 
 from django.db.models import Prefetch
@@ -90,7 +92,7 @@ class AreasView(TemplateView):
                         hidden_post_widget=True,
                     ),
                 })
-        context['all_area_names'] = u' — '.join(all_area_names)
+        context['all_area_names'] = ' — '.join(all_area_names)
         context['suppress_official_documents'] = True
         return context
 

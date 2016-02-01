@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import requests
 
 from django.core.management.base import BaseCommand, CommandError

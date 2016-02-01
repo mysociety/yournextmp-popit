@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from mock import patch
 
 from django_webtest import WebTest
@@ -141,8 +143,8 @@ class TestConstituencyLockAndUnlock(TestUserMixin, WebTest):
             '/election/2015/constituencies/unlocked',
         )
         self.assertEqual(response.status_code, 200)
-        self.assertIn('Dulwich', unicode(response))
-        self.assertNotIn('Camberwell', unicode(response))
+        self.assertIn('Dulwich', response.text)
+        self.assertNotIn('Camberwell', response.text)
 
 
 class TestConstituencyLockWorks(TestUserMixin, WebTest):
@@ -159,7 +161,7 @@ class TestConstituencyLockWorks(TestUserMixin, WebTest):
         PartyExtraFactory.reset_sequence()
         PartyFactory.reset_sequence()
         self.parties = {}
-        for i in xrange(0, 4):
+        for i in range(0, 4):
             party_extra = PartyExtraFactory.create()
             gb_parties.parties.add(party_extra.base)
             self.parties[party_extra.slug] = party_extra

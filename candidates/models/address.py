@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from collections import defaultdict
 
 from django.conf import settings
@@ -23,7 +25,7 @@ def check_address(address_string, country=None):
     try:
         location_results = Geocoder.geocode(tidied_address)
     except GeocoderError:
-        message = _(u"Failed to find a location for '{0}'")
+        message = _("Failed to find a location for '{0}'")
         raise ValidationError(message.format(tidied_address_before_country))
     lat, lon = location_results[0].coordinates
     all_mapit_json = []
@@ -42,7 +44,7 @@ def check_address(address_string, country=None):
         mapit_result = requests.get(mapit_lookup_url)
         mapit_json = mapit_result.json()
         if 'error' in mapit_json:
-            message = _(u"The area lookup returned an error: '{error}'")
+            message = _("The area lookup returned an error: '{error}'")
             raise ValidationError(message.format(error=mapit_json['error']))
         all_mapit_json += mapit_json.items()
     sorted_mapit_results = sorted(
@@ -50,7 +52,7 @@ def check_address(address_string, country=None):
         key=lambda t: (t[1]['type'], int(t[0]))
     )
     if not sorted_mapit_results:
-        message = _(u"The address '{0}' appears to be outside the area this site knows about")
+        message = _("The address '{0}' appears to be outside the area this site knows about")
         raise ValidationError(message.format(tidied_address_before_country))
     types_and_areas = [
         {

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function, unicode_literals
+
 from datetime import date
 import dateutil.parser
 import csv
@@ -33,13 +35,13 @@ def get_post_data(api, origin_post,origin_district):
         return False, False;
 
     ynr_election_id = {
-        u'DIPUTADO NACIONAL TITULAR':
+        'DIPUTADO NACIONAL TITULAR':
         'diputados-argentina-paso-2015',
-        u'SENADOR NACIONAL TITULAR':
+        'SENADOR NACIONAL TITULAR':
         'senadores-argentina-paso-2015',
-        u'PARLAMENTARIO MERCOSUR DISTRITO REGIONAL TITULAR':
+        'PARLAMENTARIO MERCOSUR DISTRITO REGIONAL TITULAR':
         'parlamentarios-mercosur-regional-paso-2015',
-        u'PARLAMENTARIO MERCOSUR DISTRITO NACIONAL TITULAR':
+        'PARLAMENTARIO MERCOSUR DISTRITO NACIONAL TITULAR':
         'parlamentarios-mercosur-unico-paso-2015'
 
 
@@ -51,7 +53,7 @@ def get_post_data(api, origin_post,origin_district):
         post_id = 'pmeu'
 
     else:
-        areas_by_name = AREA_DATA.areas_by_name[(u'PRV', u'1')]
+        areas_by_name = AREA_DATA.areas_by_name[('PRV', '1')]
         area = areas_by_name[origin_district]
         post_id = AREA_POST_DATA.get_post_id(
             ynr_election_id, area['type'], area['id']
@@ -63,7 +65,7 @@ def get_post_data(api, origin_post,origin_district):
 def get_party_id(party_name):
     from candidates.election_specific import PARTY_DATA
     for p in PARTY_DATA.all_party_data:
-       if (p.get("name").lower() == party_name.lower()): 
+       if (p.get("name").lower() == party_name.lower()):
          return p.get("id");
     return UNKNOWN_PARTY_ID;
 
@@ -77,7 +79,7 @@ def enqueue_image(person, user, image_url):
     )
     if not r.status_code == 200:
         message = "HTTP status code {0} when downloading {1}"
-        raise Exception, message.format(r.status_code, image_url)
+        raise Exception(message.format(r.status_code, image_url))
     storage = FileSystemStorage()
     suggested_filename = \
         'queued_image/{d.year}/{d.month:02x}/{d.day:02x}/ci-upload'.format(
@@ -146,7 +148,7 @@ class Command(BaseCommand):
                     api, candidate['Cargo'], candidate['Distrito']
                 )
                 if (election_data == False):
-                    print "Skipping: "+ candidate['Cargo'] +", " + candidate['Distrito']+", " + candidate['Nombre']
+                    print("Skipping: "+ candidate['Cargo'] +", " + candidate['Distrito']+", " + candidate['Nombre'])
                     continue;
 
                 name = candidate['Nombre']
@@ -156,9 +158,9 @@ class Command(BaseCommand):
 
                 person = get_existing_popit_person(vi_person_id)
                 if person:
-                    print "Found an existing person:", person.get_absolute_url()
+                    print("Found an existing person:", person.get_absolute_url())
                 else:
-                    print "No existing person, creating a new one:", name
+                    print("No existing person, creating a new one:", name)
                     person = PopItPerson()
 
                 # Now update fields from the imported data:
@@ -198,8 +200,8 @@ class Command(BaseCommand):
                 try:
                     person.save_to_popit(api)
                 except HttpClientError as hce:
-                    print "Got an HttpClientError:", hce.content
+                    print("Got an HttpClientError:", hce.content)
                     raise
                 except HttpServerError as hse:
-                    print "The server error content was:", hse.content
+                    print("The server error content was:", hse.content)
                     raise

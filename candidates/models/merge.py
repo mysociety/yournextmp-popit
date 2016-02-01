@@ -1,16 +1,12 @@
+from __future__ import unicode_literals
+
 from copy import deepcopy
 
 
 def merge_popit_dicts(primary, secondary):
-    result = {}
-    for key in set(primary.keys() + secondary.keys()):
-        if primary.get(key) and not secondary.get(key):
-            result[key] = primary[key]
-        elif secondary.get(key) and not primary.get(key):
-            result[key] = secondary[key]
-        elif key in primary:
-            result[key] = primary[key]
-        else:
+    result = deepcopy(primary)
+    for key in secondary:
+        if not primary.get(key):
             result[key] = secondary[key]
     return result
 

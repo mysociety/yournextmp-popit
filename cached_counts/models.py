@@ -1,5 +1,7 @@
 # There a no models needed by this application any more.
 
+from __future__ import unicode_literals
+
 from django.db import connection
 
 

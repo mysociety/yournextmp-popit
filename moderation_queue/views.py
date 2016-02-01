@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import bleach
 import re
 from os.path import join
@@ -97,10 +99,10 @@ class PhotoReviewList(GroupRequiredMixin, ListView):
 def tidy_party_name(name):
     """If a party name contains an initialism in brackets, use that instead
 
-    >>> tidy_party_name('Hello World Party (HWP)')
-    'HWP'
-    >>> tidy_party_name('Hello World Party')
-    'Hello World Party'
+    >>> tidy_party_name('Hello World Party (HWP)') == 'HWP'
+    True
+    >>> tidy_party_name('Hello World Party') == 'Hello World Party'
+    True
     """
     m = re.search(r'\(([A-Z]+)\)', name)
     if m:
@@ -120,18 +122,18 @@ class PhotoReview(GroupRequiredMixin, TemplateView):
     required_group_name = PHOTO_REVIEWERS_GROUP_NAME
 
     def get_google_image_search_url(self, person):
-        image_search_query = u'"{0}"'.format(person.name)
+        image_search_query = '"{0}"'.format(person.name)
         last_candidacy = person.extra.last_candidacy
         if last_candidacy:
             party = last_candidacy.on_behalf_of
             if party:
-                image_search_query += u' "{0}"'.format(
+                image_search_query += ' "{0}"'.format(
                     tidy_party_name(party.name)
                 )
             post = last_candidacy.post
             if post is not None:
-                image_search_query += u' "{0}"'.format(post.area.name)
-        return u'https://www.google.co.uk/search?tbm=isch&q={0}'.format(
+                image_search_query += ' "{0}"'.format(post.area.name)
+        return 'https://www.google.co.uk/search?tbm=isch&q={0}'.format(
             urlquote(image_search_query)
         )
 
@@ -252,7 +254,7 @@ class PhotoReview(GroupRequiredMixin, TemplateView):
         person_extra = person.extra
         candidate_path = person_extra.get_absolute_url()
         candidate_name = person.name
-        candidate_link = u'<a href="{url}">{name}</a>'.format(
+        candidate_link = '<a href="{url}">{name}</a>'.format(
             url=candidate_path,
             name=candidate_name,
         )
@@ -284,9 +286,9 @@ class PhotoReview(GroupRequiredMixin, TemplateView):
                     form.cleaned_data[field]
                 )
             self.queued_image.save()
-            update_message = _(u'Approved a photo upload from '
-                u'{uploading_user} who provided the message: '
-                u'"{message}"').format(
+            update_message = _('Approved a photo upload from '
+                '{uploading_user} who provided the message: '
+                '"{message}"').format(
                 uploading_user=self.queued_image.user.username,
                 message=self.queued_image.justification_for_use,
             )
@@ -328,13 +330,13 @@ class PhotoReview(GroupRequiredMixin, TemplateView):
             )
             flash(
                 messages.SUCCESS,
-                _(u'You approved a photo upload for %s') % candidate_link
+                _('You approved a photo upload for %s') % candidate_link
             )
         elif decision == 'rejected':
             self.queued_image.decision = 'rejected'
             self.queued_image.save()
-            update_message = _(u'Rejected a photo upload from '
-                u'{uploading_user}').format(
+            update_message = _('Rejected a photo upload from '
+                '{uploading_user}').format(
                 uploading_user=self.queued_image.user.username,
             )
             LoggedAction.objects.create(
@@ -384,22 +386,22 @@ class PhotoReview(GroupRequiredMixin, TemplateView):
             )
             flash(
                 messages.INFO,
-                _(u'You rejected a photo upload for %s') % candidate_link
+                _('You rejected a photo upload for %s') % candidate_link
             )
         elif decision == 'undecided':
             # If it's left as undecided, just redirect back to the
             # photo review queue...
             flash(
                 messages.INFO,
-                _(u'You left a photo upload for {0} in the queue').format(
+                _('You left a photo upload for {0} in the queue').format(
                     candidate_link
                 )
             )
         elif decision == 'ignore':
             self.queued_image.decision = 'ignore'
             self.queued_image.save()
-            update_message = _(u'Ignored a photo upload from '
-                u'{uploading_user} (This usually means it was a duplicate)').format(
+            update_message = _('Ignored a photo upload from '
+                '{uploading_user} (This usually means it was a duplicate)').format(
                 uploading_user=self.queued_image.user.username)
             LoggedAction.objects.create(
                 user=self.request.user,
@@ -411,7 +413,7 @@ class PhotoReview(GroupRequiredMixin, TemplateView):
             )
             flash(
                 messages.INFO,
-                _(u'You indicated a photo upload for {0} should be ignored').format(
+                _('You indicated a photo upload for {0} should be ignored').format(
                     candidate_link
                 )
             )

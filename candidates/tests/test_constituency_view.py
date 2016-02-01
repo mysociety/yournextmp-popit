@@ -1,5 +1,6 @@
+from __future__ import unicode_literals
+
 import csv
-from StringIO import StringIO
 
 from django_webtest import WebTest
 
@@ -10,6 +11,8 @@ from .factories import (
     PersonExtraFactory, CandidacyExtraFactory, PartyExtraFactory,
     PartyFactory, MembershipFactory, PartySetFactory
 )
+
+from compat import StreamDictReader
 
 from ..models import MembershipExtra, PersonExtra
 
@@ -159,7 +162,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
         response = self.app.get(
             '/election/2015/post/65808/dulwich-and-west-norwood.csv',
         )
-        row_dicts = [row for row in csv.DictReader(StringIO(response.content))]
+        row_dicts = [row for row in StreamDictReader(response.content)]
         self.assertEqual(1, len(row_dicts))
         self.assertEqual(
             row_dicts[0],
@@ -234,7 +237,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
             expect_errors=True,
         )
 
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
     def test_mark_not_standing_no_post(self):
         response = self.app.get(
@@ -254,7 +257,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
             expect_errors=True,
         )
 
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
     def test_mark_standing_no_candidate(self):
         response = self.app.get(
@@ -274,7 +277,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
             expect_errors=True,
         )
 
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
     def test_mark_standing_no_post(self):
         response = self.app.get(
@@ -294,7 +297,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
             expect_errors=True,
         )
 
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
     def test_mark_candidate_not_standing(self):
         response = self.app.get(

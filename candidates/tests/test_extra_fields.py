@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import re
-from urlparse import urlsplit
+
+from django.utils.six.moves.urllib_parse import urlsplit
 
 from django_webtest import WebTest
+
 from popolo.models import Person
 
 from candidates.models import ExtraField, PersonExtraFieldValue, PersonExtra
@@ -40,7 +44,7 @@ class ExtraFieldTests(TestUserMixin, WebTest):
         )
         c_field = ExtraField.objects.create(
             key='cv',
-            label=u'Curriculum Vitae or Resumé',
+            label='Curriculum Vitae or Resumé',
             type=ExtraField.LINE,
         )
 
@@ -59,12 +63,12 @@ class ExtraFieldTests(TestUserMixin, WebTest):
         PersonExtraFieldValue.objects.create(
             field=c_field,
             person=self.person,
-            value=u'http://cv.example.org/john'
+            value='http://cv.example.org/john'
         )
         PersonExtraFieldValue.objects.create(
             field=p_field,
             person=self.person,
-            value=u'Tree Surgeon'
+            value='Tree Surgeon'
         )
         PersonExtraFieldValue.objects.create(
             field=yn_field,
@@ -198,11 +202,11 @@ class ExtraFieldTests(TestUserMixin, WebTest):
             '/person/{person_id}'.format(person_id=self.person.id)
         )
 
-        cv_dt = response.html.find('dt', text=u'Curriculum Vitae or Resumé')
+        cv_dt = response.html.find('dt', text='Curriculum Vitae or Resumé')
         cv_dd = get_next_dd(cv_dt)
         self.assertEqual(cv_dd.text.strip(), 'http://cv.example.org/john')
 
-        profession_dt = response.html.find('dt', text=u'Profession')
+        profession_dt = response.html.find('dt', text='Profession')
         profession_dd = get_next_dd(profession_dt)
         self.assertEqual(profession_dd.text.strip(), 'Tree Surgeon')
 

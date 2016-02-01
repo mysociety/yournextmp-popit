@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from candidates.views import AddressFinderView
 
 from cached_counts.models import get_attention_needed_posts

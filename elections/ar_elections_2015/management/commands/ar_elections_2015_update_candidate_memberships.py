@@ -1,3 +1,5 @@
+from __future__ import print_function, unicode_literals
+
 import json
 
 from django.core.management.base import BaseCommand
@@ -39,11 +41,11 @@ class Command(BaseCommand):
                     self.api.memberships(membership['id']).put(membership)
                 except (HttpServerError, HttpClientError) as e:
                     message = "There was an error when putting to membership: {0}"
-                    print message.format(membership['id'])
-                    print json.dumps(membership, indent=True, sort_keys=True)
-                    print "The error was:"
-                    print e.content
+                    print(message.format(membership['id']))
+                    print(json.dumps(membership, indent=True, sort_keys=True))
+                    print("The error was:")
+                    print(e.content)
                 break
             if not election_found:
-                message = u"Warning: no election found for membership ID {0}"
-                print message.format(membership['id'])
+                message = "Warning: no election found for membership ID {0}"
+                print(message.format(membership['id']))

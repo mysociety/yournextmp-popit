@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import os
 
 from django.db import models
@@ -7,6 +9,8 @@ from popolo.models import Post
 from elections.models import Election
 
 from django_extensions.db.models import TimeStampedModel
+
+from compat import python_2_unicode_compatible
 
 DOCUMENT_UPLOADERS_GROUP_NAME = "Document Uploaders"
 
@@ -19,6 +23,7 @@ def document_file_name(instance, filename):
     )
 
 
+@python_2_unicode_compatible
 class OfficialDocument(TimeStampedModel):
     NOMINATION_PAPER = 'Nomination paper'
 
@@ -29,7 +34,7 @@ class OfficialDocument(TimeStampedModel):
     election = models.ForeignKey(Election)
     document_type = models.CharField(
         blank=False,
-        choices=[ (d[0], d[1]) for d in DOCUMENT_TYPES ],
+        choices=[(d[0], d[1]) for d in DOCUMENT_TYPES],
         max_length=100)
     uploaded_file = models.FileField(
         upload_to=document_file_name, max_length=800)
@@ -39,8 +44,8 @@ class OfficialDocument(TimeStampedModel):
         max_length=1000,
     )
 
-    def __unicode__(self):
-        return u"{0} ({1})".format(
+    def __str__(self):
+        return "{0} ({1})".format(
             self.post.extra.slug,
             self.source_url,
         )

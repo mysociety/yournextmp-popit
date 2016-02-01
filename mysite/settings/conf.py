@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 import importlib
 from os.path import dirname, exists, join, realpath
 import re
@@ -375,8 +377,8 @@ def get_settings(conf_file_leafname, election_app=None, tests=False):
         'TEST_RUNNER': 'django_nose.NoseTestSuiteRunner',
 
         'SOURCE_HINTS': _(
-            u"Please don't quote third-party candidate sites \u2014 "
-            u"we prefer URLs of news stories or official candidate pages."
+            "Please don't quote third-party candidate sites \u2014 "
+            "we prefer URLs of news stories or official candidate pages."
         ),
 
         # By default, cache successful results from MapIt for a day

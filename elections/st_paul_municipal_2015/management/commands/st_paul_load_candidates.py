@@ -1,3 +1,5 @@
+from __future__ import print_function, unicode_literals
+
 import requests
 import csv
 
@@ -54,7 +56,7 @@ class Command(BaseCommand):
 
         candidate_list = requests.get(spreadsheet_url)
 
-        content = StringIO(unicode(candidate_list.content))
+        content = StringIO(candidate_list.text)
         reader = csv.DictReader(content)
 
         api = create_popit_api_object()
@@ -145,5 +147,5 @@ class Command(BaseCommand):
                 # if image_url:
                 #     enqueue_image(person, user, image_url)
             except HttpClientError as hce:
-                print "Got an HttpClientError:", hce.content
+                print("Got an HttpClientError:", hce.content)
                 raise

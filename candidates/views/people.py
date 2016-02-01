@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import json
 import re
 
@@ -138,7 +140,7 @@ class PersonView(TemplateView):
 
 class RevertPersonView(LoginRequiredMixin, View):
 
-    http_method_names = [u'post']
+    http_method_names = ['post']
 
     def post(self, request, *args, **kwargs):
         version_id = self.request.POST['version_id']
@@ -193,7 +195,7 @@ class RevertPersonView(LoginRequiredMixin, View):
 
 class MergePeopleView(GroupRequiredMixin, View):
 
-    http_method_names = [u'post']
+    http_method_names = ['post']
     required_group_name = TRUSTED_TO_MERGE_GROUP_NAME
 
     def post(self, request, *args, **kwargs):

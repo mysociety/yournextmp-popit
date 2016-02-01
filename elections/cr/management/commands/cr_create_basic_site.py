@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 from datetime import date
 
@@ -40,16 +41,16 @@ class Command(BaseCommand):
                     {
                         'slug': 'mun-al-2016',
                         'for_post_role': 'Alcalde',
-                        'name': u'Elección de Alcaldes 2016',
-                        'organization_name': u'Alcaldía Municipal',
+                        'name': 'Elección de Alcaldes 2016',
+                        'organization_name': 'Alcaldía Municipal',
                         'organization_slug': 'alcaldia-municipal',
                         'party_lists_in_use': False,
                     },
                     {
                         'slug': 'mun-re-2016',
                         'for_post_role': 'Regidor',
-                        'name': u'Elección de Regidores 2016',
-                        'organization_name': u'Consejo Municipal',
+                        'name': 'Elección de Regidores 2016',
+                        'organization_name': 'Consejo Municipal',
                         'organization_slug': 'consejo-municipal',
                         'party_lists_in_use': True,
                         'default_party_list_members_to_show': 3,
@@ -107,8 +108,8 @@ class Command(BaseCommand):
                         'Regidor': 're-',
                     }[post_role]
                     post_label = {
-                        'Alcalde': u'Alcalde de {area_name}',
-                        'Regidor': u'Regidor de {area_name}',
+                        'Alcalde': 'Alcalde de {area_name}',
+                        'Regidor': 'Regidor de {area_name}',
                     }[post_role].format(area_name=area.name)
                     post_slug = post_prefix + str(area.identifier)
                     try:

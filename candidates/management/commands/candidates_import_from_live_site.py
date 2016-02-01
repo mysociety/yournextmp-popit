@@ -1,3 +1,5 @@
+from __future__ import print_function, unicode_literals
+
 from contextlib import contextmanager
 import errno
 import hashlib
@@ -6,7 +8,6 @@ from os import makedirs
 from os.path import dirname, exists, join
 import re
 import shutil
-from urlparse import urlsplit, urlunsplit
 
 from PIL import Image as PillowImage
 
@@ -16,6 +17,7 @@ from django.core.files.storage import FileSystemStorage
 from django.core.management.base import BaseCommand, CommandError
 from django.core.management.color import no_style
 from django.db import connection, transaction
+from django.utils.six.moves.urllib_parse import urlsplit, urlunsplit
 
 import requests
 
@@ -59,8 +61,8 @@ def show_data_on_error(variable_name, data):
         yield
     except:
         message = 'An exception was thrown while processing {0}:'
-        print message.format(variable_name)
-        print json.dumps(data, indent=4, sort_keys=True)
+        print(message.format(variable_name))
+        print(json.dumps(data, indent=4, sort_keys=True))
         raise
 
 
@@ -91,9 +93,9 @@ class Command(BaseCommand):
             if model_class.objects.exists():
                 non_empty_models.append(model_class)
         if non_empty_models:
-            print "There were already objects of these models:"
+            print("There were already objects of these models:")
             for model_class in non_empty_models:
-                print " ", model_class
+                print(" ", model_class)
             msg = "This command should only be run on an empty database"
             raise CommandError(msg)
 
@@ -132,13 +134,13 @@ class Command(BaseCommand):
         if exists(filename):
             return filename
         else:
-            print "\nDownloading {0} ...".format(url)
+            print("\nDownloading {0} ...".format(url))
             with open(filename, 'wb') as f:
                 r = requests.get(url, stream=True)
                 r.raise_for_status()
                 r.raw.decode_content = True
                 shutil.copyfileobj(r.raw, f)
-            print "done"
+            print("done")
         return filename
 
     def get_image_extension(self, image_filename):
@@ -146,10 +148,10 @@ class Command(BaseCommand):
             try:
                 pillow_image = PillowImage.open(f)
             except IOError as e:
-                if 'cannot identify image file' in unicode(e):
-                    print "Ignoring a non-image file {0}".format(
+                if 'cannot identify image file' in e.args[0]:
+                    print("Ignoring a non-image file {0}".format(
                         image_filename
-                    )
+                    ))
                     return None
                 raise
             return PILLOW_FORMAT_EXTENSIONS[pillow_image.format]

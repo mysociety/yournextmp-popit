@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import json
 from os.path import dirname
 import subprocess
@@ -16,6 +18,8 @@ from candidates import models as extra_models
 from elections.models import AreaType, Election
 from popolo.models import Area, Membership, Person, Post
 from rest_framework import viewsets
+
+from compat import text_type
 
 from ..election_specific import fetch_area_ids
 
@@ -37,7 +41,7 @@ class UpcomingElectionsView(View):
 
         try:
             areas = fetch_area_ids(postcode=postcode, coords=coords)
-        except Exception, e:
+        except Exception as e:
             errors = {
                 'error': e.message
             }
@@ -72,7 +76,7 @@ class UpcomingElectionsView(View):
                         'name': post.area.name,
                         'identifier': post.area.identifier,
                     },
-                    'election_date': unicode(election.election_date),
+                    'election_date': text_type(election.election_date),
                     'election_name': election.name
                 })
 
@@ -101,9 +105,10 @@ class VersionView(View):
             git_version = subprocess.check_output(
                 ['git', 'rev-parse', '--verify', 'HEAD'],
                 cwd=dirname(__file__),
+                universal_newlines=True
             ).strip()
             result['git_version'] = git_version
-        except OSError, subprocess.CalledProcessError:
+        except (OSError, subprocess.CalledProcessError):
             pass
         return HttpResponse(
             json.dumps(result), content_type='application/json'
