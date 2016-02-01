@@ -70,11 +70,13 @@ class Command(BaseCommand):
                 area = Area.objects.get(name=name)
             except Area.DoesNotExist:
                 print("Failed to find area for {0}".format(name))
+                continue
 
             try:
                 post = Post.objects.get(area=area)
             except Post.DoesNotExist:
                 print("Failed to find post with for {0}".format(name))
+                continue
 
             document_url = row['Statement of Persons Nominated (SOPN) URL']
             if not document_url:
