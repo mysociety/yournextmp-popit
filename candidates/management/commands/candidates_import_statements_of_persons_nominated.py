@@ -1,6 +1,5 @@
 from __future__ import print_function, unicode_literals
 
-import csv
 import errno
 import hashlib
 import magic
@@ -10,11 +9,13 @@ from os.path import dirname, join, exists
 import requests
 
 from django.core.management.base import BaseCommand, CommandError
-from django.core.files.storage import FileSystemStorage 
+from django.core.files.storage import FileSystemStorage
 
 from official_documents.models import OfficialDocument
 from elections.models import Election
 from popolo.models import Post, Area
+
+from compat import StreamDictReader
 
 CSV_URL = 'https://docs.google.com/a/mysociety.org/spreadsheets/d/1jvWaQSENnASZfGne1IWRbDATMH2NT2xutyPEbZ5Is-8/export?format=csv&id=1jvWaQSENnASZfGne1IWRbDATMH2NT2xutyPEbZ5Is-8&gid=0'
 
@@ -23,6 +24,7 @@ allowed_mime_types = set([
     b'application/msword',
     b'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 ])
+
 
 def download_file_cached(url):
     url_hash = hashlib.md5(url).hexdigest()
@@ -40,6 +42,7 @@ def download_file_cached(url):
         f.write(r.content)
     return filename
 
+
 class Command(BaseCommand):
     args = "<ELECTION_SLUG>"
 
@@ -55,10 +58,11 @@ class Command(BaseCommand):
         mime_type_magic = magic.Magic(mime=True)
         storage = FileSystemStorage()
 
-        r = requests.get(CSV_URL, stream=True)
-        reader = csv.DictReader(r.raw)
+        r = requests.get(CSV_URL)
+        r.encoding = 'utf-8'
+        reader = StreamDictReader(r.text)
         for row in reader:
-            name = row['Constituency'].decode('utf-8')
+            name = row['Constituency']
             if not name:
                 continue
 
