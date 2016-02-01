@@ -19,9 +19,9 @@ from popolo.models import Post, Area
 CSV_URL = 'https://docs.google.com/a/mysociety.org/spreadsheets/d/1jvWaQSENnASZfGne1IWRbDATMH2NT2xutyPEbZ5Is-8/export?format=csv&id=1jvWaQSENnASZfGne1IWRbDATMH2NT2xutyPEbZ5Is-8&gid=0'
 
 allowed_mime_types = set([
-    'application/pdf',
-    'application/msword',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    b'application/pdf',
+    b'application/msword',
+    b'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 ])
 
 def download_file_cached(url):
