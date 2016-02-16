@@ -348,3 +348,15 @@ class TestAPI(WebTest):
         version_resp = self.app.get('/version.json')
         info = version_resp.json
         self.assertEqual(info['interesting_user_actions'], 1)
+
+    def test_api_cors_headers(self):
+        resp = self.app.get('/api/v0.9/', headers={
+            'Origin': b'http://example.com'}
+        )
+        self.assertTrue('Access-Control-Allow-Origin' in resp.headers)
+        self.assertEqual(resp.headers['Access-Control-Allow-Origin'], '*')
+
+        resp = self.app.get('/', headers={
+            'Origin': b'http://example.com'}
+        )
+        self.assertFalse('Access-Control-Allow-Origin' in resp.headers)

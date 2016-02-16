@@ -215,12 +215,14 @@ def get_settings(conf_file_leafname, election_app=None, tests=False):
             'allauth.socialaccount.providers.google',
             'allauth.socialaccount.providers.facebook',
             'allauth.socialaccount.providers.twitter',
+            'corsheaders',
         ),
 
         'SITE_ID': 1,
 
         'MIDDLEWARE_CLASSES': (
             'debug_toolbar.middleware.DebugToolbarMiddleware',
+            'corsheaders.middleware.CorsMiddleware',
             'django.contrib.sessions.middleware.SessionMiddleware',
             'django.middleware.locale.LocaleMiddleware',
             'django.middleware.common.CommonMiddleware',
@@ -414,6 +416,14 @@ def get_settings(conf_file_leafname, election_app=None, tests=False):
                 'INDEX_NAME': '{0}_{1}'.format(conf.get('YNMP_DB_NAME'), conf.get('YNMP_DB_HOST')),
             },
         },
+
+        # CORS config
+        'CORS_ORIGIN_ALLOW_ALL': True,
+        'CORS_URLS_REGEX': r'^/api/.*$',
+        'CORS_ALLOW_METHODS': (
+            'GET',
+            'OPTIONS',
+        ),
     }
     if not conf.get('NEW_ACCOUNTS_ALLOWED', True):
         result['ACCOUNT_ADAPTER'] = \

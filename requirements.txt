@@ -9,7 +9,8 @@ Django==1.8.4
 django-allauth==0.21.0
 django-appconf==1.0.1
 django-braces==1.4.0
-django-date-extensions==1.1.0
+django-cors-headers==1.1.0
+-e git://github.com/dracos/django-date-extensions.git@b8fca4eb36d1893c0a749fce3ef2a441ef3dcb13#egg=django_date_extensions-dev
 django-debug-toolbar==1.3.2
 django-debug-toolbar-template-timings==0.6.4
 django-extensions==1.6.1
