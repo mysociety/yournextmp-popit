@@ -233,3 +233,8 @@ class LoggedActionViewSet(viewsets.ModelViewSet):
 class ExtraFieldViewSet(viewsets.ModelViewSet):
     queryset = extra_models.ExtraField.objects.order_by('id')
     serializer_class = serializers.ExtraFieldSerializer
+
+
+class SimplePopoloFieldViewSet(viewsets.ModelViewSet):
+    queryset = extra_models.SimplePopoloField.objects.order_by('id')
+    serializer_class = serializers.SimplePopoloFieldSerializer

@@ -88,7 +88,8 @@ class Command(BaseCommand):
                 pmodels.Identifier, pmodels.Link, pmodels.Area,
                 # Additional models:
                 models.PartySet, models.ImageExtra, models.LoggedAction,
-                models.PersonRedirect, emodels.Election, models.ExtraField
+                models.PersonRedirect, emodels.Election, models.ExtraField,
+                models.SimplePopoloField
         ):
             if model_class.objects.exists():
                 non_empty_models.append(model_class)
@@ -161,6 +162,10 @@ class Command(BaseCommand):
             with show_data_on_error('extra_field', extra_field):
                 del extra_field['url']
                 models.ExtraField.objects.create(**extra_field)
+        for simple_field in self.get_api_results('simple_fields'):
+            with show_data_on_error('simple_field', simple_field):
+                del simple_field['url']
+                models.SimplePopoloField.objects.create(**simple_field)
         for area_type_data in self.get_api_results('area_types'):
             with show_data_on_error('area_type_data', area_type_data):
                 del area_type_data['url']
@@ -425,7 +430,8 @@ class Command(BaseCommand):
         reset_sql_list = connection.ops.sequence_reset_sql(
             no_style(), [
                 emodels.AreaType, models.PartySet, pmodels.Area,
-                emodels.Election, Image, models.ExtraField
+                emodels.Election, Image, models.ExtraField,
+                models.SimplePopoloField
             ]
         )
         if reset_sql_list:

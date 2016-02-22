@@ -17,6 +17,8 @@ from .field_mappings import CSV_ROW_FIELDS
 
 from .fields import ExtraField
 from .fields import PersonExtraFieldValue
+from .fields import SimplePopoloField
+from .fields import ComplexPopoloField
 
 from .db import LoggedAction
 from .db import PersonRedirect

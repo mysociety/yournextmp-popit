@@ -25,9 +25,9 @@ from images.models import Image, HasImageMixin
 
 from compat import python_2_unicode_compatible
 from .field_mappings import (
-    form_simple_fields, form_complex_fields_locations
+    form_complex_fields_locations
 )
-from .fields import ExtraField, PersonExtraFieldValue
+from .fields import ExtraField, PersonExtraFieldValue, SimplePopoloField, ComplexPopoloField
 from ..diffs import get_version_diffs
 from .versions import get_person_as_version_data
 
@@ -50,10 +50,10 @@ def update_person_from_form(person, person_extra, form):
         form_data['birth_date'] = repr(birth_date_date).replace("-00-00", "")
     else:
         form_data['birth_date'] = ''
-    for field_name in form_simple_fields.keys():
-        setattr(person, field_name, form_data[field_name])
-    for field_name, location in form_complex_fields_locations.items():
-        person_extra.update_complex_field(location, form_data[field_name])
+    for field in SimplePopoloField.objects.all():
+        setattr(person, field.name, form_data[field.name])
+    for field in ComplexPopoloField.objects.all():
+        person_extra.update_complex_field(field, form_data[field.name])
     for extra_field in ExtraField.objects.all():
         if extra_field.key in form_data:
             PersonExtraFieldValue.objects.update_or_create(
@@ -178,16 +178,18 @@ class PersonExtra(HasImageMixin, models.Model):
     images = GenericRelation(Image)
 
     def __getattr__(self, name):
-        if name in form_complex_fields_locations:
-            loc = form_complex_fields_locations[name]
+        # TODO: this does not seem optimal
+        field = ComplexPopoloField.objects.filter(name=name)
+        if field.exists():
+            field = field.first()
             # Iterate rather than using filter because that would
             # cause an extra query when the relation has already been
             # populated via select_related:
-            for e in getattr(self.base, loc['sub_array']).all():
-                info_type_key = getattr(e, loc['info_type_key'])
-                if (info_type_key == loc['info_type']) or \
-                   (info_type_key == loc.get('old_info_type')):
-                    return getattr(e, loc['info_value_key'])
+            for e in getattr(self.base, field.popolo_array).all():
+                info_type_key = getattr(e, field.info_type_key)
+                if (info_type_key == field.info_type) or \
+                   (info_type_key == field.old_info_type):
+                    return getattr(e, field.info_value_key)
             return ''
         else:
             message = _("'PersonExtra' object has no attribute '{name}'")
@@ -327,28 +329,28 @@ class PersonExtra(HasImageMixin, models.Model):
         self.versions = json.dumps(versions)
 
     def update_complex_field(self, location, new_value):
-        existing_info_types = [location['info_type']]
-        if 'old_info_type' in location:
-            existing_info_types.append(location['old_info_type'])
-        related_manager = getattr(self.base, location['sub_array'])
+        existing_info_types = [location.info_type]
+        if location.old_info_type:
+            existing_info_types.append(location.old_info_type)
+        related_manager = getattr(self.base, location.popolo_array)
         # Remove the old entries of that type:
         kwargs = {
-            (location['info_type_key'] + '__in'): existing_info_types
+            (location.info_type_key + '__in'): existing_info_types
         }
         related_manager.filter(**kwargs).delete()
         if new_value:
             kwargs = {
-                location['info_type_key']: location['info_type'],
-                location['info_value_key']: new_value,
+                location.info_type_key: location.info_type,
+                location.info_value_key: new_value,
             }
             related_manager.create(**kwargs)
 
     def get_initial_form_data(self):
         initial_data = {}
-        for field_name in form_simple_fields.keys():
-            initial_data[field_name] = getattr(self.base, field_name)
-        for field_name in form_complex_fields_locations.keys():
-            initial_data[field_name] = getattr(self, field_name)
+        for field in SimplePopoloField.objects.all():
+            initial_data[field.name] = getattr(self.base, field.name)
+        for field in ComplexPopoloField.objects.all():
+            initial_data[field.name] = getattr(self, field.name)
         for extra_field_value in PersonExtraFieldValue.objects.filter(
                 person=self.base
         ).select_related('field'):

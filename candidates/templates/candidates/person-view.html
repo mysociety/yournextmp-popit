@@ -113,16 +113,29 @@
   <dl>
     <dt>{% trans "Name" %}</dt>
     <dd>{{ person.extra.name_with_honorifics }}</dd>
-    {% if person.other_names.exists %}
+    {% if person.other_names.exists or 'additional_name' in simple_fields and person.additional_name %}
       <dt>{% trans "Also known as" %}</dt>
+    {% endif %}
+    {% if 'additional_name' in simple_fields and person.additional_name %}
+      <dd>{{ person.additional_name }} ({% trans 'additional name' %})</dd>
     {% endif %}
     {% for other_name in person.other_names.all %}
       <dd>{{ other_name.name }}{% if other_name.note %} ({{ other_name.note }}){% endif %}</dd>
     {% endfor %}
-    <dt>{% trans "Email" %}</dt>
-    <dd>{% if person.email %}<a href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif %}</dd>
+    {% if 'email' in simple_fields %}
+      <dt>{% trans "Email" %}</dt>
+      <dd>{% if person.email %}<a href="mailto:{{ person.email }}">{{ person.email }}</a>{% endif %}</dd>
+    {% endif %}
     <dt>{% trans "Party" %}</dt>
     <dd>{{ last_candidacy.on_behalf_of.name }}</dd>
+    {% if 'summary' in simple_fields %}
+      <dt>{% trans "Summary" %}</dt>
+      <dd>{% if person.summary %}{{ person.summary }}{% endif %}</dd>
+    {% endif %}
+    {% if 'biography' in simple_fields %}
+      <dt>{% trans "Biography" %}</dt>
+      <dd>{% if person.biography %}{{ person.biography }}{% endif %}</dd>
+    {% endif %}
   </dl>
 
   <h2>{% trans "Candidacies:" %}</h2>
@@ -143,60 +156,60 @@
   <h2>{% trans "Links and social media:" %}</h2>
 
   <dl>
-    <dt>Twitter</dt>
-    <dd>{% if person.extra.twitter_username %}<a rel="nofollow" href="https://twitter.com/{{ person.extra.twitter_username }}">@{{ person.extra.twitter_username }}</a>{% endif %}</dd>
-    <dt>Facebook</dt>
-    {% if person.extra.facebook_personal_url %}
-      <dd><a rel="nofollow" href="{{ person.extra.facebook_personal_url }}">{{ person.extra.facebook_personal_url }}</a> <small>{% trans "(personal profile)" %}</small></dd>
-    {% endif %}
-    {% if person.extra.facebook_page_url %}
-      <dd><a rel="nofollow" href="{{ person.extra.facebook_page_url }}">{{ person.extra.facebook_page_url }}</a> <small>{% trans "(campaign page)" %}</small></dd>
-    {% endif %}
-    {% if not person.extra.facebook_personal_url and not person.extra.facebook_page_url %}
-      <dd></dd>
-    {% endif %}
-    <dt>{% trans "Homepage" %}</dt>
-    <dd>{% if person.extra.homepage_url %}<a rel="nofollow" href="{{ person.extra.homepage_url }}">{{ person.extra.homepage_url }}</a>{% endif %}</dd>
-    <dt>{% trans "Wikipedia page" %}</dt>
-    <dd>{% if person.extra.wikipedia_url %}<a rel="nofollow" href="{{ person.extra.wikipedia_url }}">{{ person.extra.wikipedia_url }}</a>{% endif %}</dd>
-    <dt>{% trans "LinkedIn page" %}</dt>
-    <dd>{% if person.extra.linkedin_url %}<a rel="nofollow" href="{{ person.extra.linkedin_url }}">{{ person.extra.linkedin_url }}</a>{% endif %}</dd>
-    <dt>{% trans "Party candidate page" %}</dt>
-    <dd>{% if person.extra.party_ppc_page_url %}<a rel="nofollow" href="{{ person.extra.party_ppc_page_url }}">{{ person.extra.party_ppc_page_url }}</a>{% endif %}</dd>
-  </dl>
-
-  <h2>{% trans "Demographics:" %}</h2>
-
-  <dl>
-    <dt>{% trans "Gender" %}</dt>
-    <dd>{% if person.gender %}{{ person.gender|title }}{% else %}{% trans "Unknown" %}{% endif %}</dd>
-    <dt>{% trans "Age" %}</dt>
-    {% with dob=person.birth_date %}
-      {% if dob %}
-        {% if dob|length_is:"4" %}
-          <dd>{{ person.extra.age }}
-            <small class="dob">({% blocktrans %}Year of birth: {{ dob }}{% endblocktrans %})</small>
-        {% else %}
-          <dd>{{ person.extra.age }}
-            <small class="dob">
-              {% comment %}
-                The 'S' format only gives an English ordinal suffix, so only
-                use it if the LANGUAGE is English.
-              {% endcomment %}
-              {% if LANGUAGE_CODE|slice:":2" == 'en' %}
-                ({% blocktrans with dob=person.extra.dob_as_date|date:"jS F Y" %}Date of birth: {{ dob }}
-                 {% endblocktrans %})
-              {% else %}
-                ({% blocktrans with dob=person.extra.dob_as_date|date:"j F Y" %}Date of birth: {{ dob }}
-                 {% endblocktrans %})
-              {% endif %}
-            </small>
-        {% endif %}
+    {% for field, value in complex_fields %}
+        <dt>{{ field.label }}</dt>
+      {% if field.info_type == 'twitter' %}
+        <dd>{% if value %}<a rel="nofollow" href="https://twitter.com/{{ value }}">@{{ value }}</a>{% endif %}</dd>
+      {% elif field.field_type == 'url' %}
+        <dd>{% if value %}<a rel="nofollow" href="{{ value }}">{{ value }}</a>{% endif %}</dd>
       {% else %}
-        <dd>{% trans "Unknown" %}
-      {% endif %}</dd>
-    {% endwith %}
+        <dd>{{ value }}</dt>
+      {% endif %}
+    {% endfor %}
   </dl>
+
+  {% if has_demographics %}
+    <h2>{% trans "Demographics:" %}</h2>
+
+    <dl>
+      {% if 'gender' in simple_fields %}
+        <dt>{% trans "Gender" %}</dt>
+        <dd>{% if person.gender %}{{ person.gender|title }}{% else %}{% trans "Unknown" %}{% endif %}</dd>
+      {% endif %}
+      {% if 'birth_date' in simple_fields %}
+        <dt>{% trans "Age" %}</dt>
+        {% with dob=person.birth_date %}
+          {% if dob %}
+            {% if dob|length_is:"4" %}
+              <dd>{{ person.extra.age }}
+                <small class="dob">({% blocktrans %}Year of birth: {{ dob }}{% endblocktrans %})</small>
+            {% else %}
+              <dd>{{ person.extra.age }}
+                <small class="dob">
+                  {% comment %}
+                    The 'S' format only gives an English ordinal suffix, so only
+                    use it if the LANGUAGE is English.
+                  {% endcomment %}
+                  {% if LANGUAGE_CODE|slice:":2" == 'en' %}
+                    ({% blocktrans with dob=person.extra.dob_as_date|date:"jS F Y" %}Date of birth: {{ dob }}
+                     {% endblocktrans %})
+                  {% else %}
+                    ({% blocktrans with dob=person.extra.dob_as_date|date:"j F Y" %}Date of birth: {{ dob }}
+                     {% endblocktrans %})
+                  {% endif %}
+                </small>
+            {% endif %}
+          {% else %}
+            <dd>{% trans "Unknown" %}
+          {% endif %}</dd>
+        {% endwith %}
+      {% endif %}
+      {% if 'national_identity' in simple_fields %}
+        <dt>{% trans "National Identity" %}</dt>
+        <dd>{% if person.national_identity %}{{ person.national_identity }}{% endif %}</dd>
+      {% endif %}
+    </dl>
+  {% endif %}
 
   {% if extra_fields %}
     <h2>{% trans "Additional information:" %}</h2>

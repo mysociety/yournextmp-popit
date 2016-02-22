@@ -59,45 +59,16 @@
 
       <h2>{% trans "Personal details:" %}</h2>
 
-      {% if settings.ELECTION_APP == 'cr' %}
-      <input id="id_honorific_prefix" maxlength="256" name="honorific_prefix" type="hidden" value="">
-      {% else %}
-      <div class="form-item {% if form.honorific_prefix.errors %}form-item--errors{% endif %}">
+      {% for simple_field in personal_fields %}
+      <div class="form-item {% if simple_field.errors %}form-item--errors{% endif %}">
         <p>
-          {{ form.honorific_prefix.label_tag }}
-          {{ form.honorific_prefix }}
+          {{ simple_field.label_tag }}
+          {{ simple_field }}
         </p>
-        {{ form.honorific_prefix.errors }}
-      </div>
-      {% endif %}
-
-      <div class="form-item {% if form.name.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.name.label_tag }}
-          {{ form.name }}
-        </p>
-        {{ form.name.errors }}
+        {{ simple_field.errors }}
       </div>
 
-      {% if settings.ELECTION_APP == 'cr' %}
-      <input id="id_honorific_suffix" maxlength="256" name="honorific_suffix" type="hidden" value="">
-      {% else %}
-      <div class="form-item {% if form.honorific_suffix.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.honorific_suffix.label_tag }}
-          {{ form.honorific_suffix }}
-        </p>
-        {{ form.honorific_suffix.errors }}
-      </div>
-      {% endif %}
-
-      <div class="form-item {% if form.email.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.email.label_tag }}
-          {{ form.email }}
-        </p>
-        {{ form.email.errors }}
-      </div>
+      {% endfor %}
 
       <div>
         <h2>{% trans "Constituencies:" %}</h2>
@@ -150,84 +121,44 @@
 
       <h2>{% trans "Links and social media:" %}</h2>
 
-      <div class="form-item {% if form.twitter_username.errors %}form-item--errors{% endif %}">
-        {{ form.twitter_username.label_tag }}
-        <div class="row collapse">
-          <div class="small-1 columns">
-            <span class="prefix">@</span>
+
+      {% for field_info, tag in complex_fields %}
+        {% if field_info.info_type == 'twitter' %}
+          <div class="form-item {% if tag.errors %}form-item--errors{% endif %}">
+            {{ tag.label_tag }}
+            <div class="row collapse">
+              <div class="small-1 columns">
+                <span class="prefix">@</span>
+              </div>
+              <div class="small-11 columns">
+                {{ tag }}
+              </div>
+            </div>
+            {{ tag.errors }}
           </div>
-          <div class="small-11 columns">
-            {{ form.twitter_username }}
+        {% else %}
+          <div class="form-item {% if tag.errors %}form-item--errors{% endif %}">
+            <p>
+              {{ tag.label_tag }}
+              {{ tag }}
+            </p>
+            {{ tag.errors }}
           </div>
-        </div>
-        {{ form.twitter_username.errors }}
-      </div>
-
-      <div class="form-item {% if form.facebook_personal_url.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.facebook_personal_url.label_tag }}
-          {{ form.facebook_personal_url }}
-        </p>
-        {{ form.facebook_personal_url.errors }}
-      </div>
-
-      <div class="form-item {% if form.facebook_page_url.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.facebook_page_url.label_tag }}
-          {{ form.facebook_page_url }}
-        </p>
-        {{ form.facebook_page_url.errors }}
-      </div>
-
-      <div class="form-item {% if form.homepage_url.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.homepage_url.label_tag }}
-          {{ form.homepage_url }}
-        </p>
-        {{ form.homepage_url.errors }}
-      </div>
-
-      <div class="form-item {% if form.wikipedia_url.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.wikipedia_url.label_tag }}
-          {{ form.wikipedia_url }}
-        </p>
-        {{ form.wikipedia_url.errors }}
-      </div>
-
-      <div class="form-item {% if form.linkedin_url.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.linkedin_url.label_tag }}
-          {{ form.linkedin_url }}
-        </p>
-        {{ form.linkedin_url.errors }}
-      </div>
-
-      <div class="form-item {% if form.party_ppc_page_url.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.party_ppc_page_url.label_tag }}
-          {{ form.party_ppc_page_url }}
-        </p>
-        {{ form.party_ppc_page_url.errors }}
-      </div>
+        {% endif %}
+      {% endfor %}
 
       <h2>{% trans "Demographics:" %}</h2>
 
-      <div class="form-item {% if form.gender.errors %}form-item--errors{% endif %}">
+      {% for simple_field in demographic_fields %}
+      <div class="form-item {% if simple_field.errors %}form-item--errors{% endif %}">
         <p>
-          {{ form.gender.label_tag }}
-          {{ form.gender }}
+          {{ simple_field.label_tag }}
+          {{ simple_field }}
         </p>
-        {{ form.gender.errors }}
+        {{ simple_field.errors }}
       </div>
 
-      <div class="form-item {% if form.birth_date.errors %}form-item--errors{% endif %}">
-        <p>
-          {{ form.birth_date.label_tag }}
-          {{ form.birth_date }}
-        </p>
-        {{ form.birth_date.errors }}
-      </div>
+      {% endfor %}
 
       {% if extra_fields %}
 

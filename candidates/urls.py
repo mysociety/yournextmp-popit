@@ -23,6 +23,7 @@ api_router.register(r'images', views.ImageViewSet)
 api_router.register(r'memberships', views.MembershipViewSet)
 api_router.register(r'logged_actions', views.LoggedActionViewSet)
 api_router.register(r'extra_fields', views.ExtraFieldViewSet)
+api_router.register(r'simple_fields', views.SimplePopoloFieldViewSet)
 
 urlpatterns = \
     patterns('',
