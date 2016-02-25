@@ -1,0 +1,11 @@
+{% extends 'generic_base.html' %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block footer_bylines %}
+  <p>{% blocktrans trimmed %}
+      Run by <a href="http://slashroots.org/">SlashRoots Foundation</a>
+    {% endblocktrans %}
+  </p>
+{% endblock %}

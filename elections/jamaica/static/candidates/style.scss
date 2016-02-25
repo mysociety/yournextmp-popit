@@ -1,0 +1,109 @@
+@import "../foundation/scss/foundation/functions";
+
+$color-gold-900: #946e00;
+$color-gold-700: #c69900;
+$color-gold: #ecba00;
+$color-gold-300: #f4d661;
+$color-gold-100: #fdf3c2;
+
+$color-orange-900: #995a11;
+$color-orange-700: #ce7d19;
+$color-orange: #f5981f;
+$color-orange-300: #f9c374;
+$color-orange-100: #feeec9;
+
+$color-teal-900: #32786c;
+$color-teal-700: #43a89f;
+$color-teal: #50ccc5;
+$color-teal-300: #9ee1db;
+$color-teal-100: #edf6f1;
+
+$color-red-900: #99271d;
+$color-red-700: #cd372b;
+$color-red: #f44336;
+$color-red-300: #f89182;
+$color-red-100: #fde0ce;
+
+$color-offwhite: #f3f3f3;
+$color-cream: #e4dfdb;
+$color-yellow: #fdf2d5;
+$color-blue: #0099cc;
+
+$header-background-color: $color-gold;
+$body-background-color: $color-orange-100;
+$footer-text-color: $color-orange-700;
+$content-background-color: #fff;
+
+$muted-text-color: #999;
+
+$message-background-color: $color-gold-100;
+$message-border-color: $color-gold-300;
+
+$highlight-background-color: $color-yellow;
+$information-background-color: $color-teal-100;
+$danger-background-color: $color-orange-100;
+
+$confirmation-background-color: $color-yellow;
+$error-background-color: $color-red-100;
+$error-text-color: $color-red-900;
+$error-border-color: $color-red-300;
+$error-input-border-color: $color-red-700;
+
+$candidate-order-color: #fff;
+$candidate-order-background-color: $color-teal;
+$avatar-background-color: #ddd;
+
+$unknown-candidate-status-color: $color-orange;
+$not-standing-candidate-status-color: $color-red-700;
+
+$homepage-description-background-color: $body-background-color;
+$homepage-description-text-color: $color-orange-700;
+$homepage-activity-color: $color-teal-700;
+$homepage-leaderboard-color: $color-gold-700;
+
+// Override Foundation variables here
+$primary-color: $color-teal;
+$secondary-color: $color-cream;
+$anchor-font-color: $color-blue;
+$anchor-text-decoration: none;
+$button-tny: rem-calc(6);
+$button-sml: rem-calc(8);
+$button-med: rem-calc(10);
+$button-lrg: rem-calc(14);
+$button-radius: 3px;
+$code-font-family: Consolas, Monaco, 'Liberation Mono', Courier, monospace;
+
+@import "../foundation/scss/normalize";
+@import "../foundation/scss/foundation";
+
+@import "../candidates/mixins";
+
+@import "../candidates/header";
+@import "../candidates/content";
+@import "../candidates/footer";
+@import "../candidates/forms";
+
+@import "../candidates/finder";
+@import "../candidates/people";
+@import "../candidates/versions";
+@import "../candidates/parties";
+@import "../candidates/person_edit";
+@import "../candidates/copyright-assignment";
+@import "../candidates/leaderboards";
+@import "../candidates/search";
+
+.header {
+    a {
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+.button {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
