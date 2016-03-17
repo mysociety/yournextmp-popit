@@ -238,6 +238,12 @@ class TestRecordWinner(TestUserMixin, WebTest):
         person = Person.objects.get(id=2009)
         self.assertTrue(person.extra.get_elected(self.election))
 
+        response = self.app.get(
+            '/election/2015/post/65808/dulwich-and-west-norwood',
+            user=self.user_who_can_record_results,
+        )
+        response.mustcontain('Winning candidates for')
+
     def test_record_multiple_winners_per_post_setting(self):
         post_election = PostExtraElection.objects.get(
             postextra=self.post_extra,

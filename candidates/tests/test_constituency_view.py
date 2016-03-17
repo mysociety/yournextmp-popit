@@ -198,6 +198,7 @@ class TestConstituencyDetailView(TestUserMixin, WebTest):
 
     def test_constituency_with_winner(self):
         response = self.app.get('/election/2015/post/14419/edinburgh-east')
+        response.mustcontain('Winning candidate for')
         response.mustcontain('<li class="candidates-list__person candidates-list__person__winner">')
 
         response.mustcontain(no='Unset the current winners')

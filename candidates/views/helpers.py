@@ -224,3 +224,11 @@ def group_candidates_by_party(election_data, candidacies, party_list=True, max_p
         'party_lists_in_use': party_list,
         'parties_and_people': result
     }
+
+
+def get_winning_candidates(candidacies):
+    return [
+        (c.person, c.on_behalf_of)
+        for c in candidacies
+        if c.extra.elected
+    ]

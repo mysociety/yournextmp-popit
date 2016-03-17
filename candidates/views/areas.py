@@ -20,7 +20,7 @@ from elections.models import AreaType, Election
 from ..forms import NewPersonForm
 from .helpers import (
     split_candidacies, group_candidates_by_party,
-    get_person_form_fields
+    get_person_form_fields, get_winning_candidates
 )
 
 class AreasView(TemplateView):
@@ -70,6 +70,7 @@ class AreasView(TemplateView):
                         'on_behalf_of__extra', 'organization'
                     ).all()
                 )
+                winners = get_winning_candidates(current_candidacies)
                 current_candidacies = group_candidates_by_party(
                     election,
                     current_candidacies,
@@ -86,6 +87,7 @@ class AreasView(TemplateView):
                     'candidates_locked': locked,
                     'candidate_list_edits_allowed':
                     get_edits_allowed(self.request.user, locked),
+                    'winners': winners,
                     'candidacies': current_candidacies,
                     'add_candidate_form': NewPersonForm(
                         election=election.slug,

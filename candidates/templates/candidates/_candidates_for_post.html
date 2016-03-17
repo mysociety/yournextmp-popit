@@ -84,8 +84,31 @@
     </form>
   {% endif %}
 
-  <div class="candidates__known">
+  {% for c, party in winners %}
+    {% if forloop.first %}
+    <div class="candidates__known">
+      <h3>{% blocktrans with post_label=post_data.label count counter=winners|length %}
+        Winning candidate for <a href="{{ post_url }}">{{ post_label }}</a>
+        {% plural %}
+        Winning candidates for <a href="{{ post_url }}">{{ post_label }}</a>
+      {% endblocktrans %}</h3>
+      <ul class="candidate-list">
+      {% endif %}
+        <li class="candidates-list__person candidates-list__person__winner{% if user_can_record_results %} hover-highlighting{% endif %}">
+          {% include 'candidates/_person_in_list.html' with election=election %}
+          {% if user.is_authenticated %}
+          <p>
+            <a href="{% url 'person-update' person_id=c.id %}" class="button tiny secondary">{% trans "Edit" %}</a>
+          </p>
+          {% endif %}
+        </li>
+      {% if forloop.last %}
+        </ul>
+    </div>
+    {% endif %}
+  {% endfor %}
 
+  <div class="candidates__known">
     {# Use the post label here, since multiple posts may be used on a page #}
     {% url 'constituency' election=election post_id=post_data.id ignored_slug=post_data.label|slugify as post_url %}
     <h3>{% blocktrans with post_label=post_data.label %}Known candidates for <a href="{{ post_url }}">{{ post_label }}</a>{% endblocktrans %}
@@ -106,39 +129,41 @@
           {% endif %}
 
           {% for c, candidate_elected in people %}
-            {% if forloop.first %}
-              <ul class="candidate-list">
-            {% endif %}
+            {% if not candidate_elected %}
+              {% if forloop.first %}
+                <ul class="candidate-list">
+              {% endif %}
 
-              <li class="candidates-list__person{% if user_can_record_results %} hover-highlighting{% endif %}{% if candidate_elected %} candidates-list__person__winner{% endif %}">
-                {% if candidate_elected %}
-                  <h4 class="candidates-list__person__elected-text">{% trans "Winner" %}</h4>
-                {% endif %}
-
-                {% include 'candidates/_person_in_list.html' with election=election %}
-                {% if user.is_authenticated %}
-                <p>
-                  {% if candidate_list_edits_allowed %}
-                    <a class="button tiny js-toggle-source-confirmation not-standing">{% trans "Not actually standing?" %}</a>
+                <li class="candidates-list__person{% if user_can_record_results %} hover-highlighting{% endif %}{% if candidate_elected %} candidates-list__person__winner{% endif %}">
+                  {% if candidate_elected %}
+                    <h4 class="candidates-list__person__elected-text">{% trans "Winner" %}</h4>
                   {% endif %}
-                  <a href="{% url 'person-update' person_id=c.id %}" class="button tiny secondary">{% trans "Edit" %}</a>
-                </p>
-                {% if candidate_list_edits_allowed %}
-                  {% include 'candidates/_source_confirmation.html' with standing='not-standing' action='candidacy-delete' %}
-                {% endif %}
-                {% endif %}
-                {% if user_can_record_results and show_confirm_result and not candidate_elected %}
-                  <form class="winner-confirm" action="{% url 'record-winner' election=election post_id=post_data.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="person_id" value="{{ c.id }}">
-                    <input type="hidden" name="source" value="{% trans "[Quick update from the constituency page]" %}">
-                    <input type="submit" class="button" value="{% trans "This candidate was elected!" %}">
-                  </form>
-                {% endif %}
-              </li>
 
-            {% if forloop.last %}
-              </ul>
+                  {% include 'candidates/_person_in_list.html' with election=election %}
+                  {% if user.is_authenticated %}
+                  <p>
+                    {% if candidate_list_edits_allowed %}
+                      <a class="button tiny js-toggle-source-confirmation not-standing">{% trans "Not actually standing?" %}</a>
+                    {% endif %}
+                    <a href="{% url 'person-update' person_id=c.id %}" class="button tiny secondary">{% trans "Edit" %}</a>
+                  </p>
+                  {% if candidate_list_edits_allowed %}
+                    {% include 'candidates/_source_confirmation.html' with standing='not-standing' action='candidacy-delete' %}
+                  {% endif %}
+                  {% endif %}
+                  {% if user_can_record_results and show_confirm_result and not candidate_elected %}
+                    <form class="winner-confirm" action="{% url 'record-winner' election=election post_id=post_data.id %}" method="post">
+                      {% csrf_token %}
+                      <input type="hidden" name="person_id" value="{{ c.id }}">
+                      <input type="hidden" name="source" value="{% trans "[Quick update from the constituency page]" %}">
+                      <input type="submit" class="button" value="{% trans "This candidate was elected!" %}">
+                    </form>
+                  {% endif %}
+                </li>
+
+              {% if forloop.last %}
+                </ul>
+              {% endif %}
             {% endif %}
 
           {% endfor %} {# end of 'for c, candidate_elected in people' #}

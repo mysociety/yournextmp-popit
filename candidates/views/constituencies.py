@@ -21,7 +21,8 @@ from auth_helpers.views import GroupRequiredMixin
 from .helpers import (
     get_party_people_for_election_from_memberships,
     split_candidacies, get_redirect_to_post,
-    group_candidates_by_party, get_person_form_fields
+    group_candidates_by_party, get_person_form_fields,
+    get_winning_candidates
 )
 from .version_data import get_client_ip, get_change_metadata
 from ..csv_helpers import list_to_csv
@@ -121,6 +122,7 @@ class ConstituencyDetailView(ElectionMixin, TemplateView):
                 ).all()
             )
 
+        winners = get_winning_candidates(current_candidacies)
         current_candidates = set(c.person for c in current_candidacies)
         past_candidates = set(c.person for c in past_candidacies)
 
@@ -173,6 +175,7 @@ class ConstituencyDetailView(ElectionMixin, TemplateView):
             if c.extra.elected is not None:
                 context['show_retract_result'] = True
 
+        context['winners'] = winners
         max_winners = get_max_winners(mp_post, self.election_data)
         context['show_confirm_result'] = (max_winners < 0) \
             or number_of_winners < max_winners

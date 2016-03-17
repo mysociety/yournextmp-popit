@@ -17,7 +17,7 @@
 
   {% for post in posts %}
 
-    {% with election=post.election election_data=post.election_data candidate_list_edits_allowed=post.candidate_list_edits_allowed candidates_locked=post.candidates_locked post_data=post.post_data add_candidate_form=post.add_candidate_form candidacies=post.candidacies personal_fields=post.personal_fields demographic_fields=post.demographic_fields extra_fields=post.extra_fields constituencies_form_fields=post.constituencies_form_fields %}
+    {% with election=post.election election_data=post.election_data candidate_list_edits_allowed=post.candidate_list_edits_allowed candidates_locked=post.candidates_locked post_data=post.post_data add_candidate_form=post.add_candidate_form candidacies=post.candidacies personal_fields=post.personal_fields demographic_fields=post.demographic_fields extra_fields=post.extra_fields constituencies_form_fields=post.constituencies_form_fields winners=post.winners %}
 
       <h2>{{ election_data.name }}</h2>
 
