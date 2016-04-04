@@ -62,7 +62,7 @@
     <form method="post" action="{% url 'constituency-lock' election=election %}">
       {% csrf_token %}
       {% for field in lock_form %}{{ field }}{% endfor %}
-      <input type="submit" class="button small" value="{% if candidates_locked %}Unlock{% else %}Lock{% endif %} candidate list">
+      <input type="submit" class="button small" value="{% if candidates_locked %}{% trans "Unlock candidate list" %}{% else %}{% trans "Lock candidate list" %}{% endif %}">
       {% if candidates_locked %}
         {% trans "(This list of candidates is currently <strong>locked</strong>.)" %}
       {% else %}
