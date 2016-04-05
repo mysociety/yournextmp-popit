@@ -17,7 +17,7 @@ from candidates.models.auth import get_edits_allowed
 
 from elections.models import AreaType, Election
 
-from ..forms import NewPersonForm
+from ..forms import NewPersonForm, ToggleLockForm
 from .helpers import (
     split_candidacies, group_candidates_by_party,
     get_person_form_fields
@@ -84,6 +84,12 @@ class AreasView(TemplateView):
                         'label': post.label,
                     },
                     'candidates_locked': locked,
+                    'lock_form': ToggleLockForm(
+                        initial={
+                            'post_id': post.extra.slug,
+                            'lock': not locked
+                        },
+                    ),
                     'candidate_list_edits_allowed':
                     get_edits_allowed(self.request.user, locked),
                     'candidacies': current_candidacies,
