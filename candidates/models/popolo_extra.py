@@ -285,7 +285,8 @@ class PersonExtra(HasImageMixin, models.Model):
         if min_age == max_age:
             # We know their exact age:
             return str(min_age)
-        return _("{0} or {1}").format(min_age, max_age)
+        return _("{min_age} or {max_age}").format(min_age=min_age,
+                                                  max_age=max_age)
 
     """
     Return the elected state for a person in an election.
