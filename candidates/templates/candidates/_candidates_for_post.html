@@ -104,9 +104,9 @@
             <h4 class="party-list-header">{{ party.name }}</h4>
             <p class="party-list-description">
               {% if party.truncated %}
-                {% trans "Showing the top candidates." %} <a href="{% url 'party-for-post' election=election post_id=post_data.id organization_id=party.id %}">{% blocktrans with count=party.total_count %}See all {{ count }} members on the party list{% endblocktrans %} &raquo;</a>
+                {% trans "Showing the top candidates." %} <a href="{% url 'party-for-post' election=election post_id=post_data.id organization_id=party.id %}">{% blocktrans with count=party.total_count %}See all {{ count }} members on the party list{% endblocktrans %} &rarr;</a>
               {% else %}
-                <a href="{% url 'party-for-post' election=election post_id=post_data.id organization_id=party.id %}">{% blocktrans with count=party.total_count %}See just this party list{% endblocktrans %} &raquo;</a>
+                <a href="{% url 'party-for-post' election=election post_id=post_data.id organization_id=party.id %}">{% blocktrans with count=party.total_count %}See just this party list{% endblocktrans %} &rarr;</a>
               {% endif %}
           {% endif %}
 
