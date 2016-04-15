@@ -76,8 +76,8 @@
       {% endif %}
     {% empty %}
       <div class="no-candidates row">
-        <p class="medium-8 columns">{% blocktrans trimmed with post_label=post_data.label election_name=election_data.name %}
-            <strong>Oh no!</strong> We don’t know of any candidates from {{ party.name }} for {{ post_label }}
+        <p class="medium-8 columns">{% blocktrans trimmed with party_name=party.name post_label=post_data.label election_name=election_data.name %}
+            <strong>Oh no!</strong> We don’t know of any candidates from {{ party_name }} for {{ post_label }}
         for the {{ election_name }} yet.{% endblocktrans %}</p>
         {% if candidate_list_edits_allowed %}
           <p class="medium-4 columns"><a class="show-new-candidate-form button">{% trans "Add a new candidate" %}</a></p>
