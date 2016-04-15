@@ -23,7 +23,7 @@
                           <img class="person-avatar" src="{{ im.url }}"/>
                         {% endthumbnail %}
                       </a>
-                    {% elif result.object.popit_data.gender|lower == 'female' %}
+                    {% elif result.object.gender|lower == 'female' %}
                       <img class="person-avatar" src="{% static 'candidates/img/blank-woman.png' %}"/>
                     {% else %}
                       <img class="person-avatar" src="{% static 'candidates/img/blank-man.png' %}"/>
