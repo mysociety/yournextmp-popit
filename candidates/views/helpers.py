@@ -57,7 +57,7 @@ def get_redirect_to_post(election, post):
 
 def get_person_form_fields(context, form):
     context['extra_fields'] = []
-    extra_fields = ExtraField.objects.all()
+    extra_fields = ExtraField.objects.order_by('order').all()
     for field in extra_fields:
         context['extra_fields'].append(
             form[field.key]

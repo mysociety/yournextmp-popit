@@ -136,6 +136,7 @@ class ExtraField(models.Model):
         choices=FIELD_TYPES,
     )
     label = models.CharField(max_length=1024)
+    order = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
         return self.key

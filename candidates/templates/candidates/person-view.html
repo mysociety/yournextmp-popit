@@ -215,7 +215,7 @@
   {% if extra_fields %}
     <h2>{% trans "Additional information:" %}</h2>
     <dl>
-      {% for extra_field_key, extra_field in extra_fields.items %}
+      {% for extra_field_key, extra_field in extra_fields %}
         <dt>{% trans extra_field.label %}</dt>
         <dd {% if extra_field.type == 'longer-text' %}class="plaintext-with-newlines"{% endif %}>{{ extra_field | extra_field_value }}</dd>
       {% endfor %}
