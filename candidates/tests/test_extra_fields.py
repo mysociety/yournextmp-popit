@@ -15,9 +15,6 @@ from candidates.models import ExtraField, PersonExtraFieldValue, PersonExtra
 from .auth import TestUserMixin
 from .uk_examples import UK2015ExamplesMixin
 
-def get_next_dd(start):
-    return [t for t in start.next_siblings if t.name == 'dd'][0]
-
 
 class ExtraFieldTests(TestUserMixin, UK2015ExamplesMixin, WebTest):
 
@@ -28,17 +25,20 @@ class ExtraFieldTests(TestUserMixin, UK2015ExamplesMixin, WebTest):
             key='profession',
             label='Profession',
             type=ExtraField.LINE,
+            order=3
         )
         c_field = ExtraField.objects.create(
             key='cv',
             label='Curriculum Vitae or Resumé',
             type=ExtraField.LINE,
+            order=1
         )
 
         yn_field = ExtraField.objects.create(
             key='reelection',
             label='Standing for re-election',
-            type=ExtraField.YESNO
+            type=ExtraField.YESNO,
+            order=2
         )
 
         # Create one person with these fields already present:
@@ -190,13 +190,15 @@ class ExtraFieldTests(TestUserMixin, UK2015ExamplesMixin, WebTest):
         )
 
         cv_dt = response.html.find('dt', text='Curriculum Vitae or Resumé')
-        cv_dd = get_next_dd(cv_dt)
+        cv_dd = cv_dt.find_next_sibling('dd')
         self.assertEqual(cv_dd.text.strip(), 'http://cv.example.org/john')
 
-        profession_dt = response.html.find('dt', text='Profession')
-        profession_dd = get_next_dd(profession_dt)
-        self.assertEqual(profession_dd.text.strip(), 'Tree Surgeon')
+        reelection_dt = cv_dt.find_next_sibling('dt')
+        reelection_dd = reelection_dt.find_next_sibling('dd')
+        self.assertEqual(reelection_dt.text.strip(), 'Standing for re-election')
+        self.assertEqual(reelection_dd.text.strip(), 'Yes')
 
-        profession_dt = response.html.find('dt', text='Standing for re-election')
-        profession_dd = get_next_dd(profession_dt)
-        self.assertEqual(profession_dd.text.strip(), 'Yes')
+        profession_dt = reelection_dt.find_next_sibling('dt')
+        profession_dd = profession_dt.find_next_sibling('dd')
+        self.assertEqual(profession_dt.text.strip(), 'Profession')
+        self.assertEqual(profession_dd.text.strip(), 'Tree Surgeon')
