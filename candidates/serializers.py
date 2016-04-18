@@ -393,7 +393,7 @@ class LoggedActionSerializer(serializers.HyperlinkedModelSerializer):
 class ExtraFieldSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = candidates_models.ExtraField
-        fields = ('id', 'url',  'key', 'type', 'label')
+        fields = ('id', 'url', 'key', 'type', 'label', 'order')
 
 
 class SimplePopoloFieldSerializer(serializers.HyperlinkedModelSerializer):
