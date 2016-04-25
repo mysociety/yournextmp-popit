@@ -136,10 +136,12 @@
   <div class="footer">
     <div class="container">
       <div class="footer__links">
-        <p><a href="{% url 'help-api' %}">{% trans "Open data API" %}</a>
-            &middot; <a href="{% url 'help-about' %}">{% trans "About" %}</a>
-            &middot; <a href="https://github.com/mysociety/yournextrepresentative/issues">{% trans "Issue tracker" %}</a>
-            &middot; <a href="{% url 'help-privacy' %}">{% trans "Privacy policy" %}</a></p>
+        <ul class="nav-links">
+          <li class="nav-links__item"><a href="{% url 'help-privacy' %}">{% trans "Privacy policy" %}</a></li>
+          <li class="nav-links__item"><a href="https://github.com/mysociety/yournextrepresentative/issues">{% trans "Issue tracker" %}</a></li>
+          <li class="nav-links__item"><a href="{% url 'help-about' %}">{% trans "About" %}</a></li>
+          <li class="nav-links__item"><a href="{% url 'help-api' %}">{% trans "Open data API" %}</a></li>
+        </ul>
       </div>
       <div class="footer__bylines">
         {% block footer_bylines %}
