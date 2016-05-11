@@ -17,6 +17,9 @@ python:
   - '3.4'
   - '3.5'
 addons:
+  apt:
+    packages:
+      - libicu-dev
   postgresql: "9.1"
 
 install:

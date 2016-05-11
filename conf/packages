@@ -12,3 +12,4 @@ libssl-dev
 memcached
 gettext
 elasticsearch (<< 1)
+libicu-dev
