@@ -4,43 +4,22 @@ from __future__ import unicode_literals
 
 import re
 
-from .models.address import check_address
-
-from elections.models import Election
-
-from django import forms, VERSION as django_version
+from django import forms
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
-from candidates.models import (
-    PartySet, parse_approximate_date, ExtraField, SimplePopoloField, ComplexPopoloField
-)
+from compat import StrippedCharField, StrippedEmailField, StrippedURLField
+from elections.models import Election
 from popolo.models import Organization, OtherName, Post
+
+from .date_parsing import DateCharField
+from .models import (
+    PartySet, ExtraField, SimplePopoloField, ComplexPopoloField
+)
+from .models.address import check_address
 from .twitter_api import get_twitter_user_id, TwitterAPITokenMissing
-
-if django_version[:2] < (1, 9):
-    class StrippedCharField(forms.CharField):
-        """A backport of the Django 1.9 ``CharField`` ``strip`` option.
-
-        If ``strip`` is ``True`` (the default), leading and trailing
-        whitespace is removed.
-        """
-
-        def __init__(self, max_length=None, min_length=None, strip=True,
-                     *args, **kwargs):
-            self.strip = strip
-            super(StrippedCharField, self).__init__(max_length, min_length,
-                                                    *args, **kwargs)
-
-        def to_python(self, value):
-            value = super(StrippedCharField, self).to_python(value)
-            if self.strip:
-                value = value.strip()
-            return value
-else:
-    StrippedCharField = forms.CharField
 
 
 class AddressForm(forms.Form):
@@ -111,7 +90,7 @@ class BasePersonForm(forms.Form):
                     )
             elif field.type == 'url':
                 self.fields[field.key] = \
-                    forms.URLField(
+                    StrippedURLField(
                         label=_(field.label),
                         max_length=256,
                         required=False,
@@ -142,9 +121,11 @@ class BasePersonForm(forms.Form):
             }
 
             if field.info_type_key == 'url':
-                self.fields[field.name] = forms.URLField(**opts)
+                self.fields[field.name] = StrippedURLField(**opts)
             elif field.info_type_key == 'email':
-                self.fields[field.name] = forms.EmailField(**opts)
+                self.fields[field.name] = StrippedEmailField(**opts)
+            elif field.name == 'birth_date' or field.name == 'death_date':
+                self.fields[field.name] = DateCharField(**opts)
             else:
                 self.fields[field.name] = StrippedCharField(**opts)
 
@@ -155,9 +136,9 @@ class BasePersonForm(forms.Form):
             }
 
             if field.field_type == 'url':
-                self.fields[field.name] = forms.URLField(**opts)
+                self.fields[field.name] = StrippedURLField(**opts)
             elif field.field_type == 'email':
-                self.fields[field.name] = forms.EmailField(**opts)
+                self.fields[field.name] = StrippedEmailField(**opts)
             else:
                 self.fields[field.name] = StrippedCharField(**opts)
 
@@ -166,20 +147,6 @@ class BasePersonForm(forms.Form):
         ('standing', _("Yes")),
         ('not-standing', _("No")),
     )
-
-    def clean_birth_date(self):
-        birth_date = self.cleaned_data['birth_date']
-        if not birth_date:
-            return ''
-        try:
-            parsed_date = parse_approximate_date(birth_date)
-        except ValueError:
-            if settings.DD_MM_DATE_FORMAT_PREFERRED:
-                message = _("That date of birth could not be understood. Try using DD/MM/YYYY instead")
-            else:
-                message = _("That date of birth could not be understood. Try using MM/DD/YYYY instead")
-            raise ValidationError(message)
-        return parsed_date
 
     def clean_twitter_username(self):
         # Remove any URL bits around it:

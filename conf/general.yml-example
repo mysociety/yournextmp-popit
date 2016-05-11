@@ -89,10 +89,6 @@ EDITS_ALLOWED: true
 # Google Analytics.
 USE_UNIVERSAL_ANALYTICS: true
 
-# In all of the world apart from the United States, dd/mm is preferred
-# to mm/dd.  So if your site is for the USA, set this to false:
-DD_MM_DATE_FORMAT_PREFERRED: true
-
 # If there are more than this number of candidates (either in current
 # elections or all elections) for a particular party set we use a
 # "weighted" party list - i.e. the party drop-down is ordered from the

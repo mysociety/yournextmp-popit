@@ -179,31 +179,34 @@
       {% endif %}
       {% if 'birth_date' in simple_fields %}
         <dt>{% trans "Age" %}</dt>
-        {% with dob=person.birth_date %}
-          {% if dob %}
-            {% if dob|length_is:"4" %}
-              <dd>{{ person.extra.age }}
-                <small class="dob">({% blocktrans %}Year of birth: {{ dob }}{% endblocktrans %})</small>
-            {% else %}
-              <dd>{{ person.extra.age }}
-                <small class="dob">
+        <dd>
+          {% with dob=person.birth_date %}
+            {% if dob %}
+              {{ person.extra.age }}
+              <small class="dob">
+                {% if dob|length_is:"4" %}
+                  ({% blocktrans %}Year of birth: {{ dob }}{% endblocktrans %})
+                {% elif dob|length_is:"7" %}
+                  ({% blocktrans trimmed with dob=person.extra.dob_as_date|date:"F Y" %}Month and year of birth: {{ dob }}
+                   {% endblocktrans %})
+                {% else %}
                   {% comment %}
                     The 'S' format only gives an English ordinal suffix, so only
                     use it if the LANGUAGE is English.
                   {% endcomment %}
                   {% if LANGUAGE_CODE|slice:":2" == 'en' %}
-                    ({% blocktrans trimmed with dob=person.extra.dob_as_date|date:"jS E Y" %}Date of birth: {{ dob }}
-                     {% endblocktrans %})
+                    (Date of birth: {{ person.extra.dob_as_date|date:"jS E Y" }})
                   {% else %}
                     ({% blocktrans trimmed with dob=person.extra.dob_as_date|date:"j E Y" %}Date of birth: {{ dob }}
                      {% endblocktrans %})
                   {% endif %}
-                </small>
+                {% endif %}
+              </small>
+            {% else %}
+              {% trans "Unknown" %}
             {% endif %}
-          {% else %}
-            <dd>{% trans "Unknown" %}
-          {% endif %}</dd>
-        {% endwith %}
+          {% endwith %}
+        </dd>
       {% endif %}
       {% if 'national_identity' in simple_fields %}
         <dt>{% trans "National Identity" %}</dt>

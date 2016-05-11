@@ -14,12 +14,9 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext as _
-from django.utils.translation import ugettext_lazy as _l
 from django.utils.six.moves.urllib_parse import urljoin, quote_plus
 
-from dateutil import parser
 from slugify import slugify
-from django_date_extensions.fields import ApproximateDate
 
 from elections.models import Election, AreaType
 from popolo.models import (
@@ -32,6 +29,7 @@ from .fields import (
     ExtraField, PersonExtraFieldValue, SimplePopoloField, ComplexPopoloField,
     get_complex_popolo_fields,
 )
+from ..date_parsing import DateParser
 from ..diffs import get_version_diffs
 from ..twitter_api import update_twitter_user_id, TwitterAPITokenMissing
 from .versions import get_person_as_version_data
@@ -48,13 +46,6 @@ want a join or not.
 
 def update_person_from_form(person, person_extra, form):
     form_data = form.cleaned_data.copy()
-    # The date is returned as a datetime.date, so if that's set, turn
-    # it into a string:
-    birth_date_date = form_data['birth_date']
-    if birth_date_date:
-        form_data['birth_date'] = repr(birth_date_date).replace("-00-00", "")
-    else:
-        form_data['birth_date'] = ''
     for field in SimplePopoloField.objects.all():
         setattr(person, field.name, form_data[field.name])
     for field in ComplexPopoloField.objects.all():
@@ -119,61 +110,6 @@ def update_person_from_form(person, person_extra, form):
             )
         elif standing == 'not-standing':
             person_extra.not_standing.add(election_data)
-
-
-class localparserinfo(parser.parserinfo):
-    MONTHS = [
-        ('Jan', _l('Jan'), 'January', _l('January')),
-        ('Feb', _l('Feb'), 'February', _l('February')),
-        ('Mar', _l('Mar'), 'March', _l('March')),
-        ('Apr', _l('Apr'), 'April', _l('April')),
-        ('May', _l('May'), 'May', _l('May')),
-        ('Jun', _l('Jun'), 'June', _l('June')),
-        ('Jul', _l('Jul'), 'July', _l('July')),
-        ('Aug', _l('Aug'), 'August', _l('August')),
-        ('Sep', _l('Sep'), 'Sept', 'September', _l('September')),
-        ('Oct', _l('Oct'), 'October', _l('October')),
-        ('Nov', _l('Nov'), 'November', _l('November')),
-        ('Dec', _l('Dec'), 'December', _l('December'))
-    ]
-
-    PERTAIN = ['of', _l('of')]
-
-
-def parse_approximate_date(s):
-    """Take any reasonable date string, and return an ApproximateDate for it
-
-    >>> ad = parse_approximate_date('2014-02-17')
-    >>> type(ad)
-    <class 'django_date_extensions.fields.ApproximateDate'>
-    >>> ad
-    2014-02-17
-    >>> parse_approximate_date('2014-02')
-    2014-02-00
-    >>> parse_approximate_date('2014')
-    2014-00-00
-    >>> parse_approximate_date('future')
-    future
-    """
-
-    for regexp in [
-        r'^(\d{4})-(\d{2})-(\d{2})$',
-        r'^(\d{4})-(\d{2})$',
-        r'^(\d{4})$'
-    ]:
-        m = re.search(regexp, s)
-        if m:
-            return ApproximateDate(*(int(g, 10) for g in m.groups()))
-    if s == 'future':
-        return ApproximateDate(future=True)
-    if s:
-        dt = parser.parse(
-            s,
-            parserinfo=localparserinfo(),
-            dayfirst=settings.DD_MM_DATE_FORMAT_PREFERRED
-        )
-        return ApproximateDate(dt.year, dt.month, dt.day)
-    raise ValueError("Couldn't parse '{0}' as an ApproximateDate".format(s))
 
 
 class PersonExtraQuerySet(models.QuerySet):
@@ -317,45 +253,37 @@ class PersonExtra(HasImageMixin, models.Model):
             name_parts.append(post)
         return ' '.join(name_parts)
 
-    @property
-    def dob_as_approximate_date(self):
-        return parse_approximate_date(self.base.birth_date)
-
     def dob_as_date(self):
-        approx = self.dob_as_approximate_date
-        return date(approx.year, approx.month, approx.day)
+        return DateParser.default_parser.parse(self.base.birth_date).date
 
     @property
     def age(self):
         """Return a string representing the person's age"""
-
-        dob = self.dob_as_approximate_date
-        if not dob:
+        if not self.base.birth_date:
             return None
+        dob = DateParser.default_parser.parse(self.base.birth_date)
         today = date.today()
-        approx_age = today.year - dob.year
-        if dob.month == 0 and dob.day == 0:
+        approx_age = today.year - dob.date.year
+        if dob.precision.name == 'YEAR':
             min_age = approx_age - 1
             max_age = approx_age
-        elif dob.day == 0:
+        elif dob.precision.name == 'MONTH':
             min_age = approx_age - 1
             max_age = approx_age
-            if today.month < dob.month:
+            if today.month < dob.date.month:
                 max_age = min_age
-            elif today.month > dob.month:
+            elif today.month > dob.date.month:
                 min_age = max_age
         else:
-            # There's a complete date:
-            dob_as_date = self.dob_as_date()
             try:
-                today_in_birth_year = date(dob.year, today.month, today.day)
+                today_in_birth_year = date(dob.date.year, today.month, today.day)
             except ValueError:
                 # It must have been February 29th
-                today_in_birth_year = date(dob.year, 3, 1)
-            if today_in_birth_year > dob_as_date:
-                min_age = max_age = today.year - dob.year
+                today_in_birth_year = date(dob.date.year, 3, 1)
+            if today_in_birth_year > dob.date:
+                min_age = max_age = today.year - dob.date.year
             else:
-                min_age = max_age = (today.year - dob.year) -1
+                min_age = max_age = (today.year - dob.date.year) -1
         if min_age == max_age:
             # We know their exact age:
             return str(min_age)
