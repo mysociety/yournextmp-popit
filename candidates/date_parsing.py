@@ -67,11 +67,10 @@ class DateParser(object):
          ('yMMM', DatePrecision.MONTH)))
     _patterns = OrderedDict(
         (('yyyy-MM-dd', DatePrecision.DAY),   # ISO 8601
-         ('d-M-yyyy', DatePrecision.DAY),     # 10-6-2016
          ('yyyy-MM', DatePrecision.MONTH),
+         ('yyyy', DatePrecision.YEAR),
          ('LLLL y', DatePrecision.MONTH),     # Μάιος, cf. Μαΐου (see http://unicode.org/cldr/trac/ticket/8456)
-         ('LLL y', DatePrecision.MONTH),      # Μάι, cf. Μαΐ
-         ('y', DatePrecision.YEAR)))
+         ('LLL y', DatePrecision.MONTH)))     # Μάι, cf. Μαΐ
     _skeletons_and_patterns = dict(it.chain(_skeletons.items(),
                                             _patterns.items()))
 
@@ -80,14 +79,12 @@ class DateParser(object):
         ((k, lambda v: v) for k in _skeletons_and_patterns),
         (('yyyy-MM-dd',
           lambda v, _r=re.compile(r'\d{4}-\d{2}-\d{2}$'): _r.match(v)),
-         ('d-M-yyyy',
-          lambda v, _r=re.compile(r'\d{1,2}-\d{1,2}-\d{4}$'): _r.match(v)),
          ('yyyy-MM',
           lambda v, _r=re.compile(r'\d{4}-\d{2}$'): _r.match(v)),
-         ('y',
+         ('yyyy',
           lambda v, _r=re.compile(r'\d{4}$'): _r.match(v)))))
 
-    def _prepare_parser_fns(self, locale):
+    def _prepare(self, locale):
         locale = icu.Locale(locale)
         dtpg = icu.DateTimePatternGenerator.createInstance(locale)
         parsers = it.chain(((f, icu.SimpleDateFormat(dtpg.getBestPattern(f),
@@ -107,7 +104,7 @@ class DateParser(object):
         # only able to switch off the first two.
         for k in parsers:
             parsers[k].setLenient(False)
-        return parsers
+        return parsers, self._validators.copy()
 
     def __init__(self, locale=None):
         if not locale:
@@ -118,7 +115,7 @@ class DateParser(object):
             # the 'en-us' locale
             locale = 'en-gb'
         self._locale = locale
-        self._parser_fns = self._prepare_parser_fns(locale)
+        self._parser_fns, self._validators = self._prepare(locale)
         super(DateParser, self).__init__()
 
     @_cached_parser_property
