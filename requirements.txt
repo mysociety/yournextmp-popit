@@ -55,7 +55,7 @@ psycopg2==2.5.4
 pyasn1==0.1.9
 pycparser==2.14
 pygeocoder==1.2.5
--e git+https://github.com/ovalhub/pyicu@3d294c1#egg=PyICU
+PyICU==1.9.3
 pyOpenSSL==0.15.1
 python-dateutil==2.4.2
 python-magic==0.4.6
