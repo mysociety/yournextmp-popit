@@ -160,6 +160,12 @@ def get_settings(conf_file_leafname, election_app=None, tests=False):
         # SECURITY WARNING: keep the secret key used in production secret!
         'SECRET_KEY': conf['SECRET_KEY'],
 
+        'EMAIL_HOST': conf.get('EMAIL_HOST'),
+        'EMAIL_PORT': conf.get('EMAIL_PORT'),
+        'EMAIL_HOST_USER': conf.get('EMAIL_HOST_USER'),
+        'EMAIL_HOST_PASSWORD': conf.get('EMAIL_HOST_PASSWORD'),
+        'EMAIL_USE_SSL': conf.get('EMAIL_USE_SSL'),
+
         'TEMPLATE_DEBUG': True,
         'TEMPLATE_DIRS': (
             join(BASE_DIR, 'mysite', 'templates'),
