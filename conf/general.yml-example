@@ -53,6 +53,15 @@ NGINX_SSL: false
 # the repository).
 MEDIA_ROOT: null
 
+# This is the outgoing mail server's settings.  You'll probably want to use
+# a third-party mail server, e.g. Gmail's or your host's.  Email is required for
+# user-account activation, error reporting and image moderation.
+EMAIL_HOST: ''
+EMAIL_PORT: 465
+EMAIL_HOST_USER: ''
+EMAIL_HOST_PASSWORD: ''
+EMAIL_USE_SSL: true
+
 # Old settings required by mySociety Deploy system.
 # These should now be edited at /settings in the YNR instance
 SUPPORT_EMAIL: yournextmp-support@example.org
