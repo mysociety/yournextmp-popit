@@ -916,7 +916,7 @@ msgstr ""
 #: elections/jamaica/templates/candidates/about.html:57
 #: elections/uk/templates/candidates/about.html:49
 #, python-format
-msgid "You can use the data from this site, via the <a href=\"%(api_url)s\">API or CSV download</a>, under the terms of the Creative Commons license <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Attribution-ShareAlike (CC-BY-SA)</a> with the exception of:"
+msgid "You can use the data from this site, via the <a href=\"%(api_url)s\">API or CSV download</a>, under the terms of the Creative Commons licence <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Attribution-ShareAlike (CC-BY-SA)</a> with the exception of:"
 msgstr ""
 
 #: candidates/templates/candidates/about.html:47
@@ -1174,7 +1174,7 @@ msgstr ""
 
 #: candidates/templates/candidates/ask-for-copyright-assignment.html:63
 #, python-format
-msgid "This is the simplest way to ensure that we can make this data as widely available as possible while preventing the hard work of contributors to %(site_name)s being unfairly co-opted by companies building closed candidate databases. This also allows us the flexibility to release the data under different open licenses in the future."
+msgid "This is the simplest way to ensure that we can make this data as widely available as possible while preventing the hard work of contributors to %(site_name)s being unfairly co-opted by companies building closed candidate databases. This also allows us the flexibility to release the data under different open licences in the future."
 msgstr ""
 
 #: candidates/templates/candidates/candidacy-create.html:6
@@ -1857,7 +1857,7 @@ msgstr ""
 
 #: candidates/templates/candidates/person-view.html:281
 #, python-format
-msgid "More details about getting <a href=\"%(api_url)s\">the data</a> and <a href=\"%(about_url)s\">its license</a>."
+msgid "More details about getting <a href=\"%(api_url)s\">the data</a> and <a href=\"%(about_url)s\">its licence</a>."
 msgstr ""
 
 #: candidates/templates/candidates/popit_down.html:7
@@ -2505,7 +2505,7 @@ msgid "This site was originally developed by Mark Longair (mySociety), Sym Roe (
 msgstr ""
 
 #: elections/uk/templates/candidates/about.html:41
-msgid "The data on candidates from the last UK general election in 2010 is all taken from Edmund von der Burg's <a href=\"http://www.yournextmp.com\">YourNextMP.com</a>, with many thanks."
+msgid "The data on candidates from the UK general election in 2010 is all taken from Edmund von der Burg's <a href=\"http://www.yournextmp.com\">YourNextMP.com</a>, with many thanks."
 msgstr ""
 
 #: elections/uk/templates/candidates/about.html:58
