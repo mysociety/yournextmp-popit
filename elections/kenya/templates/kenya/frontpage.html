@@ -1,0 +1,28 @@
+{% extends 'candidates/frontpage.html' %}
+
+{% load i18n %}
+
+{% block extra_js %}
+  <script>
+    $(function() {
+      /* Turn the county <select> into a nice Select2 box */
+      $('#id_county_id').select2({
+        placeholder: 'County',
+        allowClear: true,
+        width: '100%'
+      });
+    });
+  </script>
+{% endblock %}
+
+{% block finder_forms %}
+  <form id="county-selector" action="{% url 'county-frontpage' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="button" value="{% trans "Show candidates" %}">
+  </form>
+
+{% endblock %}
+
+{% block recent_changes %}{% endblock %}
+{% block leaderboard %}{% endblock %}
