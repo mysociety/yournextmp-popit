@@ -56,11 +56,9 @@ def needs_review_due_to_subject_having_died(logged_action_qs):
 
 
 def needs_review_due_to_candidate_specifically(logged_action_qs):
-    person_ids = set(logged_action_qs.values_list('person', flat=True))
-    needs_review_person_ids = person_ids & settings.PEOPLE_LIABLE_TO_VANDALISM
     return {
         la: [_("Edit of a candidate whose record may be particularly liable to vandalism")]
-        for la in logged_action_qs if la.person_id in needs_review_person_ids}
+        for la in logged_action_qs.filter(person__extra__marked_for_review=True)}
 
 
 needs_review_fns = [

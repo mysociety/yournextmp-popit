@@ -356,7 +356,8 @@ class Command(BaseCommand):
                 )
                 kwargs = {
                     'base': p,
-                    'versions': json.dumps(person_data['versions'])
+                    'versions': json.dumps(person_data['versions']),
+                    'marked_for_review': person_data['marked_for_review'],
                 }
                 pe = models.PersonExtra.objects.create(**kwargs)
                 # Look for any data in ExtraFields

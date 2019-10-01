@@ -169,6 +169,18 @@
 
     {% endif %}
 
+    {% if user_can_mark_for_review and form.marked_for_review %}
+      <h2>{% trans "Vandalism protection:" %}</h2>
+
+      <div class="form-item {% if extra_field.errors %}form-item--errors{% endif %}">
+        <p>
+          {{ form.marked_for_review.label_tag }}
+          {{ form.marked_for_review }}
+        </p>
+        {{ form.marked_for_review.errors }}
+      </div>
+    {% endif %}
+
     <div class="source-confirmation {% if form.source.errors %}source-confirmation--errors{% endif %}">
       <p>
         <label for="{{ form.source.id_for_label }}">

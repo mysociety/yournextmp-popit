@@ -7,12 +7,15 @@ import json
 from django.utils.six.moves.urllib_parse import urlsplit
 
 from django_webtest import WebTest
+from webtest.forms import Checkbox
 
 from .auth import TestUserMixin
+from .helpers import add_webtest_form_field
 
 from popolo.models import Person
 
-from candidates.models import ExtraField
+from candidates.models import ExtraField, PersonExtra
+from candidates.models.auth import UnauthorizedAttemptToChangeMarkedForReview
 from .factories import CandidacyExtraFactory, PersonExtraFactory
 from .settings import SettingsMixin
 from .uk_examples import UK2015ExamplesMixin
@@ -145,3 +148,57 @@ class TestUpdatePersonView(TestUserMixin, SettingsMixin, UK2015ExamplesMixin, We
                 'notes': '',
             }
         )
+
+    def test_update_mark_for_review(self):
+        response = self.app.get(
+            '/person/2009/update',
+            user=self.user_who_can_mark_for_review,
+        )
+        form = response.forms['person-details']
+        form['marked_for_review'] = 'checked'
+        form['source'] = "Marked for review due to persistent vandalism"
+        response = form.submit()
+
+        self.assertEqual(response.status_code, 302)
+        split_location = urlsplit(response.location)
+        self.assertEqual('/person/2009', split_location.path)
+
+        person = Person.objects.get(id='2009')
+        self.assertEqual(person.extra.marked_for_review, True)
+
+    def test_update_set_mark_for_review_disallowed(self):
+        response = self.app.get(
+            '/person/2009/update',
+            user=self.user,
+        )
+        form = response.forms['person-details']
+        self.assertNotIn('marked_for_review', form.fields)
+
+        # Try adding the field to the form to check someone can't
+        # maliciously POST this value and change it.
+        add_webtest_form_field(form, Checkbox, 'marked_for_review')
+
+        form['marked_for_review'] = 'checked'
+        form['source'] = "Marked for review by a user who shouldn't be allowed to"
+        with self.assertRaises(UnauthorizedAttemptToChangeMarkedForReview):
+            response = form.submit()
+
+    def test_update_unset_mark_for_review_disallowed(self):
+        person_extra = PersonExtra.objects.get(base__pk='2009')
+        person_extra.marked_for_review = True
+        person_extra.save()
+        response = self.app.get(
+            '/person/2009/update',
+            user=self.user,
+        )
+        form = response.forms['person-details']
+        self.assertNotIn('marked_for_review', form.fields)
+
+        # Try adding the field to the form to check someone can't
+        # maliciously POST this value and change it.
+        add_webtest_form_field(form, Checkbox, 'marked_for_review')
+
+        form['marked_for_review'] = False
+        form['source'] = "Marked for review by a user who shouldn't be allowed to"
+        with self.assertRaises(UnauthorizedAttemptToChangeMarkedForReview):
+            response = form.submit()

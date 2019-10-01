@@ -350,18 +350,9 @@ class UpdatePersonView(LoginRequiredMixin, PersonMixin, FormView):
             return HttpResponseRedirect(reverse('all-edits-disallowed'))
 
         with transaction.atomic():
-
-            old_name = self.person.name
             person_extra = self.person.extra
-            old_candidacies = person_extra.current_candidacies
-            person_extra.update_from_form(form)
-            new_name = person_extra.base.name
-            new_candidacies = person_extra.current_candidacies
-            check_update_allowed(
-                self.request.user,
-                old_name, old_candidacies,
-                new_name, new_candidacies
-            )
+            with check_update_allowed(self.request.user, self.person):
+                person_extra.update_from_form(form)
             change_metadata = get_change_metadata(
                 self.request, form.cleaned_data.pop('source')
             )

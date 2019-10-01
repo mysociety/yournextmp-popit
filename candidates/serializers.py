@@ -337,6 +337,7 @@ class PersonSerializer(MinimalPersonSerializer):
             'images',
             'extra_fields',
             'thumbnail',
+            'marked_for_review',
         )
 
     contact_details = ContactDetailSerializer(many=True, read_only=True)
@@ -345,6 +346,7 @@ class PersonSerializer(MinimalPersonSerializer):
     other_names = OtherNameSerializer(many=True, read_only=True)
     images = ImageSerializer(many=True, read_only=True, source='extra.images')
 
+    marked_for_review = serializers.ReadOnlyField(source='extra.marked_for_review')
     versions = JSONSerializerField(source='extra.versions', read_only=True)
 
     memberships = MembershipSerializer(many=True, read_only=True)

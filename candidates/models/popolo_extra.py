@@ -69,6 +69,8 @@ def update_person_from_form(person, person_extra, form):
                 person=person, field=extra_field,
                 defaults={'value': form_data[extra_field.key]}
             )
+    if 'marked_for_review' in form_data:
+        person_extra.marked_for_review = form_data['marked_for_review']
     person.save()
     person_extra.save()
     try:
@@ -263,6 +265,8 @@ class PersonExtra(HasImageMixin, models.Model):
     # This field stores JSON data with previous version information
     # (as it did in PopIt).
     versions = models.TextField(blank=True)
+
+    marked_for_review = models.BooleanField(default=False)
 
     images = GenericRelation(Image)
 
@@ -498,6 +502,7 @@ class PersonExtra(HasImageMixin, models.Model):
                 person=self.base
         ).select_related('field'):
             initial_data[extra_field_value.field.key] = extra_field_value.value
+        initial_data['marked_for_review'] = self.marked_for_review
         not_standing_elections = set(self.not_standing.all())
         election_to_membershipextra = {
             me.election: me for me in

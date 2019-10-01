@@ -9,7 +9,6 @@ from datetime import datetime, timedelta
 
 from django_webtest import WebTest
 from django.test import TestCase
-from django.test.utils import override_settings
 
 from lxml import etree
 
@@ -49,7 +48,6 @@ def fake_diff_html(self, version_id, inline_style=False):
 
 @patch.object(PersonExtra, 'diff_for_version', fake_diff_html)
 @patch('candidates.models.db.datetime')
-@override_settings(PEOPLE_LIABLE_TO_VANDALISM={2811})
 class TestNeedsReview(TestUserMixin, WebTest):
 
     maxDiff = None
@@ -147,6 +145,7 @@ class TestNeedsReview(TestUserMixin, WebTest):
         prime_minister = factories.PersonExtraFactory.create(
             base__id='2811',
             base__name='Theresa May',
+            marked_for_review=True,
         ).base
         # Create a candidate on the "liable to vandalism" list.
         la = LoggedAction.objects.create(

@@ -499,6 +499,8 @@ class UpdatePersonForm(AddElectionFieldsMixin, BasePersonForm):
         # with formsets?)
         self.add_elections_fields(self.elections_with_fields)
 
+    marked_for_review = forms.BooleanField(required=False)
+
     source = StrippedCharField(
         label=_("Source of information for this change ({0})").format(
             settings.SOURCE_HINTS

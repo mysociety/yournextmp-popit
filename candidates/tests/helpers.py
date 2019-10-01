@@ -73,3 +73,9 @@ def equal_call_args(args1, args2):
             return False
 
     return True
+
+def add_webtest_form_field(form, field_class, name):
+    new_field = field_class(
+        form, 'input', name, None, id='id_{0}'.format(name))
+    form.fields[name] = [new_field]
+    form.field_order.append((name, new_field))
