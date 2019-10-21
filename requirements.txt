@@ -26,7 +26,7 @@ django-usersettings2==0.1.5
 -e git+https://github.com/mysociety/django-popolo@fix-migrations-for-python-3#egg=mysociety-django-popolo
 django-statici18n==1.1.5
 django-webtest==1.7.7
-djangorestframework==3.3.3
+djangorestframework==3.9.1
 docutils==0.10
 elasticsearch==0.4.5
 enum34==1.1.2
