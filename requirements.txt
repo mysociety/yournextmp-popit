@@ -74,7 +74,7 @@ sqlparse==0.1.15
 traitlets==4.0.0
 Unidecode==0.4.17
 urllib3==1.13
-waitress==0.8.9
+waitress==1.4.2
 WebOb==1.4
 WebTest==2.0.15
 yanc==0.2.4
